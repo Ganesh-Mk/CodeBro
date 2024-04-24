@@ -7,7 +7,7 @@ import { images } from '../assets/images.js'
 function Navbar() {
   return (
     <div className="navbar">
-      <Link to="/aboutUs" className="navItems">
+      <Link to="/aboutus" className="navItems">
         <img
           className="codeBroLogo"
           src={images.codeBroLogo}
