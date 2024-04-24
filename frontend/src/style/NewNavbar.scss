@@ -1,0 +1,43 @@
+$btnColor:#0066FF;
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.Navbar {
+    display: flex;
+    border-radius: 0.5vw;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2vw .8vw;
+    > .navbarpart1 {
+        > button {
+            background-color: transparent;
+            border: none;
+            > img {
+                width: 9vw;
+                cursor: pointer;
+            }
+        }
+    }
+    > .navbarpart2 {
+        display: flex;
+        gap: 3vw;
+        font-weight: 400;
+        > div {
+            cursor: pointer;            
+        }
+
+    }
+    > .navbarpart3 {
+        > button {
+            cursor: pointer;
+            width: 6vw;
+            height: 2vw;
+            border-radius: 0.5vw;
+            border: none;
+            background-color:$btnColor;
+            color: white;
+            font-weight: 600;
+        }
+    }
+}
