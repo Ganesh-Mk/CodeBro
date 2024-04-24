@@ -8,8 +8,8 @@ function EntrancePage() {
   return (
     <div className="entranceContainer">
       <img src={images.codeBroLogo} alt="CodeBro Logo" />
-      <div>
-        <div>
+      <div className="container">
+        <div className="left">
           <h2>Start your coding journey today with "CodeBro"</h2>
           <div>
             <Link to="/register" className="button">
@@ -21,7 +21,7 @@ function EntrancePage() {
             </Link>
           </div>
         </div>
-        <div>
+        <div className="right">
           <img src={images.entranceImage} alt="entrance image" />
         </div>
       </div>
