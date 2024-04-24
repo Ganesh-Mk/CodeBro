@@ -1,14 +1,30 @@
 *{
-}
+    font-family: "Mochiy Pop One", sans-serif;
+    font-weight: 400;
+}   
 
+.logo{
+    font-family: "Potta One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 .entranceContainer{
     width: 100vw;
     height: 100vh;
-    background: rgb(215, 186, 186);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    background: rgb(249, 227, 227);
+    display: grid;
+    grid-template-rows: 15% 85%;
+
+    .logoContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4vw;
+
+        .code{
+            color: rgb(0, 131, 231);
+        }
+    }
 
     .container{
         display: grid;
@@ -17,18 +33,37 @@
         .left{
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
+            padding: 2vw 0 0 5vw;
+            align-items: center;
 
+
+            p{
+                font-size: 2vw;
+                text-align: center;
+            }
             
             h2{
-                font-size: 5vw;
+                font-size: 4vw;
+
+                margin-bottom: 5vw;
+                font-style: normal;
+            }
+
+            .button{
+                padding: 1vw;
+                font-size: 2vw;
+                text-decoration: none;
+                color: black;
+                border-radius: 0.5vw;
+                display: grid;
+                border: 1px solid black;
+                text-align: center;
             }
         }
 
         .right{
             img{
-                width: 40vw;
+                width: 45vw;
 
             }
         }
