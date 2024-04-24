@@ -1,0 +1,47 @@
+.navbar{
+    width: 100vw;
+    height: 6vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vw 3vw;
+    border: 1px solid black;
+
+    .codeBroLogo{
+        width: 18vw;
+    }
+
+    .navCenter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+
+        .navItems{
+            font-size: 2vw;
+            color: black;
+            text-decoration: none;
+        }
+    }
+   
+
+    .navAccContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        border: 1px solid black;
+        padding: .5vw 1vw;
+        border-radius: 1vw;
+        text-decoration: none;
+
+        .accLogo{
+            width: 3vw;
+        }
+        p{
+            font-size: 2vw;
+            color: black;
+        }
+    }
+    
+}

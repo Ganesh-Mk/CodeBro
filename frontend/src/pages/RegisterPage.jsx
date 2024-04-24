@@ -1,12 +1,11 @@
 import React from 'react'
 
-function EntrancePage() {
+function RegisterPage() {
   return (
     <div>
       <h1>Register Page</h1>
-      <h1>Added this from github</h1>
     </div>
   )
 }
 
-export default EntrancePage
+export default RegisterPage

@@ -1,18 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../style/Navbar.scss'
+import '../App.css'
+import { images } from '../assets/images.js'
 
 function Navbar() {
   return (
-    <div>
-      <div style={{ heigth: '20vw', border: '2px solid black' }}>
-        <button>LOGO</button>
-        <Link to="/register">
-          <button>Register</button>
+    <div className="navbar">
+      <Link to="/aboutUs" className="navItems">
+        <img
+          className="codeBroLogo"
+          src={images.codeBroLogo}
+          alt="CodeBro Logo"
+        />
+      </Link>
+      <div className="navCenter">
+        <Link to="/home" className="navItems">
+          Home
         </Link>
-        <button>Home</button>
-        <button>Home</button>
-        <button>Home</button>
-        <button>Home</button>
+        <Link to="/problems" className="navItems">
+          Problems
+        </Link>
+        <Link to="/programming" className="navItems">
+          Programming
+        </Link>
+        <Link to="/leaderboard" className="navItems">
+          Leaderboard
+        </Link>
+      </div>
+      <div>
+        <Link to="/account" className="navAccContainer">
+          <img
+            src={images.accDefaultLogo}
+            alt="acc default logo"
+            className="accLogo"
+          />
+          <p>Account</p>
+        </Link>
       </div>
     </div>
   )
