@@ -3,9 +3,29 @@ import { Link } from 'react-router-dom'
 import CodeBroLogo from '../components/CodeBroLogo'
 import '../style/CodingPage.scss'
 import '../style/CodeBroLogo.scss'
+import axios from 'axios'
 import Example from '../components/Example'
+import { useState } from 'react'
 
 function CodingPage() {
+  const [code, setCode] = useState('')
+  const [output, setOutput] = useState('')
+  const [input, setInput] = useState('')
+  const [selectedValue, setSelectedValue] = useState('java')
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/submit-code', {
+        code,
+      })
+
+      console.log('Response from backend:', response.data)
+      setOutput(response.data.output)
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
   return (
     <div className="codingPageBox">
       <div className="header">
@@ -15,9 +35,19 @@ function CodingPage() {
 
         <div className="runContainer">
           <p>Run</p>
-          <p>Submit</p>
+          <p onClick={handleSubmit}>Submit</p>{' '}
         </div>
         <div className="rightBox">
+          <select
+            className="dropdown"
+            value={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+          >
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="c">C</option>
+            <option value="javascript">JavaScript</option>
+          </select>
           <p>Timer: 0:00</p>
           <p className="reload">Reload</p>
         </div>
@@ -69,7 +99,35 @@ function CodingPage() {
             </div>
           </div>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <div>
+            <textarea
+              className="codeArea"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              rows="25"
+              placeholder="Enter your code here"
+            ></textarea>
+          </div>
+          <div className="testCaseBox">
+            <textarea
+              className="inputArea"
+              value={input}
+              placeholder="Input"
+              onChange={(e) => setInput(e.target.value)}
+              cols="30"
+              rows="10"
+            ></textarea>
+            <textarea
+              className="outputArea"
+              value={output}
+              placeholder="Output"
+              onChange={(e) => setOutput(e.target.value)}
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+        </div>
       </div>
     </div>
   )

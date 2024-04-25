@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+codemirror-5.65.16
 dist
 dist-ssr
 *.local

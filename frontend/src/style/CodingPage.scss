@@ -25,9 +25,11 @@
             gap: 2vw;
             
 
+            
             p{
                 border: 1px solid white;
                 font-size: 1.5vw;
+                cursor: pointer;
                 padding: .5vw 2vw;
                 border-radius: 1vw;
             }
@@ -38,7 +40,30 @@
             justify-content: center;
             align-items: center;
             gap: 2vw;
-            
+            .dropdown-container {
+                margin: 20px;
+              }
+              
+              .dropdown {
+                padding: 8px 12px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #242424;
+                color: white;
+                cursor: pointer;
+                outline: none;
+              
+                &:hover {
+                  border-color: #aaa;
+                }
+              
+                &:focus {
+                  border-color: #007bff;
+                  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+              }
+              
             p{
                 border: 1px solid white;
                 padding: .5vw 2vw;
@@ -100,6 +125,24 @@
 
         .right{
             border: 1px solid red;
+
+            .codeArea{
+                width: 100%;
+                margin-bottom: 1vh;
+            }
+
+            .testCaseBox{
+                gap: .8vw;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            textarea{
+                background: #242424;
+                color: white;
+            }
+
         }
     }
 }
