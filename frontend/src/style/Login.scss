@@ -1,0 +1,103 @@
+$btnColor:#0066FF;
+
+.LoginContainer {
+    height: 100vh;
+    width: 100vw;
+    > .logoContainer {
+        display: flex;
+        justify-content: center;
+
+        > span {
+            font-size: 3vw;
+            margin-top: 3vw;
+        }
+    }
+    > span {
+        display: flex;
+        justify-content: center;
+        margin-top: 2vw;
+    }
+}
+.LoginPart2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > .google-signIn {
+        width: auto;
+        font-weight: 200;
+        font-size: 1.5vw;
+        color: black;
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        > img {
+            width: 1.8vw;
+        }
+    }
+}
+.code {
+    color: #0066FF;
+}
+h5 {
+    font-size: 2vw;
+    color: white;
+    font-weight: 100;
+}
+.Login-Container {
+    margin-top: 5vw;
+    // border: 2px solid rgb(13, 13, 13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > .LoginBox {
+        background-image: url('../assets/images/bacgroundLoginSignup.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 35vw;
+        padding: 1.8vw;
+        display: flex;
+        // border: 2px solid rgb(177, 18, 18);
+        border-radius: 1vw;
+        box-shadow: 1px 4px 12px gray;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        > .inputs form {
+            margin-top: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            > input {
+
+                width: 22vw;
+                height: 2.5vw;
+                margin-top: 1vw;
+                padding: .2vw .5vw;
+                font-size: 1vw;
+                font-weight: 500;
+                border-radius: .5vw;
+                border: none;
+                // box-shadow: 1px 2px 5px gray;
+            }
+
+        }
+    }
+}
+::placeholder {
+    font-size: 1vw;
+}
+button {
+    cursor: pointer;
+    margin-top: 1.5vw;
+    width: 7vw;
+    height: 2.2vw;
+    border-radius: .4vw;
+    border: none;
+    background-color: $btnColor;
+    color: white;
+    font-weight: 600;
+}
+
