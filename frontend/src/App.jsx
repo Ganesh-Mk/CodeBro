@@ -41,7 +41,7 @@ const App = () => {
 
 function ShowNavbar() {
   let location = useLocation()
-  let paths = ['/', '/login', '/register']
+  let paths = ['/', '/login', '/register', '/coding']
   let isThere = paths.includes(location.pathname)
   if (isThere) return null
   return <Navbar />

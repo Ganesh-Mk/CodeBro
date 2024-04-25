@@ -1,0 +1,14 @@
+.exContainer{
+    margin-top: 3vw;
+    display: flex;    
+    flex-direction: column;
+    gap: .5vw;
+
+    h2{
+        margin-bottom: 1vw;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+}

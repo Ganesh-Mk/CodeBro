@@ -1,0 +1,17 @@
+.logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+
+
+    
+    .logo{
+        font-family: "Potta One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .code{
+        color: rgb(0, 131, 231);
+    }
+}
