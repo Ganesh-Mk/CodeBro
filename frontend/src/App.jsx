@@ -17,6 +17,7 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import CodingPage from './pages/CodingPage'
 import EditProfilePage from './pages/EditProfilePage'
+import ProblemDisplayContainer from './components/ProblemDisplayContainer'
 
 const App = () => {
   return (

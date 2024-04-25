@@ -1,0 +1,123 @@
+.whole-conatiner {
+    min-height: 100vh;
+    width: 100vw;
+}
+.heading {
+    display: flex;
+    justify-content: center;
+    margin-top: .5vw;
+    font-size: 1.8vw;
+}
+.dropDownShow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        width: 12vw;
+        // border: 2px solid red;
+        > p {
+            font-size: 1.2vw;
+        }
+        > select {
+            width: 6vw;
+            height: 2vw;
+            font-size: 1vw;
+        }
+}
+.submitbutton {
+    background-color: transparent;
+    border: none;
+    
+    img {
+        width: 1.4vw;
+        cursor: pointer;
+    }
+}
+
+
+.SearchBarPart {
+    border: 2px solid red;
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+    gap: 20vw;
+    .SearchBarShow {
+        form {
+            padding: .2vw .8vw;
+            // border: 2px solid red;
+            display: flex;
+            gap: .2vw;
+            justify-content: center;
+            align-items: center;
+            > input {
+                width: 25vw;
+                height: 2vw;
+                font-size: 1.3vw;
+                padding: .2vw .6vw;
+                border: none;
+                box-shadow: 1px 4px 16px gray;
+                border-radius: .5vw;
+            }
+
+        }
+    }
+}
+
+::placeholder {
+    font-size: 1vw;
+    padding: .2vw .6vw;
+}
+
+.searchbarpart3 {
+    img {
+        width: 1.8vw;
+    }
+    button {
+        cursor: pointer;
+        background-color: greenyellow;
+        padding: .2vw .7vw;
+        border-radius: .4vw;
+        color: black;
+        font-size: .8vw;
+        font-weight: 600;
+        display: flex;
+        border:none;
+        gap: .3vw;
+    }
+    .searchbarpart3btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.levels {
+    margin-top: 1vw;
+    padding: 0vw 2vw;
+    display: flex;
+    justify-content: space-between;
+    .levelspart1 {
+        display: flex;
+        gap: 10vw;
+    }
+    .levelspart2 {
+        display: flex;
+        gap: 16vw;
+
+    }
+}
+.horizontalline {
+    border: 2px solid black;
+    margin-top: .5vw;
+}
+.problemShower {
+//    margin-top: 2vw;
+   border: 2px solid red;
+   margin: 1vw 1vw 0vw 1vw; 
+   height: 69vh;
+   overflow-y: scroll;
+//    padding: 1vw;
+
+}
+
+
+
