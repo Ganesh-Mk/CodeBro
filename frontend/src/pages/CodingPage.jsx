@@ -105,7 +105,7 @@ function CodingPage() {
               className="codeArea"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              rows="25"
+              rows="20"
               placeholder="Enter your code here"
             ></textarea>
           </div>
