@@ -1,0 +1,105 @@
+.codingPageBox{
+    width: 100vw;
+    min-height: 100vh;
+    background: #242424;
+    color: white;
+
+
+    .header{
+        padding: .5vw 0vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 1px solid rgb(133, 133, 133);
+
+        .homeBtn{
+            color: white;
+            text-decoration: none;
+            font-size: 1vw;
+            border-radius: 1vw;
+        }
+
+        .runContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            
+
+            p{
+                border: 1px solid white;
+                font-size: 1.5vw;
+                padding: .5vw 2vw;
+                border-radius: 1vw;
+            }
+        }
+
+        .rightBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            
+            p{
+                border: 1px solid white;
+                padding: .5vw 2vw;
+                border-radius: 1vw;
+            }
+        }
+    }
+
+
+
+    .container{
+        height: 89vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .left{
+            padding: 2vw 2vw;
+            border: 1px solid white;
+
+            .leftHeader{
+
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 2vw;
+                border-bottom: 1px solid grey;
+                padding: 0 2vw 1vw 2vw;
+
+                p{
+                    font-size: 1.3vw;
+                }
+            }
+
+            .scroller{
+                overflow-y: scroll;
+                height: 71vh;
+            }
+
+            .que{
+                font-size: 3vw;
+                margin-bottom: 2vw;
+            }
+
+            .desc{
+                color: rgb(255, 255, 255);
+                line-height: 2vw;
+            }
+
+            .constraints{
+                line-height:4vh;
+
+                h2{
+                    margin: 10vh 0 2vh 0;
+                }
+
+                
+            }
+        }
+
+        .right{
+            border: 1px solid red;
+        }
+    }
+}
