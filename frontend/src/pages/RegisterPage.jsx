@@ -3,6 +3,7 @@ import "../style/Register.scss";
 import { images } from "../assets/images";
 import { useNavigate } from "react-router-dom";
 import { account, ID } from '../appwrite/appwriteConfig'
+import { AppwriteException } from "appwrite";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -41,8 +42,16 @@ function RegisterPage() {
         email: "",
         password: "",
       });
-    } catch (error) {
-      console.error("Error:", error);
+    } catch (err) {
+      if (err instanceof AppwriteException) {
+        if (err.message.includes("Invalid `email` param")) {
+          alert('Invalid Email: ' + err.message);
+        } else if (err.message.includes("Invalid `password` param")) {
+          alert('Password must be at least 8 characters long');
+        } else {
+          alert('Server Error, try again')
+        }
+      }
     }
   };
 
