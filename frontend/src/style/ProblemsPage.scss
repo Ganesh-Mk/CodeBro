@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-
-whole-conatiner {
-=======
 $darkMode: #1A1A1A;
 
 .whole-conatiner {
->>>>>>> feature/problemspage
     min-height: 100vh;
     width: 100vw;
     background-color: $darkMode; 
+
 }
 .heading {
     display: flex;
@@ -54,11 +50,8 @@ $darkMode: #1A1A1A;
         width: 1.4vw;
 
         cursor: pointer;
-<<<<<<< HEAD
         margin-top: 0;
-=======
         filter: invert(1);
->>>>>>> feature/problemspage
     }
 }
 
@@ -74,15 +67,11 @@ $darkMode: #1A1A1A;
     align-items: center;
     gap: 20vw;
     .SearchBarShow {
-<<<<<<< HEAD
     // border: 2px solid rgb(70, 15, 198);
         display: flex;
         justify-content: center;
         align-items: center;
-    
-=======
         margin-top: 1.5vw;
->>>>>>> feature/problemspage
         form {
             display: flex;
             
@@ -140,6 +129,7 @@ $darkMode: #1A1A1A;
         display: flex;
         gap: 10vw;
         margin-top: 1.5vw;
+        margin-bottom: 1.5vw;
     }
     color: white;
     .levelspart2 {
@@ -154,7 +144,7 @@ $darkMode: #1A1A1A;
 }
 .horizontalline {
     border: 1px solid rgb(255, 255, 255);
-    margin-top: .5vw;
+    // margin-top: .5vw;
 }
 
 .problemShower {
