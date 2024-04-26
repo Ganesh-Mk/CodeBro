@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
-import { images } from "../assets/images";
+import { images } from "../javascripts/images";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
 import AllquesObject from "../QuestionsData/data";
 
@@ -12,7 +12,7 @@ function ProblemsPage() {
     let filteredProblems = AllquesObject;
     if (difficulty !== "All") {
       filteredProblems = filteredProblems.filter(
-        (problem) => problem.difficulty .toLowerCase()=== difficulty.toLowerCase()
+        (problem) => problem.difficulty.toLowerCase() === difficulty.toLowerCase()
       );
     }
     if (searchTerm) {
@@ -26,7 +26,6 @@ function ProblemsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    return true;
   };
 
   const problemsToShow = filterByDifficulty(selectedValue);
@@ -94,9 +93,9 @@ function ProblemsPage() {
       </div>
 
       <div className="problemShower">
-      {problemsToShow.length > 0 ? (
+        {problemsToShow.length > 0 ? (
           problemsToShow.map((problem, index) => (
-            <ProblemDisplayContainer key={index} problem={problem} />
+            <ProblemDisplayContainer problem={problem} />
           ))
         ) : (
           <h2>No Problems</h2>

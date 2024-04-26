@@ -1,28 +1,27 @@
-import React, { useState } from "react";
-import "../style/Register.scss";
-import { images } from "../assets/images";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react'
+import '../style/Register.scss'
+import { images } from '../javascripts/images'
+import { useNavigate } from 'react-router-dom'
 import { account, ID } from '../appwrite/appwriteConfig'
-import { AppwriteException } from "appwrite";
+import { AppwriteException } from 'appwrite'
 
 function RegisterPage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const googlesignup = async() => {
+  const googlesignup = async () => {
     const res = await account.createOAuth2Session(
-      "google",
-      "http://localhost:5173/login",
-      "http://localhost:5173/register",
-    );
-    console.log(res);
-
-  };
+      'google',
+      'http://localhost:5173/login',
+      'http://localhost:5173/register',
+    )
+    console.log(res)
+  }
 
   const [userData, setuserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+    name: '',
+    email: '',
+    password: '',
+  })
 
   const SubmitHandler = async () => {
     try {
@@ -31,29 +30,29 @@ function RegisterPage() {
         ID.unique(),
         userData.email,
         userData.password,
-        userData.name
-      );
-      console.log("Account created successfully:", response);
+        userData.name,
+      )
+      console.log('Account created successfully:', response)
 
       // Redirect to login page
-      navigate("/login");
+      navigate('/login')
       setuserData({
-        name: "",
-        email: "",
-        password: "",
-      });
+        name: '',
+        email: '',
+        password: '',
+      })
     } catch (err) {
       if (err instanceof AppwriteException) {
-        if (err.message.includes("Invalid `email` param")) {
-          alert('Invalid Email: ' + err.message);
-        } else if (err.message.includes("Invalid `password` param")) {
-          alert('Password must be at least 8 characters long');
+        if (err.message.includes('Invalid `email` param')) {
+          alert('Invalid Email: ' + err.message)
+        } else if (err.message.includes('Invalid `password` param')) {
+          alert('Password must be at least 8 characters long')
         } else {
           alert('Server Error, try again')
         }
       }
     }
-  };
+  }
 
   return (
     <div className="RegisterContainer">
@@ -107,7 +106,7 @@ function RegisterPage() {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default RegisterPage;
+export default RegisterPage
