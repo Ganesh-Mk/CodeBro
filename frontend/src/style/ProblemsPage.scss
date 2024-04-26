@@ -115,9 +115,26 @@
    margin: 1vw 1vw 0vw 1vw; 
    height: 69vh;
    overflow-y: scroll;
-//    padding: 1vw;
+   padding: 0vw .5vw;
+
 
 }
+.problemShower::-webkit-scrollbar {
+    width: 10px; /* width of the scrollbar */
+  }
+  
+  .problemShower::-webkit-scrollbar-track {
+    background: #f1f1f1; /* color of the track */
+  }
+  
+  .problemShower::-webkit-scrollbar-thumb {
+    background: #5e5e57; /* color of the thumb */
+    border-radius: 5px; /* roundness of the thumb */
+  }
+  
+  .problemShower::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color of the thumb on hover */
+  }
 
 
 
