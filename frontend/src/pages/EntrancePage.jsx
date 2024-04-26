@@ -2,9 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css'
 import '../style/EntrancePage.scss'
-import { images } from '../assets/images.js'
+import { images } from '../javascripts/images'
 
-import NewNavbar from '../components/NewNavbar.jsx'
 function EntrancePage() {
   return (
     <>

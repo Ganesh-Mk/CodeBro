@@ -2,29 +2,46 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../style/Navbar.scss'
 import '../App.css'
-import { images } from '../assets/images.js'
+import { images } from '../javascripts/images'
+import CodeBroLogo from './CodeBroLogo'
 
-function Navbar() {
+function Navbar({ fontColor = 'black' }) {
   return (
     <div className="navbar">
-      <Link to="/aboutus" className="navItems">
-        <img
-          className="codeBroLogo"
-          src={images.codeBroLogo}
-          alt="CodeBro Logo"
-        />
+      <Link
+        to="/aboutus"
+        className="navItems"
+        style={{ textDecoration: 'none' }}
+      >
+        <CodeBroLogo />
       </Link>
       <div className="navCenter">
-        <Link to="/home" className="navItems">
+        <Link
+          to="/home"
+          className="navItems"
+          style={{ textDecoration: 'none', color: fontColor }}
+        >
           Home
         </Link>
-        <Link to="/problems" className="navItems">
+        <Link
+          to="/problems"
+          className="navItems"
+          style={{ textDecoration: 'none', color: fontColor }}
+        >
           Problems
         </Link>
-        <Link to="/programming" className="navItems">
+        <Link
+          to="/programming"
+          className="navItems"
+          style={{ textDecoration: 'none', color: fontColor }}
+        >
           Programming
         </Link>
-        <Link to="/leaderboard" className="navItems">
+        <Link
+          to="/leaderboard"
+          className="navItems"
+          style={{ textDecoration: 'none', color: fontColor }}
+        >
           Leaderboard
         </Link>
       </div>
@@ -35,7 +52,7 @@ function Navbar() {
             alt="acc default logo"
             className="accLogo"
           />
-          <p>Account</p>
+          <p style={{ textDecoration: 'none', color: fontColor }}>Account</p>
         </Link>
       </div>
     </div>

@@ -1,34 +1,37 @@
-import React, { useState } from "react";
-import "../style/Login.scss";
-import { images } from "../assets/images";
-import { account } from "../appwrite/appwriteConfig";
-import { useNavigate } from "react-router-dom";
-import { AppwriteException } from "appwrite";
+import React, { useState } from 'react'
+import '../style/Login.scss'
+import { images } from '../javascripts/images'
+import { account } from '../appwrite/appwriteConfig'
+import { useNavigate } from 'react-router-dom'
+import { AppwriteException } from 'appwrite'
 
 function LoginPage() {
-  const [userData, setuserData] = useState({ email: "", password: "" });
-  const navigate = useNavigate();
+  const [userData, setuserData] = useState({ email: '', password: '' })
+  const navigate = useNavigate()
 
   const SubmitHandler = () => {
-    console.log(userData);
+    console.log(userData)
 
-    const promise = account.createEmailPasswordSession(userData.email, userData.password);
+    const promise = account.createEmailPasswordSession(
+      userData.email,
+      userData.password,
+    )
 
     promise.then(
       function (response) {
-        console.log(response);
+        console.log(response)
         navigate('/home')
-        setuserData({ email: "", password: "" })
+        setuserData({ email: '', password: '' })
       },
       function (error) {
         if (error instanceof AppwriteException) {
-          alert(error.message); 
+          alert(error.message)
         } else {
           alert('Server error, try again')
         }
-      }
-    );
-  };
+      },
+    )
+  }
 
   return (
     <div className="LoginContainer">
@@ -73,7 +76,7 @@ function LoginPage() {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default LoginPage;
+export default LoginPage

@@ -1,83 +1,82 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import CodeBroLogo from '../components/CodeBroLogo'
+import React, { useRef, useState } from 'react'
 import '../style/CodingPage.scss'
 import '../style/CodeBroLogo.scss'
-import axios from 'axios'
-import Example from '../components/Example'
-import { useState } from 'react'
+import '../javascripts/api'
+import '../javascripts/constants'
 import CodeEditor from '../components/CodeEditor'
+import Description from '../components/Description'
+import Navbar from '../components/Navbar'
+import CodeHeader from '../components/CodeHeader'
+import Output from '../components/Output'
+import { useToast } from '@chakra-ui/react'
+import { executeCode } from '../javascripts/api'
+import { CODE_SNIPPETS } from '../javascripts/constants'
 
 function CodingPage() {
-  const [code, setCode] = useState('')
-  const [output, setOutput] = useState('')
-  const [input, setInput] = useState('')
-  const [selectedValue, setSelectedValue] = useState('java')
+  const editorRef = useRef()
+  const toast = useToast()
+  const [value, setValue] = useState('')
+  const [language, setLanguage] = useState('javascript')
+  const [output, setOutput] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
-  const handleSubmit = async () => {
+  const runCode = async () => {
+    const sourceCode = editorRef.current.getValue()
+    if (!sourceCode) return
     try {
-      const response = await axios.post('http://localhost:3000/submit-code', {
-        code,
-      })
-
-      console.log('Response from backend:', response.data)
-      setOutput(response.data.output)
+      setIsLoading(true)
+      const { run: result } = await executeCode(language, sourceCode)
+      setOutput(result.output.split('\n'))
+      result.stderr ? setIsError(true) : setIsError(false)
     } catch (error) {
-      console.error('Error:', error)
+      console.log(error)
+      toast({
+        title: 'An error occurred.',
+        description: error.message || 'Unable to run code',
+        status: 'error',
+        duration: 6000,
+      })
+    } finally {
+      setIsLoading(false)
     }
+  }
+
+  const onMount = (editor) => {
+    editorRef.current = editor
+    editor.focus()
+  }
+
+  const onSelect = (language) => {
+    setLanguage(language)
+    setValue(CODE_SNIPPETS[language])
   }
 
   return (
     <div className="codingPageBox">
+      <Navbar fontColor="white" />
       <div className="container">
-        <div className="left">
-          <div className="leftHeader">
-            <p>Description</p>
-            <p>Solved</p>
-          </div>
-          <div className="scroller">
-            <p className="que">1. Two Sum</p>
-            <div className="desc">
-              Given an array of integers nums and an integer target, return
-              indices of the two numbers such that they add up to target. <br />
-              <br />
-              You may assume that each input would have exactly one solution,
-              and you may not use the same element twice. <br />
-              <br /> You can return the answer in any order. <br />
-            </div>
-            <Example
-              number="1"
-              input="nums = [2,7,11,15], target = 9"
-              output="[0,1]"
-              explanation="Because nums[0] + nums[1] == 9, we return [0, 1]."
-            />
-            <Example
-              number="2"
-              input="nums = [3,2,4], target = 6"
-              output="[1,2]"
-            />
-            <Example
-              number="3"
-              input="nums = [3,3], target = 6"
-              output="[0,1]"
-            />
-            <div className="constraints">
-              <h2>Constraints</h2>
-              <li>
-                2 ≤ nums.length ≤ 10<sup>4</sup>
-              </li>
-              <li>
-                -10<sup>9</sup> ≤ nums[i] ≤ 10<sup>9</sup>
-              </li>
-              <li>
-                -10<sup>9</sup> ≤ target ≤ 10<sup>9</sup>
-              </li>
-              <li>Only one valid answer exists.</li>
-            </div>
-          </div>
-        </div>
-        <div className="right">
-          <CodeEditor />
+        <Description />
+        <div>
+          <CodeHeader
+            onSelect={onSelect}
+            isLoading={isLoading}
+            runCode={runCode}
+            language={language}
+          />
+          <CodeEditor
+            language={language}
+            onSelect={onSelect}
+            onMount={onMount}
+            value={value}
+            setValue={setValue}
+          />
+          <Output
+            output={output}
+            isLoading={isLoading}
+            isError={isError}
+            runCode={runCode}
+          />
         </div>
       </div>
     </div>

@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import "../style/ProblemsPage.scss";
-import { images } from "../assets/images";
-import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import AllquesObject from '../QuestionsData/data'
+import React, { useState } from 'react'
+import '../style/ProblemsPage.scss'
+import { images } from '../javascripts/images'
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
+import AllquesObject from '../javascripts/data.js'
 
 function ProblemsPage() {
-  const [selectedValue, setselectedValue] = useState("Hard");
-  const [searchTerm, setsearchTerm] = useState("");
+  const [selectedValue, setselectedValue] = useState('Hard')
+  const [searchTerm, setsearchTerm] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
-  const no = 0;
+  const no = 0
 
   return (
     <div className="whole-container">
@@ -54,24 +54,20 @@ function ProblemsPage() {
 
       <div className="levels">
         <div className="levelspart1">
-        <div className="status">
-          <p>Status</p>
-        </div>
-        <div className="problemname">
-          <p>Problem name</p>
-        </div>
+          <div className="status">
+            <p>Status</p>
+          </div>
+          <div className="problemname">
+            <p>Problem name</p>
+          </div>
         </div>
 
         <div className="levelspart2">
-        <div className="difficult">
-          <p>Difficult</p>
+          <div className="difficult">
+            <p>Difficult</p>
+          </div>
+          <div className="attempts">Attemtps</div>
         </div>
-        <div className="attempts">
-          Attemtps
-        </div>
-        </div>
-        
-        
       </div>
       <div className="horizontalline"></div>
 
@@ -81,7 +77,7 @@ function ProblemsPage() {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default ProblemsPage;
+export default ProblemsPage
