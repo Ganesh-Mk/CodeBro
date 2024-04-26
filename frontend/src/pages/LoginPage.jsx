@@ -18,6 +18,7 @@ function LoginPage() {
       function (response) {
         console.log(response);
         navigate('/home')
+        setuserData({ email: "", password: "" })
       },
       function (error) {
         if (error instanceof AppwriteException) {
