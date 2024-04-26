@@ -2,21 +2,40 @@ import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../assets/images";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import AllquesObject from '../QuestionsData/data'
+import AllquesObject from "../QuestionsData/data";
 
 function ProblemsPage() {
-  const [selectedValue, setselectedValue] = useState("Hard");
+  const [selectedValue, setselectedValue] = useState("All");
   const [searchTerm, setsearchTerm] = useState("");
+
+  const filterByDifficulty = (difficulty) => {
+    let filteredProblems = AllquesObject;
+    if (difficulty !== "All") {
+      filteredProblems = filteredProblems.filter(
+        (problem) => problem.difficulty .toLowerCase()=== difficulty.toLowerCase()
+      );
+    }
+    if (searchTerm) {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      filteredProblems = filteredProblems.filter((problem) =>
+        problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
+      );
+    }
+    return filteredProblems;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    return true;
   };
 
-  const no = 0;
+  const problemsToShow = filterByDifficulty(selectedValue);
 
   return (
     <div className="whole-container">
-      <div className="heading">DSA Problems</div>
+      <div className="heading">
+        <p>DSA Problems</p>
+      </div>
       <div className="SearchBarPart">
         <div className="dropDownShow">
           <p>Difficulty</p>
@@ -25,6 +44,7 @@ function ProblemsPage() {
             value={selectedValue}
             onChange={(e) => setselectedValue(e.target.value)}
           >
+            <option value="All">All</option>
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
@@ -54,31 +74,33 @@ function ProblemsPage() {
 
       <div className="levels">
         <div className="levelspart1">
-        <div className="status">
-          <p>Status</p>
-        </div>
-        <div className="problemname">
-          <p>Problem name</p>
-        </div>
+          <div className="status">
+            <p>Status</p>
+          </div>
+          <div className="problemname">
+            <p>Problem name</p>
+          </div>
         </div>
 
         <div className="levelspart2">
-        <div className="difficult">
-          <p>Difficult</p>
+          <div className="difficult">
+            <p>Difficult</p>
+          </div>
+          <div className="attempts">Attemtps</div>
         </div>
-        <div className="attempts">
-          Attemtps
-        </div>
-        </div>
-        
-        
       </div>
-      <div className="horizontalline"></div>
+      <div className="horizontallinediv">
+        <div className="horizontalline"></div>
+      </div>
 
       <div className="problemShower">
-        {AllquesObject.map((problem, index) => (
-          <ProblemDisplayContainer key={index} problem={problem} />
-        ))}
+      {problemsToShow.length > 0 ? (
+          problemsToShow.map((problem, index) => (
+            <ProblemDisplayContainer key={index} problem={problem} />
+          ))
+        ) : (
+          <h2>No Problems</h2>
+        )}
       </div>
     </div>
   );
