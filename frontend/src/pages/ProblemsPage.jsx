@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../assets/images";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
+import AllquesObject from '../QuestionsData/data'
 
 function ProblemsPage() {
   const [selectedValue, setselectedValue] = useState("Hard");
@@ -75,18 +76,9 @@ function ProblemsPage() {
       <div className="horizontalline"></div>
 
       <div className="problemShower">
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
-        <ProblemDisplayContainer/>
+        {AllquesObject.map((problem, index) => (
+          <ProblemDisplayContainer key={index} problem={problem} />
+        ))}
       </div>
     </div>
   );
