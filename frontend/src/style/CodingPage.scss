@@ -1,21 +1,20 @@
-*{
-    overflow: hidden;
-
-}
 
 .codingPageBox {
+
     width: 100vw;
     min-height: 100vh;
     background: #242424;
     color: white;
 
     .header {
+        display: none;
         padding: 10px 0;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         border-bottom: 1px solid rgb(133, 133, 133);
 
         .homeBtn {
+        display: none;
             color: white;
             text-decoration: none;
             font-size: 1rem;
@@ -23,6 +22,8 @@
         }
 
         .runContainer {
+        display: none;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -38,12 +39,16 @@
         }
 
         .rightBox {
+        display: none;
+
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
 
             .dropdown {
+        display: none;
+
                 padding: 8px 12px;
                 font-size: 16px;
                 border: 1px solid #ccc;
@@ -64,6 +69,8 @@
             }
 
             p {
+        display: none;
+
                 border: 1px solid white;
                 padding: 5px 20px;
                 border-radius: 10px;
@@ -116,29 +123,11 @@
             }
         }
 
-        .right {
-            padding: 20px;
-            height: 86vh;
-
-            .codeArea {
-                border: 2px solid white;
-            }
-
-            .testCaseBox {
-                gap: 8px;
-                width: 100%;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-            }
-
-            textarea {
-                background: #242424;
-                color: white;
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                border: 1px solid white;
-            }
+        .outputHeader{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
     }
 }
