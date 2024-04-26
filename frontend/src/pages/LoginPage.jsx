@@ -3,6 +3,7 @@ import "../style/Login.scss";
 import { images } from "../assets/images";
 import { account } from "../appwrite/appwriteConfig";
 import { useNavigate } from "react-router-dom";
+import { AppwriteException } from "appwrite";
 
 function LoginPage() {
   const [userData, setuserData] = useState({ email: "", password: "" });
@@ -17,11 +18,14 @@ function LoginPage() {
       function (response) {
         console.log(response);
         navigate('/home')
-
-
+        setuserData({ email: "", password: "" })
       },
       function (error) {
-        console.log(error); // Failure
+        if (error instanceof AppwriteException) {
+          alert(error.message); 
+        } else {
+          alert('Server error, try again')
+        }
       }
     );
   };
