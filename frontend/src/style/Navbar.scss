@@ -1,6 +1,6 @@
 .navbar{
     width: 100vw;
-    height: 6vw;
+    height: 5vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@
         align-items: center;
         gap: 1vw;
         border: 1px solid black;
-        padding: .5vw 1vw;
+        padding: .3vw 1vw;
         border-radius: 1vw;
         text-decoration: none;
 
@@ -39,7 +39,7 @@
             width: 3vw;
         }
         p{
-            font-size: 2vw;
+            font-size: 1.5vw;
             color: black;
         }
     }
