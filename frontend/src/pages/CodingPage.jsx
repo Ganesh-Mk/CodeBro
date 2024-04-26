@@ -10,6 +10,7 @@ import CodeHeader from '../components/CodeHeader'
 import Output from '../components/Output'
 import { useToast } from '@chakra-ui/react'
 import { executeCode } from '../javascripts/api'
+import { AllquesObject } from '../javascripts/data'
 import { CODE_SNIPPETS } from '../javascripts/constants'
 
 function CodingPage() {
@@ -20,6 +21,7 @@ function CodingPage() {
   const [output, setOutput] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [isCaseCorrect, setisCaseCorrect] = useState(false)
 
   const runCode = async () => {
     const sourceCode = editorRef.current.getValue()

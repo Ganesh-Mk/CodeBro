@@ -1,23 +1,24 @@
-import { useState } from 'react'
-import { Box, Text } from '@chakra-ui/react'
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
+import InputCase from './InputCase'
 
 const Output = ({ output, isError }) => {
   return (
-    <Box w="95%">
-      <Box
-        height="30vh"
-        p={2}
-        color={isError ? 'red.400' : ''}
-        border="1px solid"
-        borderRadius={4}
-        borderColor={isError ? 'red.500' : '#333'}
-        overflow="auto"
-      >
-        {output
-          ? output.map((line, i) => <Text key={i}>{line}</Text>)
-          : 'Click "Run Code" to see the output here'}
-      </Box>
-    </Box>
+    <>
+      <Tabs size="md" variant="enclosed">
+        <TabList>
+          <Tab>Case 1</Tab>
+          <Tab>Case 2</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <InputCase num={0} output={output} isError={isError} />
+          </TabPanel>
+          <TabPanel>
+            <InputCase num={1} output={output} isError={isError} />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
   )
 }
 export default Output

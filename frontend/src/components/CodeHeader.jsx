@@ -9,7 +9,9 @@ function CodeHeader({ language, isLoading, runCode, onSelect }) {
       <Button
         variant="outline"
         colorScheme="green"
-        mb={4}
+        loadingText="Running"
+        w={100}
+        mb={8}
         isLoading={isLoading}
         onClick={runCode}
       >
