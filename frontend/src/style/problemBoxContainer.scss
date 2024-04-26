@@ -1,5 +1,5 @@
 .problemBoxContainer {
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     display: flex;
     margin-top: .8vw;
     justify-content: space-between;
@@ -11,6 +11,7 @@
         gap: 8vw;
         .problemDisplayer {
             font-size: 1.3vw;
+            color: white;
         }
     }
     .problemBoxPart2 {
@@ -19,16 +20,18 @@
         gap: 18vw;
         .difficultyDisplayer {
             font-size: 1.3vw;
+            color: white;
         }
         .attempts {
             font-size: 1.1vw;
+            color: white;
         }
 
     }
 }
 
 .statusContainer {
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     width: 1.6vw;
     height: 1.6vw;
     border-radius: 50%;

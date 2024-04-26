@@ -1,12 +1,20 @@
+$darkMode: #1A1A1A;
+
 .whole-conatiner {
     min-height: 100vh;
     width: 100vw;
+    background-color: $darkMode; 
 }
 .heading {
     display: flex;
     justify-content: center;
-    margin-top: .5vw;
+    // margin-top: .5vw;
     font-size: 1.8vw;
+    background-color: $darkMode;
+    color: white;
+    > p {
+        margin-top: 1vw;
+    }
 }
 .dropDownShow {
         display: flex;
@@ -14,14 +22,19 @@
         align-items: center;
         gap: 1vw;
         width: 12vw;
+        margin-top: 1.5vw;
         // border: 2px solid red;
         > p {
             font-size: 1.2vw;
+            // margin-top: 1vw;
         }
         > select {
+            color: white;
+            border-radius: .5vw;
             width: 6vw;
             height: 2vw;
             font-size: 1vw;
+            background-color: #1A1A1A;
         }
 }
 .submitbutton {
@@ -31,17 +44,22 @@
     img {
         width: 1.4vw;
         cursor: pointer;
+        filter: invert(1);
     }
 }
 
 
 .SearchBarPart {
     // border: 2px solid red;
-    margin-top: 1vw;
+    background-color: $darkMode;
+    color: white;
+
+    // margin-top: 1vw;
     display: flex;
     justify-content: center;
     gap: 20vw;
     .SearchBarShow {
+        margin-top: 1.5vw;
         form {
             padding: .2vw .8vw;
             // border: 2px solid red;
@@ -55,7 +73,7 @@
                 font-size: 1.3vw;
                 padding: .2vw .6vw;
                 border: none;
-                box-shadow: 1px 4px 16px gray;
+                box-shadow: 1px 4px 16px rgba(114, 113, 113, 0.539);
                 border-radius: .5vw;
             }
 
@@ -69,6 +87,7 @@
 }
 
 .searchbarpart3 {
+    margin-top: 1.5vw;
     img {
         width: 1.8vw;
     }
@@ -91,32 +110,49 @@
     }
 }
 .levels {
-    margin-top: 1vw;
+    // margin-top: 1vw;
     padding: 0vw 2vw;
     display: flex;
     justify-content: space-between;
+    background-color: $darkMode;
     .levelspart1 {
         display: flex;
         gap: 10vw;
+        margin-top: 1.5vw;
     }
+    color: white;
     .levelspart2 {
         display: flex;
         gap: 16vw;
+        margin-top: 1.5vw;
 
     }
 }
+.horizontallinediv {
+    background-color: #1A1A1A;
+}
 .horizontalline {
-    border: 2px solid black;
+    border: 1px solid rgb(255, 255, 255);
     margin-top: .5vw;
 }
+
 .problemShower {
 //    margin-top: 2vw;
 //    border: 2px solid red;
-   margin: 1vw 1vw 0vw 1vw; 
-   height: 69vh;
-   overflow-y: scroll;
-   padding: 0vw .5vw;
+//    margin: 1vw 1vw 0vw 1vw; 
 
+   height: 68.5vh;
+   overflow-y: scroll;
+   padding: 0vw 1vw;
+   background-color: $darkMode; 
+
+    h2 {
+        color: white;
+        position: relative;
+        right: -45vw;
+        top: 20vh;
+
+    }
 
 }
 .problemShower::-webkit-scrollbar {
@@ -124,11 +160,11 @@
   }
   
   .problemShower::-webkit-scrollbar-track {
-    background: #f1f1f1; /* color of the track */
+    background: $darkMode; /* color of the track */
   }
   
   .problemShower::-webkit-scrollbar-thumb {
-    background: #5e5e57; /* color of the thumb */
+    background: #ADFF2F; /* color of the thumb */
     border-radius: 5px; /* roundness of the thumb */
   }
   
