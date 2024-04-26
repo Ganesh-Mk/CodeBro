@@ -1,4 +1,5 @@
-.whole-conatiner {
+
+whole-conatiner {
     min-height: 100vh;
     width: 100vw;
 }
@@ -26,11 +27,17 @@
 }
 .submitbutton {
     background-color: transparent;
-    border: none;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid red;
+    margin-top: 0;
+    width: 2vw;
     img {
         width: 1.4vw;
+
         cursor: pointer;
+        margin-top: 0;
     }
 }
 
@@ -40,16 +47,19 @@
     margin-top: 1vw;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20vw;
     .SearchBarShow {
+    // border: 2px solid rgb(70, 15, 198);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
         form {
-            padding: .2vw .8vw;
-            // border: 2px solid red;
             display: flex;
-            gap: .2vw;
-            justify-content: center;
-            align-items: center;
-            > input {
+            
+            input {
+                flex: 1;
                 width: 25vw;
                 height: 2vw;
                 font-size: 1.3vw;
@@ -57,8 +67,8 @@
                 border: none;
                 box-shadow: 1px 4px 16px gray;
                 border-radius: .5vw;
+                // border: 2px solid rgb(255, 217, 0);
             }
-
         }
     }
 }
@@ -88,6 +98,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0;
     }
 }
 .levels {
