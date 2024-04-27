@@ -1,15 +1,63 @@
 export const AllquesObject = [
   {
     number: 1,
+    heading: 'Add two numbers',
+    difficulty: 'Easy',
+    isSolved: false,
+    image: null,
+    allOutput: [],
+    description: 'Given two parameter, add both and return the value',
+    example: [
+      {
+        number: '1',
+        input: 'a = 10, b = 5',
+        output: '15',
+        parameter: '10,5',
+        explanation: 'a + b = 15',
+        image: null,
+      },
+      {
+        number: '2',
+        input: 'a = 3, b = 2',
+        output: '5',
+        parameter: '3,2',
+        explanation: 'a + b = 5',
+        image: null,
+      },
+      {
+        number: '3',
+        input: 'a = 200, b = 300',
+        output: '500',
+        parameter: '200,300',
+        explanation: 'a + b = 500',
+        image: null,
+      },
+    ],
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumber',
+    defaultCode: `/**
+* @param {number} a
+* @param {number} b
+* @return {number}
+*/
+
+var addTwoNumber = function(a, b) {
+    return a+b;
+};`,
+  },
+  {
+    number: 1,
     heading: 'Two Sum',
     difficulty: 'Easy',
+    isSolved: true,
+    image: null,
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
     example: [
       {
         number: '1',
         input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
+        output: '10',
         explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
         image: null,
       },
@@ -36,7 +84,7 @@ export const AllquesObject = [
     cases: [
       {
         input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
+        output: '10',
       },
       {
         input: 'nums = [3,7,11,15], target = 10',
@@ -51,8 +99,17 @@ export const AllquesObject = [
         output: '[3,1]',
       },
     ],
-    isSolved: false,
-    image: null,
+    functionName: 'twoSum',
+    parameter: '[2,7,11,15], 9',
+    defaultCode: `/**
+* @param {number[]} nums
+* @param {number} target
+* @return {number[]}
+*/
+
+var twoSum = function(nums, target) {
+    return 10;
+};`,
   },
   {
     number: 2,
