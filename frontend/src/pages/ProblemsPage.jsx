@@ -1,35 +1,56 @@
-import React, { useState } from 'react'
-import '../style/ProblemsPage.scss'
-import { images } from '../javascripts/images'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import AllquesObject from '../javascripts/data'
+import React, { useState } from 'react';
+import '../style/ProblemsPage.scss';
+import { images } from '../javascripts/images';
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer';
+import AllquesObject from '../javascripts/data';
 
 function ProblemsPage() {
-  const [selectedValue, setselectedValue] = useState('All')
-  const [searchTerm, setsearchTerm] = useState('')
+  const [selectedValue, setSelectedValue] = useState("All");
+  const [selectedTopic, setSelectedTopic] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filterByDifficulty = (difficulty) => {
-    let filteredProblems = AllquesObject
+    let filteredProblems = AllquesObject;
+
     if (difficulty !== 'All') {
       filteredProblems = filteredProblems.filter(
-        (problem) =>
-          problem.difficulty.toLowerCase() === difficulty.toLowerCase(),
-      )
+        (problem) => problem.difficulty.toLowerCase() === difficulty.toLowerCase()
+      );
     }
+
     if (searchTerm) {
-      const lowerCaseSearchTerm = searchTerm.toLowerCase()
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
       filteredProblems = filteredProblems.filter((problem) =>
-        problem.heading.toLowerCase().includes(lowerCaseSearchTerm),
-      )
+        problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
+      );
     }
-    return filteredProblems
-  }
+
+    if (selectedTopic !== "All") {
+      const lowerCaseSearchTerm = selectedTopic.toLowerCase();
+      if (lowerCaseSearchTerm === "solved") {
+        filteredProblems = filteredProblems.filter((problem) =>
+          problem.isSolved === true
+        );
+      } else if (lowerCaseSearchTerm === "unsolved") {
+        filteredProblems = filteredProblems.filter((problem) =>
+          problem.isSolved === false
+        );
+      } else {
+        filteredProblems = filteredProblems.filter((problem) =>
+          problem.topic.toLowerCase().includes(lowerCaseSearchTerm)
+        );
+      }
+    }
+
+    return filteredProblems;
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+    // Add any functionality you need on form submit
+  };
 
-  const problemsToShow = filterByDifficulty(selectedValue)
+  const problemsToShow = filterByDifficulty(selectedValue);
 
   return (
     <div className="whole-container">
@@ -37,17 +58,24 @@ function ProblemsPage() {
         <p>DSA Problems</p>
       </div>
       <div className="SearchBarPart">
-        <div className="dropDownShow">
-          <p>Difficulty</p>
+        <div className="filterdropdownShow">
+          <p>Filter</p>
           <select
-            className="dropdown"
-            value={selectedValue}
-            onChange={(e) => setselectedValue(e.target.value)}
+            className="filterdropdown"
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
           >
             <option value="All">All</option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <option value="Array">Array</option>
+            <option value="LinkedList">LinkedList</option>
+            <option value="String">String</option>
+            <option value="Binary Search">Binary Search</option>
+            <option value="Sorting">Sorting</option>
+            <option value="Stack">Stack</option>
+            <option value="Tree">Tree</option>
+            <option value="Queue">Queue</option>
+            <option value="Solved">Solved</option>
+            <option value="Unsolved">Unsolved</option>
           </select>
         </div>
 
@@ -57,12 +85,26 @@ function ProblemsPage() {
               type="text"
               placeholder="Search Problems... "
               value={searchTerm}
-              onChange={(e) => setsearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button className="submitbutton" type="submit">
               <img src={images.searchicon} alt="" />
             </button>
           </form>
+        </div>
+
+        <div className="dropDownShow">
+          <p>Difficulty</p>
+          <select
+            className="dropdown"
+            value={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
         </div>
 
         <div className="searchbarpart3">
@@ -86,7 +128,7 @@ function ProblemsPage() {
           <div className="difficult">
             <p>Difficult</p>
           </div>
-          <div className="attempts">Attemtps</div>
+          <div className="attempts">Attempts</div>
         </div>
       </div>
       <div className="horizontallinediv">
@@ -103,7 +145,7 @@ function ProblemsPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default ProblemsPage
+export default ProblemsPage;
