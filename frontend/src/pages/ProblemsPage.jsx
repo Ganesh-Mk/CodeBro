@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../javascripts/images";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import AllquesObject from "../QuestionsData/data";
+import AllquesObject from "../javascripts/data"
 
 function ProblemsPage() {
   const [selectedValue, setselectedValue] = useState("All");
@@ -95,7 +95,8 @@ function ProblemsPage() {
       <div className="problemShower">
         {problemsToShow.length > 0 ? (
           problemsToShow.map((problem, index) => (
-            <ProblemDisplayContainer problem={problem} />
+            <ProblemDisplayContainer
+            problem={problem} />
           ))
         ) : (
           <h2>No Problems</h2>
