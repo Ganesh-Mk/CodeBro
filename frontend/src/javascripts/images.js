@@ -3,6 +3,7 @@ import accDefaultLogo from '../assets/images/accDefaultLogo.png'
 import entranceImage from '../assets/images/entranceImage.png'
 import random from '../assets/images/random.png'
 import searchicon from '../assets/images/search-icon.png'
+import solved from '../assets/images/solved.png'
 
 export const images = {
   codeBroLogo,
@@ -10,4 +11,5 @@ export const images = {
   entranceImage,
   random,
   searchicon,
+  solved,
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/problemBoxContainer.scss";
 import AllquesObject from "../javascripts/data";
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { images } from "../javascripts/images";
 
 const ProblemDisplayContainer = ({ problem }) => {
 
@@ -15,7 +15,9 @@ const ProblemDisplayContainer = ({ problem }) => {
   return (
     <div className="problemBoxContainer">
       <div className="problemBoxPart1">
-        <div className="statusContainer"></div>
+        <div className="statusContainer">
+        {problem.isSolved && <img src={images.solved} alt="" />}
+        </div>
         <div onClick={handleClick} className="problemDisplayer">{problem.heading}</div>
       </div>
 

@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../javascripts/images";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import AllquesObject from "../javascripts/data"
+import AllquesObject from "../javascripts/data";
 
 function ProblemsPage() {
   const [selectedValue, setselectedValue] = useState("All");
+  const [selectedTopic, setselectedTopic] = useState("All");
   const [searchTerm, setsearchTerm] = useState("");
 
   const filterByDifficulty = (difficulty) => {
     let filteredProblems = AllquesObject;
     if (difficulty !== "All") {
       filteredProblems = filteredProblems.filter(
-        (problem) => problem.difficulty.toLowerCase() === difficulty.toLowerCase()
+        (problem) =>
+          problem.difficulty.toLowerCase() === difficulty.toLowerCase()
       );
     }
     if (searchTerm) {
@@ -20,6 +22,22 @@ function ProblemsPage() {
       filteredProblems = filteredProblems.filter((problem) =>
         problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
       );
+    }
+    if (selectedTopic !== "All") {
+      const lowerCaseSearchTerm = selectedTopic.toLowerCase();
+      if(lowerCaseSearchTerm === "solved") {
+        filteredProblems = filteredProblems.filter((problem) =>
+        problem.isSolved == true)
+      }
+      else if(lowerCaseSearchTerm === "unsolved") {
+        filteredProblems = filteredProblems.filter((problem) =>
+        problem.isSolved == false)
+      }
+       else {
+        filteredProblems = filteredProblems.filter((problem) =>
+        problem.topic.toLowerCase().includes(lowerCaseSearchTerm)
+      );
+    }
     }
     return filteredProblems;
   };
@@ -36,17 +54,26 @@ function ProblemsPage() {
         <p>DSA Problems</p>
       </div>
       <div className="SearchBarPart">
-        <div className="dropDownShow">
-          <p>Difficulty</p>
+        <div className="filterdropdownShow">
+          <p>Filter</p>
           <select
-            className="dropdown"
-            value={selectedValue}
-            onChange={(e) => setselectedValue(e.target.value)}
+            className="filterdropdown"
+            value={selectedTopic}
+            onChange={(e) => setselectedTopic(e.target.value)}
           >
             <option value="All">All</option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <option value="Array">Array</option>
+            <option value="LinkedList">LinkedList</option>
+            <option value="String">String</option>
+            <option value="Binary Search">Binary Search</option>
+            <option value="Sorting">Sorting</option>
+            <option value="Stack">Stack</option>
+            <option value="Tree">Tree</option>
+            <option value="Queue">Queue</option>
+            <option value="Solved">Solved</option>
+            <option value="Unsolved">Unsolved</option>
+
+
           </select>
         </div>
 
@@ -62,6 +89,20 @@ function ProblemsPage() {
               <img src={images.searchicon} alt="" />
             </button>
           </form>
+        </div>
+
+        <div className="dropDownShow">
+          <p>Difficulty</p>
+          <select
+            className="dropdown"
+            value={selectedValue}
+            onChange={(e) => setselectedValue(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
         </div>
 
         <div className="searchbarpart3">
@@ -95,8 +136,7 @@ function ProblemsPage() {
       <div className="problemShower">
         {problemsToShow.length > 0 ? (
           problemsToShow.map((problem, index) => (
-            <ProblemDisplayContainer
-            problem={problem} />
+            <ProblemDisplayContainer problem={problem} />
           ))
         ) : (
           <h2>No Problems</h2>

@@ -17,6 +17,28 @@ $darkMode: #1A1A1A;
         margin-top: 1vw;
     }
 }
+.filterdropdownShow {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        width: 12vw;
+        margin-top: 1.5vw;
+    > p {
+        font-size: 1.2vw;
+        // margin-top: 1vw;
+    }
+    
+    > select {
+        color: rgb(234, 234, 234);
+        border-radius: .5vw;
+        min-width:7vw;
+        border: 2px solid white;
+        height: 2vw;
+        font-size: 1vw;
+        background-color: $darkMode;
+    }
+}
 .dropDownShow {
         display: flex;
         justify-content: center;
@@ -39,6 +61,7 @@ $darkMode: #1A1A1A;
             background-color: $darkMode;
         }
 }
+
 .submitbutton {
     background-color: transparent;
     display: flex;
@@ -66,7 +89,7 @@ $darkMode: #1A1A1A;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20vw;
+    gap: 10vw;
     .SearchBarShow {
     // border: 2px solid rgb(70, 15, 198);
         display: flex;
