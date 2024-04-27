@@ -1,5 +1,7 @@
-export const AllquesObject = [
-  {
+import { createSlice } from '@reduxjs/toolkit'
+
+const initialState = {
+  obj: {
     number: 1,
     heading: 'Two Sum',
     difficulty: 'Easy',
@@ -42,18 +44,20 @@ export const AllquesObject = [
         input: 'nums = [3,7,11,15], target = 10',
         output: '[0,1]',
       },
-      {
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
-      },
-      {
-        input: 'nums = [3,7,11,15], target = 10',
-        output: '[0,1]',
-      },
     ],
     isSolved: false,
     image: null,
   },
-]
+}
+export const problemObjSlice = createSlice({
+  name: 'problemObj',
+  initialState,
+  reducers: {
+    addProblemObj: (state, action) => {
+      state.obj = action.payload
+    },
+  },
+})
 
-export default AllquesObject
+export const { addProblemObj } = problemObjSlice.actions
+export default problemObjSlice.reducer

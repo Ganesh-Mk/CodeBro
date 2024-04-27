@@ -1,8 +1,7 @@
 import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
-import { AllquesObject } from '../javascripts/data'
 
-function InputCase({ num, output, isError }) {
+function InputCase({ num, input, output, isError }) {
   return (
     <div>
       <Box
@@ -14,7 +13,7 @@ function InputCase({ num, output, isError }) {
         borderRadius={4}
         overflow="auto"
       >
-        {AllquesObject[num].cases[0].input}
+        {input}
       </Box>
       <Box
         height="7vh"
