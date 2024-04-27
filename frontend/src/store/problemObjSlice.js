@@ -3,50 +3,62 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   obj: {
     number: 1,
-    heading: 'Two Sum',
+    heading: 'Add two numbers',
     difficulty: 'Easy',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    isSolved: false,
+    image: null,
+    description: 'Given two parameter, add both and return the value',
     example: [
       {
         number: '1',
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
-        explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+        input: 'a = 5, b = 5',
+        output: '10',
+        explanation: 'a + b = 10',
         image: null,
       },
       {
         number: '2',
-        input: 'nums = [3,2,4], target = 6',
-        output: '[1,2]',
-        explanation: '',
+        input: 'a = 10, b = 20',
+        output: '30',
+        explanation: 'a + b = 30',
         image: null,
       },
       {
         number: '3',
-        input: 'nums = [3,3], target = 8',
-        output: '[0,3]',
-        explanation: '',
+        input: 'a = 20, b = 30',
+        output: '50',
+        explanation: 'a + b = 50',
         image: null,
       },
     ],
-    constraints: [
-      '2 <= nums.length <= 104',
-      '-109 <= nums[i] <= 109',
-      '-109 <= target <= 109',
-    ],
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
     cases: [
       {
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
+        input: 'a = 6, b = 4',
+        parameter: '6,4',
+        output: '10',
       },
       {
-        input: 'nums = [3,7,11,15], target = 10',
-        output: '[0,1]',
+        input: 'a = 10, b = 20',
+        parameter: '10,20',
+        output: '30',
+      },
+      {
+        input: 'a = 20, b = 30',
+        parameter: '20,30',
+        output: '50',
       },
     ],
-    isSolved: false,
-    image: null,
+    functionName: 'addTwoNumber',
+    defaultCode: `/**
+* @param {number} a
+* @param {number} b
+* @return {number}
+*/
+
+var addTwoNumber = function(a, b) {
+    return a+b;
+};`,
   },
 }
 export const problemObjSlice = createSlice({
@@ -56,8 +68,12 @@ export const problemObjSlice = createSlice({
     addProblemObj: (state, action) => {
       state.obj = action.payload
     },
+    addAllOutput: (state, action) => {
+      state.obj.allOutput = action.payload
+      console.log(state.obj.allOutput)
+    },
   },
 })
 
-export const { addProblemObj } = problemObjSlice.actions
+export const { addProblemObj, addAllOutput } = problemObjSlice.actions
 export default problemObjSlice.reducer

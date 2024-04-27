@@ -39,9 +39,7 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
         borderColor={isError ? 'red.500' : 'grey'}
         overflow="auto"
       >
-        {output
-          ? output.map((line, i) => <Text key={i}>{line}</Text>)
-          : 'Click "Run Code" to see the output'}
+        {output ? output : 'Click "Run Code" to see the output'}
       </Box>
     </div>
   )

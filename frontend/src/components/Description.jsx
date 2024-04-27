@@ -6,12 +6,11 @@ import Constraints from './Constraints'
 
 function Description() {
   const problemObj = useSelector((state) => state.problemObj.obj)
-  console.log('From Desciption: ', problemObj)
   return (
     <div className="left">
       <div className="leftHeader">
         <p>Description</p>
-        <p>Solved</p>
+        <p>{problemObj.isSolved ? 'Solved' : ''}</p>
       </div>
       <div className="scroller">
         <p className="que">

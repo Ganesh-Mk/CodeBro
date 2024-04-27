@@ -12,37 +12,69 @@ import { useToast } from '@chakra-ui/react'
 import { executeCode } from '../javascripts/api'
 import { AllquesObject } from '../javascripts/data'
 import { CODE_SNIPPETS } from '../javascripts/constants'
+import { useSelector, useDispatch } from 'react-redux'
+import { addAllOutput } from '../store/problemObjSlice'
+import { useEffect } from 'react'
 
 function CodingPage() {
   const editorRef = useRef()
   const toast = useToast()
+  const dispatch = useDispatch()
   const [value, setValue] = useState('')
   const [language, setLanguage] = useState('javascript')
   const [output, setOutput] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
-  const [isCaseCorrect, setisCaseCorrect] = useState(false)
+  const [allOutput, setAllOutput] = useState([])
+  const [correctCases, setCorrectCases] = useState([])
+  const problemObj = useSelector((state) => state.problemObj.obj)
 
   const runCode = async () => {
-    const sourceCode = editorRef.current.getValue()
-    if (!sourceCode) return
-    try {
-      setIsLoading(true)
-      const { run: result } = await executeCode(language, sourceCode)
-      setOutput(result.output.split('\n'))
-      result.stderr ? setIsError(true) : setIsError(false)
-    } catch (error) {
-      console.log(error)
-      toast({
-        title: 'An error occurred.',
-        description: error.message || 'Unable to run code',
-        status: 'error',
-        duration: 6000,
-      })
-    } finally {
-      setIsLoading(false)
+    setAllOutput([])
+    dispatch(addAllOutput([]))
+
+    let returnToPrintCode = ''
+    for (let i = 0; i < problemObj.example.length; i++) {
+      let sourceCode = editorRef.current.getValue()
+      if (!sourceCode) return
+      try {
+        returnToPrintCode = `
+            function printReturnValue(){
+              let result = ${problemObj.functionName}(${problemObj.example[i].parameter});
+              if(result) console.log(result);
+              else console.log("Return the answer");
+            }
+            printReturnValue();
+          `
+        sourceCode += returnToPrintCode
+        console.log(sourceCode)
+
+        setIsLoading(true)
+        const { run: result } = await executeCode(language, sourceCode)
+        setOutput(result.output.split('\n'))
+        setAllOutput((prev) => [
+          ...prev,
+          ...result.output.split('\n').filter((value) => value !== ''),
+        ])
+
+        result.stderr ? setIsError(true) : setIsError(false)
+      } catch (error) {
+        console.log(error)
+        toast({
+          title: 'An error occurred.',
+          description: error.message || 'Unable to run code',
+          status: 'error',
+          duration: 6000,
+        })
+      } finally {
+        setIsLoading(false)
+      }
     }
   }
+
+  useEffect(() => {
+    dispatch(addAllOutput(allOutput))
+  }, [allOutput])
 
   const onMount = (editor) => {
     editorRef.current = editor
