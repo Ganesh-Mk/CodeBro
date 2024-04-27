@@ -6,7 +6,7 @@ const CodeEditor = ({ language, value, setValue, onMount }) => {
   return (
     <Box>
       <HStack spacing={4}>
-        <Box w="95%">
+        <Box w="100%">
           <Editor
             options={{
               minimap: {

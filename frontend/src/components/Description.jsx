@@ -2,6 +2,7 @@ import React from 'react'
 import Example from './Example'
 import '../style/CodingPage.scss'
 import { useSelector } from 'react-redux'
+import Constraints from './Constraints'
 
 function Description() {
   const problemObj = useSelector((state) => state.problemObj.obj)
@@ -13,7 +14,9 @@ function Description() {
         <p>Solved</p>
       </div>
       <div className="scroller">
-        <p className="que">{problemObj.heading}</p>
+        <p className="que">
+          <span>{problemObj.number}</span>. {problemObj.heading}
+        </p>
         <div className="desc">{problemObj.description}</div>
 
         {problemObj.example.map((example, index) => (
@@ -26,7 +29,7 @@ function Description() {
           />
         ))}
 
-        <div className="constraints">{problemObj.constraints}</div>
+        <Constraints values={problemObj.constraints} className="constraints" />
       </div>
     </div>
   )
