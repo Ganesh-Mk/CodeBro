@@ -4,6 +4,8 @@ export const AllquesObject = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: false,
+    language: 'javascript',
+    returnType: 'int',
     image: null,
     allOutput: [],
     description: 'Given two parameter, add both and return the value',

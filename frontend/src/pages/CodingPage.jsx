@@ -13,7 +13,7 @@ import { executeCode } from '../javascripts/api'
 import { AllquesObject } from '../javascripts/data'
 import { CODE_SNIPPETS } from '../javascripts/constants'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAllOutput } from '../store/problemObjSlice'
+import { addAllOutput, addLanguage } from '../store/problemObjSlice'
 import { useEffect } from 'react'
 
 function CodingPage() {
@@ -34,11 +34,30 @@ function CodingPage() {
     dispatch(addAllOutput([]))
 
     let returnToPrintCode = ''
+    let startingCode = ``
+    let isJava = false
     for (let i = 0; i < problemObj.example.length; i++) {
       let sourceCode = editorRef.current.getValue()
       if (!sourceCode) return
       try {
-        returnToPrintCode = `
+        if (problemObj.language === 'java') {
+          isJava = true
+          startingCode = `
+          public class HelloWorld {
+          `
+          startingCode += sourceCode
+          returnToPrintCode = `
+          public static void main(String[] args) {
+            Object result = ${problemObj.functionName}(${problemObj.example[i].parameter});
+            System.out.println(result);
+          }
+          `
+
+          startingCode += returnToPrintCode
+          sourceCode = startingCode
+        } else {
+          if (problemObj.language === 'javascript') {
+            returnToPrintCode = `
             function printReturnValue(){
               let result = ${problemObj.functionName}(${problemObj.example[i].parameter});
               if(result) console.log(result);
@@ -46,7 +65,21 @@ function CodingPage() {
             }
             printReturnValue();
           `
-        sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'python') {
+            returnToPrintCode = `
+            
+def printReturnValue():
+  result = ${problemObj.functionName}(${problemObj.example[i].parameter})
+  if result:
+      print(result)
+  else:
+      print("Return the answer")
+printReturnValue()
+              `
+          }
+        }
+
+        if (!isJava) sourceCode += returnToPrintCode
         console.log(sourceCode)
 
         setIsLoading(true)
@@ -83,6 +116,7 @@ function CodingPage() {
 
   const onSelect = (language) => {
     setLanguage(language)
+    dispatch(addLanguage(language))
     setValue(CODE_SNIPPETS[language])
   }
 

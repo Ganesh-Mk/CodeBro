@@ -8,9 +8,15 @@ import {
 } from '@chakra-ui/react'
 import TestCase from './TestCase'
 import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 const Output = ({ isError }) => {
   const problemObj = useSelector((state) => state.problemObj.obj)
+
+  const [isUp, setIsUp] = useState(false)
+  const toggleUpDown = () => {
+    setIsUp(!isUp)
+  }
 
   return (
     <>
@@ -21,7 +27,11 @@ const Output = ({ isError }) => {
           ))}
         </TabList>
         <TabPanels
-          style={{ height: '12vw', overflowX: 'hidden', overflow: 'scroll' }}
+          style={{
+            height: '12vw',
+            overflowX: 'hidden',
+            overflow: 'scroll',
+          }}
         >
           {problemObj.example.map((testCase, i) => (
             <TabPanel key={i}>

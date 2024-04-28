@@ -7,6 +7,7 @@ const initialState = {
     difficulty: 'Easy',
     isSolved: false,
     image: null,
+    allOutput: [],
     description: 'Given two parameter, add both and return the value',
     example: [
       {
@@ -70,10 +71,17 @@ export const problemObjSlice = createSlice({
     },
     addAllOutput: (state, action) => {
       state.obj.allOutput = action.payload
-      console.log(state.obj.allOutput)
+    },
+    addLanguage: (state, action) => {
+      state.obj.language = action.payload
+      console.log(state.obj.language)
     },
   },
 })
 
-export const { addProblemObj, addAllOutput } = problemObjSlice.actions
+export const {
+  addProblemObj,
+  addAllOutput,
+  addLanguage,
+} = problemObjSlice.actions
 export default problemObjSlice.reducer

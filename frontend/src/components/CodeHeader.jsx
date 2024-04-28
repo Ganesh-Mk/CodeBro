@@ -4,7 +4,7 @@ import { Button } from '@chakra-ui/react'
 
 function CodeHeader({ language, isLoading, runCode, onSelect }) {
   return (
-    <div className="codeHeader">
+    <div className="codeHeader" style={{ width: '100%' }}>
       <LanguageSelector language={language} onSelect={onSelect} />
       <Button
         variant="outline"
