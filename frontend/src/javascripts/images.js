@@ -4,6 +4,15 @@ import entranceImage from '../assets/images/entranceImage.png'
 import random from '../assets/images/random.png'
 import searchicon from '../assets/images/search-icon.png'
 import solved from '../assets/images/solved.png'
+import fadedWall from '../assets/images/fadedWall.jpg'
+import outphoto from '../assets/images/outphoto.jpg'
+import instagram from '../assets/images/instagram.png'
+import github from '../assets/images/github.png'
+import linkedin from '../assets/images/linkedin.png'
+import location from '../assets/images/location.png'
+import phone from '../assets/images/phone.png'
+import mail from '../assets/images/mail.png'
+
 
 export const images = {
   codeBroLogo,
@@ -12,4 +21,12 @@ export const images = {
   random,
   searchicon,
   solved,
+  fadedWall,
+  outphoto,
+  instagram, 
+  github,
+  linkedin,
+  location,
+  mail,
+  phone,
 }
