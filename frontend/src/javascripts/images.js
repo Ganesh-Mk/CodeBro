@@ -12,6 +12,9 @@ import linkedin from '../assets/images/linkedin.png'
 import location from '../assets/images/location.png'
 import phone from '../assets/images/phone.png'
 import mail from '../assets/images/mail.png'
+import background from '../assets/images/background.jpg'
+import google from '../assets/images/google.png'
+
 
 
 export const images = {
@@ -29,4 +32,6 @@ export const images = {
   location,
   mail,
   phone,
+  background,
+  google,
 }

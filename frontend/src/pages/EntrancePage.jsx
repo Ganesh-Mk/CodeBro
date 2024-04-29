@@ -1,44 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../App.css'
-import '../style/EntrancePage.scss'
-import { images } from '../javascripts/images'
+import React from "react";
+import "../style/EntrancePage.scss";
+// import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
+import CodeBroLogo from "../components/CodeBroLogo";
 
 function EntrancePage() {
   return (
-    <>
-      <div className="entrance-whole-container">
-        <div className="entranceContainer">
-          <div className="logoContainer">
-            <span className="logo">&lt;&nbsp;</span>
-            <span className="logo code">Code</span>
-            <span className="logo">Bro</span>
-            <span className="logo">&nbsp;&frasl;&gt;</span>
+    <div className="mainHome">
+      <div className="newMainHome"> 
+      <CodeBroLogo/>
+        <div className="mainheading">
+          <p>
+            Welcome to{" "}
+            <span>
+              {" "}
+              &lt;&nbsp; Code <span className="bro">Bro</span> &nbsp;&frasl;&gt;
+            </span>
+          </p>
+          <p>Learn . Commit . Strive</p>
+          <p>Unlock your coding potential with us. Dive in, code, and thrive.</p>
+        </div>
+        <div className="getStartedbtn">
+          <Link to="/register">
+          <div className="btnn">
+            <button>Create Account</button>
+            <i class="bx bx-right-arrow-alt"></i>
           </div>
-          <div className="container">
-            <div className="left">
-              <h2>
-                Start your coding journey today with "<span>Code</span>
-                Bro"
-              </h2>
-              <div>
-                <Link to="/register" className="button">
-                  Create Account
-                </Link>
-                <p>or</p>
-                <Link to="/login" className="button">
-                  Already have Account
-                </Link>
-              </div>
-            </div>
-            <div className="right">
-              <img src={images.entranceImage} alt="entrance image" />
-            </div>
+          </Link>
+          
+        </div>
+        <div className="getStartedbtn">
+          <Link to="/login">
+          <div className="btnn">
+            <button>Already have an account</button>
+            <i class="bx bx-right-arrow-alt"></i>
           </div>
+          </Link> 
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default EntrancePage
+export default EntrancePage;

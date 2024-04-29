@@ -2,9 +2,12 @@ import React from "react";
 import "../style/AboutUs.scss";
 import { images } from "../javascripts/images";
 import ContactUs from "../components/ContactUs";
+import FooterComp from "../components/FooterComp";
+
 
 function AboutUsPage() {
   return (
+
     <div className="aboutusContainer">
       <div className="AboutUsHeading">
         <h1>About Us</h1>
@@ -14,7 +17,7 @@ function AboutUsPage() {
       </div>
       <div className="descriptionSection">
         <div class="card">
-          <div className="name">Tej MH</div>
+          <div className="name"><p>Tej MH</p></div>
           <div className="working">Worked on frontend and Authentication</div>
           <div className="description">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -34,7 +37,7 @@ function AboutUsPage() {
           </div>
         </div>
         <div class="card">
-          <div className="name">Ganesh MK</div>
+          <div className="name"><p>Ganesh MK</p></div>
           <div className="working">Worked on Structure of project and Backend</div>
           <div className="description">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -55,6 +58,8 @@ function AboutUsPage() {
         </div>
       </div>
       <ContactUs/>
+      <FooterComp/>
+      
     </div>
   );
 }
