@@ -72,9 +72,11 @@ export const problemObjSlice = createSlice({
     addAllOutput: (state, action) => {
       state.obj.allOutput = action.payload
     },
+    addAllResult: (state, action) => {
+      state.obj.allResult = action.payload
+    },
     addLanguage: (state, action) => {
       state.obj.language = action.payload
-      console.log(state.obj.language)
     },
   },
 })
@@ -83,5 +85,6 @@ export const {
   addProblemObj,
   addAllOutput,
   addLanguage,
+  addAllResult,
 } = problemObjSlice.actions
 export default problemObjSlice.reducer

@@ -3,7 +3,7 @@ import { Editor } from '@monaco-editor/react'
 import { CODE_SNIPPETS } from '../javascripts/constants'
 import { useSelector } from 'react-redux'
 
-const CodeEditor = ({ defaultCode, language, value, setValue, onMount }) => {
+const CodeEditor = ({ language, value, setValue, onMount }) => {
   return (
     <Box>
       <HStack spacing={4}>
@@ -17,7 +17,6 @@ const CodeEditor = ({ defaultCode, language, value, setValue, onMount }) => {
             height="50vh"
             theme="vs-dark"
             language={language}
-            defaultValue={defaultCode}
             onMount={onMount}
             value={value}
             onChange={(value) => setValue(value)}

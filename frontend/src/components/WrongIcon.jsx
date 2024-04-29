@@ -1,16 +1,16 @@
 import React from 'react'
-import crtImage from '../assets/icons/correctIcon.png'
+import wrongImage from '../assets/icons/wrongIcon.png'
 
-function CorrectIcon() {
+function WrongIcon() {
   return (
     <div>
       <img
         style={{ width: '2vw', height: '2vw' }}
-        src={crtImage}
+        src={wrongImage}
         alt="correctImg"
       />
     </div>
   )
 }
 
-export default CorrectIcon
+export default WrongIcon

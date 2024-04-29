@@ -13,7 +13,11 @@ import { executeCode } from '../javascripts/api'
 import { AllquesObject } from '../javascripts/data'
 import { CODE_SNIPPETS } from '../javascripts/constants'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAllOutput, addLanguage } from '../store/problemObjSlice'
+import {
+  addAllOutput,
+  addAllResult,
+  addLanguage,
+} from '../store/problemObjSlice'
 import { useEffect } from 'react'
 
 function CodingPage() {
@@ -25,15 +29,17 @@ function CodingPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const [allOutput, setAllOutput] = useState([])
+  const [allResult, setAllResult] = useState([])
   const problemObj = useSelector((state) => state.problemObj.obj)
-  const [defaultCode, setDefaultCode] = useState(
-    problemObj.javascriptDefaultCode,
-  )
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
+  const [allResultFlag, setAllResultFlag] = useState(false)
 
   const runCode = async () => {
     setAllOutput([])
     dispatch(addAllOutput([]))
+    setAllResult([])
+    dispatch(addAllResult([]))
+    setAllResultFlag(false)
 
     let returnToPrintCode = ''
 
@@ -52,10 +58,22 @@ function CodingPage() {
           sourceCode = startCode + sourceCode + '\n}'
         }
 
-        console.log(sourceCode)
-
         setIsLoading(true)
         const { run: result } = await executeCode(language, sourceCode)
+
+        let expectedOutput = String(problemObj.example[i].output).replace(
+          /\s/g,
+          '',
+        )
+        let userOutput = String(result.output.split('\n'))
+          .slice(0, -1)
+          .replace(/\s/g, '')
+        if (expectedOutput == userOutput) {
+          setAllResult((prev) => [...prev, true])
+        } else {
+          setAllResult((prev) => [...prev, false])
+        }
+
         setOutput(result.output.split('\n'))
         setAllOutput((prev) => [
           ...prev,
@@ -75,11 +93,16 @@ function CodingPage() {
         setIsLoading(false)
       }
     }
+    setAllResultFlag(true)
   }
 
   useEffect(() => {
     dispatch(addAllOutput(allOutput))
   }, [allOutput])
+
+  useEffect(() => {
+    dispatch(addAllResult(allResult))
+  }, [allResultFlag])
 
   const onMount = (editor) => {
     editorRef.current = editor
@@ -112,7 +135,6 @@ function CodingPage() {
           />
           <CodeEditor
             language={language}
-            defaultCode={defaultCode}
             onSelect={onSelect}
             onMount={onMount}
             value={value}

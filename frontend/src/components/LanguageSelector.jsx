@@ -16,7 +16,7 @@ const LanguageSelector = ({ language, onSelect }) => {
   return (
     <Box ml={2} mb={4}>
       <Menu isLazy>
-        <MenuButton width={100} as={Button}>
+        <MenuButton width={130} as={Button}>
           {language}
         </MenuButton>
         <MenuList bg="#110c1b">

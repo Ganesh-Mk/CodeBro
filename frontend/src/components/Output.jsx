@@ -9,21 +9,35 @@ import {
 import TestCase from './TestCase'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import CorrectIcon from './CorrectIcon'
+import WrongIcon from './WrongIcon'
 
 const Output = ({ isError }) => {
   const problemObj = useSelector((state) => state.problemObj.obj)
 
-  const [isUp, setIsUp] = useState(false)
-  const toggleUpDown = () => {
-    setIsUp(!isUp)
-  }
-
   return (
     <>
-      <Tabs size="md" variant="enclosed">
+      <Tabs size="md" isFitted variant="enclosed">
         <TabList>
           {problemObj.example.map((testCase, i) => (
-            <Tab key={i}>Case{i + 1}</Tab>
+            <Tab
+              key={i}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '2vw',
+              }}
+            >
+              <p>Case {i + 1}</p>
+              {problemObj.allResult.length > 0 ? (
+                <p>
+                  {problemObj.allResult[i] ? <CorrectIcon /> : <WrongIcon />}
+                </p>
+              ) : (
+                ''
+              )}
+            </Tab>
           ))}
         </TabList>
         <TabPanels
