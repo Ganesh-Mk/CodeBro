@@ -6,60 +6,42 @@ const initialState = {
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: false,
+    language: 'javascript',
     image: null,
     allOutput: [],
+    allResult: [],
     description: 'Given two parameter, add both and return the value',
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumbers',
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
     example: [
       {
         number: '1',
-        input: 'a = 5, b = 5',
-        output: '10',
-        explanation: 'a + b = 10',
+        input: 'a = 10, b = 5',
+        output: '15',
+        parameter: '10,5',
+        explanation: 'a + b = 15',
         image: null,
       },
       {
         number: '2',
-        input: 'a = 10, b = 20',
-        output: '30',
-        explanation: 'a + b = 30',
+        input: 'a = 3, b = 2',
+        output: '5',
+        parameter: '3,2',
+        explanation: 'a + b = 5',
         image: null,
       },
       {
         number: '3',
-        input: 'a = 20, b = 30',
-        output: '50',
-        explanation: 'a + b = 50',
+        input: 'a = 200, b = 300',
+        output: '500',
+        parameter: '200,300',
+        explanation: 'a + b = 500',
         image: null,
       },
     ],
-    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    cases: [
-      {
-        input: 'a = 6, b = 4',
-        parameter: '6,4',
-        output: '10',
-      },
-      {
-        input: 'a = 10, b = 20',
-        parameter: '10,20',
-        output: '30',
-      },
-      {
-        input: 'a = 20, b = 30',
-        parameter: '20,30',
-        output: '50',
-      },
-    ],
-    functionName: 'addTwoNumber',
-    defaultCode: `/**
-* @param {number} a
-* @param {number} b
-* @return {number}
-*/
-
-var addTwoNumber = function(a, b) {
-    return a+b;
-};`,
   },
 }
 export const problemObjSlice = createSlice({

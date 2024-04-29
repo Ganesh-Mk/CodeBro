@@ -11,9 +11,9 @@ export const AllquesObject = [
     description: 'Given two parameter, add both and return the value',
     constraints: ['0 <= a <= 999', '0 <= b <= 999'],
     functionName: 'addTwoNumbers',
-    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\treturn a+b;\n};`,
-    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\treturn a+b`,
-    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\treturn a+b;\n}`,
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
     example: [
       {
         number: '1',
@@ -101,9 +101,9 @@ export const AllquesObject = [
     description: 'Given a string, reverse it and return the reversed string.',
     constraints: ['1 <= string.length <= 1000'],
     functionName: 'reverseString',
-    javascriptDefaultCode: `\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\treturn str.split('').reverse().join('');\n};`,
-    pythonDefaultCode: `\ndef reverseString(str):\n\treturn str[::-1]`,
-    javaDefaultCode: `\npublic static String reverseString(String str) {\n\treturn new StringBuilder(str).reverse().toString();\n}`,
+    javascriptDefaultCode: `\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef reverseString(str):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static String reverseString(String str) {\n\t// Write your code here\n}`,
     example: [
       {
         number: '1',
