@@ -20,66 +20,38 @@ function CodingPage() {
   const editorRef = useRef()
   const toast = useToast()
   const dispatch = useDispatch()
-  const [value, setValue] = useState('')
   const [language, setLanguage] = useState('javascript')
   const [output, setOutput] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const [allOutput, setAllOutput] = useState([])
-  const [correctCases, setCorrectCases] = useState([])
   const problemObj = useSelector((state) => state.problemObj.obj)
+  const [defaultCode, setDefaultCode] = useState(
+    problemObj.javascriptDefaultCode,
+  )
+  const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
   const runCode = async () => {
     setAllOutput([])
     dispatch(addAllOutput([]))
 
     let returnToPrintCode = ''
-    let startingCode = ``
-    let isJava = false
+
     for (let i = 0; i < problemObj.example.length; i++) {
       let sourceCode = editorRef.current.getValue()
       if (!sourceCode) return
       try {
-        if (problemObj.language === 'java') {
-          isJava = true
-          startingCode = `
-          public class HelloWorld {
-          `
-          startingCode += sourceCode
-          returnToPrintCode = `
-          public static void main(String[] args) {
-            Object result = ${problemObj.functionName}(${problemObj.example[i].parameter});
-            System.out.println(result);
-          }
-          `
-
-          startingCode += returnToPrintCode
-          sourceCode = startingCode
-        } else {
-          if (problemObj.language === 'javascript') {
-            returnToPrintCode = `
-            function printReturnValue(){
-              let result = ${problemObj.functionName}(${problemObj.example[i].parameter});
-              if(result) console.log(result);
-              else console.log("Return the answer");
-            }
-            printReturnValue();
-          `
-          } else if (problemObj.language === 'python') {
-            returnToPrintCode = `
-            
-def printReturnValue():
-  result = ${problemObj.functionName}(${problemObj.example[i].parameter})
-  if result:
-      print(result)
-  else:
-      print("Return the answer")
-printReturnValue()
-              `
-          }
+        if (problemObj.language === 'javascript') {
+          returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.example[i].parameter}));`
+          sourceCode += returnToPrintCode
+        } else if (problemObj.language === 'python') {
+          returnToPrintCode = `\nprint(${problemObj.functionName}(${problemObj.example[i].parameter}))`
+          sourceCode += returnToPrintCode
+        } else if (problemObj.language === 'java') {
+          let startCode = `\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.example[i].parameter}));\n}`
+          sourceCode = startCode + sourceCode + '\n}'
         }
 
-        if (!isJava) sourceCode += returnToPrintCode
         console.log(sourceCode)
 
         setIsLoading(true)
@@ -117,7 +89,13 @@ printReturnValue()
   const onSelect = (language) => {
     setLanguage(language)
     dispatch(addLanguage(language))
-    setValue(CODE_SNIPPETS[language])
+    if (language === 'javascript') {
+      setValue(problemObj.javascriptDefaultCode)
+    } else if (language === 'python') {
+      setValue(problemObj.pythonDefaultCode)
+    } else if (language === 'java') {
+      setValue(problemObj.javaDefaultCode)
+    }
   }
 
   return (
@@ -134,6 +112,7 @@ printReturnValue()
           />
           <CodeEditor
             language={language}
+            defaultCode={defaultCode}
             onSelect={onSelect}
             onMount={onMount}
             value={value}

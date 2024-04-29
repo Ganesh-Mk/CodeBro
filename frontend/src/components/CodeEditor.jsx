@@ -3,8 +3,7 @@ import { Editor } from '@monaco-editor/react'
 import { CODE_SNIPPETS } from '../javascripts/constants'
 import { useSelector } from 'react-redux'
 
-const CodeEditor = ({ language, value, setValue, onMount }) => {
-  const defaultCode = useSelector((state) => state.problemObj.obj.defaultCode)
+const CodeEditor = ({ defaultCode, language, value, setValue, onMount }) => {
   return (
     <Box>
       <HStack spacing={4}>

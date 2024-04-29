@@ -36,16 +36,10 @@ export const AllquesObject = [
       },
     ],
     constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    functionName: 'addTwoNumber',
-    defaultCode: `/**
-* @param {number} a
-* @param {number} b
-* @return {number}
-*/
-
-var addTwoNumber = function(a, b) {
-    return a+b;
-};`,
+    functionName: 'addTwoNumbers',
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\treturn a+b;\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\treturn a+b`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\treturn a+b;\n}`,
   },
   {
     number: 1,

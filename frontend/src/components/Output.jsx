@@ -23,7 +23,7 @@ const Output = ({ isError }) => {
       <Tabs size="md" variant="enclosed">
         <TabList>
           {problemObj.example.map((testCase, i) => (
-            <Tab key={i}>Case {i + 1}</Tab>
+            <Tab key={i}>Case{i + 1}</Tab>
           ))}
         </TabList>
         <TabPanels
