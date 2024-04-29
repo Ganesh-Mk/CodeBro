@@ -47,7 +47,6 @@ function ProblemsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add any functionality you need on form submit
   };
 
   const problemsToShow = filterByDifficulty(selectedValue);

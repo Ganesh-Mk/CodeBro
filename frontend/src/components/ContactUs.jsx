@@ -51,7 +51,7 @@ const ContactUs = () => {
         </div>
         <div className='contactuspart2'>
             <div className='topheading'>
-                <p>Send a Message</p>
+                <p>Give us Feedback</p>
             </div>
             <div className='formPart'>
                 <form style={{display:'flex', flexDirection:'column', gap:'1vw'}}>

@@ -1,0 +1,212 @@
+:root{
+    --header-height: 3rem;
+  
+    /*===== Colors =====*/
+    --first-color: #f8f8f8;
+    --first-color-dark: #e8e2e2;
+    --text-color: #524748;
+    --first-color-light: #7B6F71;
+    --first-color-lighten: #FBF9F9;
+  
+    /*===== Font and typography =====*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 2.5rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+  
+    /*===== Font weight =====*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+  
+    /*===== Margins =====*/
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+  
+    /*===== z index =====*/
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+  }
+    
+  @media screen and (min-width: 768px){
+    :root{
+      --biggest-font-size: 4.5rem;
+      --h1-font-size: 2.25rem;
+      --h2-font-size: 1.5rem;
+      --h3-font-size: 1.25rem;
+      --normal-font-size: 1rem;
+      --small-font-size: .875rem;
+      --smaller-font-size: .813rem;
+    }
+  }
+  
+  /*===== BASE =====*/
+  *,::before,::after{
+    box-sizing: border-box;
+  }
+  
+  html{
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--first-color-lighten);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  h1,h2,h3,ul,p{
+    margin: 0;
+  }
+  
+  h2,h3{
+    font-weight: var(--font-semi-bold);
+  }
+  
+  ul{
+    padding: 0;
+    list-style: none;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4vw;
+
+
+    
+    .logo{
+        font-family: "Potta One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: black;
+    }
+    .code{
+        color: rgb(0, 131, 231);
+    }
+}
+
+.footer__description {
+    color: rgb(65, 62, 62);
+}
+  
+  /*===== CLASS CSS =====*/
+  .section {
+    padding: 4rem 0 2rem;
+  }
+  
+  .section-title, .section-subtitle {
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    margin-bottom: var(--mb-3);
+  }
+  
+  .section-subtitle {
+    display: block;
+    font-size: var(--smaller-font-size);
+    font-weight: var(--font-semi-bold);
+  }
+  
+  /*===== LAYOUT =====*/
+  .bd-container {
+    max-width: 1024px;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+  }
+  
+  .bd-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .l-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: #000;
+  }
+  
+  /*===== FOOTER =====*/
+  .footer {
+    background-color: var(--first-color-dark);
+    color: var(--first-color-lighten);
+    text-align: center;
+  }
+  
+  .footer__container {
+    padding: 3rem 0;
+  }
+  
+  .footer__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--mb-1);
+    font-weight: var(--font-semi-bold);
+  }
+  
+  .footer__description {
+    margin-bottom: var(--mb-3);
+  }
+  
+  .footer__social {
+    margin-bottom: var(--mb-6);
+  }
+  
+  .footer__link {
+    font-size: 1.4rem;
+    color: var(--first-color-lighten);
+    margin: 0 var(--mb-1);
+    transition: .3s;
+  }
+  
+  .footer__link:hover {
+    color: var(--first-color-light);
+  }
+  
+  .footer__copy {
+    font-size: var(--smaller-font-size);
+    color: var(--first-color-light);
+  }
+  
+  /*===== MEDIA QUERIES =====*/
+  @media screen and (min-width: 768px) {
+    body {
+      margin: 0;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .bd-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
