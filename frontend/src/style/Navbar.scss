@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2vw 3vw;
-    border: 1px solid black;
+    // border: 1px solid black;
 
     .codeBroLogo{
         width: 12vw;
@@ -19,7 +19,7 @@
 
         .navItems{
             font-size: 1.2vw;
-            color: black;
+            color: rgb(255, 255, 255);
             text-decoration: none;
         }
     }
@@ -30,7 +30,7 @@
         justify-content: center;
         align-items: center;
         gap: 1vw;
-        border: 1px solid black;
+        border: 2px solid rgb(255, 255, 255);
         padding: .3vw 1vw;
         border-radius: 1vw;
         text-decoration: none;
@@ -40,7 +40,7 @@
         }
         p{
             font-size: 1.2vw;
-            color: black;
+            color: rgb(255, 255, 255);
         }
     }
     

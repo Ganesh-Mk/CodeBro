@@ -1,82 +1,79 @@
-
-
-.entranceContainer{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+}
+.newMainHome {
     width: 100vw;
     height: 100vh;
-    background: rgb(249, 227, 227);
-    display: grid;
-    grid-template-rows: 15% 85%;
-
-
-    .logoContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 4vw;
-
-
-        
-        .logo{
-            font-family: "Potta One", system-ui;
-            font-weight: 400;
-            font-style: normal;
-            color: black;
-        }
-        .code{
-            color: rgb(0, 131, 231);
-        }
-    }
-
-    .container{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-        .left{
-            display: flex;
-            flex-direction: column;
-            padding: 2vw 0 0 5vw;
-            align-items: center;
-
-
-            p{
-                font-size: 2vw;
-                text-align: center;
-                font-family: "Mochiy Pop One", sans-serif;
-            }       
-            
-            h2{
-                font-size: 4vw;
-                font-family: "Mochiy Pop One", sans-serif;
-                margin-bottom: 5vw;
-                font-style: normal;
-                color: black;
-
-
-                span{
-                    font-family: "Mochiy Pop One", sans-serif;
-                    color: rgb(0, 131, 231)
-                }
-            }
-
-            .button{
-                padding: 1vw;
-                font-size: 2vw;
-                text-decoration: none;
-                color: black;
-                border-radius: 0.5vw;
-                display: grid;
-                font-family: "Mochiy Pop One", sans-serif;
-                border: 1px solid black;
-                text-align: center;
-            }
-        }
-
-        .right{
-            img{
-                width: 45vw;
-
-            }
-        }
-    }
-    
+    backdrop-filter: blur(5px);
 }
+.mainHome {
+    width: 100vw;
+    min-height: 100vh;
+    background-color:white;
+    background-image: url('../assets//images/background.jpg');
+    .mainheading {
+        margin-top: 4vw;
+        margin-left: 3vw;
+        // border: 2px solid green;
+        height: auto;
+        line-height: 6.5vw;
+        :nth-child(1) {
+            font-size: 7vw;
+            span {
+                color: rgb(60, 114, 214);
+            }
+            .bro {
+                color: rgb(0, 0, 0);
+            }
+        }
+        :nth-child(2) {
+            font-size: 4.2vw;
+            
+        }
+        :nth-child(3) {
+            // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 1.3vw;
+            font-weight: 200;
+            position: relative;
+            bottom: 1vw;
+        }
+        p {
+            color: white;
+        }
+        
+    }
+}
+.getStartedbtn {
+    // display: flex;
+    // justify-content: start;
+    // align-items: center;
+    // border: 1px solid #eee;
+    padding: 0vw;
+    justify-content: center;
+    .btnn {
+        // border: 2px solid #eee;
+        display: inline-block;
+        margin-left: 4vw;
+        width: auto;
+        margin-top: 2vw;
+        padding: .3vw .6vw;
+        box-shadow: 3px 2px 40px black;
+        background-color: rgb(30, 105, 217);
+        button {
+            margin: 0;
+            width: auto;
+            font-size: 1.3vw;
+            font-weight: 100;
+        }
+    }   
+
+    i {
+        filter: invert(1);
+        cursor: pointer;
+    }
+}
+
+

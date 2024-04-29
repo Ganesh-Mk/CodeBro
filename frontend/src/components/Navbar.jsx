@@ -5,7 +5,7 @@ import '../App.css'
 import { images } from '../javascripts/images'
 import CodeBroLogo from './CodeBroLogo'
 
-function Navbar({ fontColor = 'black' }) {
+function Navbar({ fontColor = 'white', value}) {
   return (
     <div className="navbar">
       <Link
@@ -45,6 +45,7 @@ function Navbar({ fontColor = 'black' }) {
           Leaderboard
         </Link>
       </div>
+      
       <div>
         <Link to="/account" className="navAccContainer">
           <img
