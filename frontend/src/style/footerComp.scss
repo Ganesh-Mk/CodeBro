@@ -180,6 +180,9 @@
   .footer__social {
     margin-bottom: var(--mb-6);
   }
+  i {
+    filter: invert(1);
+  }
   
   .footer__link {
     font-size: 1.4rem;
