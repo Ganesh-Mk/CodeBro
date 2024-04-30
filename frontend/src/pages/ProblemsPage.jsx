@@ -137,7 +137,7 @@ function ProblemsPage() {
       <div className="problemShower">
         {problemsToShow.length > 0 ? (
           problemsToShow.map((problem, index) => (
-            <ProblemDisplayContainer problem={problem} key={index} />
+            <ProblemDisplayContainer value={true} problem={problem} key={index} />
           ))
         ) : (
           <h2>No Problems</h2>

@@ -5,40 +5,22 @@ import { images } from "../javascripts/images";
 import { Link } from "react-router-dom";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
 import AllquesObject from "../javascripts/data";
+import { useDispatch, useSelector } from "react-redux";
+import { setRangeValue, setSolvedProblemsCount } from "../store/rangesSlice";
 
 const HomePage = () => {
-  // State variables to track the range values for each difficulty level
-  const [easyRange, setEasyRange] = useState(0);
-  const [mediumRange, setMediumRange] = useState(0);
-  const [hardRange, setHardRange] = useState(0);
-  const [totalSolved, setTotalSolved] = useState(0);
-  const [sumittedProblems, setSubmittedProblems] = useState([]);
+  const dispatch = useDispatch();
+
+  // Get range values from Redux store
+  const { easy, medium, hard } = useSelector((state) => state.ranges);
+  const solvedProblemsCount = useSelector((state) => state.ranges.solvedProblemsCount);
 
 
   // Function to handle changes in the range inputs
   const handleRangeChange = (e, difficulty) => {
     const newValue = parseInt(e.target.value);
-    switch (difficulty) {
-      case "easy":
-        setEasyRange(newValue);
-        break;
-      case "medium":
-        setMediumRange(newValue);
-        break;
-      case "hard":
-        setHardRange(newValue);
-        break;
-      default:
-        break;
-    }
+    dispatch(setRangeValue({ difficulty, value: newValue }));
   };
-
-  useEffect(() => {
-    const totalSolvedQuestions = AllquesObject.filter((problem) => problem.isSolved === true).length
-    setTotalSolved(totalSolvedQuestions)
-    const SubmittedOnes = AllquesObject.filter((problem) => problem.isSolved === true)
-    setSubmittedProblems(SubmittedOnes)
-  }, [AllquesObject])
 
   // Calculate the range values based on the number of solved problems for each difficulty level
   const calculateRangeValue = (solvedCount, totalCount) => {
@@ -57,6 +39,13 @@ const HomePage = () => {
     return AllquesObject.filter((problem) => problem.difficulty === difficulty)
       .length;
   };
+
+  useEffect(() => {
+    const solvedProblemsCount = AllquesObject.filter(
+      (problem) => problem.isSolved === true
+    ).length;
+    dispatch(setSolvedProblemsCount(solvedProblemsCount));
+  }, [dispatch]);
 
   // Calculate the range values for each difficulty level
   const easySolvedCount = getDifficultySolvedCount("Easy");
@@ -108,7 +97,11 @@ const HomePage = () => {
             </div>
             <div className="problemdisplays">
               {AllquesObject.slice(0, 18).map((problem, index) => (
-                <ProblemDisplayContainer problem={problem} key={index} />
+                <ProblemDisplayContainer
+                  problem={problem}
+                  key={index}
+                  value={true}
+                />
               ))}
             </div>
           </div>
@@ -118,7 +111,7 @@ const HomePage = () => {
           <div className="statShower">
             <div className="statPart1">
               <div className="totalSolved">
-                <p>{totalSolved}</p>
+                <p>{solvedProblemsCount}</p>
                 <p>Solved</p>
               </div>
               <div>
@@ -176,9 +169,16 @@ const HomePage = () => {
               <p>Problem name</p>
             </div>
             <div className="SubmissionProblemShower">
-                {sumittedProblems.map((problem) => (
-                  <ProblemDisplayContainer problem={problem} value={false} fontSize={"1vw"}/>
-                ))} 
+              {
+                AllquesObject.filter((problem) => problem.isSolved).map((problem, index) => (
+                  <ProblemDisplayContainer
+                    problem={problem}
+                    key={index}
+                    value={false}
+                    fontSize={"1vw"}
+                  />
+                ))
+              }
             </div>
           </div>
         </div>

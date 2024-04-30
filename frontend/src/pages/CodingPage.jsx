@@ -1,62 +1,62 @@
-import React, { useRef, useState } from 'react'
-import '../style/CodingPage.scss'
-import '../style/CodeBroLogo.scss'
-import '../javascripts/api'
-import '../javascripts/constants'
-import CodeEditor from '../components/CodeEditor'
-import Description from '../components/Description'
-import Navbar from '../components/Navbar'
-import CodeHeader from '../components/CodeHeader'
-import Output from '../components/Output'
-import { useToast } from '@chakra-ui/react'
-import { executeCode } from '../javascripts/api'
-import { AllquesObject } from '../javascripts/data'
-import { CODE_SNIPPETS } from '../javascripts/constants'
-import { useSelector, useDispatch } from 'react-redux'
-import { addAllOutput, addLanguage } from '../store/problemObjSlice'
-import { useEffect } from 'react'
+import React, { useRef, useState } from "react";
+import "../style/CodingPage.scss";
+import "../style/CodeBroLogo.scss";
+import "../javascripts/api";
+import "../javascripts/constants";
+import CodeEditor from "../components/CodeEditor";
+import Description from "../components/Description";
+import Navbar from "../components/Navbar";
+import CodeHeader from "../components/CodeHeader";
+import Output from "../components/Output";
+import { useToast } from "@chakra-ui/react";
+import { executeCode } from "../javascripts/api";
+import { AllquesObject } from "../javascripts/data";
+import { CODE_SNIPPETS } from "../javascripts/constants";
+import { useSelector, useDispatch } from "react-redux";
+import { addAllOutput, addLanguage } from "../store/problemObjSlice";
+import { useEffect } from "react";
 
 function CodingPage() {
-  const editorRef = useRef()
-  const toast = useToast()
-  const dispatch = useDispatch()
-  const [value, setValue] = useState('')
-  const [language, setLanguage] = useState('javascript')
-  const [output, setOutput] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [allOutput, setAllOutput] = useState([])
-  const [correctCases, setCorrectCases] = useState([])
-  const problemObj = useSelector((state) => state.problemObj.obj)
+  const editorRef = useRef();
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+  const [language, setLanguage] = useState("javascript");
+  const [output, setOutput] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [allOutput, setAllOutput] = useState([]);
+  const [correctCases, setCorrectCases] = useState([]);
+  const problemObj = useSelector((state) => state.problemObj.obj);
 
   const runCode = async () => {
-    setAllOutput([])
-    dispatch(addAllOutput([]))
+    setAllOutput([]);
+    dispatch(addAllOutput([]));
 
-    let returnToPrintCode = ''
-    let startingCode = ``
-    let isJava = false
+    let returnToPrintCode = "";
+    let startingCode = ``;
+    let isJava = false;
     for (let i = 0; i < problemObj.example.length; i++) {
-      let sourceCode = editorRef.current.getValue()
-      if (!sourceCode) return
+      let sourceCode = editorRef.current.getValue();
+      if (!sourceCode) return;
       try {
-        if (problemObj.language === 'java') {
-          isJava = true
+        if (problemObj.language === "java") {
+          isJava = true;
           startingCode = `
           public class HelloWorld {
-          `
-          startingCode += sourceCode
+          `;
+          startingCode += sourceCode;
           returnToPrintCode = `
           public static void main(String[] args) {
             Object result = ${problemObj.functionName}(${problemObj.example[i].parameter});
             System.out.println(result);
           }
-          `
+          `;
 
-          startingCode += returnToPrintCode
-          sourceCode = startingCode
+          startingCode += returnToPrintCode;
+          sourceCode = startingCode;
         } else {
-          if (problemObj.language === 'javascript') {
+          if (problemObj.language === "javascript") {
             returnToPrintCode = `
             function printReturnValue(){
               let result = ${problemObj.functionName}(${problemObj.example[i].parameter});
@@ -64,8 +64,8 @@ function CodingPage() {
               else console.log("Return the answer");
             }
             printReturnValue();
-          `
-          } else if (problemObj.language === 'python') {
+          `;
+          } else if (problemObj.language === "python") {
             returnToPrintCode = `
             
 def printReturnValue():
@@ -75,50 +75,50 @@ def printReturnValue():
   else:
       print("Return the answer")
 printReturnValue()
-              `
+              `;
           }
         }
 
-        if (!isJava) sourceCode += returnToPrintCode
-        console.log(sourceCode)
+        if (!isJava) sourceCode += returnToPrintCode;
+        console.log(sourceCode);
 
-        setIsLoading(true)
-        const { run: result } = await executeCode(language, sourceCode)
-        setOutput(result.output.split('\n'))
+        setIsLoading(true);
+        const { run: result } = await executeCode(language, sourceCode);
+        setOutput(result.output.split("\n"));
         setAllOutput((prev) => [
           ...prev,
-          ...result.output.split('\n').filter((value) => value !== ''),
-        ])
+          ...result.output.split("\n").filter((value) => value !== ""),
+        ]);
 
-        result.stderr ? setIsError(true) : setIsError(false)
+        result.stderr ? setIsError(true) : setIsError(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
         toast({
-          title: 'An error occurred.',
-          description: error.message || 'Unable to run code',
-          status: 'error',
+          title: "An error occurred.",
+          description: error.message || "Unable to run code",
+          status: "error",
           duration: 6000,
-        })
+        });
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    dispatch(addAllOutput(allOutput))
-  }, [allOutput])
+    dispatch(addAllOutput(allOutput));
+  }, [allOutput]);
 
   const onMount = (editor) => {
-    editorRef.current = editor
-    editor.focus()
-  }
+    editorRef.current = editor;
+    editor.focus();
+  };
 
   const onSelect = (language) => {
-    setLanguage(language)
-    dispatch(addLanguage(language))
-    setValue(CODE_SNIPPETS[language])
-  }
+    setLanguage(language);
+    dispatch(addLanguage(language));
+    setValue(CODE_SNIPPETS[language]);
+  };
 
   return (
     <div className="codingPageBox">
@@ -148,7 +148,7 @@ printReturnValue()
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CodingPage
+export default CodingPage;
