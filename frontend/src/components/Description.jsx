@@ -3,15 +3,12 @@ import Example from './Example'
 import '../style/CodingPage.scss'
 import { useSelector } from 'react-redux'
 import Constraints from './Constraints'
+import CodeInfoContainer from './CodeInfoContainer'
 
 function Description() {
   const problemObj = useSelector((state) => state.problemObj.obj)
   return (
     <div className="left">
-      <div className="leftHeader">
-        <p>Description</p>
-        <p>{problemObj.isSolved ? 'Solved' : ''}</p>
-      </div>
       <div className="scroller">
         <p className="que">
           <span>{problemObj.number}</span>. {problemObj.heading}

@@ -3,7 +3,7 @@ export const AllquesObject = [
     number: 1,
     heading: 'Add two numbers',
     difficulty: 'Easy',
-    isSolved: false,
+    isSolved: true,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -14,6 +14,7 @@ export const AllquesObject = [
     javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
     pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
     javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
+    isSubmitted: false,
     example: [
       {
         number: '1',
@@ -38,6 +39,110 @@ export const AllquesObject = [
         parameter: '200,300',
         explanation: 'a + b = 500',
         image: null,
+      },
+    ],
+    testCaseOutputs: [],
+    testCaseResults: [],
+    cases: [
+      {
+        parameter: '10,5',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '3,2',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '200,300',
+        expectedOutput: '500',
+        userOutput: null,
+      },
+      {
+        parameter: '0,0',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-5,5',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-10,-20',
+        expectedOutput: '-30',
+        userOutput: null,
+      },
+      {
+        parameter: '1000000000,1',
+        expectedOutput: '1000000001',
+        userOutput: null,
+      },
+      {
+        parameter: '999999999,999999999',
+        expectedOutput: '1999999998',
+        userOutput: null,
+      },
+      {
+        parameter: '123456789,987654321',
+        expectedOutput: '1111111110',
+        userOutput: null,
+      },
+      {
+        parameter: '2,3',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '7,8',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '17,23',
+        expectedOutput: '40',
+        userOutput: null,
+      },
+      {
+        parameter: '100,100',
+        expectedOutput: '200',
+        userOutput: null,
+      },
+      {
+        parameter: '50,50',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '123,456',
+        expectedOutput: '579',
+        userOutput: null,
+      },
+      {
+        parameter: '-100,200',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '999,-999',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-123,-456',
+        expectedOutput: '-579',
+        userOutput: null,
+      },
+      {
+        parameter: '0,999',
+        expectedOutput: '999',
+        userOutput: null,
+      },
+      {
+        parameter: '1,0',
+        expectedOutput: '1',
+        userOutput: null,
       },
     ],
   },

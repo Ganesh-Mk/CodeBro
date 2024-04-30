@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
+import '../style/Output.scss'
 
 function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
   return (
@@ -14,7 +15,7 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
         borderRadius={4}
         overflow="auto"
       >
-        {testCaseInput}
+        <p>{testCaseInput}</p>
       </Box>
       <p>Expected output: </p>
       <Box
@@ -26,7 +27,7 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
         borderRadius={4}
         overflow="auto"
       >
-        {testCaseOutput}
+        <p>{testCaseOutput}</p>
       </Box>
       <p>Your output: </p>
       <Box
@@ -39,7 +40,7 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
         borderColor={isError ? 'red.500' : 'grey'}
         overflow="auto"
       >
-        {output ? output : 'Click "Run Code" to see the output'}
+        <p>{output ? output : 'Click "Run Code" to see the output'}</p>
       </Box>
     </div>
   )
