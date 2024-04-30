@@ -14,7 +14,7 @@
     .container {
         height: 90vh; 
         display: grid;
-        grid-template-columns: 45% 55%;
+        grid-template-columns: 40% 60%;
 
         .left {
             padding: 20px;
@@ -39,22 +39,17 @@
             }
 
             .que {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 margin-bottom: 20px;
             }
 
             .desc {
                 color: white;
                 line-height: 2;
+                font-size: 1.4vw;
             }
 
-            .constraints {
-                margin-top: 10vh;
-
-                h2 {
-                    margin: 10px 0 20px 0;
-                }
-            }
+            
         }
 
        

@@ -2,8 +2,14 @@ import '../style/CodeHeader.scss'
 import LanguageSelector from './LanguageSelector'
 import { Button } from '@chakra-ui/react'
 
-function CodeHeader({ language, isLoading, runCode, onSelect }) {
-  function submitCode() {}
+function CodeHeader({
+  language,
+  isLoadingSubmit,
+  isLoading,
+  runCode,
+  onSelect,
+  submitCode,
+}) {
   return (
     <div className="codeHeader" style={{ width: '100%' }}>
       <LanguageSelector language={language} onSelect={onSelect} />
@@ -27,7 +33,7 @@ function CodeHeader({ language, isLoading, runCode, onSelect }) {
           h={8}
           mb={3}
           fontSize={17}
-          isLoading={isLoading}
+          isLoading={isLoadingSubmit}
           onClick={submitCode}
         >
           Submit

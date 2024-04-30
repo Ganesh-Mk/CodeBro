@@ -13,6 +13,7 @@ const CodeEditor = ({ language, value, setValue, onMount }) => {
               minimap: {
                 enabled: false,
               },
+              fontSize: 16,
             }}
             height="50vh"
             theme="vs-dark"
