@@ -19,6 +19,7 @@ import {
   addLanguage,
 } from '../store/problemObjSlice'
 import { useEffect } from 'react'
+import CodeInfoContainer from '../components/CodeInfoContainer'
 
 function CodingPage() {
   const editorRef = useRef()
@@ -32,14 +33,12 @@ function CodingPage() {
   const [allResult, setAllResult] = useState([])
   const problemObj = useSelector((state) => state.problemObj.obj)
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
-  const [allResultFlag, setAllResultFlag] = useState(false)
 
   const runCode = async () => {
     setAllOutput([])
     dispatch(addAllOutput([]))
     setAllResult([])
     dispatch(addAllResult([]))
-    setAllResultFlag(false)
 
     let returnToPrintCode = ''
 
@@ -93,7 +92,6 @@ function CodingPage() {
         setIsLoading(false)
       }
     }
-    setAllResultFlag(true)
   }
 
   useEffect(() => {
@@ -102,7 +100,7 @@ function CodingPage() {
 
   useEffect(() => {
     dispatch(addAllResult(allResult))
-  }, [allResultFlag])
+  }, [allResult])
 
   const onMount = (editor) => {
     editorRef.current = editor
@@ -125,7 +123,7 @@ function CodingPage() {
     <div className="codingPageBox">
       <Navbar fontColor="white" />
       <div className="container">
-        <Description />
+        <CodeInfoContainer />
         <div>
           <CodeHeader
             onSelect={onSelect}

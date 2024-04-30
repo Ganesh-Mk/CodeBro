@@ -15,6 +15,7 @@ import WrongIcon from './WrongIcon'
 const Output = ({ isError }) => {
   const problemObj = useSelector((state) => state.problemObj.obj)
 
+  console.log(problemObj.allResult)
   return (
     <>
       <Tabs size="md" isFitted variant="enclosed">
@@ -32,7 +33,13 @@ const Output = ({ isError }) => {
               <p>Case {i + 1}</p>
               {problemObj.allResult.length > 0 ? (
                 <p>
-                  {problemObj.allResult[i] ? <CorrectIcon /> : <WrongIcon />}
+                  {problemObj.allResult[i] === true ? (
+                    <CorrectIcon />
+                  ) : problemObj.allResult[i] === false ? (
+                    <WrongIcon />
+                  ) : (
+                    ''
+                  )}
                 </p>
               ) : (
                 ''

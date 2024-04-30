@@ -3,7 +3,7 @@ export const AllquesObject = [
     number: 1,
     heading: 'Add two numbers',
     difficulty: 'Easy',
-    isSolved: false,
+    isSolved: true,
     language: 'javascript',
     image: null,
     allOutput: [],
