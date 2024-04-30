@@ -1,0 +1,18 @@
+.codeLeftHeader{
+    margin-top: 2vw;
+    padding: 0 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+        font-size: 1.3vw;
+        border: 1px solid rgb(163, 163, 163);
+        padding: .2vw 1vw;
+        border-radius: 10vw;
+    }
+    h4{
+        font-size: 1.3vw;
+        color: yellowgreen;
+    }
+}

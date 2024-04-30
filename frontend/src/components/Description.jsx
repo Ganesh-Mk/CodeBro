@@ -9,8 +9,6 @@ function Description() {
   const problemObj = useSelector((state) => state.problemObj.obj)
   return (
     <div className="left">
-      <CodeInfoContainer />
-
       <div className="scroller">
         <p className="que">
           <span>{problemObj.number}</span>. {problemObj.heading}
