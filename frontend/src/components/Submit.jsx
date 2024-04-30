@@ -16,7 +16,7 @@ function Submit({ isLoadingSubmit }) {
         mb={8}
         fontSize={17}
         isLoading={isLoadingSubmit}
-        loadingText="Checking for all testcases..."
+        loadingText="Checking for all test cases..."
         colorScheme="green"
       >
         {problemObj.testCaseResults.includes(false)
