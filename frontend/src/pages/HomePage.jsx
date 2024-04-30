@@ -11,30 +11,25 @@ import { setRangeValue, setSolvedProblemsCount } from "../store/rangesSlice";
 const HomePage = () => {
   const dispatch = useDispatch();
 
-  // Get range values from Redux store
   const { easy, medium, hard } = useSelector((state) => state.ranges);
   const solvedProblemsCount = useSelector((state) => state.ranges.solvedProblemsCount);
 
 
-  // Function to handle changes in the range inputs
   const handleRangeChange = (e, difficulty) => {
     const newValue = parseInt(e.target.value);
     dispatch(setRangeValue({ difficulty, value: newValue }));
   };
 
-  // Calculate the range values based on the number of solved problems for each difficulty level
   const calculateRangeValue = (solvedCount, totalCount) => {
     return (solvedCount / totalCount) * 100;
   };
 
-  // Get the count of solved problems for each difficulty level
   const getDifficultySolvedCount = (difficulty) => {
     return AllquesObject.filter(
       (problem) => problem.difficulty === difficulty && problem.isSolved
     ).length;
   };
 
-  // Get the total count of problems for each difficulty level
   const getDifficultyTotalCount = (difficulty) => {
     return AllquesObject.filter((problem) => problem.difficulty === difficulty)
       .length;
@@ -47,7 +42,6 @@ const HomePage = () => {
     dispatch(setSolvedProblemsCount(solvedProblemsCount));
   }, [dispatch]);
 
-  // Calculate the range values for each difficulty level
   const easySolvedCount = getDifficultySolvedCount("Easy");
   const mediumSolvedCount = getDifficultySolvedCount("Medium");
   const hardSolvedCount = getDifficultySolvedCount("Hard");
