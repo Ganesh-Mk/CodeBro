@@ -14,7 +14,9 @@ import phone from '../assets/images/phone.png'
 import mail from '../assets/images/mail.png'
 import background from '../assets/images/background.jpg'
 import google from '../assets/images/google.png'
-
+import java from '../assets/images/java.png'
+import js from '../assets/images/js.png'
+import python from '../assets/images/python.png'
 
 
 export const images = {
@@ -34,4 +36,7 @@ export const images = {
   phone,
   background,
   google,
+  java,
+  js,
+  python,
 }

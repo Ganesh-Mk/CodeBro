@@ -25,19 +25,19 @@ function ProblemsPage() {
       );
     }
 
-    if (selectedTopic !== "All") {
-      const lowerCaseSearchTerm = selectedTopic.toLowerCase();
-      if (lowerCaseSearchTerm === "solved") {
+    if (selectedTopic && selectedTopic.toLowerCase() !== "all") {
+      const lowerCaseSelectedTopic = selectedTopic.toLowerCase();
+      if (lowerCaseSelectedTopic === "solved") {
         filteredProblems = filteredProblems.filter((problem) =>
           problem.isSolved === true
         );
-      } else if (lowerCaseSearchTerm === "unsolved") {
+      } else if (lowerCaseSelectedTopic === "unsolved") {
         filteredProblems = filteredProblems.filter((problem) =>
           problem.isSolved === false
         );
       } else {
         filteredProblems = filteredProblems.filter((problem) =>
-          problem.topic.toLowerCase().includes(lowerCaseSearchTerm)
+          problem.topic && problem.topic.toLowerCase() === lowerCaseSelectedTopic
         );
       }
     }
