@@ -1,9 +1,5 @@
 * {
-  p {
-    color: white;
-    font-weight: 100;
-  }
-  h1 {
+  p{
     color: white;
   }
 }
@@ -30,6 +26,7 @@
     // border: 2px solid red;
     padding: 0.8vw 1vw;
     p {
+      color: #ffffff;
       font-size: 1.3vw;
     }
   }
@@ -54,6 +51,9 @@
       img {
         width: 4vw;
       }
+      p{
+        color: white;
+      }
       
     }
     .box:hover {
@@ -64,6 +64,7 @@
   .head2 {
     border-bottom: 2px solid rgb(143, 138, 138);
     font-size: 1.3vw;
+
     padding: 0.4vw 1vw;
     display: flex;
     justify-content: space-between;
@@ -78,6 +79,9 @@
       // border: 2px solid white;
       transition: ease-in .3s;
       background-color: rgb(26, 98, 222);
+    }
+    p{
+      color: #ffffff;
     }
     button:hover {
       box-shadow: 1px 1px 8px #dde8fd;
@@ -100,6 +104,9 @@
         justify-content: center;
         align-items: center;
         gap: 13vw;
+        p{
+          color: #ffffff;
+        }
       }
     }
   }
@@ -159,9 +166,15 @@
         }
         p {
           font-size: 2vw;
+          color: #ffffff;
         }
       }
     }
+  }
+}
+.Solvedhead {
+  p{
+    color: #ffffff;
   }
 }
 .statPart2 {
@@ -184,6 +197,9 @@
   .SubmissionHead {
     display: flex;
     justify-content: center;
+    p{
+      color: #ffffff;
+    }
   }
   .SubmissionStatusBar {
     // margin-top: vw;
@@ -193,6 +209,7 @@
     gap: 12vw;
     p {
       font-size: 1vw;
+      color: #ffffff;
     }
   }
   .SubmissionProblemShower {

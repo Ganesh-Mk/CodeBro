@@ -108,7 +108,7 @@ const HomePage = () => {
                 <p>{solvedProblemsCount}</p>
                 <p>Solved</p>
               </div>
-              <div>
+              <div className="Solvedhead">
                 <p>Solved Problems</p>
               </div>
             </div>
