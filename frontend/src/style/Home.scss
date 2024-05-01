@@ -1,0 +1,241 @@
+* {
+  p{
+    color: white;
+  }
+}
+.home {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #1a1a1a;
+  .hori {
+    width: 100vw;
+    border: 1px solid #ffffff;
+  }
+}
+.flexerr {
+  display: flex;
+}
+
+.left {
+  border-right: 2px solid rgb(240, 240, 240);
+  height: 90.9vh;
+  margin-right: .5vw;
+  padding: 0.2vw 0.8vw;
+  width: 79vw;
+  .head1 {
+    // border: 2px solid red;
+    padding: 0.8vw 1vw;
+    p {
+      color: #ffffff;
+      font-size: 1.3vw;
+    }
+  }
+  .languages {
+    border-bottom: 2px solid rgb(161, 156, 156);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .box {
+      margin-top: 1vw;
+      cursor: pointer;
+      box-shadow: -1px -1px 12px #729feb;
+      margin-bottom: 1vw;
+      border: 2px solid rgb(232, 230, 230);
+      padding: 0.6vw 0.8vw;
+      border-radius: 0.5vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      transition: ease-in .3s;
+      img {
+        width: 4vw;
+      }
+      p{
+        color: white;
+      }
+      
+    }
+    .box:hover {
+      box-shadow: -1px -1px 15px #dde8fd;
+      background-color: #000000;
+    }
+  }
+  .head2 {
+    border-bottom: 2px solid rgb(143, 138, 138);
+    font-size: 1.3vw;
+
+    padding: 0.4vw 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vw;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-weight: 200;
+      // border: 2px solid white;
+      transition: ease-in .3s;
+      background-color: rgb(26, 98, 222);
+    }
+    p{
+      color: #ffffff;
+    }
+    button:hover {
+      box-shadow: 1px 1px 8px #dde8fd;
+      
+    }
+  }
+
+  .problemsShower {
+    // border: 2px solid rgb(0, 255, 0);
+    height: calc(100vh - 43.5vh);
+    .levelss {
+      // margin-top: 1vw;
+      // border: 2px solid red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.2vw 0.8vw;
+      .levelspart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 13vw;
+        p{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .problemdisplays {
+    border: 2px solid rgb(255, 255, 255);
+    height: calc(100vh - 51vh);
+    padding: 0.2vw 1vw;
+    margin: 0.5vw;
+    border-radius: 0.5vw;
+    overflow-y: scroll;
+  }
+  .problemdisplays::-webkit-scrollbar {
+    width: 0.6vw;
+  }
+
+  .problemdisplays::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 3vw;
+  }
+
+  .problemdisplays::-webkit-scrollbar-thumb {
+    background: #adff2f;
+    border-radius: 5px;
+  }
+
+  .problemdisplays::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+.right {
+  width: 24vw;
+  // padding: .3vw;
+  // border: 2px solid red;
+  .statShower {
+    padding: 1vw;
+    // border: 2px solid yellow;
+    box-shadow: -1px -1px 12px #729feb;
+    border-radius: .8vw;
+    margin-right: .3vw;
+    margin-top: .5vw;
+    .statPart1 {
+      display: flex;
+      justify-content: center;
+      gap: 1vw;
+      align-items: center;
+      .totalSolved {
+        border: 2px solid white;
+        padding: 1vw 1.6vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 50%;
+        :nth-child(2) {
+          font-size: 1.2vw;
+        }
+        p {
+          font-size: 2vw;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+.Solvedhead {
+  p{
+    color: #ffffff;
+  }
+}
+.statPart2 {
+  margin-top: 1vw;
+  .rangespart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    label {
+      color: white;
+    }
+  }
+}
+.SubmissionShower {
+  margin-top: 1vw;
+  padding: 0vw .4vw;
+  // border: 2px solid red;
+  border-radius: .6vw;
+  .SubmissionHead {
+    display: flex;
+    justify-content: center;
+    p{
+      color: #ffffff;
+    }
+  }
+  .SubmissionStatusBar {
+    // margin-top: vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12vw;
+    p {
+      font-size: 1vw;
+      color: #ffffff;
+    }
+  }
+  .SubmissionProblemShower {
+    padding: 0vw .2vw;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: .6vw;
+    box-shadow: -1px -1px 12px #729feb;
+    overflow-y: scroll;
+    height: 44vh;
+  }
+  .SubmissionProblemShower::-webkit-scrollbar {
+    width: 0.6vw;
+  }
+
+  .SubmissionProblemShower::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 50%;
+    border-radius: 3vw;
+  }
+
+  .SubmissionProblemShower::-webkit-scrollbar-thumb {
+    background: #adff2f;
+    border-radius: 5vw;
+  }
+
+  .SubmissionProblemShower::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}

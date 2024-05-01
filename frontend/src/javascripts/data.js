@@ -193,6 +193,82 @@ export const AllquesObject = [
         image: null,
       },
     ],
+
+
+    constraints: [
+      '2 <= nums.length <= 10^4',
+      '-10^9 <= nums[i] <= 10^9',
+      '-10^9 <= target <= 10^9',
+    ],
+    cases: [
+      {
+        input: 'nums = [2,7,11,15], target = 9',
+        output: '10',
+      },
+      {
+        input: 'nums = [3,7,11,15], target = 10',
+        output: '[3,1]',
+      },
+      {
+        input: 'nums = [2,7,11,15], target = 9',
+        output: '[7,2]',
+      },
+      {
+        input: 'nums = [3,7,11,15], target = 10',
+        output: '[3,1]',
+      },
+    ],
+    functionName: 'twoSum',
+    parameter: '[2,7,11,15], 9',
+    defaultCode: `/**
+* @param {number[]} nums
+* @param {number} target
+* @return {number[]}
+*/
+
+var twoSum = function(nums, target) {
+    return 10;
+};`,
+  },
+  {
+    number: 2,
+    heading: 'Add Two Numbers',
+    difficulty: 'Medium',
+    description:
+      'You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.',
+    example: [
+      {
+        number: '1',
+        input: '(2 -> 4 -> 3) + (5 -> 6 -> 4)',
+        output: '7 -> 0 -> 8',
+        explanation: '',
+        image: null,
+      },
+    ],
+    constraints: [
+      'The number of nodes in each linked list is in the range [1, 100].',
+      '0 <= Node.val <= 9.',
+      'It is guaranteed that the list represents a number that does not have leading zeros.',
+    ],
+    cases: [
+      {
+        input: '(2 -> 4 -> 3) + (5 -> 6 -> 4)',
+        output: '7 -> 0 -> 8',
+      },
+      {
+        input: '(0) + (0)',
+        output: '0',
+      },
+      {
+        input: '(9 -> 9 -> 9 -> 9 -> 9 -> 9 -> 9) + (9 -> 9 -> 9 -> 9)',
+        output: '8 -> 9 -> 9 -> 9 -> 0 -> 0 -> 0 -> 1',
+      },
+    ],
+    image: null,
+    isSolved: false,
+    image: 'null',
+    topic: 'Array',
+
   },
   {
     number: 3,
@@ -235,6 +311,28 @@ export const AllquesObject = [
         image: null,
       },
     ],
+
+
+    constraints: ['s consists of English letters, digits, symbols and spaces.'],
+    cases: [
+      {
+        input: '"abcabcbb"',
+        output: '3',
+      },
+      {
+        input: '"bbbbb"',
+        output: '1',
+      },
+      {
+        input: '"pwwkew"',
+        output: '3',
+      },
+    ],
+    isSolved: false,
+    image: null,
+    image: 'null',
+    topic: 'Array',
+
   },
 
   {
@@ -276,7 +374,6 @@ export const AllquesObject = [
     ],
     isSolved: false,
     image: null,
-    isSolved: false,
     image: 'null',
     topic: 'Binary Search',
   },
@@ -313,10 +410,8 @@ export const AllquesObject = [
         output: '"a"',
       },
     ],
-    isSolved: false,
     image: null,
     isSolved: true,
-    image: 'null',
     topic: 'LinkedList',
   },
   {
@@ -353,7 +448,7 @@ export const AllquesObject = [
         output: '"A"',
       },
     ],
-    isSolved: false,
+    // isSolved: false,
     image: null,
     isSolved: true,
     image: 'null',
@@ -389,9 +484,8 @@ export const AllquesObject = [
         output: '21',
       },
     ],
-    isSolved: false,
     image: null,
-    isSolved: false,
+    isSolved: true,
     image: 'null',
     topic: 'Tree',
   },
@@ -425,9 +519,8 @@ export const AllquesObject = [
         output: 'false',
       },
     ],
-    isSolved: false,
     image: null,
-    isSolved: false,
+    isSolved: true,
     image: 'null',
     topic: 'Binary Search',
   },
@@ -508,7 +601,7 @@ export const AllquesObject = [
       { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
       { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
     ],
-    isSolved: false,
+    isSolved: true,
     image: 'null',
     topic: 'Array',
   },

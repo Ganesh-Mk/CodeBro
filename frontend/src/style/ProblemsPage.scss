@@ -1,211 +1,203 @@
-$darkMode: #1A1A1A;
+$darkMode: #1a1a1a;
 
 .whole-conatiner {
-    min-height: 100vh;
-    width: 100vw;
-    background-color: $darkMode; 
-
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $darkMode;
 }
 .heading {
-    display: flex;
-    justify-content: center;
-    // margin-top: .5vw;
-    font-size: 1.8vw;
-    background-color: $darkMode;
-    color: white;
-    > p {
-        margin-top: 1vw;
-    }
+  display: flex;
+  justify-content: center;
+  // margin-top: .5vw;
+  font-size: 1.8vw;
+  background-color: $darkMode;
+  color: white;
+  > p {
+    margin-top: 1vw;
+  }
 }
 .filterdropdownShow {
-    display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1vw;
-        width: 12vw;
-        margin-top: 1.5vw;
-    > p {
-        font-size: 1.2vw;
-        // margin-top: 1vw;
-    }
-    
-    > select {
-        color: rgb(234, 234, 234);
-        border-radius: .5vw;
-        min-width:7vw;
-        border: 2px solid white;
-        height: 2vw;
-        font-size: 1vw;
-        background-color: $darkMode;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  width: 12vw;
+  margin-top: 1.5vw;
+  > p {
+    font-size: 1.2vw;
+    // margin-top: 1vw;
+  }
+
+  > select {
+    color: rgb(234, 234, 234);
+    border-radius: 0.5vw;
+    min-width: 7vw;
+    border: 2px solid white;
+    height: 2vw;
+    font-size: 1vw;
+    background-color: $darkMode;
+  }
 }
 .dropDownShow {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1vw;
-        width: 12vw;
-        margin-top: 1.5vw;
-        // border: 2px solid red;
-        > p {
-            font-size: 1.2vw;
-            // margin-top: 1vw;
-        }
-        > select {
-            color: rgb(234, 234, 234);
-            border-radius: .5vw;
-            width: 6vw;
-            border: 2px solid white;
-            height: 2vw;
-            font-size: 1vw;
-            background-color: $darkMode;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  width: 12vw;
+  margin-top: 1.5vw;
+  // border: 2px solid red;
+  > p {
+    font-size: 1.2vw;
+    // margin-top: 1vw;
+  }
+  > select {
+    color: rgb(234, 234, 234);
+    border-radius: 0.5vw;
+    width: 6vw;
+    border: 2px solid white;
+    height: 2vw;
+    font-size: 1vw;
+    background-color: $darkMode;
+  }
 }
 
 .submitbutton {
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // border: 2px solid red;
-    margin-top: 0;
-    width: 2vw;
-    img {
-        width: 1.4vw;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 2px solid red;
+  margin-top: 0;
+  width: 2vw;
+  img {
+    width: 1.4vw;
 
-        cursor: pointer;
-        margin-top: 0;
-        filter: invert(1);
-    }
+    cursor: pointer;
+    margin-top: 0;
+    filter: invert(1);
+  }
 }
 
-
 .SearchBarPart {
-    // border: 2px solid red;
-    background-color: $darkMode;
-    color: white;
+  // border: 2px solid red;
+  background-color: $darkMode;
+  color: white;
 
-    // margin-top: 1vw;
+  // margin-top: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  .SearchBarShow {
+    // border: 2px solid rgb(70, 15, 198);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10vw;
-    .SearchBarShow {
-    // border: 2px solid rgb(70, 15, 198);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1.5vw;
-        form {
-            display: flex;
-            
-            input {
-                flex: 1;
-                width: 25vw;
-                height: 2vw;
-                font-size: 1.3vw;
-                padding: .2vw .6vw;
-                border: none;
-                box-shadow: 1px 4px 16px rgba(114, 113, 113, 0.539);
-                border-radius: .5vw;
-                // border: 2px solid rgb(255, 217, 0);
-            }
-        }
+    margin-top: 1.5vw;
+    form {
+      display: flex;
+
+      input {
+        flex: 1;
+        width: 25vw;
+        height: 2vw;
+        font-size: 1.3vw;
+        padding: 0.2vw 0.6vw;
+        border: none;
+        box-shadow: 1px 4px 16px rgba(114, 113, 113, 0.539);
+        border-radius: 0.5vw;
+        // border: 2px solid rgb(255, 217, 0);
+      }
     }
+  }
 }
 
 ::placeholder {
-    font-size: 1vw;
-    padding: .2vw .6vw;
+  font-size: 1vw;
+  padding: 0.2vw 0.6vw;
 }
 
 .searchbarpart3 {
-    margin-top: 1.5vw;
-    img {
-        width: 1.8vw;
-    }
-    button {
-        cursor: pointer;
-        background-color: greenyellow;
-        padding: .2vw .7vw;
-        border-radius: .4vw;
-        color: black;
-        font-size: .8vw;
-        font-weight: 600;
-        display: flex;
-        border:none;
-        gap: .3vw;
-    }
-    .searchbarpart3btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 0;
-    }
+  margin-top: 1.5vw;
+  img {
+    width: 1.8vw;
+  }
+  button {
+    cursor: pointer;
+    background-color: greenyellow;
+    padding: 0.2vw 0.7vw;
+    border-radius: 0.4vw;
+    color: black;
+    font-size: 0.8vw;
+    font-weight: 600;
+    display: flex;
+    border: none;
+    gap: 0.3vw;
+  }
+  .searchbarpart3btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
 }
 .levels {
-    // margin-top: 1vw;
-    padding: 0vw 2vw;
+  // margin-top: 1vw;
+  padding: 0vw 2vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: $darkMode;
+  .levelspart1 {
     display: flex;
-    justify-content: space-between;
-    background-color: $darkMode;
-    .levelspart1 {
-        display: flex;
-        gap: 10vw;
-        margin-top: 1.5vw;
-        margin-bottom: 1.5vw;
-    }
-    color: white;
-    .levelspart2 {
-        display: flex;
-        gap: 16vw;
-        margin-top: 1.5vw;
-
-    }
+    gap: 10vw;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+  }
+  color: white;
+  .levelspart2 {
+    display: flex;
+    gap: 16vw;
+    margin-top: 1.5vw;
+  }
 }
 .horizontallinediv {
-    background-color: #1A1A1A;
+  background-color: #1a1a1a;
 }
 .horizontalline {
-    border: 1px solid rgb(255, 255, 255);
-    // margin-top: .5vw;
+  border: 1px solid rgb(255, 255, 255);
+  // margin-top: .5vw;
 }
 
 .problemShower {
-//    margin-top: 2vw;
-//    border: 2px solid red;
-//    margin: 1vw 1vw 0vw 1vw; 
+  //    margin-top: 2vw;
+  //    border: 2px solid red;
+  //    margin: 1vw 1vw 0vw 1vw;
 
-   height: 68.5vh;
-   overflow-y: scroll;
-   padding: 0vw 1vw;
-   background-color: $darkMode; 
+  height: 68.5vh;
+  overflow-y: scroll;
+  padding: 0vw 1vw;
+  background-color: $darkMode;
 
-    h2 {
-        color: white;
-        position: relative;
-        right: -45vw;
-        top: 20vh;
-
-    }
-
+  h2 {
+    color: white;
+    position: relative;
+    right: -45vw;
+    top: 20vh;
+  }
 }
 .problemShower::-webkit-scrollbar {
-    width: 10px; /* width of the scrollbar */
-  }
-  
-  .problemShower::-webkit-scrollbar-track {
-    background: $darkMode; /* color of the track */
-  }
-  
-  .problemShower::-webkit-scrollbar-thumb {
-    background: #ADFF2F; /* color of the thumb */
-    border-radius: 5px; /* roundness of the thumb */
-  }
-  
-  .problemShower::-webkit-scrollbar-thumb:hover {
-    background: #555; /* color of the thumb on hover */
-  }
+  width: 10px; /* width of the scrollbar */
+}
 
+.problemShower::-webkit-scrollbar-track {
+  background: $darkMode; /* color of the track */
+}
 
+.problemShower::-webkit-scrollbar-thumb {
+  background: #adff2f; /* color of the thumb */
+  border-radius: 5px; /* roundness of the thumb */
+}
 
+.problemShower::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the thumb on hover */
+}
