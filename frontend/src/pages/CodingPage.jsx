@@ -50,15 +50,43 @@ function CodingPage() {
       let sourceCode = editorRef.current.getValue()
       if (!sourceCode) return
       try {
-        if (problemObj.language === 'javascript') {
-          returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`
-          sourceCode += returnToPrintCode
-        } else if (problemObj.language === 'python') {
-          returnToPrintCode = `\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`
-          sourceCode += returnToPrintCode
-        } else if (problemObj.language === 'java') {
-          let startCode = `\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.cases[i].parameter}));\n}`
+        if (
+          problemObj.language === 'java' &&
+          problemObj.returnType === 'array'
+        ) {
+          let para = problemObj.cases[i].parameter.slice(
+            1,
+            problemObj.cases[i].parameter.length - 1,
+          )
+          let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
+              int[] arr = {${para}};
+        \t    int[] result = ${problemObj.functionName}(arr);
+
+              System.out.print('[');
+              for(int i=0; i<result.length; i++){
+                System.out.print(result[i]);
+                  if(i != result.length-1){
+                    System.out.print(',');
+                  }
+                }
+              System.out.print(']');
+
+            \n}`
+
           sourceCode = startCode + sourceCode + '\n}'
+
+          console.log(sourceCode)
+        } else {
+          if (problemObj.language === 'javascript') {
+            returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`
+            sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'python') {
+            returnToPrintCode = `\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`
+            sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'java') {
+            let startCode = `\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.cases[i].parameter}));\n}`
+            sourceCode = startCode + sourceCode + '\n}'
+          }
         }
 
         const { run: result } = await executeCode(language, sourceCode)
@@ -72,6 +100,12 @@ function CodingPage() {
           .slice(0, -1)
           .replace(/\s/g, '')
 
+        if (
+          problemObj.language === 'java' &&
+          problemObj.returnType === 'array'
+        ) {
+          userOutput = userOutput + ']'
+        }
         if (expectedOutput == userOutput) {
           setTestCaseResult((prev) => [...prev, true])
         } else {
@@ -119,15 +153,43 @@ function CodingPage() {
       let sourceCode = editorRef.current.getValue()
       if (!sourceCode) return
       try {
-        if (problemObj.language === 'javascript') {
-          returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.example[i].parameter}));`
-          sourceCode += returnToPrintCode
-        } else if (problemObj.language === 'python') {
-          returnToPrintCode = `\nprint(${problemObj.functionName}(${problemObj.example[i].parameter}))`
-          sourceCode += returnToPrintCode
-        } else if (problemObj.language === 'java') {
-          let startCode = `\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.example[i].parameter}));\n}`
+        if (
+          problemObj.language === 'java' &&
+          problemObj.returnType === 'array'
+        ) {
+          let para = problemObj.example[i].parameter.slice(
+            1,
+            problemObj.example[i].parameter.length - 1,
+          )
+          let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
+              int[] arr = {${para}};
+        \t    int[] result = ${problemObj.functionName}(arr);
+
+              System.out.print('[');
+              for(int i=0; i<result.length; i++){
+                System.out.print(result[i]);
+                  if(i != result.length-1){
+                    System.out.print(',');
+                  }
+                }
+              System.out.print(']');
+
+            \n}`
+
           sourceCode = startCode + sourceCode + '\n}'
+
+          console.log(sourceCode)
+        } else {
+          if (problemObj.language === 'javascript') {
+            returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.example[i].parameter}));`
+            sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'python') {
+            returnToPrintCode = `\nprint(${problemObj.functionName}(${problemObj.example[i].parameter}))`
+            sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'java') {
+            let startCode = `import java.util.*;\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.example[i].parameter}));\n}`
+            sourceCode = startCode + sourceCode + '\n}'
+          }
         }
 
         setIsLoading(true)
@@ -140,6 +202,14 @@ function CodingPage() {
         let userOutput = String(result.output.split('\n'))
           .slice(0, -1)
           .replace(/\s/g, '')
+
+        if (
+          problemObj.language === 'java' &&
+          problemObj.returnType === 'array'
+        ) {
+          userOutput = userOutput + ']'
+        }
+
         if (expectedOutput == userOutput) {
           setAllResult((prev) => [...prev, true])
         } else {

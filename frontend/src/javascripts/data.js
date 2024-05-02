@@ -11,10 +11,13 @@ export const AllquesObject = [
     description: 'Given two parameter, add both and return the value',
     constraints: ['0 <= a <= 999', '0 <= b <= 999'],
     functionName: 'addTwoNumbers',
+    returnType: 'int',
     javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
     pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
     javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
     isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
     example: [
       {
         number: '1',
@@ -41,8 +44,6 @@ export const AllquesObject = [
         image: null,
       },
     ],
-    testCaseOutputs: [],
-    testCaseResults: [],
     cases: [
       {
         parameter: '10,5',
@@ -148,193 +149,270 @@ export const AllquesObject = [
   },
   {
     number: 2,
-    heading: 'Two Sum',
-    difficulty: 'Easy',
-    language: 'javascript',
-    returnType: 'int[]',
-    isSolved: true,
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    constraints: [
-      '2 <= nums.length <= 10^4',
-      '-10^9 <= nums[i] <= 10^9',
-      '-10^9 <= target <= 10^9',
-    ],
-    functionName: 'twoSum',
-    javascriptDefaultCode: `\n/**\n\t* @param {array} nums\n\t* @param {number} target\n\t* @return {array}\n*/\n\nvar twoSum = function(nums, target) {\n\t//Write your code here\n};`,
-    pythonDefaultCode: `\n'''\n\t* @param {array} nums\n\t* @param {number} target\n\t* @return {array}\n'''\n\ndef twoSum(nums,target):\n\t#Write your code here`,
-    javaDefaultCode: `\npublic static int[] twoSum(int[] nums, int target){\n\t// Write your code here\n}`,
-    example: [
-      {
-        number: '1',
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '[0,1]',
-        parameter: '[2,7,11,15],9',
-        explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-        image: null,
-      },
-      {
-        number: '2',
-        input: 'nums = [3,2,4], target = 6',
-        output: '[1,2]',
-        parameter: '[3,2,4],6',
-        explanation: '',
-        image: null,
-      },
-      {
-        number: '3',
-        input: 'nums = [3,3], target = 6',
-        output: '[0,1]',
-        parameter: '[3,3],6',
-        explanation: '',
-        image: null,
-      },
-    ],
-
-
-    constraints: [
-      '2 <= nums.length <= 10^4',
-      '-10^9 <= nums[i] <= 10^9',
-      '-10^9 <= target <= 10^9',
-    ],
-    cases: [
-      {
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '10',
-      },
-      {
-        input: 'nums = [3,7,11,15], target = 10',
-        output: '[3,1]',
-      },
-      {
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '[7,2]',
-      },
-      {
-        input: 'nums = [3,7,11,15], target = 10',
-        output: '[3,1]',
-      },
-    ],
-    functionName: 'twoSum',
-    parameter: '[2,7,11,15], 9',
-    defaultCode: `/**
-* @param {number[]} nums
-* @param {number} target
-* @return {number[]}
-*/
-
-var twoSum = function(nums, target) {
-    return 10;
-};`,
-  },
-  {
-    number: 2,
-    heading: 'Add Two Numbers',
-    difficulty: 'Medium',
-    description:
-      'You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.',
-    example: [
-      {
-        number: '1',
-        input: '(2 -> 4 -> 3) + (5 -> 6 -> 4)',
-        output: '7 -> 0 -> 8',
-        explanation: '',
-        image: null,
-      },
-    ],
-    constraints: [
-      'The number of nodes in each linked list is in the range [1, 100].',
-      '0 <= Node.val <= 9.',
-      'It is guaranteed that the list represents a number that does not have leading zeros.',
-    ],
-    cases: [
-      {
-        input: '(2 -> 4 -> 3) + (5 -> 6 -> 4)',
-        output: '7 -> 0 -> 8',
-      },
-      {
-        input: '(0) + (0)',
-        output: '0',
-      },
-      {
-        input: '(9 -> 9 -> 9 -> 9 -> 9 -> 9 -> 9) + (9 -> 9 -> 9 -> 9)',
-        output: '8 -> 9 -> 9 -> 9 -> 0 -> 0 -> 0 -> 1',
-      },
-    ],
-    image: null,
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-
-  },
-  {
-    number: 3,
-    heading: 'Reverse a String',
+    heading: 'String Reverse',
     difficulty: 'Easy',
     isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
     allResult: [],
-    description: 'Given a string, reverse it and return the reversed string.',
-    constraints: ['1 <= string.length <= 1000'],
+    description:
+      'Given a string, reverse the string and return the reversed string.',
+    constraints: [
+      'The input string can contain any characters including letters, digits, and special characters.',
+      'The length of the input string is within the typical string length range.',
+      'The input string may be empty.',
+    ],
     functionName: 'reverseString',
-    javascriptDefaultCode: `\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef reverseString(str):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static String reverseString(String str) {\n\t// Write your code here\n}`,
+    returnType: 'string',
+    javascriptDefaultCode:
+      '\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};',
+    pythonDefaultCode: '\ndef reverseString(s):\n\t# Write your code here',
+    javaDefaultCode:
+      '\npublic static String reverseString(String str) {\n\t// Write your code here\n}',
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
     example: [
       {
-        number: '1',
-        input: 'str = "hello"',
+        number: 1,
+        input: 'str = hello',
         output: 'olleh',
         parameter: '"hello"',
-        explanation: 'Reversing the string "hello" results in "olleh".',
+        explanation: "The input string 'hello' is reversed to 'olleh'.",
         image: null,
       },
       {
-        number: '2',
-        input: 'str = "world"',
+        number: 2,
+        input: 'str = world',
         output: 'dlrow',
         parameter: '"world"',
-        explanation: 'Reversing the string "world" results in "dlrow".',
+        explanation: "The input string 'world' is reversed to 'dlrow'.",
         image: null,
       },
       {
-        number: '3',
-        input: 'str = "example"',
-        output: 'elpmaxe',
-        parameter: '"example"',
-        explanation: 'Reversing the string "example" results in "elpmaxe".',
+        number: 3,
+        input: 'str = 12345',
+        output: '54321',
+        parameter: '"12345"',
+        explanation: "The input string '12345' is reversed to '54321'.",
         image: null,
       },
     ],
-
-
-    constraints: ['s consists of English letters, digits, symbols and spaces.'],
     cases: [
       {
-        input: '"abcabcbb"',
-        output: '3',
+        parameter: '"hello"',
+        expectedOutput: 'olleh',
+        userOutput: null,
       },
       {
-        input: '"bbbbb"',
-        output: '1',
+        parameter: '"world"',
+        expectedOutput: 'dlrow',
+        userOutput: null,
       },
       {
-        input: '"pwwkew"',
-        output: '3',
+        parameter: '"apple"',
+        expectedOutput: 'elppa',
+        userOutput: null,
+      },
+      {
+        parameter: '"openai"',
+        expectedOutput: 'ianepo',
+        userOutput: null,
+      },
+      {
+        parameter: '"racecar"',
+        expectedOutput: 'racecar',
+        userOutput: null,
+      },
+      {
+        parameter: '"123456"',
+        expectedOutput: '654321',
+        userOutput: null,
+      },
+      {
+        parameter: '"goodbye"',
+        expectedOutput: 'eybdoog',
+        userOutput: null,
+      },
+      {
+        parameter: '"world"',
+        expectedOutput: 'dlrow',
+        userOutput: null,
+      },
+      {
+        parameter: '"hello world"',
+        expectedOutput: 'dlrow olleh',
+        userOutput: null,
+      },
+      {
+        parameter: '"algorithm"',
+        expectedOutput: 'mhtirogla',
+        userOutput: null,
+      },
+      {
+        parameter: '"reverse"',
+        expectedOutput: 'esrever',
+        userOutput: null,
+      },
+      {
+        parameter: '"abcdef"',
+        expectedOutput: 'fedcba',
+        userOutput: null,
+      },
+      {
+        parameter: '"javascript"',
+        expectedOutput: 'tpircsavaj',
+        userOutput: null,
+      },
+      {
+        parameter: '"programming"',
+        expectedOutput: 'gnimmargorp',
+        userOutput: null,
+      },
+      {
+        parameter: '"computer"',
+        expectedOutput: 'retupmoc',
+        userOutput: null,
+      },
+      {
+        parameter: '"science"',
+        expectedOutput: 'ecneics',
+        userOutput: null,
+      },
+      {
+        parameter: '"engineering"',
+        expectedOutput: 'gnireenigne',
+        userOutput: null,
+      },
+      {
+        parameter: '"artificial intelligence"',
+        expectedOutput: 'ecnegilletni laicifitra',
+        userOutput: null,
+      },
+      {
+        parameter: '"machine learning"',
+        expectedOutput: 'gninrael enihcam',
+        userOutput: null,
+      },
+      {
+        parameter: '"data science"',
+        expectedOutput: 'ecneics atad',
+        userOutput: null,
       },
     ],
-    isSolved: false,
-    image: null,
-    image: 'null',
-    topic: 'Array',
-
   },
 
+  {
+    number: 7,
+    heading: 'Find Minimum and Maximum Number',
+    difficulty: 'Easy',
+    isSolved: false,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      'Given an array of numbers, find the minimum and maximum numbers in the array, return the minimum and maximum number in array',
+    constraints: [
+      'The input array contains at least one element.',
+      'The elements in the input array can be positive or negative integers.',
+      'Duplicate elements are allowed in the input array.',
+      'The length of the input array is within the range of a typical array.',
+      'The values of the input array can range from the minimum to the maximum integer values.',
+    ],
+    functionName: 'findMinMax',
+    returnType: 'array',
+    javascriptDefaultCode:
+      '\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};',
+    pythonDefaultCode: '\ndef findMinMax(nums):\n\t# Write your code here',
+    javaDefaultCode:
+      '\npublic static int[] findMinMax(int[] nums) {\n\t// Write your code here\n}',
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: 'nums = [4, 2, 7, 1, 9]',
+        output: '[1,9]',
+        parameter: '[4, 2, 7, 1, 9]',
+        explanation:
+          'In the input array [4, 2, 7, 1, 9], the minimum number is 1 and the maximum number is 9.',
+        image: null,
+      },
+      {
+        number: 2,
+        input: 'nums = [10, 5, 3, 8, 2]',
+        output: '[2,10]',
+        parameter: '[10, 5, 3, 8, 2]',
+        explanation:
+          'In the input array [10, 5, 3, 8, 2], the minimum number is 2 and the maximum number is 10.',
+        image: null,
+      },
+      {
+        number: 3,
+        input: 'nums = [-5, -10, -3, -8, -2]',
+        output: '[-10,-2]',
+        parameter: '[-5, -10, -3, -8, -2]',
+        explanation:
+          'In the input array [-5, -10, -3, -8, -2], the minimum number is -10 and the maximum number is -2.',
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: '[4, 2, 7, 1, 9]',
+        expectedOutput: '[1,9]',
+        userOutput: null,
+      },
+      {
+        parameter: '[10, 5, 3, 8, 2]',
+        expectedOutput: '[2,10]',
+        userOutput: null,
+      },
+      {
+        parameter: '[-5, -10, -3, -8, -2]',
+        expectedOutput: '[-10,-2]',
+        userOutput: null,
+      },
+      {
+        parameter: '[1, 1, 1, 1, 1]',
+        expectedOutput: '[1,1]',
+        userOutput: null,
+      },
+      {
+        parameter: '[0, 0, 0, 0, 0]',
+        expectedOutput: '[0,0]',
+        userOutput: null,
+      },
+      {
+        parameter: '[100, 200, 300, 400, 500]',
+        expectedOutput: '[100,500]',
+        userOutput: null,
+      },
+      {
+        parameter: '[-100, -200, -300, -400, -500]',
+        expectedOutput: '[-500,-100]',
+        userOutput: null,
+      },
+      {
+        parameter: '[5, 4, 3, 2, 1]',
+        expectedOutput: '[1,5]',
+        userOutput: null,
+      },
+      {
+        parameter: '[10, -5, 8, -3, 6]',
+        expectedOutput: '[-5,10]',
+        userOutput: null,
+      },
+      {
+        parameter: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]',
+        expectedOutput: '[1,10]',
+        userOutput: null,
+      },
+    ],
+  },
   {
     number: 4,
     heading: 'Median of Two Sorted Arrays',
