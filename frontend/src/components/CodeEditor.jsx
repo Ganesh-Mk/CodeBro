@@ -1,7 +1,5 @@
 import { Box, HStack } from '@chakra-ui/react'
 import { Editor } from '@monaco-editor/react'
-import { CODE_SNIPPETS } from '../javascripts/constants'
-import { useSelector } from 'react-redux'
 
 const CodeEditor = ({ language, value, setValue, onMount }) => {
   return (

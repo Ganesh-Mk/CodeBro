@@ -8,7 +8,10 @@ function Submit({ isLoadingSubmit }) {
   const problemObj = useSelector((state) => state.problemObj.obj)
 
   return (
-    <div style={{ overflow: 'scroll', height: '83vh', padding: ' 2vw' }}>
+    <div
+      className="submitBox"
+      style={{ overflow: 'scroll', height: '83vh', padding: ' 2vw' }}
+    >
       <Button
         variant="solid"
         w={440}
