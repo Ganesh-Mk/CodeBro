@@ -3,8 +3,7 @@
     font-family: sans-serif;
   }
 .codingPageBox {
-    // overflow: hidden;
-
+    overflow: hidden;
     width: 100vw;
     min-height: 100vh;
     background: #242424;
@@ -14,10 +13,12 @@
     .container {
         height: 90vh; 
         display: grid;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 40% 58%;
 
         .left {
             padding: 20px;
+            border-right: 0;
+            width: 40vw;
 
             .leftHeader {
                 width: 100%;
@@ -35,7 +36,6 @@
 
             .scroller {
                 overflow-y: auto;
-                width: 50%;
                 height: 75vh; /* Adjusted for header and header margin */
             }
 

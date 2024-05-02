@@ -112,7 +112,6 @@ function CodingPage() {
     dispatch(addAllOutput([]))
     setAllResult([])
     dispatch(addAllResult([]))
-    dispatch(setIsSubmitted(false))
 
     let returnToPrintCode = ''
 
@@ -184,6 +183,13 @@ function CodingPage() {
   const onSelect = (language) => {
     setLanguage(language)
     dispatch(addLanguage(language))
+    if (language === 'javascript') {
+      setValue(problemObj.javascriptDefaultCode)
+    } else if (language === 'python') {
+      setValue(problemObj.pythonDefaultCode)
+    } else {
+      setValue(problemObj.javaDefaultCode)
+    }
   }
 
   return (
