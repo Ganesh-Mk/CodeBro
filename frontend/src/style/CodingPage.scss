@@ -3,7 +3,7 @@
     font-family: sans-serif;
   }
 .codingPageBox {
-    overflow: hidden;
+    // overflow: hidden;
 
     width: 100vw;
     min-height: 100vh;
@@ -35,6 +35,7 @@
 
             .scroller {
                 overflow-y: auto;
+                width: 50%;
                 height: 75vh; /* Adjusted for header and header margin */
             }
 
