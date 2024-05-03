@@ -11,6 +11,7 @@ export const AllquesObject = [
     description: 'Given two parameter, add both and return the value',
     constraints: ['0 <= a <= 999', '0 <= b <= 999'],
     functionName: 'addTwoNumbers',
+    inputType: 'int',
     returnType: 'int',
     javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
     pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
@@ -164,6 +165,7 @@ export const AllquesObject = [
       'The input string may be empty.',
     ],
     functionName: 'reverseString',
+    inputType: 'string',
     returnType: 'string',
     javascriptDefaultCode:
       '\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};',
@@ -304,7 +306,7 @@ export const AllquesObject = [
   },
 
   {
-    number: 7,
+    number: 3,
     heading: 'Find Minimum and Maximum Number',
     difficulty: 'Easy',
     isSolved: false,
@@ -322,7 +324,8 @@ export const AllquesObject = [
       'The values of the input array can range from the minimum to the maximum integer values.',
     ],
     functionName: 'findMinMax',
-    returnType: 'array',
+    inputType: 'array',
+    outputType: 'array',
     javascriptDefaultCode:
       '\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};',
     pythonDefaultCode: '\ndef findMinMax(nums):\n\t# Write your code here',
@@ -415,48 +418,268 @@ export const AllquesObject = [
   },
   {
     number: 4,
-    heading: 'Median of Two Sorted Arrays',
-    difficulty: 'Hard',
+    heading: 'Find Second Largest Element in Array',
+    difficulty: 'Easy',
+    isSolved: false,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
     description:
-      'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.',
+      'Given an array of integers, find the second largest element in the array. Return the answer',
+    constraints: [
+      'The input array contains at least two distinct elements.',
+      'The elements in the input array are integers.',
+      'Duplicate elements are allowed in the input array.',
+      'The length of the input array is within the range of a typical array.',
+      'The values of the input array can range from the minimum to the maximum integer values.',
+    ],
+    functionName: 'findSecondLargest',
+    inputType: 'array',
+    outputType: 'int',
+    javascriptDefaultCode:
+      '\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};',
+    pythonDefaultCode:
+      '\ndef findSecondLargest(nums):\n\t# Write your code here',
+    javaDefaultCode:
+      '\npublic static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}',
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
     example: [
       {
-        number: '1',
-        input: 'nums1 = [1,3], nums2 = [2]',
-        output: '2.00000',
-        explanation: '',
+        number: 1,
+        input: 'nums = [4, 2, 7, 1, 9]',
+        output: '7',
+        parameter: '[4, 2, 7, 1, 9]',
+        explanation:
+          'In the input array [4, 2, 7, 1, 9], the second largest element is 7.',
+        image: null,
+      },
+      {
+        number: 2,
+        input: 'nums = [10, 5, 3, 8, 2]',
+        output: '8',
+        parameter: '[10, 5, 3, 8, 2]',
+        explanation:
+          'In the input array [10, 5, 3, 8, 2], the second largest element is 8.',
+        image: null,
+      },
+      {
+        number: 3,
+        input: 'nums = [-5, -10, -3, -8, -2]',
+        output: '-3',
+        parameter: '[-5, -10, -3, -8, -2]',
+        explanation:
+          'In the input array [-5, -10, -3, -8, -2], the second largest element is -3.',
         image: null,
       },
     ],
-    constraints: [
-      'nums1.length == m',
-      'nums2.length == n',
-      '0 <= m <= 1000',
-      '0 <= n <= 1000',
-      '1 <= m + n <= 2000',
-      '-10^6 <= nums1[i], nums2[i] <= 10^6',
-    ],
     cases: [
       {
-        input: 'nums1 = [1,3], nums2 = [2]',
-        output: '2',
+        parameter: '[4, 2, 7, 1, 9]',
+        expectedOutput: '7',
+        userOutput: null,
       },
       {
-        input: 'nums1 = [1,2], nums2 = [3,4]',
-        output: '2.50000',
+        parameter: '[10, 5, 3, 8, 2]',
+        expectedOutput: '8',
+        userOutput: null,
       },
       {
-        input: 'nums1 = [0,0], nums2 = [0,0]',
-        output: '0.00000',
+        parameter: '[-5, -10, -3, -8, -2]',
+        expectedOutput: '-3',
+        userOutput: null,
+      },
+      {
+        parameter: '[1, 1, 1, 1, 1]',
+        expectedOutput: '1', // If all elements are the same, the second largest is the same as the largest.
+        userOutput: null,
+      },
+      {
+        parameter: '[0, 0, 0, 0, 0]',
+        expectedOutput: '0', // If all elements are the same, the second largest is the same as the largest.
+        userOutput: null,
+      },
+      {
+        parameter: '[100, 200, 300, 400, 500]',
+        expectedOutput: '400',
+        userOutput: null,
+      },
+      {
+        parameter: '[-100, -200, -300, -400, -500]',
+        expectedOutput: '-200',
+        userOutput: null,
+      },
+      {
+        parameter: '[5, 4, 3, 2, 1]',
+        expectedOutput: '4',
+        userOutput: null,
+      },
+      {
+        parameter: '[10, -5, 8, -3, 6]',
+        expectedOutput: '8',
+        userOutput: null,
+      },
+      {
+        parameter: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]',
+        expectedOutput: '9',
+        userOutput: null,
       },
     ],
-    isSolved: false,
-    image: null,
-    image: 'null',
-    topic: 'Binary Search',
+    /* 
+    JS: 
+      let max = nums.indexOf(Math.max(...nums));
+	    nums.splice(max,1);
+	    return Math.max(...nums)
+
+    PYTHON: 
+      maxNum = max(nums)
+	    nums.remove(maxNum)
+	    return max(nums)
+    
+    JAVA:
+      int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > max) {
+                max = num;
+            }
+        }
+      return max;
+    
+    */
   },
   {
     number: 5,
+    heading: 'Create Array of Numbers',
+    difficulty: 'Easy',
+    isSolved: false,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      'Given an integer n, create an array containing integers from 0 to n-1. Return the array.',
+    constraints: [
+      'The input integer n is greater than or equal to 0.',
+      'The length of the output array is equal to n.',
+      'The values of the output array range from 0 to n-1.',
+    ],
+    functionName: 'createArray',
+    inputType: 'int',
+    outputType: 'array',
+    javascriptDefaultCode:
+      '\n/**\n\t* @param {number} n\n\t* @return {number[]}\n*/\n\nvar createArray = function(n) {\n\t// Write your code here\n};',
+    pythonDefaultCode: '\ndef createArray(n):\n\t# Write your code here',
+    javaDefaultCode:
+      '\npublic static int[] createArray(int n) {\n\t// Write your code here\n}',
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: 'n = 5',
+        output: '[0,1,2,3,4]',
+        parameter: '5',
+        explanation:
+          'For n = 5, the array should contain integers from 0 to 4.',
+        image: null,
+      },
+      {
+        number: 2,
+        input: 'n = 3',
+        output: '[0,1,2]',
+        parameter: '3',
+        explanation:
+          'For n = 3, the array should contain integers from 0 to 2.',
+        image: null,
+      },
+      {
+        number: 3,
+        input: 'n = 0',
+        output: '[]',
+        parameter: '0',
+        explanation: 'For n = 0, the array should be empty.',
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: '5',
+        expectedOutput: '[0,1,2,3,4]',
+        userOutput: null,
+      },
+      {
+        parameter: '3',
+        expectedOutput: '[0,1,2]',
+        userOutput: null,
+      },
+      {
+        parameter: '0',
+        expectedOutput: '[]',
+        userOutput: null,
+      },
+      {
+        parameter: '1',
+        expectedOutput: '[0]',
+        userOutput: null,
+      },
+      {
+        parameter: '10',
+        expectedOutput: '[0,1,2,3,4,5,6,7,8,9]',
+        userOutput: null,
+      },
+      {
+        parameter: '7',
+        expectedOutput: '[0,1,2,3,4,5,6]',
+        userOutput: null,
+      },
+      {
+        parameter: '2',
+        expectedOutput: '[0,1]',
+        userOutput: null,
+      },
+      {
+        parameter: '4',
+        expectedOutput: '[0,1,2,3]',
+        userOutput: null,
+      },
+      {
+        parameter: '6',
+        expectedOutput: '[0,1,2,3,4,5]',
+        userOutput: null,
+      },
+      {
+        parameter: '8',
+        expectedOutput: '[0,1,2,3,4,5,6,7]',
+        userOutput: null,
+      },
+    ],
+
+    /*
+     JS:
+      let arr = [];
+	    for(let i=0; i<n; i++) arr.push(i);
+	    return arr;
+
+     PYTHON:
+      arr = []
+	    for i in range(n):
+		    arr.append(i)
+	    return arr
+      
+      JAVA:
+      int[] arr = new int[n];
+      for (int i = 0; i < n; i++) {
+        arr[i] = i;
+      }
+      return arr;
+     */
+  },
+
+  {
+    number: 6,
     heading: 'Longest Palindromic Substring',
     difficulty: 'Medium',
     description:
