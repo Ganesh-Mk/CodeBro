@@ -51,17 +51,10 @@ function CodingPage() {
       if (!sourceCode) return
       try {
         if (problemObj.language === 'java') {
-          if (
-            problemObj.inputType === 'array' &&
-            problemObj.outputType === 'array'
-          ) {
-            let para = problemObj.cases[i].parameter.slice(
-              1,
-              problemObj.cases[i].parameter.length - 1,
-            )
+          if (problemObj.returnType === 'array') {
             let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-          \t    int[] result = ${problemObj.functionName}(new int[]{${para}});
-  
+              int[] result = ${problemObj.cases[i].javaFuncCall}
+
                 System.out.print('[');
                 for(int i=0; i<result.length; i++){
                   System.out.print(result[i]);
@@ -74,40 +67,27 @@ function CodingPage() {
               \n}`
 
             sourceCode = startCode + sourceCode + '\n}'
-          } else if (
-            problemObj.inputType === 'int' &&
-            problemObj.outputType === 'array'
-          ) {
+          } else if (problemObj.returnType === 'matrix') {
             let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-        \t    int[] result = ${problemObj.functionName}(${problemObj.cases[i].parameter});
+              int[] result = ${problemObj.cases[i].javaFuncCall}
 
-              System.out.print('[');
-              for(int i=0; i<result.length; i++){
-                System.out.print(result[i]);
-                  if(i != result.length-1){
-                    System.out.print(',');
+                System.out.print('[');
+                for(int i=0; i<result.length; i++){
+                  for(int j=0; j<result.length; j++){
+                    System.out.print(result[i]);
+                    if(i != result.length-1){
+                      System.out.print(',');
+                    }
                   }
                 }
-              System.out.print(']');
-
-            \n}`
-
-            sourceCode = startCode + sourceCode + '\n}'
-          } else if (
-            problemObj.inputType === 'array' &&
-            problemObj.outputType === 'int'
-          ) {
-            let para = problemObj.cases[i].parameter.slice(
-              1,
-              problemObj.cases[i].parameter.length - 1,
-            )
-            let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-          \t    int result = ${problemObj.functionName}(new int[]{${para}});
-                System.out.print(result);   \n}`
+                System.out.print(']');
+  
+              \n}`
 
             sourceCode = startCode + sourceCode + '\n}'
           } else {
-            let startCode = `import java.util.*;\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.cases[i].parameter}));\n}`
+            let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
+              System.out.println(${problemObj.cases[i].javaFuncCall}); \n}`
             sourceCode = startCode + sourceCode + '\n}'
           }
         } else {
@@ -120,8 +100,6 @@ function CodingPage() {
           }
         }
 
-        console.log(sourceCode)
-
         const { run: result } = await executeCode(language, sourceCode)
 
         let expectedOutput = String(problemObj.cases[i].expectedOutput).replace(
@@ -129,20 +107,21 @@ function CodingPage() {
           '',
         )
 
-        let userOutput = String(result.output.split('\n')).replace(/\s/g, '')
+        let userOutput = String(result.output.split('\n'))
+          .replace(/\s/g, '')
+          .slice(0, -1)
 
         if (
           problemObj.language === 'java' &&
           problemObj.returnType === 'array'
         ) {
-          userOutput = userOutput + ']'
-        }
-        if (problemObj.language !== 'java') {
-          userOutput = userOutput.slice(0, -1)
+          userOutput += ']'
         }
 
+        console.log(sourceCode)
         console.log(expectedOutput)
         console.log(userOutput)
+
         if (expectedOutput == userOutput) {
           setTestCaseResult((prev) => [...prev, true])
         } else {
@@ -191,17 +170,10 @@ function CodingPage() {
       if (!sourceCode) return
       try {
         if (problemObj.language === 'java') {
-          if (
-            problemObj.inputType === 'array' &&
-            problemObj.outputType === 'array'
-          ) {
-            let para = problemObj.example[i].parameter.slice(
-              1,
-              problemObj.example[i].parameter.length - 1,
-            )
+          if (problemObj.returnType === 'array') {
             let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-          \t    int[] result = ${problemObj.functionName}(new int[]{${para}});
-  
+              int[] result = ${problemObj.example[i].javaFuncCall}
+
                 System.out.print('[');
                 for(int i=0; i<result.length; i++){
                   System.out.print(result[i]);
@@ -214,40 +186,27 @@ function CodingPage() {
               \n}`
 
             sourceCode = startCode + sourceCode + '\n}'
-          } else if (
-            problemObj.inputType === 'int' &&
-            problemObj.outputType === 'array'
-          ) {
+          } else if (problemObj.returnType === 'matrix') {
             let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-        \t    int[] result = ${problemObj.functionName}(${problemObj.example[i].parameter});
+              int[] result = ${problemObj.example[i].javaFuncCall}
 
-              System.out.print('[');
-              for(int i=0; i<result.length; i++){
-                System.out.print(result[i]);
-                  if(i != result.length-1){
-                    System.out.print(',');
+                System.out.print('[');
+                for(int i=0; i<result.length; i++){
+                  for(int j=0; j<result.length; j++){
+                    System.out.print(result[i]);
+                    if(i != result.length-1){
+                      System.out.print(',');
+                    }
                   }
                 }
-              System.out.print(']');
-
-            \n}`
-
-            sourceCode = startCode + sourceCode + '\n}'
-          } else if (
-            problemObj.inputType === 'array' &&
-            problemObj.outputType === 'int'
-          ) {
-            let para = problemObj.example[i].parameter.slice(
-              1,
-              problemObj.example[i].parameter.length - 1,
-            )
-            let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-          \t    int result = ${problemObj.functionName}(new int[]{${para}});
-                System.out.print(result);   \n}`
+                System.out.print(']');
+  
+              \n}`
 
             sourceCode = startCode + sourceCode + '\n}'
           } else {
-            let startCode = `import java.util.*;\npublic class Main{\npublic static void main(String[] args){\n\tSystem.out.println(${problemObj.functionName}(${problemObj.example[i].parameter}));\n}`
+            let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
+              System.out.println(${problemObj.example[i].javaFuncCall}); \n}`
             sourceCode = startCode + sourceCode + '\n}'
           }
         } else {
@@ -267,16 +226,15 @@ function CodingPage() {
           /\s/g,
           '',
         )
-        let userOutput = String(result.output.split('\n')).replace(/\s/g, '')
+        let userOutput = String(result.output.split('\n'))
+          .replace(/\s/g, '')
+          .slice(0, -1)
 
         if (
           problemObj.language === 'java' &&
           problemObj.returnType === 'array'
         ) {
-          userOutput = userOutput + ']'
-        }
-        if (problemObj.language !== 'java') {
-          userOutput = userOutput.slice(0, -1)
+          userOutput += ']'
         }
 
         if (expectedOutput == userOutput) {

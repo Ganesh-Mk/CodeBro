@@ -11,7 +11,6 @@ export const AllquesObject = [
     description: 'Given two parameter, add both and return the value',
     constraints: ['0 <= a <= 999', '0 <= b <= 999'],
     functionName: 'addTwoNumbers',
-    inputType: 'int',
     returnType: 'int',
     javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
     pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
@@ -25,6 +24,7 @@ export const AllquesObject = [
         input: 'a = 10, b = 5',
         output: '15',
         parameter: '10,5',
+        javaFuncCall: 'addTwoNumbers(10,5)',
         explanation: 'a + b = 15',
         image: null,
       },
@@ -33,6 +33,8 @@ export const AllquesObject = [
         input: 'a = 3, b = 2',
         output: '5',
         parameter: '3,2',
+        javaFuncCall: 'addTwoNumbers(3,2)',
+
         explanation: 'a + b = 5',
         image: null,
       },
@@ -41,6 +43,8 @@ export const AllquesObject = [
         input: 'a = 200, b = 300',
         output: '500',
         parameter: '200,300',
+        javaFuncCall: 'addTwoNumbers(200,300)',
+
         explanation: 'a + b = 500',
         image: null,
       },
@@ -50,103 +54,85 @@ export const AllquesObject = [
         parameter: '10,5',
         expectedOutput: '15',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(10, 5)',
       },
       {
         parameter: '3,2',
         expectedOutput: '5',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(3, 2)',
       },
       {
         parameter: '200,300',
         expectedOutput: '500',
         userOutput: null,
-      },
-      {
-        parameter: '0,0',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-5,5',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-10,-20',
-        expectedOutput: '-30',
-        userOutput: null,
+        javaFuncCall: 'addTwoNumbers(200, 300)',
       },
       {
         parameter: '1000000000,1',
         expectedOutput: '1000000001',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(1000000000, 1)',
       },
       {
         parameter: '999999999,999999999',
         expectedOutput: '1999999998',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(999999999, 999999999)',
       },
       {
         parameter: '123456789,987654321',
         expectedOutput: '1111111110',
         userOutput: null,
-      },
-      {
-        parameter: '2,3',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '7,8',
-        expectedOutput: '15',
-        userOutput: null,
+        javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
       },
       {
         parameter: '17,23',
         expectedOutput: '40',
         userOutput: null,
-      },
-      {
-        parameter: '100,100',
-        expectedOutput: '200',
-        userOutput: null,
+        javaFuncCall: 'addTwoNumbers(17, 23)',
       },
       {
         parameter: '50,50',
         expectedOutput: '100',
         userOutput: null,
-      },
-      {
-        parameter: '123,456',
-        expectedOutput: '579',
-        userOutput: null,
+        javaFuncCall: 'addTwoNumbers(50, 50)',
       },
       {
         parameter: '-100,200',
         expectedOutput: '100',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(-100, 200)',
       },
       {
         parameter: '999,-999',
         expectedOutput: '0',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(999, -999)',
       },
       {
         parameter: '-123,-456',
         expectedOutput: '-579',
         userOutput: null,
+        javaFuncCall: 'addTwoNumbers(-123, -456)',
       },
       {
         parameter: '0,999',
         expectedOutput: '999',
         userOutput: null,
-      },
-      {
-        parameter: '1,0',
-        expectedOutput: '1',
-        userOutput: null,
+        javaFuncCall: 'addTwoNumbers(0, 999)',
       },
     ],
+    /*
+    JS: 
+      return a+b;
+
+    PYTHON:
+      return a+b
+
+    JAVA:
+      return a+b;
+    */
   },
   {
     number: 2,
@@ -165,7 +151,6 @@ export const AllquesObject = [
       'The input string may be empty.',
     ],
     functionName: 'reverseString',
-    inputType: 'string',
     returnType: 'string',
     javascriptDefaultCode:
       '\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};',
@@ -181,6 +166,7 @@ export const AllquesObject = [
         input: 'str = hello',
         output: 'olleh',
         parameter: '"hello"',
+        javaFuncCall: 'reverseString("hello")',
         explanation: "The input string 'hello' is reversed to 'olleh'.",
         image: null,
       },
@@ -189,6 +175,8 @@ export const AllquesObject = [
         input: 'str = world',
         output: 'dlrow',
         parameter: '"world"',
+        javaFuncCall: 'reverseString("world")',
+
         explanation: "The input string 'world' is reversed to 'dlrow'.",
         image: null,
       },
@@ -197,112 +185,145 @@ export const AllquesObject = [
         input: 'str = 12345',
         output: '54321',
         parameter: '"12345"',
+        javaFuncCall: 'reverseString("12345")',
+
         explanation: "The input string '12345' is reversed to '54321'.",
         image: null,
       },
     ],
     cases: [
       {
-        parameter: '"hello"',
+        parameter: 'hello',
         expectedOutput: 'olleh',
         userOutput: null,
+        javaFuncCall: 'reverseString("hello")',
       },
       {
-        parameter: '"world"',
+        parameter: 'world',
         expectedOutput: 'dlrow',
         userOutput: null,
+        javaFuncCall: 'reverseString("world")',
       },
       {
-        parameter: '"apple"',
+        parameter: 'apple',
         expectedOutput: 'elppa',
         userOutput: null,
+        javaFuncCall: 'reverseString("apple")',
       },
       {
-        parameter: '"openai"',
+        parameter: 'openai',
         expectedOutput: 'ianepo',
         userOutput: null,
+        javaFuncCall: 'reverseString("openai")',
       },
       {
-        parameter: '"racecar"',
+        parameter: 'racecar',
         expectedOutput: 'racecar',
         userOutput: null,
+        javaFuncCall: 'reverseString("racecar")',
       },
       {
-        parameter: '"123456"',
+        parameter: '123456',
         expectedOutput: '654321',
         userOutput: null,
+        javaFuncCall: 'reverseString("123456")',
       },
       {
-        parameter: '"goodbye"',
+        parameter: 'goodbye',
         expectedOutput: 'eybdoog',
         userOutput: null,
+        javaFuncCall: 'reverseString("goodbye")',
       },
       {
-        parameter: '"world"',
+        parameter: 'world',
         expectedOutput: 'dlrow',
         userOutput: null,
+        javaFuncCall: 'reverseString("world")',
       },
       {
-        parameter: '"hello world"',
+        parameter: 'hello world',
         expectedOutput: 'dlrow olleh',
         userOutput: null,
+        javaFuncCall: 'reverseString("hello world")',
       },
       {
-        parameter: '"algorithm"',
+        parameter: 'algorithm',
         expectedOutput: 'mhtirogla',
         userOutput: null,
+        javaFuncCall: 'reverseString("algorithm")',
       },
       {
-        parameter: '"reverse"',
+        parameter: 'reverse',
         expectedOutput: 'esrever',
         userOutput: null,
+        javaFuncCall: 'reverseString("reverse")',
       },
       {
-        parameter: '"abcdef"',
+        parameter: 'abcdef',
         expectedOutput: 'fedcba',
         userOutput: null,
+        javaFuncCall: 'reverseString("abcdef")',
       },
       {
-        parameter: '"javascript"',
+        parameter: 'javascript',
         expectedOutput: 'tpircsavaj',
         userOutput: null,
+        javaFuncCall: 'reverseString("javascript")',
       },
       {
-        parameter: '"programming"',
+        parameter: 'programming',
         expectedOutput: 'gnimmargorp',
         userOutput: null,
+        javaFuncCall: 'reverseString("programming")',
       },
       {
-        parameter: '"computer"',
+        parameter: 'computer',
         expectedOutput: 'retupmoc',
         userOutput: null,
+        javaFuncCall: 'reverseString("computer")',
       },
       {
-        parameter: '"science"',
+        parameter: 'science',
         expectedOutput: 'ecneics',
         userOutput: null,
+        javaFuncCall: 'reverseString("science")',
       },
       {
-        parameter: '"engineering"',
+        parameter: 'engineering',
         expectedOutput: 'gnireenigne',
         userOutput: null,
+        javaFuncCall: 'reverseString("engineering")',
       },
       {
-        parameter: '"artificial intelligence"',
+        parameter: 'artificial intelligence',
         expectedOutput: 'ecnegilletni laicifitra',
         userOutput: null,
+        javaFuncCall: 'reverseString("artificial intelligence")',
       },
       {
-        parameter: '"machine learning"',
+        parameter: 'machine learning',
         expectedOutput: 'gninrael enihcam',
         userOutput: null,
+        javaFuncCall: 'reverseString("machine learning")',
       },
       {
-        parameter: '"data science"',
+        parameter: 'data science',
         expectedOutput: 'ecneics atad',
         userOutput: null,
+        javaFuncCall: 'reverseString("data science")',
       },
     ],
+
+    /*
+    JS:
+      return str.split('').reverse().join('');
+
+    PYTHON:
+      return s[::-1]
+
+    JAVA:
+    	return (new StringBuilder(str).reverse().toString());
+    */
   },
 
   {
@@ -324,8 +345,7 @@ export const AllquesObject = [
       'The values of the input array can range from the minimum to the maximum integer values.',
     ],
     functionName: 'findMinMax',
-    inputType: 'array',
-    outputType: 'array',
+    returnType: 'array',
     javascriptDefaultCode:
       '\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};',
     pythonDefaultCode: '\ndef findMinMax(nums):\n\t# Write your code here',
@@ -340,6 +360,7 @@ export const AllquesObject = [
         input: 'nums = [4, 2, 7, 1, 9]',
         output: '[1,9]',
         parameter: '[4, 2, 7, 1, 9]',
+        javaFuncCall: 'findMinMax(new int[]{4, 2, 7, 1, 9});',
         explanation:
           'In the input array [4, 2, 7, 1, 9], the minimum number is 1 and the maximum number is 9.',
         image: null,
@@ -349,6 +370,7 @@ export const AllquesObject = [
         input: 'nums = [10, 5, 3, 8, 2]',
         output: '[2,10]',
         parameter: '[10, 5, 3, 8, 2]',
+        javaFuncCall: 'findMinMax(new int[]{10, 5, 3, 8, 2});',
         explanation:
           'In the input array [10, 5, 3, 8, 2], the minimum number is 2 and the maximum number is 10.',
         image: null,
@@ -358,6 +380,7 @@ export const AllquesObject = [
         input: 'nums = [-5, -10, -3, -8, -2]',
         output: '[-10,-2]',
         parameter: '[-5, -10, -3, -8, -2]',
+        javaFuncCall: 'findMinMax(new int[]{-5, -10, -3, -8, -2});',
         explanation:
           'In the input array [-5, -10, -3, -8, -2], the minimum number is -10 and the maximum number is -2.',
         image: null,
@@ -368,53 +391,76 @@ export const AllquesObject = [
         parameter: '[4, 2, 7, 1, 9]',
         expectedOutput: '[1,9]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{4, 2, 7, 1, 9});',
       },
       {
         parameter: '[10, 5, 3, 8, 2]',
         expectedOutput: '[2,10]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{10, 5, 3, 8, 2});',
       },
       {
         parameter: '[-5, -10, -3, -8, -2]',
         expectedOutput: '[-10,-2]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{-5, -10, -3, -8, -2});',
       },
       {
         parameter: '[1, 1, 1, 1, 1]',
         expectedOutput: '[1,1]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{1, 1, 1, 1, 1});',
       },
       {
         parameter: '[0, 0, 0, 0, 0]',
         expectedOutput: '[0,0]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{0, 0, 0, 0, 0});',
       },
       {
         parameter: '[100, 200, 300, 400, 500]',
         expectedOutput: '[100,500]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{100, 200, 300, 400, 500});',
       },
       {
         parameter: '[-100, -200, -300, -400, -500]',
         expectedOutput: '[-500,-100]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{-100, -200, -300, -400, -500});',
       },
       {
         parameter: '[5, 4, 3, 2, 1]',
         expectedOutput: '[1,5]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{5, 4, 3, 2, 1});',
       },
       {
         parameter: '[10, -5, 8, -3, 6]',
         expectedOutput: '[-5,10]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{10, -5, 8, -3, 6});',
       },
       {
         parameter: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]',
         expectedOutput: '[1,10]',
         userOutput: null,
+        javaFuncCall: 'findMinMax(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});',
       },
     ],
+
+    /*
+    JS:
+      return [Math.min(...nums), Math.max(...nums)];
+    
+    PYTHON:
+      return [min(nums), max(nums)]
+    
+    JAVA:
+      int min = Arrays.stream(nums).min().getAsInt();
+      int max = Arrays.stream(nums).max().getAsInt();
+      return new int[] {min, max};
+    */
   },
   {
     number: 4,
@@ -435,8 +481,7 @@ export const AllquesObject = [
       'The values of the input array can range from the minimum to the maximum integer values.',
     ],
     functionName: 'findSecondLargest',
-    inputType: 'array',
-    outputType: 'int',
+    returnType: 'int',
     javascriptDefaultCode:
       '\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};',
     pythonDefaultCode:
@@ -455,6 +500,7 @@ export const AllquesObject = [
         explanation:
           'In the input array [4, 2, 7, 1, 9], the second largest element is 7.',
         image: null,
+        javaFuncCall: 'findSecondLargest(new int[]{4, 2, 7, 1, 9})',
       },
       {
         number: 2,
@@ -464,6 +510,7 @@ export const AllquesObject = [
         explanation:
           'In the input array [10, 5, 3, 8, 2], the second largest element is 8.',
         image: null,
+        javaFuncCall: 'findSecondLargest(new int[]{10, 5, 3, 8, 2})',
       },
       {
         number: 3,
@@ -473,6 +520,7 @@ export const AllquesObject = [
         explanation:
           'In the input array [-5, -10, -3, -8, -2], the second largest element is -3.',
         image: null,
+        javaFuncCall: 'findSecondLargest(new int[]{-5, -10, -3, -8, -2})',
       },
     ],
     cases: [
@@ -480,51 +528,63 @@ export const AllquesObject = [
         parameter: '[4, 2, 7, 1, 9]',
         expectedOutput: '7',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{4, 2, 7, 1, 9})',
       },
       {
         parameter: '[10, 5, 3, 8, 2]',
         expectedOutput: '8',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{10, 5, 3, 8, 2})',
       },
       {
         parameter: '[-5, -10, -3, -8, -2]',
         expectedOutput: '-3',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{-5, -10, -3, -8, -2})',
       },
       {
-        parameter: '[1, 1, 1, 1, 1]',
-        expectedOutput: '1', // If all elements are the same, the second largest is the same as the largest.
+        parameter: '[1, 4, 4, 5, 1]',
+        expectedOutput: '4',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{1, 4, 4, 5, 1})',
       },
       {
-        parameter: '[0, 0, 0, 0, 0]',
-        expectedOutput: '0', // If all elements are the same, the second largest is the same as the largest.
+        parameter: '[0, 0, 0, 1, 5]',
+        expectedOutput: '1',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{0, 0, 0, 1, 5})',
       },
       {
         parameter: '[100, 200, 300, 400, 500]',
         expectedOutput: '400',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{100, 200, 300, 400, 500})',
       },
       {
         parameter: '[-100, -200, -300, -400, -500]',
         expectedOutput: '-200',
         userOutput: null,
+        javaFuncCall:
+          'findSecondLargest(new int[]{-100, -200, -300, -400, -500})',
       },
       {
         parameter: '[5, 4, 3, 2, 1]',
         expectedOutput: '4',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{5, 4, 3, 2, 1})',
       },
       {
         parameter: '[10, -5, 8, -3, 6]',
         expectedOutput: '8',
         userOutput: null,
+        javaFuncCall: 'findSecondLargest(new int[]{10, -5, 8, -3, 6})',
       },
       {
         parameter: '[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]',
         expectedOutput: '9',
         userOutput: null,
+        javaFuncCall:
+          'findSecondLargest(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})',
       },
     ],
     /* 
@@ -540,12 +600,16 @@ export const AllquesObject = [
     
     JAVA:
       int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
         for (int num : nums) {
             if (num > max) {
+                secondMax = max;
                 max = num;
+            } else if (num > secondMax && num != max) {
+                secondMax = num;
             }
         }
-      return max;
+        return secondMax;
     
     */
   },
@@ -566,8 +630,8 @@ export const AllquesObject = [
       'The values of the output array range from 0 to n-1.',
     ],
     functionName: 'createArray',
-    inputType: 'int',
-    outputType: 'array',
+
+    returnType: 'array',
     javascriptDefaultCode:
       '\n/**\n\t* @param {number} n\n\t* @return {number[]}\n*/\n\nvar createArray = function(n) {\n\t// Write your code here\n};',
     pythonDefaultCode: '\ndef createArray(n):\n\t# Write your code here',
@@ -582,6 +646,7 @@ export const AllquesObject = [
         input: 'n = 5',
         output: '[0,1,2,3,4]',
         parameter: '5',
+        javaFuncCall: 'createArray(5);',
         explanation:
           'For n = 5, the array should contain integers from 0 to 4.',
         image: null,
@@ -591,6 +656,8 @@ export const AllquesObject = [
         input: 'n = 3',
         output: '[0,1,2]',
         parameter: '3',
+        javaFuncCall: 'createArray(3);',
+
         explanation:
           'For n = 3, the array should contain integers from 0 to 2.',
         image: null,
@@ -600,6 +667,8 @@ export const AllquesObject = [
         input: 'n = 0',
         output: '[]',
         parameter: '0',
+        javaFuncCall: 'createArray(0);',
+
         explanation: 'For n = 0, the array should be empty.',
         image: null,
       },
@@ -608,51 +677,43 @@ export const AllquesObject = [
       {
         parameter: '5',
         expectedOutput: '[0,1,2,3,4]',
+        javaFuncCall: 'createArray(5);',
         userOutput: null,
       },
       {
         parameter: '3',
         expectedOutput: '[0,1,2]',
+        javaFuncCall: 'createArray(3);',
         userOutput: null,
       },
       {
         parameter: '0',
         expectedOutput: '[]',
+        javaFuncCall: 'createArray(0);',
         userOutput: null,
       },
       {
         parameter: '1',
         expectedOutput: '[0]',
-        userOutput: null,
-      },
-      {
-        parameter: '10',
-        expectedOutput: '[0,1,2,3,4,5,6,7,8,9]',
-        userOutput: null,
-      },
-      {
-        parameter: '7',
-        expectedOutput: '[0,1,2,3,4,5,6]',
+        javaFuncCall: 'createArray(1);',
         userOutput: null,
       },
       {
         parameter: '2',
         expectedOutput: '[0,1]',
+        javaFuncCall: 'createArray(2);',
         userOutput: null,
       },
       {
         parameter: '4',
         expectedOutput: '[0,1,2,3]',
+        javaFuncCall: 'createArray(4);',
         userOutput: null,
       },
       {
         parameter: '6',
         expectedOutput: '[0,1,2,3,4,5]',
-        userOutput: null,
-      },
-      {
-        parameter: '8',
-        expectedOutput: '[0,1,2,3,4,5,6,7]',
+        javaFuncCall: 'createArray(6);',
         userOutput: null,
       },
     ],
