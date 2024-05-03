@@ -7,6 +7,7 @@ import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
 import AllquesObject from "../javascripts/data";
 import { useDispatch, useSelector } from "react-redux";
 import { setRangeValue, setSolvedProblemsCount } from "../store/rangesSlice";
+import { setSelectedLanguage } from "../store/languageSelectingSlice";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,10 @@ const HomePage = () => {
     dispatch(setSolvedProblemsCount(solvedProblemsCount));
   }, [dispatch]);
 
+  const handleLanguageBox = (language) => {
+    dispatch(setSelectedLanguage(language));
+  }
+
   const easySolvedCount = getDifficultySolvedCount("Easy");
   const mediumSolvedCount = getDifficultySolvedCount("Medium");
   const hardSolvedCount = getDifficultySolvedCount("Hard");
@@ -59,18 +64,25 @@ const HomePage = () => {
             <p>Programming Problems</p>
           </div>
           <div className="languages">
-            <div className="box">
+            <Link to="/programming">
+            <div className="box" onClick={() => handleLanguageBox("js")}>
               <img src={images.js} alt="" />
               <p>JS Problems</p>
             </div>
-            <div className="box">
+            </Link>
+            <Link to="/programming">
+            <div className="box" onClick={() => handleLanguageBox("python")}>
               <img src={images.python} alt="" />
               <p>Python Problems</p>
             </div>
-            <div className="box">
+            </Link>
+            <Link to="/programming">
+            <div className="box" onClick={() => handleLanguageBox("java")}>
               <img src={images.java} alt="" />
               <p>Java Problems</p>
             </div>
+            </Link>
+            
           </div>
           <div className="head2">
             <p>Probelms</p>
@@ -170,6 +182,7 @@ const HomePage = () => {
                     key={index}
                     value={false}
                     fontSize={"1vw"}
+                    bool={false}
                   />
                 ))
               }

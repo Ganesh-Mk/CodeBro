@@ -1,0 +1,57 @@
+.mainContainer {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #1A1A1A;
+    .languageHeading {
+      border-bottom: 2px solid rgb(161, 156, 156);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 1.6vw;
+      .box {
+        margin-top: 1vw;
+        cursor: pointer;
+        margin-bottom: 1vw;
+        border: 2px solid rgb(232, 230, 230);
+        padding: 0.6vw 0.8vw;
+        border-radius: 0.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vw;
+        transition: ease-in .2s;
+        img {
+          width: 4vw;
+        }
+        p{
+          color: white;
+        }
+      }
+    }
+    .problemDisplayerforProgrammingPage {
+        border: 2px solid rgb(244, 244, 244);
+        margin-top: 2vw;
+        height: 57.99vh;
+        border-radius: .5vw;
+        overflow-y: scroll;
+        padding: .8vw;
+    }
+    .problemDisplayerforProgrammingPage::-webkit-scrollbar {
+        width: 10px; /* width of the scrollbar */
+      }
+      
+      .problemDisplayerforProgrammingPage::-webkit-scrollbar-track {
+        background: #1A1A1A; /* color of the track */
+        border-radius: 5vw;
+      }
+      
+      .problemDisplayerforProgrammingPage::-webkit-scrollbar-thumb {
+        background: #adff2f; /* color of the thumb */
+        border-radius: 5px; /* roundness of the thumb */
+      }
+      
+      .problemDisplayerforProgrammingPage::-webkit-scrollbar-thumb:hover {
+        background: #555; /* color of the thumb on hover */
+      }
+
+}
