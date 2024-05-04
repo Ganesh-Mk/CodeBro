@@ -325,7 +325,6 @@ export const AllquesObject = [
     	return (new StringBuilder(str).reverse().toString());
     */
   },
-
   {
     number: 3,
     heading: 'Find Minimum and Maximum Number',
@@ -738,363 +737,517 @@ export const AllquesObject = [
       return arr;
      */
   },
+  {
+    number: 6,
+    heading: 'Increment Matrix Values',
+    difficulty: 'Easy',
+    isSolved: false,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      'Given a matrix of arrays of numbers, increment each value in the matrix by 1. Return the modified matrix.',
+    constraints: [
+      'The input matrix is a 2-dimensional array.',
+      'Each inner array represents a row in the matrix.',
+      'The values in the matrix are integers.',
+    ],
+    functionName: 'increment_matrix_values',
+    returnType: 'matrix',
+    javascriptDefaultCode:
+      '\n/**\n\t* @param {number[][]} matrix\n\t* @return {number[][]}\n*/\n\nvar increment_matrix_values = function(matrix) {\n\t// Write your code here\n};',
+    pythonDefaultCode:
+      '\ndef increment_matrix_values(matrix):\n\t# Write your code here',
+    javaDefaultCode:
+      '\npublic static int[][] increment_matrix_values(int[][] matrix) {\n\t// Write your code here\n}',
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: 'matrix = [[1, 2], [3, 4]]',
+        output: '[[2,3],[4,5]]',
+        parameter: '[[1, 2], [3, 4]]',
+        javaFuncCall: 'increment_matrix_values(new int[][]{{1, 2}, {3, 4}});',
+        explanation: 'Increment each value by 1.',
+        image: null,
+      },
+      {
+        number: 2,
+        input: 'matrix = [[0, 0], [0, 0]]',
+        output: '[[1,1],[1,1]]',
+        parameter: '[[0, 0], [0, 0]]',
+        javaFuncCall: 'increment_matrix_values(new int[][]{{0, 0}, {0, 0}});',
+        explanation: 'Increment each value by 1.',
+        image: null,
+      },
+      {
+        number: 3,
+        input: 'matrix = [[-1, -2], [-3, -4]]',
+        output: '[[0,-1],[-2,-3]]',
+        parameter: '[[-1, -2], [-3, -4]]',
+        javaFuncCall:
+          'increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});',
+        explanation: 'Increment each value by 1.',
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: '[[1, 2], [3, 4]]',
+        expectedOutput: '[[2,3],[4,5]]',
+        javaFuncCall: 'increment_matrix_values(new int[][]{{1, 2}, {3, 4}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[0, 0], [0, 0]]',
+        expectedOutput: '[[1,1],[1,1]]',
+        javaFuncCall: 'increment_matrix_values(new int[][]{{0, 0}, {0, 0}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[-1, -2], [-3, -4]]',
+        expectedOutput: '[[0,-1],[-2,-3]]',
+        javaFuncCall:
+          'increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[3, 5], [7, 9]]',
+        expectedOutput: '[[4,6],[8,10]]',
+        javaFuncCall: 'increment_matrix_values(new int[][]{{3, 5}, {7, 9}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[10, 20, 30], [40, 50, 60], [70, 80, 90]]',
+        expectedOutput: '[[11,21,31],[41,51,61],[71,81,91]]',
+        javaFuncCall:
+          'increment_matrix_values(new int[][]{{10, 20, 30}, {40, 50, 60}, {70, 80, 90}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[1], [2], [3], [4]]',
+        expectedOutput: '[[2],[3],[4],[5]]',
+        javaFuncCall:
+          'increment_matrix_values(new int[][]{{1}, {2}, {3}, {4}});',
+        userOutput: null,
+      },
+      {
+        parameter: '[[-5, -3], [-1, 1], [3, 5], [7, 9]]',
+        expectedOutput: '[[-4,-2],[0,2],[4,6],[8,10]]',
+        javaFuncCall:
+          'increment_matrix_values(new int[][]{{-5, -3}, {-1, 1}, {3, 5}, {7, 9}});',
+        userOutput: null,
+      },
 
-  {
-    number: 6,
-    heading: 'Longest Palindromic Substring',
-    difficulty: 'Medium',
-    description:
-      'Given a string s, return the longest palindromic substring in s.',
-    example: [
-      {
-        number: '1',
-        input: '"babad"',
-        output: '"bab"',
-        explanation: '',
-        image: null,
-      },
+      /*
+      JS:
+        for(let i=0; i<matrix.length; i++){
+		      for(let j=0; j<matrix[i].length; j++){
+		      	matrix[i][j]++;
+		      }
+	      }
+	      return matrix;
+
+      PYTHON:
+        for i in range(len(matrix)):
+		      for j in range(len(matrix[0])):
+		      	matrix[i][j] += 1
+	      return matrix
+
+      JAVA:
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j]++;
+            }
+        }
+        return matrix;
+      */
     ],
-    constraints: [
-      '1 <= s.length <= 1000',
-      's consist of only digits and English letters (lower-case and/or upper-case)',
-    ],
-    cases: [
-      {
-        input: '"babad"',
-        output: '"bab"',
-      },
-      {
-        input: '"cbbd"',
-        output: '"bb"',
-      },
-      {
-        input: '"a"',
-        output: '"a"',
-      },
-    ],
-    image: null,
-    isSolved: true,
-    topic: 'LinkedList',
-  },
-  {
-    number: 6,
-    heading: 'ZigZag Conversion',
-    difficulty: 'Medium',
-    description:
-      'The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) And then read line by line: "PAHNAPLSIIGYIR"',
-    example: [
-      {
-        number: '1',
-        input: '(s = "PAYPALISHIRING", numRows = 3)',
-        output: '"PAHNAPLSIIGYIR"',
-        explanation: '',
-        image: null,
-      },
-    ],
-    constraints: [
-      '1 <= s.length <= 1000',
-      "s consists of English letters (lower-case and upper-case), ', ' and '.'",
-      '1 <= numRows <= 1000',
-    ],
-    cases: [
-      {
-        input: '(s = "PAYPALISHIRING", numRows = 3)',
-        output: '"PAHNAPLSIIGYIR"',
-      },
-      {
-        input: '(s = "PAYPALISHIRING", numRows = 4)',
-        output: '"PINALSIGYAHRPI"',
-      },
-      {
-        input: '(s = "A", numRows = 1)',
-        output: '"A"',
-      },
-    ],
-    // isSolved: false,
-    image: null,
-    isSolved: true,
-    image: 'null',
-    topic: 'Array',
   },
   {
     number: 7,
-    heading: 'Reverse Integer',
+    heading: 'Number of Students Unable to Eat Lunch',
     difficulty: 'Easy',
+    isSolved: false,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
     description:
-      'Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.',
+      'The school cafeteria offers circular and square sandwiches at lunch break. Each student either prefers square or circular sandwiches. Given two arrays representing students and sandwiches, return the number of students unable to eat lunch.',
+    constraints: [
+      '1 <= students.length, sandwiches.length <= 100',
+      'students.length == sandwiches.length',
+      'sandwiches[i] is 0 or 1',
+      'students[i] is 0 or 1',
+    ],
+    functionName: 'countStudents',
+    returnType: 'number',
+    javascriptDefaultCode: `\n/**\n\t* @param {number[]} students\n\t* @param {number[]} sandwiches\n\t* @return {number}\n*/\n\nvar countStudents = function(students, sandwiches) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef countStudents(students, sandwiches):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int countStudents(int[] students, int[] sandwiches) {\n\t// Write your code here\n}`,
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
     example: [
       {
-        number: '1',
-        input: '123',
-        output: '321',
-        explanation: '',
+        number: 1,
+        input: 'students = [1,1,0,0], sandwiches = [0,1,0,1]',
+        output: '0',
+        parameter: '[1,1,0,0],[0,1,0,1]',
+        explanation: 'All students are able to eat.',
         image: null,
+        javaFuncCall: 'countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})',
+      },
+      {
+        number: 2,
+        input: 'students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]',
+        output: '3',
+        parameter: '[1,1,1,0,0,1],[1,0,0,0,1,1]',
+        explanation: 'Three students are unable to eat.',
+        image: null,
+        javaFuncCall:
+          'countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})',
+      },
+      {
+        number: 6,
+        input: 'students = [0,0,0,0,0], sandwiches = [1,1,1,1,1]',
+        output: '5',
+        parameter: '[0,0,0,0,0],[1,1,1,1,1]',
+        explanation: 'All five students are unable to eat.',
+        image: null,
+        javaFuncCall:
+          'countStudents(new int[]{0,0,0,0,0}, new int[]{1,1,1,1,1})',
       },
     ],
-    constraints: ['-231 <= x <= 231 - 1'],
     cases: [
       {
-        input: '123',
-        output: '321',
+        parameter: '[1,1,0,0],[0,1,0,1]',
+        expectedOutput: '0',
+        userOutput: null,
+        javaFuncCall: 'countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})',
       },
       {
-        input: '-123',
-        output: '-321',
+        parameter: '[1,1,1,0,0,1],[1,0,0,0,1,1]',
+        expectedOutput: '3',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})',
+      },
+
+      {
+        parameter: '[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]',
+        expectedOutput: '10',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})',
       },
       {
-        input: '120',
-        output: '21',
+        parameter: '[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]',
+        expectedOutput: '0',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})',
+      },
+
+      {
+        parameter: '[1,1,1,0,0,1],[1,0,0,0,1,1]',
+        expectedOutput: '3',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})',
+      },
+      {
+        parameter: '[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]',
+        expectedOutput: '10',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})',
+      },
+      {
+        parameter: '[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]',
+        expectedOutput: '0',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})',
+      },
+      {
+        parameter: '[1,1,0,0,1],[1,1,0,1,1]',
+        expectedOutput: '1',
+        userOutput: null,
+        javaFuncCall:
+          'countStudents(new int[]{1,1,0,0,1}, new int[]{1,1,0,1,1})',
       },
     ],
-    image: null,
-    isSolved: true,
-    image: 'null',
-    topic: 'Tree',
+    /*
+    JS:
+      let zeroes = 0, ones = 0;
+      for (let student of students) {
+          if(student === 1) ones++; 
+          else zeroes++;
+      }
+      for(let sandwich of sandwiches) {
+          if(sandwich === 1) {
+              if(ones === 0 ) return zeroes;
+              ones--;
+          } 
+          else {
+              if(zeroes === 0 ) return ones; 
+              zeroes--; 
+          }
+      }
+      return 0;
+    
+    PYTHON:
+      zeroes = 0
+	    ones = 0	
+	    for student in students:
+	        if student == 1:
+	            ones += 1
+	        else:
+	            zeroes += 1	
+	    for sandwich in sandwiches:
+	        if sandwich == 1:
+	            if ones == 0:
+	                return zeroes
+	            ones -= 1
+	        else:
+	            if zeroes == 0:
+	                return ones
+	            zeroes -= 1	
+	    return 0
+
+    JAVA:
+      int zeroes = 0, ones = 0;
+      for (int student : students) {
+          if (student == 1) ones++; 
+          else zeroes++;
+      }
+      for (int sandwich : sandwiches) {
+          if (sandwich == 1) {
+              if (ones == 0) return zeroes;
+              ones--;
+          } else {
+              if (zeroes == 0) return ones; 
+              zeroes--; 
+          }
+      }
+      return 0;
+    */
   },
   {
     number: 8,
-    heading: 'Palindrome Number',
-    difficulty: 'Easy',
-    description:
-      'Given an integer x, return true if x is a palindrome integer. An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.',
-    example: [
-      {
-        number: '1',
-        input: '121',
-        output: 'true',
-        explanation: '',
-        image: null,
-      },
-    ],
-    constraints: ['-231 <= x <= 231 - 1'],
-    cases: [
-      {
-        input: '121',
-        output: 'true',
-      },
-      {
-        input: '-121',
-        output: 'false',
-      },
-      {
-        input: '10',
-        output: 'false',
-      },
-    ],
-    image: null,
+    heading: 'Remove Duplicates from Sorted List',
+    difficulty: 'Medium',
     isSolved: true,
-    image: 'null',
-    topic: 'Binary Search',
-  },
-  {
-    number: 9,
-    heading: 'Regular Expression Matching',
-    difficulty: 'Hard',
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
     description:
-      "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where: - '.' Matches any single character. - '*' Matches zero or more of the preceding element.",
-    example: [
-      {
-        number: '1',
-        input: '(s = "aa", p = "a")',
-        output: 'false',
-        explanation: '',
-        image: null,
-      },
-    ],
+      'Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.',
     constraints: [
-      '1 <= s.length <= 20',
-      '1 <= p.length <= 30',
-      's contains only lowercase English letters.',
-      "p contains only lowercase English letters, '.', and '*'.",
-      "It is guaranteed for each appearance of the character '.', there will be a previous valid character to match.",
+      'The number of nodes in the list is in the range [0, 300].',
+      '-100 <= Node.val <= 100',
+      'The list is guaranteed to be sorted in ascending order.',
     ],
-    cases: [
-      {
-        input: '(s = "aa", p = "a")',
-        output: 'false',
-      },
-      {
-        input: '(s = "aa", p = "a*")',
-        output: 'true',
-      },
-      {
-        input: '(s = "ab", p = ".*")',
-        output: 'true',
-      },
-    ],
-    isSolved: false,
-    image: null,
-    topic: 'String',
-  },
-  {
-    number: 10,
-    heading: 'Container With Most Water',
-    difficulty: 'Medium',
-    description:
-      'Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.',
+    functionName: 'deleteDuplicates',
+    returnType: 'linkedlist',
+    javascriptDefaultCode: `
+  /**
+   * Definition for singly-linked list.
+   * function ListNode(val, next) {
+   *     this.val = (val===undefined ? 0 : val)
+   *     this.next = (next===undefined ? null : next)
+   * }
+   */
+  /**
+   * @param {ListNode} head
+   * @return {ListNode}
+   */
+  var deleteDuplicates = function(head) {
+      // Write your code here
+  };`,
+    pythonDefaultCode: `
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        # Write your code here`,
+    javaDefaultCode: `
+/* Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+public ListNode deleteDuplicates(ListNode head) {
+    // Write your code here
+}`,
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
     example: [
       {
-        number: '1',
-        input: '[1,8,6,2,5,4,8,3,7]',
-        output: '49',
-        explanation: '',
+        number: 1,
+        input: 'head = [1,1,2]',
+        output: '[1,2]',
+        parameter: '[1,1,2]',
+        explanation:
+          'After removing duplicates, the linked list becomes [1,2].',
         image: null,
-      },
-    ],
-    constraints: [
-      'n == height.length',
-      '2 <= n <= 10^5',
-      '0 <= height[i] <= 10^4',
-    ],
-    isSolved: true,
-    image: 'null',
-    topic: 'String',
-  },
-  {
-    heading: 'Sqrt(x)',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: true,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Merge Sorted Array',
-    difficulty: 'Medium',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      {
-        input: '[1,8,6,2,5,4,8,3,7]',
-        output: '49',
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2))))',
       },
       {
-        input: '[1,1]',
-        output: '1',
+        number: 2,
+        input: 'head = [1,1,2,3,3]',
+        output: '[1,2,3]',
+        parameter: '[1,1,2,3,3]',
+        explanation:
+          'After removing duplicates, the linked list becomes [1,2,3].',
+        image: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3))))))',
       },
       {
-        input: '[4,3,2,1,4]',
-        output: '16',
+        number: 3,
+        input: 'head = [1,2,2,3,3]',
+        output: '[1,2,3]',
+        parameter: '[1,2,2,3,3]',
+        explanation:
+          'After removing duplicates, the linked list becomes [1,2,3].',
+        image: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3))))))',
       },
     ],
-    isSolved: false,
-    image: null,
-    topic: 'Array',
-  },
-  {
-    heading: 'Reverse Linked List 2',
-    difficulty: 'Easy',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
     cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+      {
+        parameter: '[1,1,2]',
+        expectedOutput: '[1,2]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2))))',
+      },
+      {
+        parameter: '[1,1,2,3,3]',
+        expectedOutput: '[1,2,3]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3))))))',
+      },
+      {
+        expectedOutput: '[1,2,3]',
+        parameter: '[1,2,2,3,3]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3))))))',
+      },
+      {
+        parameter: '[1,1,2,3,4]',
+        expectedOutput: '[1,2,3,4]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))))))',
+      },
+      {
+        parameter: '[1,2,3,4,5]',
+        expectedOutput: '[1,2,3,4,5]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))',
+      },
+      {
+        parameter: '[1,1,1,1,1]',
+        expectedOutput: '[1]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1))))))',
+      },
+
+      {
+        parameter: '[1,1,2,2,3,3,4,4,5,5]',
+        expectedOutput: '[1,2,3,4,5]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3, new ListNode(4, new ListNode(4, new ListNode(5, new ListNode(5)))))))))))',
+      },
+      {
+        parameter: '[1,1,1,1,2,2,2,2,3,3,3,3]',
+        expectedOutput: '[1,2,3]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3, new ListNode(3, new ListNode(3))))))))))))))',
+      },
+
+      {
+        parameter: '[1,1,1,1,1,1,1,1,1,1]',
+        expectedOutput: '[1]',
+        userOutput: null,
+        javaFuncCall:
+          'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1))))))))))',
+      },
+      {
+        parameter: '[1]',
+        expectedOutput: '[1]',
+        userOutput: null,
+        javaFuncCall: 'deleteDuplicates(new ListNode(1))',
+      },
+      {
+        parameter: '[]',
+        expectedOutput: '[]',
+        userOutput: null,
+        javaFuncCall: 'deleteDuplicates(null)',
+      },
     ],
-    isSolved: false,
-    image: 'null',
-    topic: 'LinkedList',
-  },
-  {
-    heading: 'Same Tree',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Tree',
-  },
-  {
-    heading: 'Looping',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Three Sum',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Longest Common Prefix',
-    difficulty: 'Easy',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Binary Search',
-  },
-  {
-    heading: 'Longest Palindromic Substring',
-    difficulty: 'Medium',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
+    /*
+    JS:
+      let node = head;
+      while(node !== null && node.next !== null){
+          if(node.val === node.next.val){
+              node.next = node.next.next;
+          }
+          else{
+              node = node.next;
+          }
+      }
+
+    return head;
+
+    PYTHON:
+      temp = head
+      while (temp and temp.next):
+          if (temp.next.val == temp.val):
+              temp.next = temp.next.next
+              continue
+          temp = temp.next
+      return head
+
+    JAVA:
+      ListNode temp = head; 
+      while (temp != null && temp.next != null) {
+          if (temp.next.val == temp.val) {
+              temp.next = temp.next.next;
+              continue;
+          }
+          temp = temp.next;
+      }
+      return head;
+    */
   },
 ]
 

@@ -1,20 +1,20 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { addProblemObj } from '../store/problemObjSlice';
-import { Link } from 'react-router-dom';
-import { images } from '../javascripts/images';
-import '../style/problemBoxContainer.scss';
-import AllquesObject from '../javascripts/data';
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addProblemObj } from '../store/problemObjSlice'
+import { Link } from 'react-router-dom'
+import { images } from '../javascripts/images'
+import '../style/problemBoxContainer.scss'
+import AllquesObject from '../javascripts/data'
 
 const ProblemDisplayContainer = ({ problem, value, fontSize }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleClick = () => {
     const selectedProblem = AllquesObject.find(
-      (item) => item.heading === problem.heading
-    );
-    dispatch(addProblemObj(selectedProblem));
-  };
+      (item) => item.heading === problem.heading,
+    )
+    dispatch(addProblemObj(selectedProblem))
+  }
 
   return (
     <div className="problemBoxContainer">
@@ -24,10 +24,15 @@ const ProblemDisplayContainer = ({ problem, value, fontSize }) => {
             <div className="statusContainer">
               {problem.isSolved && <img src={images.solved} alt="Solved" />}
             </div>
-            <div className='numberdisplayer'>{problem.number}</div>
+            <div className="numberdisplayer">{problem.number}</div>
           </>
         )}
-        <Link to="/coding" onClick={handleClick} className="problemDisplayer" style={{fontSize: fontSize}}>
+        <Link
+          to="/coding"
+          onClick={handleClick}
+          className="problemDisplayer"
+          style={{ fontSize: fontSize }}
+        >
           {problem.heading}
         </Link>
       </div>
@@ -38,7 +43,7 @@ const ProblemDisplayContainer = ({ problem, value, fontSize }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ProblemDisplayContainer;
+export default ProblemDisplayContainer
