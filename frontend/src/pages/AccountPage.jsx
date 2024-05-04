@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../style/Account.scss'
 import { images } from '../javascripts/images'
@@ -6,11 +6,21 @@ import {
   Button,
   CircularProgress,
   CircularProgressLabel,
-  Progress,
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { AllquesObject } from '../javascripts/data'
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
+import DisplayProblemContainer from '../components/DisplayProblemContainer'
 
 function AccountPage() {
+  const problemObj = useSelector((state) => state.problemObj.obj)
+
+  const [easyWidth, setEasyWidth] = useState(60)
+  const [mediumWidth, setMediumWidth] = useState(40)
+  const [hardWidth, setHardWidth] = useState(10)
+  const [circleValue, setCircleValue] = useState(60)
+
   return (
     <div>
       <Navbar />
@@ -87,9 +97,13 @@ function AccountPage() {
             </div>
             <div className="accRightTopContentBox">
               <div className="circleBox">
-                <CircularProgress size={160} value={40} color="green.400">
+                <CircularProgress
+                  size={160}
+                  value={circleValue}
+                  color="green.400"
+                >
                   <CircularProgressLabel style={{ color: 'white' }}>
-                    40
+                    {circleValue}
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
@@ -102,25 +116,57 @@ function AccountPage() {
                   </div>
                   <div className="rangeBox">
                     <div className="range">
-                      <div className="easyRange"></div>
+                      <div
+                        className="easyRange"
+                        style={{ width: `${easyWidth}%` }}
+                      ></div>
                     </div>
                     <div className="range">
-                      <div className="mediumRange"></div>
+                      <div
+                        className="mediumRange"
+                        style={{ width: `${mediumWidth}%` }}
+                      ></div>
                     </div>
                     <div className="range">
-                      <div className="hardRange"></div>
+                      <div
+                        className="hardRange"
+                        style={{ width: `${hardWidth}%` }}
+                      ></div>
                     </div>
                   </div>
                   <div className="numberBox">
-                    <p className="nums">12 / 200</p>
-                    <p className="nums">16 / 100</p>
-                    <p className="nums">2 / 60</p>
+                    <p className="nums">12 / 100</p>
+                    <p className="nums">16 / 50</p>
+                    <p className="nums">2 / 10</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="accBottom"></div>
+          <div className="accBottom">
+            <p>Submission List</p>
+            <hr />
+            <div>
+              <div className="headings">
+                <p>Problem Name</p>
+                <div>
+                  <p>Difficulty</p>
+                  <p>Attempts</p>
+                </div>
+              </div>
+              <div className="subListBox">
+                {AllquesObject.map((obj, i) => (
+                  <DisplayProblemContainer
+                    num={obj.number}
+                    diff={obj.difficulty}
+                    attempts={i}
+                    key={i}
+                    problem={obj.heading}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
