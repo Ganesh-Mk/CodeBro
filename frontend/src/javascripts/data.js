@@ -1,7 +1,6 @@
- export const AllquesObject = [
+export const AllquesObject = [
   {
     number: 1,
-    ds:'array',
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: true,
@@ -50,58 +49,6 @@
         image: null,
       },
     ],
-
-
-    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    functionName: 'addTwoNumber',
-    defaultCode: `/**
-* @param {number} a
-* @param {number} b
-* @return {number}
-*/
-
-var addTwoNumber = function(a, b) {
-    return a+b;
-};`,
-  },
-  {
-    number: 1,
-    ds:'array',
-    heading: 'Two Sum',
-    difficulty: 'Easy',
-    isSolved: true,
-    image: null,
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: [
-      {
-        number: '1',
-        input: 'nums = [2,7,11,15], target = 9',
-        output: '10',
-        explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-        image: null,
-      },
-      {
-        number: '2',
-        input: 'nums = [3,2,4], target = 6',
-        output: '[1,2]',
-        explanation: '',
-        image: null,
-      },
-      {
-        number: '3',
-        input: 'nums = [3,3], target = 8',
-        output: '[0,3]',
-        explanation: '',
-        image: null,
-      },
-    ],
-    constraints: [
-      '2 <= nums.length <= 10^4',
-      '-10^9 <= nums[i] <= 10^9',
-      '-10^9 <= target <= 10^9',
-    ],
-
     cases: [
       {
         parameter: '10,5',
@@ -189,7 +136,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 2,
-
     heading: 'String Reverse',
     difficulty: 'Easy',
     isSolved: false,
@@ -197,11 +143,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'Add Two Numbers',
-    ds:'array',
-    difficulty: 'Medium',
-
     description:
       'Given a string, reverse the string and return the reversed string.',
     constraints: [
@@ -386,7 +327,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 3,
-
     heading: 'Find Minimum and Maximum Number',
     difficulty: 'Easy',
     isSolved: false,
@@ -394,11 +334,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'Longest Substring Without Repeating Characters',
-    ds:'array',
-    difficulty: 'Medium',
-
     description:
       'Given an array of numbers, find the minimum and maximum numbers in the array, return the minimum and maximum number in array',
     constraints: [
@@ -528,7 +463,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 4,
-
     heading: 'Find Second Largest Element in Array',
     difficulty: 'Easy',
     isSolved: false,
@@ -536,11 +470,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'Median of Two Sorted Arrays',
-    ds:'array',
-    difficulty: 'Hard',
-
     description:
       'Given an array of integers, find the second largest element in the array. Return the answer',
     constraints: [
@@ -685,7 +614,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 5,
-
     heading: 'Create Array of Numbers',
     difficulty: 'Easy',
     isSolved: false,
@@ -693,11 +621,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'Longest Palindromic Substring',
-    ds:'array',
-    difficulty: 'Medium',
-
     description:
       'Given an integer n, create an array containing integers from 0 to n-1. Return the array.',
     constraints: [
@@ -816,7 +739,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 6,
-
     heading: 'Increment Matrix Values',
     difficulty: 'Easy',
     isSolved: false,
@@ -824,11 +746,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'ZigZag Conversion',
-    ds:'array',
-    difficulty: 'Medium',
-
     description:
       'Given a matrix of arrays of numbers, increment each value in the matrix by 1. Return the modified matrix.',
     constraints: [
@@ -954,12 +871,7 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 7,
-
     heading: 'Number of Students Unable to Eat Lunch',
-
-    heading: 'Reverse Integer',
-    ds:'array',
-
     difficulty: 'Easy',
     isSolved: false,
     language: 'javascript',
@@ -1130,7 +1042,6 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 8,
-
     heading: 'Remove Duplicates from Sorted List',
     difficulty: 'Medium',
     isSolved: true,
@@ -1138,47 +1049,6 @@ var addTwoNumber = function(a, b) {
     image: null,
     allOutput: [],
     allResult: [],
-
-    heading: 'Palindrome Number',
-    ds:'array',
-    difficulty: 'Easy',
-    description:
-      'Given an integer x, return true if x is a palindrome integer. An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.',
-    example: [
-      {
-        number: '1',
-        input: '121',
-        output: 'true',
-        explanation: '',
-        image: null,
-      },
-    ],
-    constraints: ['-231 <= x <= 231 - 1'],
-    cases: [
-      {
-        input: '121',
-        output: 'true',
-      },
-      {
-        input: '-121',
-        output: 'false',
-      },
-      {
-        input: '10',
-        output: 'false',
-      },
-    ],
-    image: null,
-    isSolved: true,
-    image: 'null',
-    topic: 'Binary Search',
-  },
-  {
-    number: 9,
-    heading: 'Regular Expression Matching',
-    ds:'array',
-    difficulty: 'Hard',
-
     description:
       'Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.',
     constraints: [
@@ -1186,7 +1056,6 @@ var addTwoNumber = function(a, b) {
       '-100 <= Node.val <= 100',
       'The list is guaranteed to be sorted in ascending order.',
     ],
-
     functionName: 'deleteDuplicates',
     returnType: 'linkedlist',
     javascriptDefaultCode: `
@@ -1231,33 +1100,6 @@ public ListNode deleteDuplicates(ListNode head) {
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
-
-    cases: [
-      {
-        input: '(s = "aa", p = "a")',
-        output: 'false',
-      },
-      {
-        input: '(s = "aa", p = "a*")',
-        output: 'true',
-      },
-      {
-        input: '(s = "ab", p = ".*")',
-        output: 'true',
-      },
-    ],
-    isSolved: false,
-    image: null,
-    topic: 'String',
-  },
-  {
-    number: 10,
-    heading: 'Container With Most Water',
-    ds:'array',
-    difficulty: 'Medium',
-    description:
-      'Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.',
-
     example: [
       {
         number: 1,
@@ -1293,46 +1135,6 @@ public ListNode deleteDuplicates(ListNode head) {
           'deleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3))))))',
       },
     ],
-
-
-    constraints: [
-      'n == height.length',
-      '2 <= n <= 10^5',
-      '0 <= height[i] <= 10^4',
-    ],
-    isSolved: true,
-    image: 'null',
-    topic: 'String',
-  },
-  {
-    heading: 'Sqrt(x)',
-    difficulty: 'Hard',
-    ds:'array',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: true,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Merge Sorted Array',
-    ds:'array',
-    difficulty: 'Medium',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-
     cases: [
       {
         parameter: '[1,1,2]',
@@ -1412,7 +1214,6 @@ public ListNode deleteDuplicates(ListNode head) {
         javaFuncCall: 'deleteDuplicates(null)',
       },
     ],
-
     /*
     JS:
       let node = head;
@@ -1447,119 +1248,6 @@ public ListNode deleteDuplicates(ListNode head) {
       }
       return head;
     */
-
-    isSolved: false,
-    image: null,
-    topic: 'Array',
-  },
-  {
-    heading: 'Reverse Linked List 2',
-    ds:'array',
-    difficulty: 'Easy',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'LinkedList',
-  },
-  {
-    heading: 'Same Tree',
-    ds:'array',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Tree',
-  },
-  {
-    heading: 'Looping',
-    ds:'array',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Three Sum',
-    ds:'array',
-    difficulty: 'Hard',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-  },
-  {
-    heading: 'Longest Common Prefix',
-    ds:'array',
-    difficulty: 'Easy',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Binary Search',
-  },
-  {
-    heading: 'Longest Palindromic Substring',
-    ds:'array',
-    difficulty: 'Medium',
-    description:
-      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
-    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
-    constraints:
-      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
-    cases: [
-      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
-      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
-    ],
-    isSolved: false,
-    image: 'null',
-    topic: 'Array',
-
   },
 ]
 
@@ -1710,7 +1398,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -1858,7 +1546,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -2005,155 +1693,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
-  },
-  {
-    number: 1,
-    heading: 'Add two numbers',
-    difficulty: 'Easy',
-    isSolved: true,
-    language: 'javascript',
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description: 'Given two parameter, add both and return the value',
-    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    functionName: 'addTwoNumbers',
-    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
-    isSubmitted: false,
-    example: [
-      {
-        number: '1',
-        input: 'a = 10, b = 5',
-        output: '15',
-        parameter: '10,5',
-        explanation: 'a + b = 15',
-        image: null,
-      },
-      {
-        number: '2',
-        input: 'a = 3, b = 2',
-        output: '5',
-        parameter: '3,2',
-        explanation: 'a + b = 5',
-        image: null,
-      },
-      {
-        number: '3',
-        input: 'a = 200, b = 300',
-        output: '500',
-        parameter: '200,300',
-        explanation: 'a + b = 500',
-        image: null,
-      },
     ],
-    testCaseOutputs: [],
-    testCaseResults: [],
-    cases: [
-      {
-        parameter: '10,5',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '3,2',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '200,300',
-        expectedOutput: '500',
-        userOutput: null,
-      },
-      {
-        parameter: '0,0',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-5,5',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-10,-20',
-        expectedOutput: '-30',
-        userOutput: null,
-      },
-      {
-        parameter: '1000000000,1',
-        expectedOutput: '1000000001',
-        userOutput: null,
-      },
-      {
-        parameter: '999999999,999999999',
-        expectedOutput: '1999999998',
-        userOutput: null,
-      },
-      {
-        parameter: '123456789,987654321',
-        expectedOutput: '1111111110',
-        userOutput: null,
-      },
-      {
-        parameter: '2,3',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '7,8',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '17,23',
-        expectedOutput: '40',
-        userOutput: null,
-      },
-      {
-        parameter: '100,100',
-        expectedOutput: '200',
-        userOutput: null,
-      },
-      {
-        parameter: '50,50',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '123,456',
-        expectedOutput: '579',
-        userOutput: null,
-      },
-      {
-        parameter: '-100,200',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '999,-999',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-    
-        parameter: '-123,-456',
-        expectedOutput: '-579',
-        userOutput: null,
-      },
-      {
-        parameter: '0,999',
-        expectedOutput: '999',
-        userOutput: null,
-      },
-      {
-        parameter: '1,0',
-        expectedOutput: '1',
-        userOutput: null,
-      },
-    ]
   },
   {
     number: 1,
@@ -2300,7 +1840,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -2447,7 +1987,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -2594,7 +2134,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -2741,7 +2281,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -2888,7 +2428,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3035,7 +2575,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3182,7 +2722,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3329,7 +2869,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3476,7 +3016,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3623,7 +3163,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3770,7 +3310,7 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -3917,9 +3457,155 @@ export const javaAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
-
+  {
+    number: 1,
+    heading: 'Add two numbers',
+    difficulty: 'Easy',
+    isSolved: true,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description: 'Given two parameter, add both and return the value',
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumbers',
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
+    isSubmitted: false,
+    example: [
+      {
+        number: '1',
+        input: 'a = 10, b = 5',
+        output: '15',
+        parameter: '10,5',
+        explanation: 'a + b = 15',
+        image: null,
+      },
+      {
+        number: '2',
+        input: 'a = 3, b = 2',
+        output: '5',
+        parameter: '3,2',
+        explanation: 'a + b = 5',
+        image: null,
+      },
+      {
+        number: '3',
+        input: 'a = 200, b = 300',
+        output: '500',
+        parameter: '200,300',
+        explanation: 'a + b = 500',
+        image: null,
+      },
+    ],
+    testCaseOutputs: [],
+    testCaseResults: [],
+    cases: [
+      {
+        parameter: '10,5',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '3,2',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '200,300',
+        expectedOutput: '500',
+        userOutput: null,
+      },
+      {
+        parameter: '0,0',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-5,5',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-10,-20',
+        expectedOutput: '-30',
+        userOutput: null,
+      },
+      {
+        parameter: '1000000000,1',
+        expectedOutput: '1000000001',
+        userOutput: null,
+      },
+      {
+        parameter: '999999999,999999999',
+        expectedOutput: '1999999998',
+        userOutput: null,
+      },
+      {
+        parameter: '123456789,987654321',
+        expectedOutput: '1111111110',
+        userOutput: null,
+      },
+      {
+        parameter: '2,3',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '7,8',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '17,23',
+        expectedOutput: '40',
+        userOutput: null,
+      },
+      {
+        parameter: '100,100',
+        expectedOutput: '200',
+        userOutput: null,
+      },
+      {
+        parameter: '50,50',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '123,456',
+        expectedOutput: '579',
+        userOutput: null,
+      },
+      {
+        parameter: '-100,200',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '999,-999',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-123,-456',
+        expectedOutput: '-579',
+        userOutput: null,
+      },
+      {
+        parameter: '0,999',
+        expectedOutput: '999',
+        userOutput: null,
+      },
+      {
+        parameter: '1,0',
+        expectedOutput: '1',
+        userOutput: null,
+      },
+    ],
+  },
 ]
 
 export const jsAllQuesObj = [
@@ -4069,7 +3755,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -4216,7 +3902,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -4363,155 +4049,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
-  },
-  {
-    number: 1,
-    heading: 'Add two numbers',
-    difficulty: 'Easy',
-    isSolved: true,
-    language: 'javascript',
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description: 'Given two parameter, add both and return the value',
-    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    functionName: 'addTwoNumbers',
-    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
-    isSubmitted: false,
-    example: [
-      {
-        number: '1',
-        input: 'a = 10, b = 5',
-        output: '15',
-        parameter: '10,5',
-        explanation: 'a + b = 15',
-        image: null,
-      },
-      {
-        number: '2',
-        input: 'a = 3, b = 2',
-        output: '5',
-        parameter: '3,2',
-        explanation: 'a + b = 5',
-        image: null,
-      },
-      {
-        number: '3',
-        input: 'a = 200, b = 300',
-        output: '500',
-        parameter: '200,300',
-        explanation: 'a + b = 500',
-        image: null,
-      },
     ],
-    testCaseOutputs: [],
-    testCaseResults: [],
-    cases: [
-      {
-        parameter: '10,5',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '3,2',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '200,300',
-        expectedOutput: '500',
-        userOutput: null,
-      },
-      {
-        parameter: '0,0',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-5,5',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-10,-20',
-        expectedOutput: '-30',
-        userOutput: null,
-      },
-      {
-        parameter: '1000000000,1',
-        expectedOutput: '1000000001',
-        userOutput: null,
-      },
-      {
-        parameter: '999999999,999999999',
-        expectedOutput: '1999999998',
-        userOutput: null,
-      },
-      {
-        parameter: '123456789,987654321',
-        expectedOutput: '1111111110',
-        userOutput: null,
-      },
-      {
-        parameter: '2,3',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '7,8',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '17,23',
-        expectedOutput: '40',
-        userOutput: null,
-      },
-      {
-        parameter: '100,100',
-        expectedOutput: '200',
-        userOutput: null,
-      },
-      {
-        parameter: '50,50',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '123,456',
-        expectedOutput: '579',
-        userOutput: null,
-      },
-      {
-        parameter: '-100,200',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '999,-999',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-    
-        parameter: '-123,-456',
-        expectedOutput: '-579',
-        userOutput: null,
-      },
-      {
-        parameter: '0,999',
-        expectedOutput: '999',
-        userOutput: null,
-      },
-      {
-        parameter: '1,0',
-        expectedOutput: '1',
-        userOutput: null,
-      },
-    ]
   },
   {
     number: 1,
@@ -4658,7 +4196,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -4805,7 +4343,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -4952,7 +4490,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -5099,7 +4637,7 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -5246,7 +4784,154 @@ export const jsAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
+  },
+  {
+    number: 1,
+    heading: 'Add two numbers',
+    difficulty: 'Easy',
+    isSolved: true,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description: 'Given two parameter, add both and return the value',
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumbers',
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
+    isSubmitted: false,
+    example: [
+      {
+        number: '1',
+        input: 'a = 10, b = 5',
+        output: '15',
+        parameter: '10,5',
+        explanation: 'a + b = 15',
+        image: null,
+      },
+      {
+        number: '2',
+        input: 'a = 3, b = 2',
+        output: '5',
+        parameter: '3,2',
+        explanation: 'a + b = 5',
+        image: null,
+      },
+      {
+        number: '3',
+        input: 'a = 200, b = 300',
+        output: '500',
+        parameter: '200,300',
+        explanation: 'a + b = 500',
+        image: null,
+      },
+    ],
+    testCaseOutputs: [],
+    testCaseResults: [],
+    cases: [
+      {
+        parameter: '10,5',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '3,2',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '200,300',
+        expectedOutput: '500',
+        userOutput: null,
+      },
+      {
+        parameter: '0,0',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-5,5',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-10,-20',
+        expectedOutput: '-30',
+        userOutput: null,
+      },
+      {
+        parameter: '1000000000,1',
+        expectedOutput: '1000000001',
+        userOutput: null,
+      },
+      {
+        parameter: '999999999,999999999',
+        expectedOutput: '1999999998',
+        userOutput: null,
+      },
+      {
+        parameter: '123456789,987654321',
+        expectedOutput: '1111111110',
+        userOutput: null,
+      },
+      {
+        parameter: '2,3',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '7,8',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '17,23',
+        expectedOutput: '40',
+        userOutput: null,
+      },
+      {
+        parameter: '100,100',
+        expectedOutput: '200',
+        userOutput: null,
+      },
+      {
+        parameter: '50,50',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '123,456',
+        expectedOutput: '579',
+        userOutput: null,
+      },
+      {
+        parameter: '-100,200',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '999,-999',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-123,-456',
+        expectedOutput: '-579',
+        userOutput: null,
+      },
+      {
+        parameter: '0,999',
+        expectedOutput: '999',
+        userOutput: null,
+      },
+      {
+        parameter: '1,0',
+        expectedOutput: '1',
+        userOutput: null,
+      },
+    ],
   },
 ]
 
@@ -5396,7 +5081,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -5544,7 +5229,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -5691,155 +5376,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
-  },
-  {
-    number: 1,
-    heading: 'Add two numbers',
-    difficulty: 'Easy',
-    isSolved: true,
-    language: 'javascript',
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description: 'Given two parameter, add both and return the value',
-    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
-    functionName: 'addTwoNumbers',
-    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
-    isSubmitted: false,
-    example: [
-      {
-        number: '1',
-        input: 'a = 10, b = 5',
-        output: '15',
-        parameter: '10,5',
-        explanation: 'a + b = 15',
-        image: null,
-      },
-      {
-        number: '2',
-        input: 'a = 3, b = 2',
-        output: '5',
-        parameter: '3,2',
-        explanation: 'a + b = 5',
-        image: null,
-      },
-      {
-        number: '3',
-        input: 'a = 200, b = 300',
-        output: '500',
-        parameter: '200,300',
-        explanation: 'a + b = 500',
-        image: null,
-      },
     ],
-    testCaseOutputs: [],
-    testCaseResults: [],
-    cases: [
-      {
-        parameter: '10,5',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '3,2',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '200,300',
-        expectedOutput: '500',
-        userOutput: null,
-      },
-      {
-        parameter: '0,0',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-5,5',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-        parameter: '-10,-20',
-        expectedOutput: '-30',
-        userOutput: null,
-      },
-      {
-        parameter: '1000000000,1',
-        expectedOutput: '1000000001',
-        userOutput: null,
-      },
-      {
-        parameter: '999999999,999999999',
-        expectedOutput: '1999999998',
-        userOutput: null,
-      },
-      {
-        parameter: '123456789,987654321',
-        expectedOutput: '1111111110',
-        userOutput: null,
-      },
-      {
-        parameter: '2,3',
-        expectedOutput: '5',
-        userOutput: null,
-      },
-      {
-        parameter: '7,8',
-        expectedOutput: '15',
-        userOutput: null,
-      },
-      {
-        parameter: '17,23',
-        expectedOutput: '40',
-        userOutput: null,
-      },
-      {
-        parameter: '100,100',
-        expectedOutput: '200',
-        userOutput: null,
-      },
-      {
-        parameter: '50,50',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '123,456',
-        expectedOutput: '579',
-        userOutput: null,
-      },
-      {
-        parameter: '-100,200',
-        expectedOutput: '100',
-        userOutput: null,
-      },
-      {
-        parameter: '999,-999',
-        expectedOutput: '0',
-        userOutput: null,
-      },
-      {
-    
-        parameter: '-123,-456',
-        expectedOutput: '-579',
-        userOutput: null,
-      },
-      {
-        parameter: '0,999',
-        expectedOutput: '999',
-        userOutput: null,
-      },
-      {
-        parameter: '1,0',
-        expectedOutput: '1',
-        userOutput: null,
-      },
-    ]
   },
   {
     number: 1,
@@ -5986,7 +5523,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -6133,7 +5670,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -6280,7 +5817,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -6427,7 +5964,7 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
   },
   {
     number: 1,
@@ -6574,14 +6111,153 @@ export const pythonAllQuesObj = [
         expectedOutput: '1',
         userOutput: null,
       },
-    ]
+    ],
+  },
+  {
+    number: 1,
+    heading: 'Add two numbers',
+    difficulty: 'Easy',
+    isSolved: true,
+    language: 'javascript',
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description: 'Given two parameter, add both and return the value',
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumbers',
+    javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
+    isSubmitted: false,
+    example: [
+      {
+        number: '1',
+        input: 'a = 10, b = 5',
+        output: '15',
+        parameter: '10,5',
+        explanation: 'a + b = 15',
+        image: null,
+      },
+      {
+        number: '2',
+        input: 'a = 3, b = 2',
+        output: '5',
+        parameter: '3,2',
+        explanation: 'a + b = 5',
+        image: null,
+      },
+      {
+        number: '3',
+        input: 'a = 200, b = 300',
+        output: '500',
+        parameter: '200,300',
+        explanation: 'a + b = 500',
+        image: null,
+      },
+    ],
+    testCaseOutputs: [],
+    testCaseResults: [],
+    cases: [
+      {
+        parameter: '10,5',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '3,2',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '200,300',
+        expectedOutput: '500',
+        userOutput: null,
+      },
+      {
+        parameter: '0,0',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-5,5',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-10,-20',
+        expectedOutput: '-30',
+        userOutput: null,
+      },
+      {
+        parameter: '1000000000,1',
+        expectedOutput: '1000000001',
+        userOutput: null,
+      },
+      {
+        parameter: '999999999,999999999',
+        expectedOutput: '1999999998',
+        userOutput: null,
+      },
+      {
+        parameter: '123456789,987654321',
+        expectedOutput: '1111111110',
+        userOutput: null,
+      },
+      {
+        parameter: '2,3',
+        expectedOutput: '5',
+        userOutput: null,
+      },
+      {
+        parameter: '7,8',
+        expectedOutput: '15',
+        userOutput: null,
+      },
+      {
+        parameter: '17,23',
+        expectedOutput: '40',
+        userOutput: null,
+      },
+      {
+        parameter: '100,100',
+        expectedOutput: '200',
+        userOutput: null,
+      },
+      {
+        parameter: '50,50',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '123,456',
+        expectedOutput: '579',
+        userOutput: null,
+      },
+      {
+        parameter: '-100,200',
+        expectedOutput: '100',
+        userOutput: null,
+      },
+      {
+        parameter: '999,-999',
+        expectedOutput: '0',
+        userOutput: null,
+      },
+      {
+        parameter: '-123,-456',
+        expectedOutput: '-579',
+        userOutput: null,
+      },
+      {
+        parameter: '0,999',
+        expectedOutput: '999',
+        userOutput: null,
+      },
+      {
+        parameter: '1,0',
+        expectedOutput: '1',
+        userOutput: null,
+      },
+    ],
   },
 ]
-
-
-export default AllquesObject
-
-
-
-
-

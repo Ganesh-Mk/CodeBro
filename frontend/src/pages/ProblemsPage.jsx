@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../javascripts/images";
-import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import AllquesObject from "../javascripts/data";
 import Navbar from "../components/Navbar";
+import '../style/ProblemsPage.scss'
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
+import { AllquesObject } from '../javascripts/data'
 
 function ProblemsPage() {
   const [selectedValue, setSelectedValue] = useState("All");
@@ -125,10 +126,16 @@ function ProblemsPage() {
               <p>Status</p>
               <p>Problem name</p>
             </div>
+
             <div className="levelspart">
               <p className="ds">DS</p>
               <p>Difficulty</p>
               <p>Attempts</p>
+          </div>
+
+          <div className="levelspart2">
+            <div className="difficult">
+              <p>Difficult</p>
             </div>
           </div>
         </div>
@@ -149,6 +156,7 @@ function ProblemsPage() {
             <h2>No Problems</h2>
           )}
         </div>
+      </div>
       </div>
     </>
   );
