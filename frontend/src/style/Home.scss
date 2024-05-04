@@ -103,10 +103,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 13vw;
+        gap: 4.3vw;
         p{
           color: #ffffff;
         }
+      }
+      .ds {
+        margin-right: 1vw;
       }
     }
   }
@@ -219,6 +222,7 @@
     box-shadow: -1px -1px 12px #729feb;
     overflow-y: scroll;
     height: 44vh;
+    overflow-x: hidden;
   }
   .SubmissionProblemShower::-webkit-scrollbar {
     width: 0.6vw;

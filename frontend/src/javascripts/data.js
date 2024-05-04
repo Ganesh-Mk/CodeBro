@@ -1,6 +1,7 @@
 export const AllquesObject = [
   {
     number: 1,
+    ds:'array',
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: true,
@@ -49,6 +50,58 @@ export const AllquesObject = [
         image: null,
       },
     ],
+
+
+    constraints: ['0 <= a <= 999', '0 <= b <= 999'],
+    functionName: 'addTwoNumber',
+    defaultCode: `/**
+* @param {number} a
+* @param {number} b
+* @return {number}
+*/
+
+var addTwoNumber = function(a, b) {
+    return a+b;
+};`,
+  },
+  {
+    number: 1,
+    ds:'array',
+    heading: 'Two Sum',
+    difficulty: 'Easy',
+    isSolved: true,
+    image: null,
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: [
+      {
+        number: '1',
+        input: 'nums = [2,7,11,15], target = 9',
+        output: '10',
+        explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+        image: null,
+      },
+      {
+        number: '2',
+        input: 'nums = [3,2,4], target = 6',
+        output: '[1,2]',
+        explanation: '',
+        image: null,
+      },
+      {
+        number: '3',
+        input: 'nums = [3,3], target = 8',
+        output: '[0,3]',
+        explanation: '',
+        image: null,
+      },
+    ],
+    constraints: [
+      '2 <= nums.length <= 10^4',
+      '-10^9 <= nums[i] <= 10^9',
+      '-10^9 <= target <= 10^9',
+    ],
+
     cases: [
       {
         parameter: '10,5',
@@ -136,6 +189,7 @@ export const AllquesObject = [
   },
   {
     number: 2,
+
     heading: 'String Reverse',
     difficulty: 'Easy',
     isSolved: false,
@@ -143,6 +197,11 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'Add Two Numbers',
+    ds:'array',
+    difficulty: 'Medium',
+
     description:
       'Given a string, reverse the string and return the reversed string.',
     constraints: [
@@ -327,6 +386,7 @@ export const AllquesObject = [
   },
   {
     number: 3,
+
     heading: 'Find Minimum and Maximum Number',
     difficulty: 'Easy',
     isSolved: false,
@@ -334,6 +394,11 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'Longest Substring Without Repeating Characters',
+    ds:'array',
+    difficulty: 'Medium',
+
     description:
       'Given an array of numbers, find the minimum and maximum numbers in the array, return the minimum and maximum number in array',
     constraints: [
@@ -463,6 +528,7 @@ export const AllquesObject = [
   },
   {
     number: 4,
+
     heading: 'Find Second Largest Element in Array',
     difficulty: 'Easy',
     isSolved: false,
@@ -470,6 +536,11 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'Median of Two Sorted Arrays',
+    ds:'array',
+    difficulty: 'Hard',
+
     description:
       'Given an array of integers, find the second largest element in the array. Return the answer',
     constraints: [
@@ -614,6 +685,7 @@ export const AllquesObject = [
   },
   {
     number: 5,
+
     heading: 'Create Array of Numbers',
     difficulty: 'Easy',
     isSolved: false,
@@ -621,6 +693,11 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'Longest Palindromic Substring',
+    ds:'array',
+    difficulty: 'Medium',
+
     description:
       'Given an integer n, create an array containing integers from 0 to n-1. Return the array.',
     constraints: [
@@ -739,6 +816,7 @@ export const AllquesObject = [
   },
   {
     number: 6,
+
     heading: 'Increment Matrix Values',
     difficulty: 'Easy',
     isSolved: false,
@@ -746,6 +824,11 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'ZigZag Conversion',
+    ds:'array',
+    difficulty: 'Medium',
+
     description:
       'Given a matrix of arrays of numbers, increment each value in the matrix by 1. Return the modified matrix.',
     constraints: [
@@ -871,7 +954,12 @@ export const AllquesObject = [
   },
   {
     number: 7,
+
     heading: 'Number of Students Unable to Eat Lunch',
+
+    heading: 'Reverse Integer',
+    ds:'array',
+
     difficulty: 'Easy',
     isSolved: false,
     language: 'javascript',
@@ -1042,6 +1130,7 @@ export const AllquesObject = [
   },
   {
     number: 8,
+
     heading: 'Remove Duplicates from Sorted List',
     difficulty: 'Medium',
     isSolved: true,
@@ -1049,6 +1138,47 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
+
+    heading: 'Palindrome Number',
+    ds:'array',
+    difficulty: 'Easy',
+    description:
+      'Given an integer x, return true if x is a palindrome integer. An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.',
+    example: [
+      {
+        number: '1',
+        input: '121',
+        output: 'true',
+        explanation: '',
+        image: null,
+      },
+    ],
+    constraints: ['-231 <= x <= 231 - 1'],
+    cases: [
+      {
+        input: '121',
+        output: 'true',
+      },
+      {
+        input: '-121',
+        output: 'false',
+      },
+      {
+        input: '10',
+        output: 'false',
+      },
+    ],
+    image: null,
+    isSolved: true,
+    image: 'null',
+    topic: 'Binary Search',
+  },
+  {
+    number: 9,
+    heading: 'Regular Expression Matching',
+    ds:'array',
+    difficulty: 'Hard',
+
     description:
       'Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.',
     constraints: [
@@ -1056,6 +1186,7 @@ export const AllquesObject = [
       '-100 <= Node.val <= 100',
       'The list is guaranteed to be sorted in ascending order.',
     ],
+
     functionName: 'deleteDuplicates',
     returnType: 'linkedlist',
     javascriptDefaultCode: `
@@ -1100,6 +1231,33 @@ public ListNode deleteDuplicates(ListNode head) {
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
+
+    cases: [
+      {
+        input: '(s = "aa", p = "a")',
+        output: 'false',
+      },
+      {
+        input: '(s = "aa", p = "a*")',
+        output: 'true',
+      },
+      {
+        input: '(s = "ab", p = ".*")',
+        output: 'true',
+      },
+    ],
+    isSolved: false,
+    image: null,
+    topic: 'String',
+  },
+  {
+    number: 10,
+    heading: 'Container With Most Water',
+    ds:'array',
+    difficulty: 'Medium',
+    description:
+      'Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.',
+
     example: [
       {
         number: 1,
@@ -1135,6 +1293,46 @@ public ListNode deleteDuplicates(ListNode head) {
           'deleteDuplicates(new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3))))))',
       },
     ],
+
+
+    constraints: [
+      'n == height.length',
+      '2 <= n <= 10^5',
+      '0 <= height[i] <= 10^4',
+    ],
+    isSolved: true,
+    image: 'null',
+    topic: 'String',
+  },
+  {
+    heading: 'Sqrt(x)',
+    difficulty: 'Hard',
+    ds:'array',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: true,
+    image: 'null',
+    topic: 'Array',
+  },
+  {
+    heading: 'Merge Sorted Array',
+    ds:'array',
+    difficulty: 'Medium',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+
     cases: [
       {
         parameter: '[1,1,2]',
@@ -1214,6 +1412,7 @@ public ListNode deleteDuplicates(ListNode head) {
         javaFuncCall: 'deleteDuplicates(null)',
       },
     ],
+
     /*
     JS:
       let node = head;
@@ -1248,6 +1447,119 @@ public ListNode deleteDuplicates(ListNode head) {
       }
       return head;
     */
+
+    isSolved: false,
+    image: null,
+    topic: 'Array',
+  },
+  {
+    heading: 'Reverse Linked List 2',
+    ds:'array',
+    difficulty: 'Easy',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'LinkedList',
+  },
+  {
+    heading: 'Same Tree',
+    ds:'array',
+    difficulty: 'Hard',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'Tree',
+  },
+  {
+    heading: 'Looping',
+    ds:'array',
+    difficulty: 'Hard',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'Array',
+  },
+  {
+    heading: 'Three Sum',
+    ds:'array',
+    difficulty: 'Hard',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'Array',
+  },
+  {
+    heading: 'Longest Common Prefix',
+    ds:'array',
+    difficulty: 'Easy',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'Binary Search',
+  },
+  {
+    heading: 'Longest Palindromic Substring',
+    ds:'array',
+    difficulty: 'Medium',
+    description:
+      'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
+    example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
+    Explanation: 'Because nums[0] + nums[1] == 9, we return [0, 1].',
+    constraints:
+      '2 <= nums.length <= 104, -109 <= nums[i] <= 109, -109 <= target <= 109',
+    cases: [
+      { input: 'nums = [6,3,6,0], target = 3', output: '[0,3]' },
+      { input: 'nums = [1,23,4,5], target = 8', output: '[1,1]' },
+    ],
+    isSolved: false,
+    image: 'null',
+    topic: 'Array',
+
   },
 ]
 
