@@ -97,7 +97,7 @@ h1, p{
     }
     .accRight{
         display: grid;
-        grid-template-rows: 1.3fr 2fr;
+        grid-template-rows: 38vh 52vh;
         
         .accTop{
             border: 1px solid grey;
@@ -138,22 +138,21 @@ h1, p{
                         gap: 1.8vw;
 
                         .range{
+                            overflow: hidden;
+                            
                             .easyRange{
-                                height: 1.5vw;
+                                height: 100%;
                                 border-radius: 10rem;
-                                width: 80%;
                                 background: rgb(107, 248, 109);
                             }
                             .mediumRange{
-                                height: 1.5vw;
+                                height: 100%;
                                 border-radius: 10rem;
-                                width: 40%;                           
                                 background: rgb(255, 183, 68);
                             }
                             .hardRange{
-                                height: 1.5vw;
+                                height: 100%;
                                 border-radius: 10rem;
-                                width: 10%;                             
                                 background: rgb(255, 82, 82);
                             }
                         }
@@ -200,7 +199,33 @@ h1, p{
 
         }
 
-      
+        .accBottom{
+            overflow: hidden;
+            border: 1px solid grey;
+            border-radius: 2vw;
+            padding: 2vw;
+
+            .headings{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 2vw;
+                padding: 0 2vw;
+
+                div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 3vw;
+                    margin-right: 3vw;
+                }
+            }
+
+            .subListBox{
+                height: 35vh;
+                overflow: scroll;
+            }
+        }
     }
 }
 
