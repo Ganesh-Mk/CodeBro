@@ -1,6 +1,7 @@
 export const AllquesObject = [
   {
     number: 1,
+    ds:'array',
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: false,
@@ -49,6 +50,7 @@ var addTwoNumber = function(a, b) {
   },
   {
     number: 1,
+    ds:'array',
     heading: 'Two Sum',
     difficulty: 'Easy',
     isSolved: true,
@@ -116,6 +118,7 @@ var twoSum = function(nums, target) {
   {
     number: 2,
     heading: 'Add Two Numbers',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.',
@@ -155,6 +158,7 @@ var twoSum = function(nums, target) {
   {
     number: 3,
     heading: 'Longest Substring Without Repeating Characters',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'Given a string s, find the length of the longest substring without repeating characters.',
@@ -190,6 +194,7 @@ var twoSum = function(nums, target) {
   {
     number: 4,
     heading: 'Median of Two Sorted Arrays',
+    ds:'array',
     difficulty: 'Hard',
     description:
       'Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.',
@@ -232,6 +237,7 @@ var twoSum = function(nums, target) {
   {
     number: 5,
     heading: 'Longest Palindromic Substring',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'Given a string s, return the longest palindromic substring in s.',
@@ -269,6 +275,7 @@ var twoSum = function(nums, target) {
   {
     number: 6,
     heading: 'ZigZag Conversion',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) And then read line by line: "PAHNAPLSIIGYIR"',
@@ -309,6 +316,7 @@ var twoSum = function(nums, target) {
   {
     number: 7,
     heading: 'Reverse Integer',
+    ds:'array',
     difficulty: 'Easy',
     description:
       'Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.',
@@ -344,6 +352,7 @@ var twoSum = function(nums, target) {
   {
     number: 8,
     heading: 'Palindrome Number',
+    ds:'array',
     difficulty: 'Easy',
     description:
       'Given an integer x, return true if x is a palindrome integer. An integer is a palindrome when it reads the same backward as forward. For example, 121 is palindrome while 123 is not.',
@@ -379,6 +388,7 @@ var twoSum = function(nums, target) {
   {
     number: 9,
     heading: 'Regular Expression Matching',
+    ds:'array',
     difficulty: 'Hard',
     description:
       "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where: - '.' Matches any single character. - '*' Matches zero or more of the preceding element.",
@@ -419,6 +429,7 @@ var twoSum = function(nums, target) {
   {
     number: 10,
     heading: 'Container With Most Water',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.',
@@ -443,6 +454,7 @@ var twoSum = function(nums, target) {
   {
     heading: 'Sqrt(x)',
     difficulty: 'Hard',
+    ds:'array',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
     example: 'Example 1:Input: nums = [2,7,11,15], target = 9 Output: [0,1]',
@@ -459,6 +471,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Merge Sorted Array',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -486,6 +499,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Reverse Linked List 2',
+    ds:'array',
     difficulty: 'Easy',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -503,6 +517,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Same Tree',
+    ds:'array',
     difficulty: 'Hard',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -520,6 +535,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Looping',
+    ds:'array',
     difficulty: 'Hard',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -537,6 +553,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Three Sum',
+    ds:'array',
     difficulty: 'Hard',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -554,6 +571,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Longest Common Prefix',
+    ds:'array',
     difficulty: 'Easy',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
@@ -571,6 +589,7 @@ var twoSum = function(nums, target) {
   },
   {
     heading: 'Longest Palindromic Substring',
+    ds:'array',
     difficulty: 'Medium',
     description:
       'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',

@@ -33,6 +33,9 @@ const ProblemDisplayContainer = ({ problem, value, fontSize }) => {
       </div>
       {value && (
         <div className="problemBoxPart2">
+                  <div className='problemBoxMiddle'>
+          {problem.ds}
+        </div>
           <div className="difficultyDisplayer">{problem.difficulty}</div>
           <div className="attempts">2</div>
         </div>

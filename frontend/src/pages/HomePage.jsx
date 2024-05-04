@@ -12,8 +12,9 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const { easy, medium, hard } = useSelector((state) => state.ranges);
-  const solvedProblemsCount = useSelector((state) => state.ranges.solvedProblemsCount);
-
+  const solvedProblemsCount = useSelector(
+    (state) => state.ranges.solvedProblemsCount
+  );
 
   const handleRangeChange = (e, difficulty) => {
     const newValue = parseInt(e.target.value);
@@ -85,6 +86,7 @@ const HomePage = () => {
                 <p>Problem name</p>
               </div>
               <div className="levelspart">
+              <p className="ds">DS</p>
                 <p>Difficulty</p>
                 <p>Attempts</p>
               </div>
@@ -163,16 +165,16 @@ const HomePage = () => {
               <p>Problem name</p>
             </div>
             <div className="SubmissionProblemShower">
-              {
-                AllquesObject.filter((problem) => problem.isSolved).map((problem, index) => (
+              {AllquesObject.filter((problem) => problem.isSolved).map(
+                (problem, index) => (
                   <ProblemDisplayContainer
                     problem={problem}
                     key={index}
                     value={false}
                     fontSize={"1vw"}
                   />
-                ))
-              }
+                )
+              )}
             </div>
           </div>
         </div>
