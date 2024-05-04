@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../style/ProblemsPage.scss'
 import { images } from '../javascripts/images'
 import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import AllquesObject from '../javascripts/data'
+import { AllquesObject } from '../javascripts/data'
 import Navbar from '../components/Navbar'
 
 function ProblemsPage() {
@@ -130,7 +130,6 @@ function ProblemsPage() {
           </div>
 
           <div className="levelspart2">
-            
             <div className="difficult">
               <p>Difficult</p>
             </div>
@@ -155,7 +154,6 @@ function ProblemsPage() {
           )}
         </div>
       </div>
-
     </>
   )
 }
