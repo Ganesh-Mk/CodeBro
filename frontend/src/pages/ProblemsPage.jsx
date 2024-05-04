@@ -1,59 +1,59 @@
-import React, { useState } from 'react'
-import '../style/ProblemsPage.scss'
-import { images } from '../javascripts/images'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import AllquesObject from '../javascripts/data'
-import Navbar from '../components/Navbar'
+import React, { useState } from "react";
+import "../style/ProblemsPage.scss";
+import { images } from "../javascripts/images";
+import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
+import AllquesObject from "../javascripts/data";
+import Navbar from "../components/Navbar";
 
 function ProblemsPage() {
-  const [selectedValue, setSelectedValue] = useState('All')
-  const [selectedTopic, setSelectedTopic] = useState('All')
-  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedValue, setSelectedValue] = useState("All");
+  const [selectedTopic, setSelectedTopic] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filterByDifficulty = (difficulty) => {
-    let filteredProblems = AllquesObject
+    let filteredProblems = AllquesObject;
 
-    if (difficulty !== 'All') {
+    if (difficulty !== "All") {
       filteredProblems = filteredProblems.filter(
         (problem) =>
-          problem.difficulty.toLowerCase() === difficulty.toLowerCase(),
-      )
+          problem.difficulty.toLowerCase() === difficulty.toLowerCase()
+      );
     }
 
     if (searchTerm) {
-      const lowerCaseSearchTerm = searchTerm.toLowerCase()
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
       filteredProblems = filteredProblems.filter((problem) =>
-        problem.heading.toLowerCase().includes(lowerCaseSearchTerm),
-      )
+        problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
+      );
     }
 
-    if (selectedTopic && selectedTopic.toLowerCase() !== 'all') {
-      const lowerCaseSelectedTopic = selectedTopic.toLowerCase()
-      if (lowerCaseSelectedTopic === 'solved') {
+    if (selectedTopic && selectedTopic.toLowerCase() !== "all") {
+      const lowerCaseSelectedTopic = selectedTopic.toLowerCase();
+      if (lowerCaseSelectedTopic === "solved") {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === true,
-        )
-      } else if (lowerCaseSelectedTopic === 'unsolved') {
+          (problem) => problem.isSolved === true
+        );
+      } else if (lowerCaseSelectedTopic === "unsolved") {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === false,
-        )
+          (problem) => problem.isSolved === false
+        );
       } else {
         filteredProblems = filteredProblems.filter(
           (problem) =>
             problem.topic &&
-            problem.topic.toLowerCase() === lowerCaseSelectedTopic,
-        )
+            problem.topic.toLowerCase() === lowerCaseSelectedTopic
+        );
       }
     }
 
-    return filteredProblems
-  }
+    return filteredProblems;
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
-  const problemsToShow = filterByDifficulty(selectedValue)
+  const problemsToShow = filterByDifficulty(selectedValue);
 
   return (
     <>
@@ -119,22 +119,17 @@ function ProblemsPage() {
           </div>
         </div>
 
-        <div className="levels">
-          <div className="levelspart1">
-            <div className="status">
+        <div className="problemsShower">
+          <div className="levelss">
+            <div className="levelspart">
               <p>Status</p>
-            </div>
-            <div className="problemname">
               <p>Problem name</p>
             </div>
-          </div>
-
-          <div className="levelspart2">
-            
-            <div className="difficult">
-              <p>Difficult</p>
+            <div className="levelspart">
+              <p className="ds">DS</p>
+              <p>Difficulty</p>
+              <p>Attempts</p>
             </div>
-            <div className="attempts">Attempts</div>
           </div>
         </div>
         <div className="horizontallinediv">
@@ -155,9 +150,8 @@ function ProblemsPage() {
           )}
         </div>
       </div>
-
     </>
-  )
+  );
 }
 
-export default ProblemsPage
+export default ProblemsPage;

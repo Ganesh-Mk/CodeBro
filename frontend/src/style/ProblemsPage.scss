@@ -6,6 +6,7 @@ $darkMode: #1a1a1a;
   min-height: 100vh;
   width: 100vw;
   background-color: $darkMode;
+  
 }
 .heading {
   display: flex;
@@ -16,6 +17,34 @@ $darkMode: #1a1a1a;
   color: white;
   > p {
     margin-top: 1vw;
+  }
+}
+.problemsShower {
+  // border: 2px solid rgb(0, 255, 0);
+  padding: 0vw .8vw;
+  // margin-top: 1.2vw;
+  background-color: #1a1a1a;
+  .levelss {
+    // border: 2px solid red;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0.2vw 0.2vw;
+    .levelspart {
+    margin-top: 2vw;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4.3vw;
+      p{
+        color: #ffffff;
+      }
+    }
+    .ds {
+      margin-right: 1vw;
+    }
   }
 }
 .filterdropdownShow {
@@ -83,6 +112,8 @@ $darkMode: #1a1a1a;
 .SearchBarPart {
   // border: 2px solid red;
   background-color: $darkMode;
+  border-bottom: 2px solid white;
+  padding-bottom: 1vw;
   color: white;
 
   // margin-top: 1vw;
@@ -143,25 +174,7 @@ $darkMode: #1a1a1a;
     margin-top: 0;
   }
 }
-.levels {
-  // margin-top: 1vw;
-  padding: 0vw 2vw;
-  display: flex;
-  justify-content: space-between;
-  background-color: $darkMode;
-  .levelspart1 {
-    display: flex;
-    gap: 10vw;
-    margin-top: 1.5vw;
-    margin-bottom: 1.5vw;
-  }
-  color: white;
-  .levelspart2 {
-    display: flex;
-    gap: 16vw;
-    margin-top: 1.5vw;
-  }
-}
+
 .horizontallinediv {
   background-color: #1a1a1a;
 }
