@@ -130,6 +130,7 @@ function ProblemsPage() {
           </div>
 
           <div className="levelspart2">
+            
             <div className="difficult">
               <p>Difficult</p>
             </div>
@@ -154,6 +155,7 @@ function ProblemsPage() {
           )}
         </div>
       </div>
+
     </>
   )
 }
