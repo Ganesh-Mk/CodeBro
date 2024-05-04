@@ -18,7 +18,6 @@ import LoginPage from './pages/LoginPage'
 import CodingPage from './pages/CodingPage'
 import EditProfilePage from './pages/EditProfilePage'
 import ProblemDisplayContainer from './components/ProblemDisplayContainer'
-import Explore from './pages/Explore'
 
 const App = () => {
   return (
@@ -28,7 +27,6 @@ const App = () => {
         <Route path="/" element={<EntrancePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/register" element={<Explore />} />
         <Route path="/aboutus" element={<AboutUsPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/problems" element={<ProblemsPage />} />

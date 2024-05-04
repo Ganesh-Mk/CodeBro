@@ -1,7 +1,13 @@
 import React from 'react'
 import '../style/Example.scss'
 
-function Example({ number = '', input = '', output = '', explanation = '' }) {
+function Example({
+  number = '',
+  input = '',
+  output = '',
+  explanation = '',
+  image = null,
+}) {
   return (
     <div className="exContainer">
       <h2 className="bold">Example {number}:</h2>
@@ -12,6 +18,13 @@ function Example({ number = '', input = '', output = '', explanation = '' }) {
         <span className="bold">Output: </span> <span>{output}</span>
         <br />
       </div>
+      {image === null ? (
+        ''
+      ) : (
+        <div>
+          <img src={image} alt="example image" />
+        </div>
+      )}
       <div>
         {explanation && (
           <div>

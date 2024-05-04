@@ -17,7 +17,8 @@ import google from '../assets/images/google.png'
 import java from '../assets/images/java.png'
 import js from '../assets/images/js.png'
 import python from '../assets/images/python.png'
-
+import P8a from '../assets/images/P8a.jpg'
+import P8b from '../assets/images/P8b.jpg'
 
 export const images = {
   codeBroLogo,
@@ -28,7 +29,7 @@ export const images = {
   solved,
   fadedWall,
   outphoto,
-  instagram, 
+  instagram,
   github,
   linkedin,
   location,
@@ -39,4 +40,6 @@ export const images = {
   java,
   js,
   python,
+  P8a,
+  P8b,
 }

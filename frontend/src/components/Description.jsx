@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Example from './Example'
 import '../style/CodingPage.scss'
 import { useSelector } from 'react-redux'
 import Constraints from './Constraints'
 import CodeInfoContainer from './CodeInfoContainer'
+import { images } from '../javascripts/images'
 
 function Description() {
   const problemObj = useSelector((state) => state.problemObj.obj)
@@ -18,6 +19,7 @@ function Description() {
         {problemObj.example.map((example, index) => (
           <Example
             key={index}
+            image={images[problemObj.example[index].image]}
             number={example.number}
             input={example.input}
             output={example.output}

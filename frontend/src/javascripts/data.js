@@ -1108,7 +1108,7 @@ public ListNode deleteDuplicates(ListNode head) {
         parameter: '[1,1,2]',
         explanation:
           'After removing duplicates, the linked list becomes [1,2].',
-        image: null,
+        image: 'P8a',
         javaFuncCall:
           'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2))))',
       },
@@ -1119,7 +1119,7 @@ public ListNode deleteDuplicates(ListNode head) {
         parameter: '[1,1,2,3,3]',
         explanation:
           'After removing duplicates, the linked list becomes [1,2,3].',
-        image: null,
+        image: 'P8b',
         javaFuncCall:
           'deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3))))))',
       },

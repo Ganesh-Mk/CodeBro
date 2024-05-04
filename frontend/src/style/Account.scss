@@ -1,0 +1,206 @@
+h1, p{
+    color: white;
+}
+
+.accountPage{
+    width: 100vw;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    .accLeft{
+        border: 1px solid grey;
+        border-radius: 2vw;
+        .accLeftTop{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 2vw 2vw 0 2vw;
+
+            img{
+                width: 11vw;
+                height: 11vw;
+            }
+
+            p{
+                font-size: 1.7vw;
+            }
+        }
+
+        .accBtnBox{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .socialBox{
+            width: 100%;
+            padding: 2vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+
+            .links img{
+                width: 3vw;
+                height: 3vw;
+            }
+
+            div{
+                width: 100%;
+                padding-top: 2vw;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                
+            }
+
+        
+        }
+
+        .langBox{
+            margin-top: 1vw;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            h1{
+                font-size: 2vw;
+            }
+
+            .langSubBox{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 1vw;
+            }
+
+            .multipleOfLang{
+                font-size: 1.2vw;
+                color: rgb(210, 210, 210);
+            }
+        }
+        .accLogoutBox{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            Button{
+                color: rgb(247, 166, 166);
+            }
+        }
+    }
+    .accRight{
+        display: grid;
+        grid-template-rows: 1.3fr 2fr;
+        
+        .accTop{
+            border: 1px solid grey;
+            border-radius: 2vw;
+            display: grid;
+            grid-template-rows: .2fr 1fr;
+
+            .accRightTopHeadingBox{
+                padding: 1vw 0 .5vw 6vw;
+
+                p{
+                    font-size: 1.5vw;
+                }
+
+                
+            }
+         
+
+
+            .accRightTopContentBox{
+                display: flex;
+                justify-content: center;
+                gap: 5vw;
+                align-items: center;
+
+                
+                .rangeContainer{
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 2vw;
+
+                    .rangeBox{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 1.8vw;
+
+                        .range{
+                            .easyRange{
+                                height: 1.5vw;
+                                border-radius: 10rem;
+                                width: 80%;
+                                background: rgb(107, 248, 109);
+                            }
+                            .mediumRange{
+                                height: 1.5vw;
+                                border-radius: 10rem;
+                                width: 40%;                           
+                                background: rgb(255, 183, 68);
+                            }
+                            .hardRange{
+                                height: 1.5vw;
+                                border-radius: 10rem;
+                                width: 10%;                             
+                                background: rgb(255, 82, 82);
+                            }
+                        }
+                    }
+                    .diffTextBox{
+                        display: flex;
+                        color:white;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 1.5vw;
+
+                        p{
+                            color: white;
+                            font-size: 1.2vw;
+                        }
+                    }
+                    .numberBox{
+                        display: flex;
+                        color:white;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        gap: 1.5vw;
+
+                        p{
+                            color: white;
+                            font-size: 1.2vw;
+                        }
+                    }
+
+
+
+                    .range{
+                        width: 25vw;
+                        height: 1.5vw;
+                        border: 1px solid white;
+                        border-radius: 10rem;
+                    }
+                }
+
+
+            }
+
+        }
+
+      
+    }
+}
+
