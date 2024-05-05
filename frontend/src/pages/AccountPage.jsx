@@ -35,7 +35,9 @@ function AccountPage() {
             </div>
           </div>
           <div className="accBtnBox">
-            <Button w={400}>Edit profile</Button>
+            <Link to="/editprofile">
+              <Button w={400}>Edit profile</Button>
+            </Link>
           </div>
 
           <div className="socialBox">
@@ -87,7 +89,9 @@ function AccountPage() {
             </div>
           </div>
           <div className="accLogoutBox">
-            <Button w={400}>Log out</Button>
+            <Link to="/">
+              <Button w={400}>Log out</Button>
+            </Link>
           </div>
         </div>
         <div className="accRight">
@@ -96,14 +100,15 @@ function AccountPage() {
               <p>Solved Problems Stats</p>
             </div>
             <div className="accRightTopContentBox">
-              <div className="circleBox">
+              <div>
                 <CircularProgress
                   size={160}
                   value={circleValue}
                   color="green.400"
                 >
-                  <CircularProgressLabel style={{ color: 'white' }}>
-                    {circleValue}
+                  <CircularProgressLabel className="circleText">
+                    <h2>{circleValue}</h2>
+                    <p>Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>

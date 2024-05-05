@@ -1,0 +1,75 @@
+.editProfile{
+    margin-top: 5vh;
+    height: 86vh;
+    width: 100vw;
+
+    .editHead{
+        margin-bottom: 5vh;
+        display: grid;
+        place-items: center;
+         
+        h1{
+            color: white;
+            font-size: 3vw;
+            font-weight: bold;
+        }
+    }
+
+    .editBox{
+        display: grid;
+        grid-template-columns: 30% 70%;
+
+        .editLeft{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-direction: column;
+            gap: 3vw;
+
+            img{
+                width: 15vw;
+                height: 15vw;
+            }
+
+            .custom-file-upload {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 10px;
+                margin-right: 1vw;
+                cursor: pointer;
+              }
+              
+              .file-input {
+                display: none;
+              }
+
+        
+        }
+        
+
+        .editRight{
+            display: grid;
+            place-items: center;
+
+            .editInputBox{
+                display: flex;
+                width: 60%;
+                flex-direction: column;
+                gap: 1vw;
+
+                Input{
+                    color: white;
+                }
+            }
+            .editBtnBox{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2vw;
+            }
+        }
+
+
+    }
+}
