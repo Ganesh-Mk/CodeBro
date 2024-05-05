@@ -1,5 +1,4 @@
 import React from 'react'
-import '../style/CodeBroLogo.scss'
 
 function CodeBroLogo() {
   return (
