@@ -11,6 +11,7 @@ import {
 } from "../javascripts/data";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedLanguage } from "../store/languageSelectingSlice";
+import { Link } from "react-router-dom";
 
 function ProgrammingPage() {
   const [selectedValue, setSelectedValue] = useState("All");
@@ -186,12 +187,12 @@ function ProgrammingPage() {
             <option value="Hard">Hard</option>
           </select>
         </div>
-
         <div className="searchbarpart3">
           <button className="searchbarpart3btn">
             pick random <img src={images.random} alt="" />
           </button>
         </div>
+        
       </div>
 
       <div className="problemsShower">
