@@ -57,8 +57,8 @@
 
       .problemsShower {
         // border: 2px solid rgb(0, 255, 0);
-        padding: 0vw .2vw;
-        margin-top: 2vw;
+        padding: 0vw .8vw;
+        margin-top: 1.2vw;
         .levelss {
           // margin-top: 1vw;
           // border: 2px solid red;
@@ -79,6 +79,10 @@
             margin-right: 1vw;
           }
         }
+      }
+      .SearchBarPart {
+        border-bottom: 2px solid white;
+        padding-bottom: .5vw;
       }
 
 }
