@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import "../style/ProblemsPage.scss";
 import { images } from "../javascripts/images";
 import Navbar from "../components/Navbar";
-import '../style/ProblemsPage.scss'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import { AllquesObject } from '../javascripts/data'
+import "../style/ProblemsPage.scss";
+import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
+import { AllquesObject } from "../javascripts/data";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProblemObj } from "../store/problemObjSlice";
 
 function ProblemsPage() {
   const [selectedValue, setSelectedValue] = useState("All");
   const [selectedTopic, setSelectedTopic] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+
+  const dispatch = useDispatch();
 
   const filterByDifficulty = (difficulty) => {
     let filteredProblems = AllquesObject;
@@ -52,6 +57,12 @@ function ProblemsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const randomProblemPicker = () => {
+    const randomIndex = Math.floor(Math.random() * AllquesObject.length) + 1;
+    const selectedProblem = AllquesObject[randomIndex];
+    dispatch(addProblemObj(selectedProblem));
   };
 
   const problemsToShow = filterByDifficulty(selectedValue);
@@ -113,11 +124,16 @@ function ProblemsPage() {
             </select>
           </div>
 
-          <div className="searchbarpart3">
-            <button className="searchbarpart3btn">
-              pick random <img src={images.random} alt="" />
-            </button>
-          </div>
+          <Link to="/coding">
+            <div className="searchbarpart3">
+              <button
+                onClick={randomProblemPicker}
+                className="searchbarpart3btn"
+              >
+                pick random <img src={images.random} alt="" />
+              </button>
+            </div>
+          </Link>
         </div>
 
         <div className="problemsShower">
@@ -131,32 +147,26 @@ function ProblemsPage() {
               <p className="ds">DS</p>
               <p>Difficulty</p>
               <p>Attempts</p>
-          </div>
-
-          <div className="levelspart2">
-            <div className="difficult">
-              <p>Difficult</p>
             </div>
           </div>
-        </div>
-        <div className="horizontallinediv">
-          <div className="horizontalline"></div>
-        </div>
+          <div className="horizontallinediv">
+            <div className="horizontalline"></div>
+          </div>
 
-        <div className="problemShower">
-          {problemsToShow.length > 0 ? (
-            problemsToShow.map((problem, index) => (
-              <ProblemDisplayContainer
-                value={true}
-                problem={problem}
-                key={index}
-              />
-            ))
-          ) : (
-            <h2>No Problems</h2>
-          )}
+          <div className="problemShower">
+            {problemsToShow.length > 0 ? (
+              problemsToShow.map((problem, index) => (
+                <ProblemDisplayContainer
+                  value={true}
+                  problem={problem}
+                  key={index}
+                />
+              ))
+            ) : (
+              <h2>No Problems</h2>
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
