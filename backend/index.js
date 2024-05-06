@@ -20,8 +20,27 @@ app.get('/allUserDetails', (req, res) => {
     .catch((err) => res.send(err))
 })
 
-app.post('/createUserDetails', (req, res) => {
-  UserModel.create(req.body)
+app.post('/login', (req, res) => {
+  UserModel.findOne({
+    email: req.body.userEmail,
+    password: req.body.userPassword,
+  })
+    .then((userModel) => {
+      if (userModel) {
+        res.send(userModel)
+      } else {
+        res.send(false)
+      }
+    })
+    .catch((err) => res.send(err))
+})
+
+app.post('/createUser', (req, res) => {
+  UserModel.create({
+    name: req.body.userName,
+    email: req.body.userEmail,
+    password: req.body.userPassword,
+  })
     .then((userModel) => res.send(userModel))
     .catch((err) => res.send(err))
 })
