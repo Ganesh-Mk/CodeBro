@@ -1,67 +1,38 @@
 import React, { useState } from 'react'
 import '../style/Register.scss'
-import { images } from '../javascripts/images'
+import { Button } from '@chakra-ui/react'
+import CodeBroLogo from '../components/CodeBroLogo'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { account, ID } from '../appwrite/appwriteConfig'
-import { AppwriteException } from 'appwrite'
+import { useDispatch } from 'react-redux'
+import { setName, setEmail, setPassword } from '../store/userSlice'
 
 function RegisterPage() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
 
-  const googlesignup = async () => {
-    const res = await account.createOAuth2Session(
-      'google',
-      'http://localhost:5173/login',
-      'http://localhost:5173/register',
-    )
-    console.log(res)
-  }
-
-  const [userData, setuserData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
-
-  const SubmitHandler = async () => {
-    try {
-      // Create account
-      const response = await account.create(
-        ID.unique(),
-        userData.email,
-        userData.password,
-        userData.name,
-      )
-      console.log('Account created successfully:', response)
-
-      // Redirect to login page
-      navigate('/login')
-      setuserData({
-        name: '',
-        email: '',
-        password: '',
+  const handleSubmit = () => {
+    axios
+      .post('http://localhost:3000/createUser', {
+        userName,
+        userEmail,
+        userPassword,
       })
-    } catch (err) {
-      if (err instanceof AppwriteException) {
-        if (err.message.includes('Invalid `email` param')) {
-          alert('Invalid Email: ' + err.message)
-        } else if (err.message.includes('Invalid `password` param')) {
-          alert('Password must be at least 8 characters long')
-        } else {
-          alert('Server Error, try again')
-        }
-      }
-    }
+      .then((result) => {
+        console.log(result)
+        dispatch(setName(userName))
+        dispatch(setEmail(userEmail))
+        dispatch(setPassword(userPassword))
+        navigate('/home')
+      })
+      .catch((err) => console.log(err))
   }
-
   return (
     <div className="RegisterContainer">
-      <div className="logoContainer">
-        <span className="logo">&lt;&nbsp;</span>
-        <span className="logo code">Code</span>
-        <span className="logo">Bro</span>
-        <span className="logo">&nbsp;&frasl;&gt;</span>
-      </div>
+      <CodeBroLogo />
       <div className="SignUp-Container">
         <div className="SignUpBox">
           <h2>Sign Up</h2>
@@ -70,40 +41,28 @@ function RegisterPage() {
               <input
                 type="text"
                 placeholder="Enter your name"
-                value={userData.name}
-                onChange={(e) =>
-                  setuserData({ ...userData, name: e.target.value })
-                }
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
                 required
               />
               <input
                 type="email"
-                value={userData.email}
                 placeholder="Enter your email"
-                onChange={(e) =>
-                  setuserData({ ...userData, email: e.target.value })
-                }
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
                 required
               />
               <input
                 type="password"
-                value={userData.password}
                 placeholder="Enter new password"
-                onChange={(e) =>
-                  setuserData({ ...userData, password: e.target.value })
-                }
+                value={userPassword}
+                onChange={(e) => setUserPassword(e.target.value)}
                 required
               />
             </form>
           </div>
-          <button onClick={SubmitHandler}>Submit</button>
+          <Button onClick={handleSubmit}>Submit</Button>
         </div>
-      </div>
-      <span className="or">or</span>
-      <div className="SignUpPart2">
-        <button onClick={googlesignup} className="google-signIn">
-          Sign up with <img src={images.google} alt="" />
-        </button>
       </div>
     </div>
   )

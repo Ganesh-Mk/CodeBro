@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import '../style/Account.scss'
 import { images } from '../javascripts/images'
@@ -10,12 +10,12 @@ import {
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { AllquesObject } from '../javascripts/data'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
 
 function AccountPage() {
+  const userObj = useSelector((state) => state.user)
+  const [userName, setUserName] = useState(userObj.name)
   const problemObj = useSelector((state) => state.problemObj.obj)
-
   const [easyWidth, setEasyWidth] = useState(60)
   const [mediumWidth, setMediumWidth] = useState(40)
   const [hardWidth, setHardWidth] = useState(10)
@@ -30,7 +30,7 @@ function AccountPage() {
             <img src={images.accDefaultLogo} alt="account default logo" />
             <div>
               <p>ID: 87287622</p>
-              <p>User name: XYZ</p>
+              <p>User name: {userName}</p>
               <p>Rank: 0001</p>
             </div>
           </div>

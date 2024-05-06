@@ -4,13 +4,15 @@ import Navbar from '../components/Navbar'
 import { images } from '../javascripts/images'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import '../style/EditProfile.scss'
 
 function EditProfilePage() {
+  const userObj = useSelector((state) => state.user)
   const navigate = useNavigate()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [insta, setInsta] = useState('')
+  const [name, setName] = useState(userObj.name)
+  const [email, setEmail] = useState(userObj.email)
+  const [insta, setInsta] = useState()
   const [github, setGithub] = useState('')
   const [linkedin, setLinkedin] = useState('')
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
