@@ -1,36 +1,21 @@
 import React, { useState } from 'react'
 import '../style/Login.scss'
-import { images } from '../javascripts/images'
-import { account } from '../appwrite/appwriteConfig'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { AppwriteException } from 'appwrite'
 
 function LoginPage() {
-  const [userData, setuserData] = useState({ email: '', password: '' })
-  const navigate = useNavigate()
+  const [email, setemail] = useState('')
+  const [password, setpassword] = useState('')
+  const navigate = useNavigate();
 
-  const SubmitHandler = () => {
-    console.log(userData)
-
-    const promise = account.createEmailPasswordSession(
-      userData.email,
-      userData.password,
-    )
-
-    promise.then(
-      function (response) {
-        console.log(response)
-        navigate('/home')
-        setuserData({ email: '', password: '' })
-      },
-      function (error) {
-        if (error instanceof AppwriteException) {
-          alert(error.message)
-        } else {
-          alert('Server error, try again')
-        }
-      },
-    )
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(email, password);
+    axios.post('http://localhost:5173/register', {email, password})
+    .then((result) => {console.log(result)
+      navigate('/home')
+    })
+    .catch((err) => console.log(err))
   }
 
   return (
@@ -49,31 +34,21 @@ function LoginPage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                value={userData.email}
-                onChange={(e) =>
-                  setuserData({ ...userData, email: e.target.value })
-                }
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
                 required
               />
               <input
                 type="password"
                 placeholder="Enter your password"
-                value={userData.password}
-                onChange={(e) =>
-                  setuserData({ ...userData, password: e.target.value })
-                }
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
                 required
               />
             </form>
           </div>
-          <button onClick={SubmitHandler}>Submit</button>
+          <button onClick={submitHandler}>Submit</button>
         </div>
-      </div>
-      <span className="or">or</span>
-      <div className="LoginPart2">
-        <button className="google-signIn">
-          Log in with <img src={images.google} alt="" />
-        </button>
       </div>
     </div>
   )

@@ -1,59 +1,25 @@
 import React, { useState } from 'react'
 import '../style/Register.scss'
-import { images } from '../javascripts/images'
 import { useNavigate } from 'react-router-dom'
-import { account, ID } from '../appwrite/appwriteConfig'
-import { AppwriteException } from 'appwrite'
+import axios from 'axios'
 
 function RegisterPage() {
   const navigate = useNavigate()
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
+  const [password, setpassword] = useState('')
 
-  const googlesignup = async () => {
-    const res = await account.createOAuth2Session(
-      'google',
-      'http://localhost:5173/login',
-      'http://localhost:5173/register',
-    )
-    console.log(res)
-  }
-
-  const [userData, setuserData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
-
-  const SubmitHandler = async () => {
-    try {
-      // Create account
-      const response = await account.create(
-        ID.unique(),
-        userData.email,
-        userData.password,
-        userData.name,
-      )
-      console.log('Account created successfully:', response)
-
-      // Redirect to login page
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+    console.log(name, email, password);
+    axios.post('http://localhost:5173/register', {name, email, password})
+    .then((result) => {console.log(result)
       navigate('/login')
-      setuserData({
-        name: '',
-        email: '',
-        password: '',
-      })
-    } catch (err) {
-      if (err instanceof AppwriteException) {
-        if (err.message.includes('Invalid `email` param')) {
-          alert('Invalid Email: ' + err.message)
-        } else if (err.message.includes('Invalid `password` param')) {
-          alert('Password must be at least 8 characters long')
-        } else {
-          alert('Server Error, try again')
-        }
-      }
-    }
-  }
+    })
+    .catch((err) => console.log("Error occur : " + err))
 
+  }
+  
   return (
     <div className="RegisterContainer">
       <div className="logoContainer">
@@ -70,28 +36,22 @@ function RegisterPage() {
               <input
                 type="text"
                 placeholder="Enter your name"
-                value={userData.name}
-                onChange={(e) =>
-                  setuserData({ ...userData, name: e.target.value })
-                }
+                value={name}
+                onChange={(e) => setname(e.target.value)}
                 required
               />
               <input
                 type="email"
-                value={userData.email}
                 placeholder="Enter your email"
-                onChange={(e) =>
-                  setuserData({ ...userData, email: e.target.value })
-                }
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
                 required
               />
               <input
                 type="password"
-                value={userData.password}
                 placeholder="Enter new password"
-                onChange={(e) =>
-                  setuserData({ ...userData, password: e.target.value })
-                }
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
                 required
               />
             </form>
@@ -99,12 +59,12 @@ function RegisterPage() {
           <button onClick={SubmitHandler}>Submit</button>
         </div>
       </div>
-      <span className="or">or</span>
+      {/* <span className="or">or</span>
       <div className="SignUpPart2">
         <button onClick={googlesignup} className="google-signIn">
           Sign up with <img src={images.google} alt="" />
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }
