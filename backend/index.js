@@ -20,6 +20,18 @@ app.get('/allUserDetails', (req, res) => {
     .catch((err) => res.send(err))
 })
 
+app.post('/updateUserDetails', (req, res) => {
+  const id = req.body.id
+  UserModel.findById(id).then((userModel) => {
+    if (userModel) {
+      userModel.name = req.body.userName
+      userModel.email = req.body.userEmail
+      userModel.password = req.body.userPassword
+      userModel.save().then((userModel) => res.send(userModel))
+    }
+  })
+})
+
 app.post('/login', (req, res) => {
   UserModel.findOne({
     email: req.body.userEmail,

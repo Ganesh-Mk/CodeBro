@@ -5,7 +5,7 @@ import CodeBroLogo from '../components/CodeBroLogo'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setName, setEmail, setPassword } from '../store/userSlice'
+import { setId, setName, setEmail, setPassword } from '../store/userSlice'
 
 function RegisterPage() {
   const dispatch = useDispatch()
@@ -26,6 +26,7 @@ function RegisterPage() {
         dispatch(setName(userName))
         dispatch(setEmail(userEmail))
         dispatch(setPassword(userPassword))
+        dispatch(setId(result.data._id))
         navigate('/home')
       })
       .catch((err) => console.log(err))
