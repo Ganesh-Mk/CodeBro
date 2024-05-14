@@ -20,8 +20,8 @@ function EditProfilePage() {
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
   useEffect(() => {
-    setName(localStorage.getItem('name'))
-    setEmail(localStorage.getItem('email'))
+    setUserName(localStorage.getItem('name'))
+    setUserEmail(localStorage.getItem('email'))
   }, [])
 
   const handleSubmit = () => {
