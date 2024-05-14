@@ -27,13 +27,9 @@ const HomePage = () => {
   }
 
   const getDifficultySolvedCount = (difficulty) => {
-    let ans = AllquesObject.filter(
+    return AllquesObject.filter(
       (problem) => problem.difficulty === difficulty && problem.isSolved,
     ).length
-
-    console.log(ans)
-    console.log(isNaN(ans))
-    return ans
   }
 
   const getDifficultyTotalCount = (difficulty) => {

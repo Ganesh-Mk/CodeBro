@@ -17,6 +17,11 @@ function EditProfilePage() {
   const [linkedin, setLinkedin] = useState('')
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
+  useEffect(() => {
+    setName(localStorage.getItem('name'))
+    setEmail(localStorage.getItem('email'))
+  }, [])
+
   const handleSubmit = () => {
     axios
       .post('http://localhost:3000/createUserDetails', { name, email })

@@ -21,6 +21,10 @@ function AccountPage() {
   const [hardWidth, setHardWidth] = useState(10)
   const [circleValue, setCircleValue] = useState(60)
 
+  useEffect(() => {
+    setUserName(localStorage.getItem('name'))
+  }, [])
+
   return (
     <div>
       <Navbar />

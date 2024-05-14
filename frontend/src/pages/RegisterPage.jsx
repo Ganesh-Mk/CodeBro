@@ -15,6 +15,10 @@ function RegisterPage() {
   const [userPassword, setUserPassword] = useState('')
 
   const handleSubmit = () => {
+    localStorage.setItem('name', userName)
+    localStorage.setItem('email', userEmail)
+    localStorage.setItem('password', userPassword)
+
     axios
       .post('http://localhost:3000/createUser', {
         userName,
