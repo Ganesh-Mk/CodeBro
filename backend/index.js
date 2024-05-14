@@ -20,6 +20,7 @@ app.get('/allUserDetails', (req, res) => {
     .catch((err) => res.send(err))
 })
 
+<<<<<<< HEAD
 app.post('/updateUserDetails', (req, res) => {
   const id = req.body.id
   UserModel.findById(id).then((userModel) => {
@@ -30,6 +31,18 @@ app.post('/updateUserDetails', (req, res) => {
       userModel.save().then((userModel) => res.send(userModel))
     }
   })
+=======
+app.get('/deleteOneUser/:id', (req, res) => {
+  UserModel.findByIdAndDelete(req.params.id)
+    .then((userModel) => res.send(userModel))
+    .catch((err) => res.send(err))
+})
+
+app.get('/deleteAllUser', (req, res) => {
+  UserModel.deleteMany()
+    .then((userModel) => res.send(userModel))
+    .catch((err) => res.send(err))
+>>>>>>> b0c1834dc6f741e145b929e300cde38baeb4c860
 })
 
 app.post('/login', (req, res) => {
@@ -39,7 +52,14 @@ app.post('/login', (req, res) => {
   })
     .then((userModel) => {
       if (userModel) {
-        res.send(userModel)
+        if (
+          userModel.email === req.body.userEmail &&
+          userModel.password === req.body.userPassword
+        ) {
+          res.send(userModel)
+        } else {
+          res.send(false)
+        }
       } else {
         res.send(false)
       }
