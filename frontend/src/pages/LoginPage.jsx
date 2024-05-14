@@ -17,13 +17,14 @@ function LoginPage() {
       .post('http://localhost:3000/login', { userEmail, userPassword })
       .then((result) => {
         console.log(result)
-        if (result !== false) {
+        if (result.data !== false) {
           dispatch(setName(result.data.name))
           dispatch(setEmail(result.data.email))
           dispatch(setPassword(result.data.password))
           navigate('/home')
         } else {
           alert('User not found')
+          navigate('/login')
         }
       })
       .catch((err) => console.log(err))
