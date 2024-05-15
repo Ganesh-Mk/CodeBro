@@ -1,8 +1,14 @@
 export const AllquesObject = [
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -80,6 +86,7 @@ export const AllquesObject = [
         userOutput: null,
         javaFuncCall: "addTwoNumbers(999999999, 999999999)",
       },
+
       {
         parameter: "123456789,987654321",
         expectedOutput: "1111111110",
@@ -122,6 +129,49 @@ export const AllquesObject = [
         userOutput: null,
         javaFuncCall: "addTwoNumbers(0, 999)",
       },
+
+      // {
+      //   parameter: '123456789,987654321',
+      //   expectedOutput: '1111111110',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
+      // },
+      // {
+      //   parameter: '17,23',
+      //   expectedOutput: '40',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(17, 23)',
+      // },
+      // {
+      //   parameter: '50,50',
+      //   expectedOutput: '100',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(50, 50)',
+      // },
+      // {
+      //   parameter: '-100,200',
+      //   expectedOutput: '100',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(-100, 200)',
+      // },
+      // {
+      //   parameter: '999,-999',
+      //   expectedOutput: '0',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(999, -999)',
+      // },
+      // {
+      //   parameter: '-123,-456',
+      //   expectedOutput: '-579',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(-123, -456)',
+      // },
+      // {
+      //   parameter: '0,999',
+      //   expectedOutput: '999',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(0, 999)',
+      // },
     ],
     /*
     JS: 
@@ -136,8 +186,14 @@ export const AllquesObject = [
   },
   {
     number: 2,
+
     heading: "String Reverse",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "String Reverse",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -195,120 +251,200 @@ export const AllquesObject = [
       {
         parameter: "hello",
         expectedOutput: "olleh",
+
+        parameter: '"hello"',
+        expectedOutput: "olleh",
+
         userOutput: null,
         javaFuncCall: 'reverseString("hello")',
       },
       {
         parameter: "world",
         expectedOutput: "dlrow",
+
+        parameter: '"world"',
+        expectedOutput: "dlrow",
+
         userOutput: null,
         javaFuncCall: 'reverseString("world")',
       },
       {
         parameter: "apple",
         expectedOutput: "elppa",
+
+        parameter: '"apple"',
+        expectedOutput: "elppa",
+
         userOutput: null,
         javaFuncCall: 'reverseString("apple")',
       },
       {
         parameter: "openai",
         expectedOutput: "ianepo",
+
+        parameter: '"openai"',
+        expectedOutput: "ianepo",
+
         userOutput: null,
         javaFuncCall: 'reverseString("openai")',
       },
       {
         parameter: "racecar",
         expectedOutput: "racecar",
+
+        parameter: '"racecar"',
+        expectedOutput: "racecar",
+
         userOutput: null,
         javaFuncCall: 'reverseString("racecar")',
       },
       {
         parameter: "123456",
         expectedOutput: "654321",
+
+        parameter: '"123456"',
+        expectedOutput: "654321",
+
         userOutput: null,
         javaFuncCall: 'reverseString("123456")',
       },
       {
         parameter: "goodbye",
         expectedOutput: "eybdoog",
+
+        parameter: '"goodbye"',
+        expectedOutput: "eybdoog",
+
         userOutput: null,
         javaFuncCall: 'reverseString("goodbye")',
       },
       {
         parameter: "world",
         expectedOutput: "dlrow",
+
+        parameter: '"world"',
+        expectedOutput: "dlrow",
+
         userOutput: null,
         javaFuncCall: 'reverseString("world")',
       },
       {
         parameter: "hello world",
         expectedOutput: "dlrow olleh",
+
+        parameter: '"hello world"',
+        expectedOutput: "dlrow olleh",
+
         userOutput: null,
         javaFuncCall: 'reverseString("hello world")',
       },
       {
         parameter: "algorithm",
         expectedOutput: "mhtirogla",
+
+        parameter: '"algorithm"',
+        expectedOutput: "mhtirogla",
+
         userOutput: null,
         javaFuncCall: 'reverseString("algorithm")',
       },
       {
         parameter: "reverse",
         expectedOutput: "esrever",
+
+        parameter: '"reverse"',
+        expectedOutput: "esrever",
+
         userOutput: null,
         javaFuncCall: 'reverseString("reverse")',
       },
       {
         parameter: "abcdef",
         expectedOutput: "fedcba",
+
+        parameter: '"abcdef"',
+        expectedOutput: "fedcba",
+
         userOutput: null,
         javaFuncCall: 'reverseString("abcdef")',
       },
       {
         parameter: "javascript",
         expectedOutput: "tpircsavaj",
+
+        parameter: '"javascript"',
+        expectedOutput: "tpircsavaj",
+
         userOutput: null,
         javaFuncCall: 'reverseString("javascript")',
       },
       {
         parameter: "programming",
         expectedOutput: "gnimmargorp",
+
+        parameter: '"programming"',
+        expectedOutput: "gnimmargorp",
+
         userOutput: null,
         javaFuncCall: 'reverseString("programming")',
       },
       {
         parameter: "computer",
         expectedOutput: "retupmoc",
+
+        parameter: '"computer"',
+        expectedOutput: "retupmoc",
+
         userOutput: null,
         javaFuncCall: 'reverseString("computer")',
       },
       {
         parameter: "science",
         expectedOutput: "ecneics",
+
+        parameter: '"science"',
+        expectedOutput: "ecneics",
+
         userOutput: null,
         javaFuncCall: 'reverseString("science")',
       },
       {
         parameter: "engineering",
         expectedOutput: "gnireenigne",
+
+        parameter: '"engineering"',
+        expectedOutput: "gnireenigne",
+
         userOutput: null,
         javaFuncCall: 'reverseString("engineering")',
       },
       {
         parameter: "artificial intelligence",
         expectedOutput: "ecnegilletni laicifitra",
+
+        parameter: '"artificial intelligence"',
+        expectedOutput: "ecnegilletni laicifitra",
+
         userOutput: null,
         javaFuncCall: 'reverseString("artificial intelligence")',
       },
       {
         parameter: "machine learning",
         expectedOutput: "gninrael enihcam",
+
+        parameter: '"machine learning"',
+        expectedOutput: "gninrael enihcam",
+
         userOutput: null,
         javaFuncCall: 'reverseString("machine learning")',
       },
       {
         parameter: "data science",
         expectedOutput: "ecneics atad",
+
+        parameter: '"data science"',
+        expectedOutput: "ecneics atad",
+
         userOutput: null,
         javaFuncCall: 'reverseString("data science")',
       },
@@ -327,8 +463,14 @@ export const AllquesObject = [
   },
   {
     number: 3,
+
     heading: "Find Minimum and Maximum Number",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Find Minimum and Maximum Number",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -463,8 +605,14 @@ export const AllquesObject = [
   },
   {
     number: 4,
+
     heading: "Find Second Largest Element in Array",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Find Second Largest Element in Array",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -614,8 +762,14 @@ export const AllquesObject = [
   },
   {
     number: 5,
+
     heading: "Create Array of Numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Create Array of Numbers",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -739,8 +893,14 @@ export const AllquesObject = [
   },
   {
     number: 6,
+
     heading: "Increment Matrix Values",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Increment Matrix Values",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -871,8 +1031,14 @@ export const AllquesObject = [
   },
   {
     number: 7,
+
     heading: "Number of Students Unable to Eat Lunch",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Number of Students Unable to Eat Lunch",
+    difficulty: "Easy",
+
     isSolved: false,
     language: "javascript",
     image: null,
@@ -1042,8 +1208,14 @@ export const AllquesObject = [
   },
   {
     number: 8,
+
     heading: "Remove Duplicates from Sorted List",
     difficulty: "Medium",
+
+    attempts: 0,
+    heading: "Remove Duplicates from Sorted List",
+    difficulty: "Medium",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -1458,9 +1630,16 @@ public static int findKthLargest(int[] arr, int k) {
 export const javaAllQuesObj = [
   {
     number: 1,
+
     heading: "these all probs are from javaAllQuesObj",
     difficulty: "Easy",
     ds: "array",
+
+    attempts: 0,
+    heading: "these all probs are from javaAllQuesObj",
+    difficulty: "Easy",
+    ds: "array",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -1606,9 +1785,16 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
     ds: "array",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+    ds: "array",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -1754,8 +1940,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -1901,8 +2093,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2048,8 +2246,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2195,8 +2399,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2342,8 +2552,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2489,8 +2705,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2636,8 +2858,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2783,8 +3011,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -2930,8 +3164,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3077,8 +3317,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3224,8 +3470,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3371,8 +3623,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3518,8 +3776,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3665,8 +3929,14 @@ export const javaAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3815,9 +4085,16 @@ export const javaAllQuesObj = [
 export const jsAllQuesObj = [
   {
     number: 1,
+
     topic: "array",
     heading: "these all probs are from jsAllQuesObj",
     difficulty: "Easy",
+
+    attempts: 0,
+    topic: "array",
+    heading: "these all probs are from jsAllQuesObj",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -3963,8 +4240,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4110,8 +4393,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4257,8 +4546,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4404,8 +4699,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4551,8 +4852,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4698,8 +5005,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4845,8 +5158,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -4992,8 +5311,14 @@ export const jsAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -5142,8 +5467,14 @@ export const jsAllQuesObj = [
 export const pythonAllQuesObj = [
   {
     number: 1,
+
     heading: "these all probs are from pythonAllQuesObj",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "these all probs are from pythonAllQuesObj",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -5289,8 +5620,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     topic: "binary search",
     language: "javascript",
@@ -5437,8 +5774,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -5584,8 +5927,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -5731,8 +6080,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -5878,8 +6233,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -6025,8 +6386,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -6172,8 +6539,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
@@ -6319,8 +6692,14 @@ export const pythonAllQuesObj = [
   },
   {
     number: 1,
+
     heading: "Add two numbers",
     difficulty: "Easy",
+
+    attempts: 0,
+    heading: "Add two numbers",
+    difficulty: "Easy",
+
     isSolved: true,
     language: "javascript",
     image: null,
