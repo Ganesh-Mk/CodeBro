@@ -5,7 +5,10 @@ const initialState = {
   name: '',
   email: '',
   password: '',
-  attempts: 0,
+  insta: '',
+  github: '',
+  linkedin: '',
+  userImage: '',
 }
 
 export const userSlice = createSlice({
@@ -24,8 +27,17 @@ export const userSlice = createSlice({
     setPassword: (state, action) => {
       state.password = action.payload
     },
-    setAttempts: (state, action) => {
-      state.attempts = action.payload
+    setInsta: (state, action) => {
+      state.insta = action.payload
+    },
+    setGithub: (state, action) => {
+      state.github = action.payload
+    },
+    setLinkedin: (state, action) => {
+      state.linkedin = action.payload
+    },
+    setUserImage: (state, action) => {
+      state.userImage = action.payload
     },
   },
 })
@@ -35,6 +47,9 @@ export const {
   setName,
   setEmail,
   setPassword,
-  setAttempts,
+  setInsta,
+  setGithub,
+  setLinkedin,
+  setUserImage,
 } = userSlice.actions
 export default userSlice.reducer

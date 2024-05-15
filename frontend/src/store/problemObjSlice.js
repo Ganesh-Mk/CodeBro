@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   obj: {
     number: 1,
+    attempts: 0,
     heading: 'Add two numbers',
     difficulty: 'Easy',
     isSolved: false,
@@ -174,6 +175,9 @@ export const problemObjSlice = createSlice({
     setIsSubmitted: (state, action) => {
       state.obj.isSubmitted = action.payload
     },
+    setAttempts: (state, action) => {
+      state.attempts = action.payload
+    },
   },
 })
 
@@ -184,6 +188,7 @@ export const {
   addAllResult,
   addTestCaseOutput,
   addTestCaseResults,
+  setAttempts,
   setIsSubmitted,
 } = problemObjSlice.actions
 export default problemObjSlice.reducer
