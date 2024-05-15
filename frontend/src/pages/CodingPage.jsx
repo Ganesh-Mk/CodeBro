@@ -16,6 +16,7 @@ import {
   addLanguage,
   addTestCaseOutput,
   addTestCaseResults,
+  setAttempts,
 } from '../store/problemObjSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 
