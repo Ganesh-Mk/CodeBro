@@ -4,6 +4,7 @@ import '../style/CodeBroLogo.scss'
 import CodeEditor from '../components/CodeEditor'
 import Navbar from '../components/Navbar'
 import CodeHeader from '../components/CodeHeader'
+import axios from 'axios'
 import Output from '../components/Output'
 import { useToast } from '@chakra-ui/react'
 import { executeCode } from '../javascripts/api'
@@ -217,14 +218,12 @@ class ListNode {
               System.out.println(${problemObj.cases[i].javaFuncCall}); \n}`
               sourceCode = startCode + sourceCode + '\n}'
             }
-          } else {
-            if (problemObj.language === 'javascript') {
-              returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`
-              sourceCode += returnToPrintCode
-            } else if (problemObj.language === 'python') {
-              returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`
-              sourceCode += returnToPrintCode
-            }
+          } else if (problemObj.language === 'javascript') {
+            returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`
+            sourceCode += returnToPrintCode
+          } else if (problemObj.language === 'python') {
+            returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`
+            sourceCode += returnToPrintCode
           }
         }
 
@@ -247,10 +246,6 @@ class ListNode {
           userOutput += ']'
         }
 
-        console.log(sourceCode)
-        console.log(expectedOutput)
-        console.log(userOutput)
-
         if (expectedOutput == userOutput) {
           setTestCaseResult((prev) => [...prev, true])
         } else {
@@ -272,6 +267,14 @@ class ListNode {
           duration: 6000,
         })
       }
+    }
+
+    if (testCaseResult.every((e) => e === true)) {
+      problemObj.attempts = problemObj.attempts + 1
+      axios.post('http://localhost:3000/problemRecord', {
+        email: localStorage.getItem('email'),
+        problemObj: problemObj,
+      })
     }
 
     setIsLoadingSubmit(false)

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
+import axios from 'axios'
 import '../style/Account.scss'
 import { images } from '../javascripts/images'
 import {
@@ -9,22 +10,47 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { AllquesObject } from '../javascripts/data'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
+import { addTestCaseResults } from '../store/problemObjSlice'
 
 function AccountPage() {
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userId, setUserId] = useState(userObj.id)
   const problemObj = useSelector((state) => state.problemObj.obj)
-  const [easyWidth, setEasyWidth] = useState(60)
-  const [mediumWidth, setMediumWidth] = useState(40)
-  const [hardWidth, setHardWidth] = useState(10)
-  const [circleValue, setCircleValue] = useState(60)
+  const [easyWidth, setEasyWidth] = useState(0)
+  const [mediumWidth, setMediumWidth] = useState(0)
+  const [hardWidth, setHardWidth] = useState(0)
+  const [circleValue, setCircleValue] = useState(0)
+  const [jsSolved, setJsSolved] = useState(0)
+  const [pythonSolved, setPythonSolved] = useState(0)
+  const [javaSolved, setJavaSolved] = useState(0)
+  const [attempts, setAttempts] = useState(0)
+  const [allProblems, setAllProblems] = useState([])
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
-  }, [])
+    axios
+      .get('http://localhost:3000/problemRecord', {
+        params: {
+          userEmail: localStorage.getItem('email'),
+        },
+      })
+      .then((response) => {
+        setJsSolved(response.data.jsSolved || 0)
+        setPythonSolved(response.data.pythonSolved || 0)
+        setJavaSolved(response.data.javaSolved || 0)
+        setEasyWidth(response.data.easySolved || 0)
+        setMediumWidth(response.data.mediumSolved || 0)
+        setHardWidth(response.data.hardSolved || 0)
+        setCircleValue(response.data.totalSolved || 0)
+        setAttempts(response.data.attempts || 0)
+        setAllProblems(response.data.allProblems)
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error)
+      })
+  }, [addTestCaseResults])
 
   return (
     <div>
@@ -82,13 +108,16 @@ function AccountPage() {
             <p>Languages used to solve problems</p>
             <div className="langSubBox">
               <Button w={120} fontSize={15} variant="outline">
-                Javascript <span className="multipleOfLang"> &nbsp; x6</span>
+                Javascript{' '}
+                <span className="multipleOfLang"> &nbsp; x{jsSolved}</span>
               </Button>
               <Button w={120} fontSize={15} variant="outline">
-                Python <span className="multipleOfLang"> &nbsp; x8</span>
+                Python{' '}
+                <span className="multipleOfLang"> &nbsp; x{pythonSolved}</span>
               </Button>
               <Button w={120} fontSize={15} variant="outline">
-                Java <span className="multipleOfLang"> &nbsp; x4</span>
+                Java{' '}
+                <span className="multipleOfLang"> &nbsp; x{javaSolved}</span>
               </Button>
             </div>
           </div>
@@ -111,7 +140,7 @@ function AccountPage() {
                   color="green.400"
                 >
                   <CircularProgressLabel className="circleText">
-                    <h2>{circleValue}</h2>
+                    <h2>{circleValue} / 100</h2>
                     <p>Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
@@ -144,9 +173,9 @@ function AccountPage() {
                     </div>
                   </div>
                   <div className="numberBox">
-                    <p className="nums">12 / 100</p>
-                    <p className="nums">16 / 50</p>
-                    <p className="nums">2 / 10</p>
+                    <p className="nums">{easyWidth} / 100</p>
+                    <p className="nums">{mediumWidth} / 50</p>
+                    <p className="nums">{hardWidth} / 10</p>
                   </div>
                 </div>
               </div>
@@ -164,15 +193,16 @@ function AccountPage() {
                 </div>
               </div>
               <div className="subListBox">
-                {AllquesObject.map((obj, i) => (
-                  <DisplayProblemContainer
-                    num={obj.number}
-                    diff={obj.difficulty}
-                    attempts={i}
-                    key={i}
-                    problem={obj.heading}
-                  />
-                ))}
+                {allProblems &&
+                  allProblems.map((obj, i) => (
+                    <DisplayProblemContainer
+                      num={obj.number}
+                      diff={obj.difficulty}
+                      attempts={attempts}
+                      key={i}
+                      problem={obj.heading}
+                    />
+                  ))}
               </div>
             </div>
           </div>
