@@ -14,6 +14,15 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/deleteAllProblem', (req, res) => {
+  UserModel.find({ email: 'me@' })
+    .then((userModel) => {
+      userModel.allProblems = []
+      res.send(userModel)
+    })
+    .catch((err) => res.send(err))
+})
+
 app.get('/allUserDetails', (req, res) => {
   UserModel.find()
     .then((userModel) => res.send(userModel))
@@ -29,6 +38,62 @@ app.get('/deleteOneUser/:id', (req, res) => {
 app.get('/deleteAllUser', (req, res) => {
   UserModel.deleteMany()
     .then((userModel) => res.send(userModel))
+    .catch((err) => res.send(err))
+})
+
+app.get('/problemRecord', (req, res) => {
+  UserModel.findOne({ email: req.query.userEmail })
+    .then((userModel) => {
+      console.log(userModel)
+      res.send(userModel)
+    })
+    .catch((err) => res.send(err))
+})
+
+app.post('/problemRecord', (req, res) => {
+  let problemObj = req.body.problemObj
+  let isAlreadySolved = false
+
+  UserModel.findOneAndUpdate({ email: req.body.userEmail })
+    .then((userModel) => {
+      if (userModel) {
+        userModel.allProblems.map((problem) => {
+          if (problem.number === problemObj.number) {
+            isAlreadySolved = true
+          }
+        })
+
+        if (!isAlreadySolved) {
+          userModel.totalSolved = userModel.totalSolved + 1
+          if (problemObj.difficulty === 'Easy') {
+            userModel.easySolved = userModel.easySolved + 1
+          } else if (problemObj.difficulty === 'Medium') {
+            userModel.mediumSolved = userModel.mediumSolved + 1
+          } else if (problemObj.difficulty === 'Hard') {
+            userModel.hardSolved = userModel.hardSolved + 1
+          }
+
+          if (problemObj.language === 'javascript') {
+            userModel.jsSolved = userModel.jsSolved + 1
+          } else if (problemObj.language === 'python') {
+            userModel.pythonSolved = userModel.pythonSolved + 1
+          } else if (problemObj.language === 'java') {
+            userModel.javaSolved = userModel.javaSolved + 1
+          }
+
+          let curProblemObj = {
+            number: problemObj.number,
+            heading: problemObj.heading,
+            difficulty: problemObj.difficulty,
+            attempts: problemObj.attempts,
+          }
+
+          userModel.allProblems.push(curProblemObj)
+        }
+
+        userModel.save()
+      }
+    })
     .catch((err) => res.send(err))
 })
 
