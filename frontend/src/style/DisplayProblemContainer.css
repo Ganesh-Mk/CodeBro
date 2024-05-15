@@ -1,0 +1,35 @@
+.DisplayProblemContainer {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.problemInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.problemNum {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.problemName {
+  font-size: 16px;
+  color: #333;
+}
+
+.problemDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail {
+  font-size: 14px;
+  color: #666;
+}

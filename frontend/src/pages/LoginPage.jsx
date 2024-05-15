@@ -21,6 +21,10 @@ function LoginPage() {
           dispatch(setName(result.data.name))
           dispatch(setEmail(result.data.email))
           dispatch(setPassword(result.data.password))
+
+          localStorage.setItem('name', result.data.name)
+          localStorage.setItem('email', userEmail)
+          localStorage.setItem('password', userPassword)
           navigate('/home')
         } else {
           alert('User not found')

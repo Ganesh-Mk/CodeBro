@@ -6,27 +6,37 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import '../style/EditProfile.scss'
+import { setName, setEmail, setPassword } from '../store/userSlice'
+import { useDispatch } from 'react-redux'
 
 function EditProfilePage() {
-  const userObj = useSelector((state) => state.user)
   const navigate = useNavigate()
-  const [name, setName] = useState(userObj.name)
-  const [email, setEmail] = useState(userObj.email)
-  const [insta, setInsta] = useState()
-  const [github, setGithub] = useState('')
-  const [linkedin, setLinkedin] = useState('')
+  const userObj = useSelector((state) => state.user)
+  const [userName, setUserName] = useState(userObj.name)
+  const [userEmail, setUserEmail] = useState(userObj.email)
+  // const [insta, setInsta] = useState()
+  // const [github, setGithub] = useState('')
+  // const [linkedin, setLinkedin] = useState('')
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
   useEffect(() => {
-    setName(localStorage.getItem('name'))
-    setEmail(localStorage.getItem('email'))
+    setUserName(localStorage.getItem('name'))
+    setUserEmail(localStorage.getItem('email'))
   }, [])
 
   const handleSubmit = () => {
+    let userId = userObj.id
+
     axios
-      .post('http://localhost:3000/createUserDetails', { name, email })
+      .post('http://localhost:3000/updateUserDetails', {
+        userId,
+        userName,
+        userEmail,
+      })
       .then((result) => {
         console.log(result)
+        dispatch(setName(userName))
+        dispatch(setEmail(userEmail))
         navigate('/account')
       })
   }
@@ -66,14 +76,14 @@ function EditProfilePage() {
             <div className="editInputBox">
               <Input
                 type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={(e) => setUserName(e.target.value)}
+                value={userName}
                 placeholder="Name"
               ></Input>
               <Input
                 type="text"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                onChange={(e) => setUserEmail(e.target.value)}
+                value={userEmail}
                 placeholder="Email"
               ></Input>
               {/* <Input

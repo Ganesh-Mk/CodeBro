@@ -22,7 +22,6 @@ import ProblemDisplayContainer from './components/ProblemDisplayContainer'
 const App = () => {
   return (
     <Router>
-      {/* <ShowNavbar /> */}
       <Routes>
         <Route path="/" element={<EntrancePage />} />
         <Route path="/login" element={<LoginPage />} />

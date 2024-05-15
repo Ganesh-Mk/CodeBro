@@ -15,6 +15,7 @@ import DisplayProblemContainer from '../components/DisplayProblemContainer'
 function AccountPage() {
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
+  const [userId, setUserId] = useState(userObj.id)
   const problemObj = useSelector((state) => state.problemObj.obj)
   const [easyWidth, setEasyWidth] = useState(60)
   const [mediumWidth, setMediumWidth] = useState(40)
@@ -33,7 +34,6 @@ function AccountPage() {
           <div className="accLeftTop">
             <img src={images.accDefaultLogo} alt="account default logo" />
             <div>
-              <p>ID: 87287622</p>
               <p>User name: {userName}</p>
               <p>Rank: 0001</p>
             </div>
