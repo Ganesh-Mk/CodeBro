@@ -44,7 +44,6 @@ app.get('/deleteAllUser', (req, res) => {
 app.get('/problemRecord', (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
-      console.log(userModel)
       res.send(userModel)
     })
     .catch((err) => res.send(err))
@@ -89,8 +88,15 @@ app.post('/problemRecord', (req, res) => {
           }
 
           userModel.allProblems.push(curProblemObj)
+        } else {
+          userModel.allProblems.map((problem) => {
+            if (problem.number === problemObj.number) {
+              problem.attempts = problem.attempts + 1
+            }
+          })
         }
 
+        isAlreadySolved = false
         userModel.save()
       }
     })

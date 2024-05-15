@@ -16,8 +16,8 @@ import {
   addLanguage,
   addTestCaseOutput,
   addTestCaseResults,
+  setAttempts,
 } from '../store/problemObjSlice'
-import { setAttempts } from '../store/userSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 
 function CodingPage() {
