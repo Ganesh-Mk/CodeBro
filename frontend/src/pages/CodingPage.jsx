@@ -17,7 +17,6 @@ import {
   addTestCaseOutput,
   addTestCaseResults,
 } from '../store/problemObjSlice'
-import { setAttempts } from '../store/userSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 
 function CodingPage() {
@@ -271,7 +270,6 @@ class ListNode {
     }
 
     if (testCaseResult.every((e) => e === true)) {
-      dispatch(setAttempts(problemObj.attempts + 1))
       axios.post('http://localhost:3000/problemRecord', {
         email: localStorage.getItem('email'),
         problemObj: problemObj,

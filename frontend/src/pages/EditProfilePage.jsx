@@ -6,7 +6,14 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import '../style/EditProfile.scss'
-import { setName, setEmail, setPassword } from '../store/userSlice'
+import {
+  setName,
+  setEmail,
+  setPassword,
+  setInsta,
+  setGithub,
+  setLinkedin,
+} from '../store/userSlice'
 import { useDispatch } from 'react-redux'
 
 function EditProfilePage() {
@@ -14,14 +21,20 @@ function EditProfilePage() {
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
-  // const [insta, setInsta] = useState()
-  // const [github, setGithub] = useState('')
-  // const [linkedin, setLinkedin] = useState('')
+  const [userPassword, setUserPassword] = useState(userObj.password)
+  const [insta, setInsta] = useState('')
+  const [github, setGithub] = useState('')
+  const [linkedin, setLinkedin] = useState('')
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
     setUserEmail(localStorage.getItem('email'))
+    setUserPassword(localStorage.getItem('password'))
+    // setInsta(localStorage.getItem('insta'))
+    // setGithub(localStorage.getItem('github'))
+    // setLinkedin(localStorage.getItem('linkedin'))
+    // setUserImage(localStorage.getItem('userImage'))
   }, [])
 
   const handleSubmit = () => {
@@ -32,11 +45,24 @@ function EditProfilePage() {
         userId,
         userName,
         userEmail,
+        userPassword,
+        insta,
+        github,
+        linkedin,
+        userImage,
       })
       .then((result) => {
         console.log(result)
         dispatch(setName(userName))
         dispatch(setEmail(userEmail))
+        dispatch(setPassword(userPassword))
+        dispatch(setInsta(insta))
+        dispatch(setGithub(github))
+        dispatch(setLinkedin(linkedin))
+        dispatch(setUserImage(userImage))
+        localStorage.setItem('name', userName)
+        localStorage.setItem('email', userEmail)
+        localStorage.setItem('password', userPassword)
         navigate('/account')
       })
   }
@@ -86,7 +112,13 @@ function EditProfilePage() {
                 value={userEmail}
                 placeholder="Email"
               ></Input>
-              {/* <Input
+              <Input
+                type="text"
+                onChange={(e) => setUserPassword(e.target.value)}
+                value={userPassword}
+                placeholder="Password"
+              ></Input>
+              <Input
                 type="text"
                 onChange={(e) => setLinkedin(e.target.value)}
                 value={linkedin}
@@ -103,7 +135,7 @@ function EditProfilePage() {
                 onChange={(e) => setInsta(e.target.value)}
                 value={insta}
                 placeholder="Instagram Link"
-              ></Input> */}
+              ></Input>
             </div>
             <div className="editBtnBox">
               <Button onClick={handleSubmit}>Submit</Button>
