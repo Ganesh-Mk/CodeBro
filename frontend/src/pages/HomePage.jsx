@@ -23,7 +23,10 @@ const HomePage = () => {
   }
 
   const calculateRangeValue = (solvedCount, totalCount) => {
-    return (solvedCount / totalCount) * 100
+    if (totalCount === 0) {
+      return 0;
+    }
+    return (solvedCount / totalCount) * 100;
   }
 
   const getDifficultySolvedCount = (difficulty) => {
