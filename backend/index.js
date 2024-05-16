@@ -65,7 +65,14 @@ app.post('/addProblemRecord', async (req, res) => {
     console.log(problemObj)
     console.log(userEmail)
 
-    const userModel = await UserModel.findOneAndUpdate({ email: userEmail })
+    const userModel = await UserModel.findOneAndUpdate(
+      { email: userEmail },
+      { $set: { email: userEmail } }, // Ensure the document exists
+      { new: true, upsert: true },
+    )
+
+    console.log('==================================================')
+    console.log(userModel)
 
     if (userModel) {
       let isAlreadySolved = false
