@@ -17,6 +17,8 @@ import {
   addTestCaseOutput,
   addTestCaseResults,
   setAttempts,
+  addProblemObj,
+  setIsSolved,
 } from '../store/problemObjSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 
@@ -275,6 +277,7 @@ function CodingPage() {
     let caseCorrectArr = await runAllCases()
     let allCorrect = caseCorrectArr.every((e) => e === true)
     if (allCorrect) {
+      dispatch(setIsSolved(true))
       let emailVal = localStorage.getItem('email')
       console.log(emailVal)
       axios.post('http://localhost:3000/addProblemRecord', {

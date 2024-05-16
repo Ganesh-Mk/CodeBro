@@ -47,6 +47,9 @@ app.get('/deleteAllUser', (req, res) => {
 app.get('/problemRecord', (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
+      console.log(userModel)
+      userModel.allProblems[0].attempts++
+      userModel.save()
       res.send(userModel)
     })
     .catch((err) => res.send(err))
@@ -62,17 +65,11 @@ app.post('/addProblemRecord', async (req, res) => {
         .send('Missing problemObj or userEmail in request body')
     }
 
-    console.log(problemObj)
-    console.log(userEmail)
-
     const userModel = await UserModel.findOneAndUpdate(
       { email: userEmail },
-      { $set: { email: userEmail } }, // Ensure the document exists
+      { $set: { email: userEmail } },
       { new: true, upsert: true },
     )
-
-    console.log('==================================================')
-    console.log(userModel)
 
     if (userModel) {
       let isAlreadySolved = false
@@ -80,7 +77,9 @@ app.post('/addProblemRecord', async (req, res) => {
       userModel.allProblems.forEach((problem) => {
         if (problem.number === problemObj.number) {
           isAlreadySolved = true
+          console.log(problem.attempts)
           problem.attempts++
+          console.log(problem.attempts)
         }
       })
 
@@ -111,6 +110,7 @@ app.post('/addProblemRecord', async (req, res) => {
       }
 
       await userModel.save()
+      isAlreadySolved = false
     } else {
       console.log('Usermodel not found')
     }

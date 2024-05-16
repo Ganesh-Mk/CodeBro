@@ -44,7 +44,7 @@ function AccountPage() {
         setMediumWidth(response.data.mediumSolved || 0)
         setHardWidth(response.data.hardSolved || 0)
         setCircleValue(response.data.totalSolved || 0)
-        setAttempts(response.data.attempts || 0)
+        setAttempts(response.data.allProblems[0].attempts)
         setAllProblems(response.data.allProblems)
       })
       .catch((error) => {

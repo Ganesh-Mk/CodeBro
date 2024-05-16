@@ -9,7 +9,7 @@ export const AllquesObject = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -1216,7 +1216,7 @@ export const AllquesObject = [
     heading: 'Remove Duplicates from Sorted List',
     difficulty: 'Medium',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -2391,7 +2391,7 @@ export const javaAllQuesObj = [
     difficulty: 'Easy',
     ds: 'array',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -2546,7 +2546,7 @@ export const javaAllQuesObj = [
     difficulty: 'Easy',
     ds: 'array',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -2699,7 +2699,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -2852,7 +2852,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3005,7 +3005,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3158,7 +3158,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3311,7 +3311,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3464,7 +3464,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3617,7 +3617,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3770,7 +3770,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -3923,7 +3923,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4076,7 +4076,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4229,7 +4229,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4382,7 +4382,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4535,7 +4535,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4688,7 +4688,7 @@ export const javaAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4846,7 +4846,7 @@ export const jsAllQuesObj = [
     heading: 'these all probs are from jsAllQuesObj',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -4999,7 +4999,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5152,7 +5152,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5305,7 +5305,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5458,7 +5458,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5611,7 +5611,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5764,7 +5764,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -5917,7 +5917,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6070,7 +6070,7 @@ export const jsAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6226,7 +6226,7 @@ export const pythonAllQuesObj = [
     heading: 'these all probs are from pythonAllQuesObj',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6379,7 +6379,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     topic: 'binary search',
     language: 'javascript',
     image: null,
@@ -6533,7 +6533,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6686,7 +6686,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6839,7 +6839,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -6992,7 +6992,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -7145,7 +7145,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -7298,7 +7298,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],
@@ -7451,7 +7451,7 @@ export const pythonAllQuesObj = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
 
-    isSolved: true,
+    isSolved: false,
     language: 'javascript',
     image: null,
     allOutput: [],

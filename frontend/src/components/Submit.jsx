@@ -23,8 +23,11 @@ function Submit({ isLoadingSubmit }) {
         colorScheme="green"
       >
         {problemObj.testCaseResults.includes(false)
-          ? problemObj.testCaseResults.filter((bool) => bool === false).length +
-            ' Test cases are wrong'
+          ? problemObj.testCaseResults.filter((bool) => bool === false)
+              .length === 1
+            ? '1 Test case is wrong'
+            : problemObj.testCaseResults.filter((bool) => bool === false)
+                .length + ' Test cases are wrong'
           : 'All Correct'}
       </Button>
       <Accordion allowToggle>

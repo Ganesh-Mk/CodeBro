@@ -178,6 +178,9 @@ export const problemObjSlice = createSlice({
     setAttempts: (state, action) => {
       state.obj.attempts = action.payload
     },
+    setIsSolved: (state, action) => {
+      state.obj.isSolved = action.payload
+    },
   },
 })
 
@@ -190,5 +193,6 @@ export const {
   addTestCaseResults,
   setAttempts,
   setIsSubmitted,
+  setIsSolved,
 } = problemObjSlice.actions
 export default problemObjSlice.reducer

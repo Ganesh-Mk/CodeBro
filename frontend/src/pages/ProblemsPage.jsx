@@ -1,71 +1,71 @@
-import React, { useState } from "react";
-import "../style/ProblemsPage.scss";
-import { images } from "../javascripts/images";
-import Navbar from "../components/Navbar";
-import "../style/ProblemsPage.scss";
-import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import { AllquesObject } from "../javascripts/data";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addProblemObj } from "../store/problemObjSlice";
+import React, { useEffect, useState } from 'react'
+import '../style/ProblemsPage.scss'
+import { images } from '../javascripts/images'
+import Navbar from '../components/Navbar'
+import '../style/ProblemsPage.scss'
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
+import { AllquesObject } from '../javascripts/data'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addProblemObj } from '../store/problemObjSlice'
 
 function ProblemsPage() {
-  const [selectedValue, setSelectedValue] = useState("All");
-  const [selectedTopic, setSelectedTopic] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedValue, setSelectedValue] = useState('All')
+  const [selectedTopic, setSelectedTopic] = useState('All')
+  const [searchTerm, setSearchTerm] = useState('')
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const filterByDifficulty = (difficulty) => {
-    let filteredProblems = AllquesObject;
+    let filteredProblems = AllquesObject
 
-    if (difficulty !== "All") {
+    if (difficulty !== 'All') {
       filteredProblems = filteredProblems.filter(
         (problem) =>
-          problem.difficulty.toLowerCase() === difficulty.toLowerCase()
-      );
+          problem.difficulty.toLowerCase() === difficulty.toLowerCase(),
+      )
     }
 
     if (searchTerm) {
-      const lowerCaseSearchTerm = searchTerm.toLowerCase();
+      const lowerCaseSearchTerm = searchTerm.toLowerCase()
       filteredProblems = filteredProblems.filter((problem) =>
-        problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
-      );
+        problem.heading.toLowerCase().includes(lowerCaseSearchTerm),
+      )
     }
 
-    if (selectedTopic && selectedTopic.toLowerCase() !== "all") {
-      const lowerCaseSelectedTopic = selectedTopic.toLowerCase();
-      if (lowerCaseSelectedTopic === "solved") {
+    if (selectedTopic && selectedTopic.toLowerCase() !== 'all') {
+      const lowerCaseSelectedTopic = selectedTopic.toLowerCase()
+      if (lowerCaseSelectedTopic === 'solved') {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === true
-        );
-      } else if (lowerCaseSelectedTopic === "unsolved") {
+          (problem) => problem.isSolved === true,
+        )
+      } else if (lowerCaseSelectedTopic === 'unsolved') {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === false
-        );
+          (problem) => problem.isSolved === false,
+        )
       } else {
         filteredProblems = filteredProblems.filter(
           (problem) =>
             problem.topic &&
-            problem.topic.toLowerCase() === lowerCaseSelectedTopic
-        );
+            problem.topic.toLowerCase() === lowerCaseSelectedTopic,
+        )
       }
     }
 
-    return filteredProblems;
-  };
+    return filteredProblems
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   const randomProblemPicker = () => {
-    const randomIndex = Math.floor(Math.random() * AllquesObject.length) + 1;
-    const selectedProblem = AllquesObject[randomIndex];
-    dispatch(addProblemObj(selectedProblem));
-  };
+    const randomIndex = Math.floor(Math.random() * AllquesObject.length) + 1
+    const selectedProblem = AllquesObject[randomIndex]
+    dispatch(addProblemObj(selectedProblem))
+  }
 
-  const problemsToShow = filterByDifficulty(selectedValue);
+  const problemsToShow = filterByDifficulty(selectedValue)
 
   return (
     <>
@@ -157,8 +157,8 @@ function ProblemsPage() {
             {problemsToShow.length > 0 ? (
               problemsToShow.map((problem, index) => (
                 <ProblemDisplayContainer
-                  value={true}
                   problem={problem}
+                  value={true}
                   key={index}
                 />
               ))
@@ -169,7 +169,7 @@ function ProblemsPage() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ProblemsPage;
+export default ProblemsPage
