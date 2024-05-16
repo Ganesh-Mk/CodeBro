@@ -176,7 +176,7 @@ export const problemObjSlice = createSlice({
       state.obj.isSubmitted = action.payload
     },
     setAttempts: (state, action) => {
-      state.attempts = action.payload
+      state.obj.attempts = action.payload
     },
   },
 })

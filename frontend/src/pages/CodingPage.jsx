@@ -117,7 +117,7 @@ def arrayToLinkedList(arr):
 # Added 'Solution' prefix to the function call
 solution = Solution()
 linkedList = arrayToLinkedList(${problemObj.cases[i].parameter})
-result = solution.deleteDuplicates(linkedList)  # Added 'solution.' prefix
+result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
 print(linkedListToArray(result))
 `
             sourceCode = start + mid
@@ -156,7 +156,7 @@ public class Solution {
           problemObj.cases[i].parameter.length - 1,
         )}};
         ListNode linkedList = solution.arrayToLinkedList(arr);
-        ListNode result = solution.deleteDuplicates(linkedList);
+        ListNode result = solution.${problemObj.functionName}(linkedList);
         int[] arrayResult = solution.linkedListToArray(result);
         System.out.println(Arrays.toString(arrayResult));
     }
@@ -270,9 +270,11 @@ class ListNode {
       }
     }
 
-    if (testCaseResult.every((e) => e === true)) {
-      axios.post('http://localhost:3000/problemRecord', {
-        email: localStorage.getItem('email'),
+    let allCorrect = testCaseResult.every((e) => e === true)
+    if (allCorrect) {
+      let emailVal = localStorage.getItem('email')
+      axios.post('http://localhost:3000/addProblemRecord', {
+        userEmail: emailVal,
         problemObj: problemObj,
       })
     }
@@ -368,7 +370,7 @@ def arrayToLinkedList(arr):
 # Added 'Solution' prefix to the function call
 solution = Solution()
 linkedList = arrayToLinkedList(${problemObj.example[i].parameter})
-result = solution.deleteDuplicates(linkedList)  # Added 'solution.' prefix
+result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
 print(linkedListToArray(result))
 `
             sourceCode = start + mid
@@ -407,7 +409,7 @@ public class Solution {
           problemObj.example[i].parameter.length - 1,
         )}};
         ListNode linkedList = solution.arrayToLinkedList(arr);
-        ListNode result = solution.deleteDuplicates(linkedList);
+        ListNode result = solution.${problemObj.functionName}(linkedList);
         int[] arrayResult = solution.linkedListToArray(result);
         System.out.println(Arrays.toString(arrayResult));
     }

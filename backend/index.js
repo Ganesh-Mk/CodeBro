@@ -1,11 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const bodyParser = require('body-parser')
+
 require('dotenv').config()
 const UserModel = require('./models/userModel')
 
 const app = express()
 app.use(express.json())
+app.use(bodyParser.json())
 app.use(cors())
 
 mongoose.connect('mongodb://127.0.0.1:27017/CodeBro')
@@ -49,58 +52,67 @@ app.get('/problemRecord', (req, res) => {
     .catch((err) => res.send(err))
 })
 
-app.post('/problemRecord', (req, res) => {
-  let problemObj = req.body.problemObj
-  let isAlreadySolved = false
+app.post('/addProblemRecord', async (req, res) => {
+  try {
+    const { problemObj, userEmail } = req.body
 
-  UserModel.findOneAndUpdate({ email: req.body.userEmail })
-    .then((userModel) => {
-      if (userModel) {
-        userModel.allProblems.map((problem) => {
-          if (problem.number === problemObj.number) {
-            isAlreadySolved = true
-          }
-        })
+    if (!problemObj || !userEmail) {
+      return res
+        .status(400)
+        .send('Missing problemObj or userEmail in request body')
+    }
 
-        if (!isAlreadySolved) {
-          userModel.totalSolved = userModel.totalSolved + 1
-          if (problemObj.difficulty === 'Easy') {
-            userModel.easySolved = userModel.easySolved + 1
-          } else if (problemObj.difficulty === 'Medium') {
-            userModel.mediumSolved = userModel.mediumSolved + 1
-          } else if (problemObj.difficulty === 'Hard') {
-            userModel.hardSolved = userModel.hardSolved + 1
-          }
+    console.log(problemObj)
+    console.log(userEmail)
 
-          if (problemObj.language === 'javascript') {
-            userModel.jsSolved = userModel.jsSolved + 1
-          } else if (problemObj.language === 'python') {
-            userModel.pythonSolved = userModel.pythonSolved + 1
-          } else if (problemObj.language === 'java') {
-            userModel.javaSolved = userModel.javaSolved + 1
-          }
+    const userModel = await UserModel.findOneAndUpdate({ email: userEmail })
 
-          let curProblemObj = {
-            number: problemObj.number,
-            heading: problemObj.heading,
-            difficulty: problemObj.difficulty,
-            attempts: problemObj.attempts,
-          }
+    if (userModel) {
+      let isAlreadySolved = false
 
-          userModel.allProblems.push(curProblemObj)
-        } else {
-          userModel.allProblems.map((problem) => {
-            if (problem.number === problemObj.number) {
-              problem.attempts = problem.attempts + 1
-            }
-          })
+      userModel.allProblems.forEach((problem) => {
+        if (problem.number === problemObj.number) {
+          isAlreadySolved = true
+          problem.attempts++
+        }
+      })
+
+      if (!isAlreadySolved) {
+        userModel.totalSolved++
+        if (problemObj.difficulty === 'Easy') {
+          userModel.easySolved++
+        } else if (problemObj.difficulty === 'Medium') {
+          userModel.mediumSolved++
+        } else if (problemObj.difficulty === 'Hard') {
+          userModel.hardSolved++
         }
 
-        isAlreadySolved = false
-        userModel.save()
+        if (problemObj.language === 'javascript') {
+          userModel.jsSolved++
+        } else if (problemObj.language === 'python') {
+          userModel.pythonSolved++
+        } else if (problemObj.language === 'java') {
+          userModel.javaSolved++
+        }
+
+        userModel.allProblems.push({
+          number: problemObj.number,
+          heading: problemObj.heading,
+          difficulty: problemObj.difficulty,
+          attempts: 1,
+        })
       }
-    })
-    .catch((err) => res.send(err))
+
+      await userModel.save()
+    } else {
+      console.log('Usermodel not found')
+    }
+
+    res.sendStatus(200)
+  } catch (err) {
+    console.error(err)
+    res.status(500).send(err.message)
+  }
 })
 
 app.post('/login', (req, res) => {
