@@ -5,9 +5,7 @@ export const AllquesObject = [
     heading: "Add two numbers",
     difficulty: "Easy",
 
-
     attempts: 0,
-
 
     isSolved: true,
     language: "javascript",
@@ -233,7 +231,6 @@ export const AllquesObject = [
     difficulty: "Easy",
 
     attempts: 0,
-
 
     isSolved: false,
     language: "javascript",
@@ -1257,14 +1254,7 @@ export const AllquesObject = [
 
     heading: "Remove Duplicates from Sorted List",
     difficulty: "Medium",
-
-    heading: "Remove Duplicates from Sorted List",
-    difficulty: "Medium",
-
     attempts: 0,
-    heading: "Remove Duplicates from Sorted List",
-    difficulty: "Medium",
-
     isSolved: true,
     language: "javascript",
     image: null,
@@ -1480,11 +1470,11 @@ public ListNode deleteDuplicates(ListNode head) {
     allOutput: [],
     allResult: [],
     description:
-      "Given a sorted array of integers, find the median of the array. If sorted array is odd return the middle mumber else return the middle left side number",
+      "Given a sorted array of integers, find the median of the array. If sorted array is odd return the middle number else return the middle left side number",
     constraints: [
       "1 <= arr.length <= 1000",
       "-1000 <= arr[i] <= 1000",
-      "arr.length is odd",
+      "arr.length is even or odd",
     ],
     functionName: "findMedian",
     returnType: "double",
@@ -1684,7 +1674,7 @@ public static int findKthLargest(int[] arr, int k) {
     allOutput: [],
     allResult: [],
     description:
-      "Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.",
+      "Given an array of size n, find the majority element. The majority element is the element that appears more than [n/2] times.",
     constraints: [
       "1 <= arr.length <= 10000",
       "0 <= arr[i] <= 10000",
@@ -1733,7 +1723,7 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall:
           "findMajorityElement(new int[]{1, 2, 2, 2, 3, 4, 5, 2, 2})",
         explanation:
-          "In the array [1, 2, 2, 2, 3, 4, 5, 2, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
+          "In the array [1, 2, 2, 2, 3, 4, 5, 2, 2], the majority element is 2 as it appears more than [n/2] times.",
         image: null,
       },
     ],
@@ -1773,20 +1763,21 @@ public static int findKthLargest(int[] arr, int k) {
           "findMajorityElement(new int[]{5, 5, 5, 5, 1, 1, 1, 1, 1})",
       },
     ],
-  }, 
+  },
   {
-    number: '12',
-    heading: 'Remove duplicates from an array',
-    difficulty: 'Easy',
+    number: "12",
+    heading: "Remove duplicates from an array",
+    difficulty: "Easy",
     isSolved: false,
-    language: 'javascript',
+    language: "javascript",
     image: null,
     allOutput: [],
     allResult: [],
-    description: 'Given an array of integers, remove duplicates from the array and return a new array without any duplicate elements.  Note: While solving in java return array as String ex: "Arrays.toString(result)"',
-    constraints: ['1 <= arr.length <= 10000', '-10000 <= arr[i] <= 10000'],
-    functionName: 'removeDuplicates',
-    returnType: 'number[]',
+    description:
+      'Given an array of integers, remove duplicates from the array and return a new array without any duplicate elements.  Note: While solving in java return array as String for ex: "Arrays.toString(result)"',
+    constraints: ["1 <= arr.length <= 10000", "-10000 <= arr[i] <= 10000"],
+    functionName: "removeDuplicates",
+    returnType: "number[]",
     javascriptDefaultCode: `
     /**
     * @param {number[]} arr
@@ -1810,67 +1801,604 @@ public static int findKthLargest(int[] arr, int k) {
     testCaseOutputs: [],
     testCaseResults: [],
     example: [
-        {
-            number: '1',
-            input: 'arr = [1, 1, 2, 3, 3, 4]',
-            output: '[1, 2, 3, 4]',
-            parameter: '[1,1,2,3,3,4]',
-            javaFuncCall: 'removeDuplicates(new int[]{1,1,2,3,3,4})',
-            explanation: 'The array [1, 1, 2, 3, 3, 4] after removing duplicates becomes [1, 2, 3, 4].',
-            image: null,
-        },
-        {
-            number: '2',
-            input: 'arr = [1, 1, 1, 1]',
-            output: '[1]',
-            parameter: '[1,1,1,1]',
-            javaFuncCall: 'removeDuplicates(new int[]{1,1,1,1})',
-            explanation: 'The array [1, 1, 1, 1] contains only one unique element [1], so the output remains [1].',
-            image: null,
-        },
+      {
+        number: "1",
+        input: "arr = [1, 1, 2, 3, 3, 4]",
+        output: "[1, 2, 3, 4]",
+        parameter: "[1,1,2,3,3,4]",
+        javaFuncCall: "removeDuplicates(new int[]{1,1,2,3,3,4})",
+        explanation:
+          "The array [1, 1, 2, 3, 3, 4] after removing duplicates becomes [1, 2, 3, 4].",
+        image: null,
+      },
+      {
+        number: "2",
+        input: "arr = [1, 1, 1, 1]",
+        output: "[1]",
+        parameter: "[1,1,1,1]",
+        javaFuncCall: "removeDuplicates(new int[]{1,1,1,1})",
+        explanation:
+          "The array [1, 1, 1, 1] contains only one unique element [1], so the output remains [1].",
+        image: null,
+      },
     ],
     cases: [
-        {
-            parameter: '[1,1,2,3,3,4]',
-            expectedOutput: '[1, 2, 3, 4]',
-            userOutput: null,
-            javaFuncCall: 'removeDuplicates(new int[]{1,1,2,3,3,4})',
-        },
-        {
-            parameter: '[1,1,1,1]',
-            expectedOutput: '[1]',
-            userOutput: null,
-            javaFuncCall: 'removeDuplicates(new int[]{1,1,1,1})',
-        },
-        {
-          parameter: '[3, 5, 3, 8, 9, 8]',
-          expectedOutput: '[3, 5, 8, 9]',
-          userOutput: null,
-          javaFuncCall: 'removeDuplicates(new int[]{3, 5, 3, 8, 9, 8})',
+      {
+        parameter: "[1,1,2,3,3,4]",
+        expectedOutput: "[1, 2, 3, 4]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{1,1,2,3,3,4})",
       },
       {
-          parameter: '[-1, 0, 1, -1, 0, 1]',
-          expectedOutput: '[-1, 0, 1]',
-          userOutput: null,
-          javaFuncCall: 'removeDuplicates(new int[]{-1, 0, 1, -1, 0, 1})',
+        parameter: "[1,1,1,1]",
+        expectedOutput: "[1]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{1,1,1,1})",
       },
       {
-          parameter: '[9, 9, 9, 9, 9]',
-          expectedOutput: '[9]',
-          userOutput: null,
-          javaFuncCall: 'removeDuplicates(new int[]{9, 9, 9, 9, 9})',
+        parameter: "[3, 5, 3, 8, 9, 8]",
+        expectedOutput: "[3, 5, 8, 9]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{3, 5, 3, 8, 9, 8})",
       },
       {
-          parameter: '[0, 0, 0, 0, 0]',
-          expectedOutput: '[0]',
-          userOutput: null,
-          javaFuncCall: 'removeDuplicates(new int[]{0, 0, 0, 0, 0})',
+        parameter: "[-1, 0, 1, -1, 0, 1]",
+        expectedOutput: "[-1, 0, 1]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{-1, 0, 1, -1, 0, 1})",
+      },
+      {
+        parameter: "[9, 9, 9, 9, 9]",
+        expectedOutput: "[9]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{9, 9, 9, 9, 9})",
+      },
+      {
+        parameter: "[0, 0, 0, 0, 0]",
+        expectedOutput: "[0]",
+        userOutput: null,
+        javaFuncCall: "removeDuplicates(new int[]{0, 0, 0, 0, 0})",
+      },
+    ],
+  },
+  {
+    number: 13,
+    heading: "Find the maximum consecutive ones in an array",
+    difficulty: "Easy",
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given a binary array, find the maximum number of consecutive 1s in this array.",
+    constraints: ["1 <= nums.length <= 10^5", "nums[i] is either 0 or 1"],
+    functionName: "findMaxConsecutiveOnes",
+    returnType: "number",
+    javascriptDefaultCode:
+      "\n/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findMaxConsecutiveOnes = function(nums) {\n    // Write your code here\n};\n",
+    pythonDefaultCode:
+      "\ndef findMaxConsecutiveOnes(nums):\n    # Write your code here\n",
+    javaDefaultCode:
+      "\npublic static int findMaxConsecutiveOnes(int[] nums) {\n    // Write your code here\n}\n",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: "1",
+        input: "nums = [1,1,0,1,1,1]",
+        output: "3",
+        parameter: "[1,1,0,1,1,1]",
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{1,1,0,1,1,1})",
+        explanation:
+          "The maximum number of consecutive 1s in the array [1,1,0,1,1,1] is 3.",
+        image: null,
+      },
+      {
+        number: "2",
+        input: "nums = [1,0,1,1,0,1]",
+        output: "2",
+        parameter: "[1,0,1,1,0,1]",
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{1,0,1,1,0,1})",
+        explanation:
+          "The maximum number of consecutive 1s in the array [1,0,1,1,0,1] is 2.",
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: "[1,1,0,1,1,1]",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{1,1,0,1,1,1})",
+      },
+      {
+        parameter: "[1,0,1,1,0,1]",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{1,0,1,1,0,1})",
+      },
+      {
+        parameter: "[0,0,0,0]",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{0,0,0,0})",
+      },
+      {
+        parameter: "[1,1,1,1,1]",
+        expectedOutput: "5",
+        userOutput: null,
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{1,1,1,1,1})",
+      },
+      {
+        parameter: "[0,1,0,1,0,1]",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: "findMaxConsecutiveOnes(new int[]{0,1,0,1,0,1})",
+      },
+    ],
+  },
+  {
+    number: 14,
+    heading: "Count Vowels in a String",
+    difficulty: "Easy",
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given a string, count the number of vowels (a, e, i, o, u) in the string.",
+    constraints: [
+      "1 <= s.length <= 10^5",
+      "String contains only lowercase English letters.",
+    ],
+    functionName: "countVowels",
+    returnType: "number",
+    javascriptDefaultCode:
+      "/**\n* @param {string} s\n* @return {number}\n*/\nvar countVowels = function(s) {\n    // Write your code here\n};\n",
+    pythonDefaultCode: "def countVowels(s):\n# Write your code here\n",
+    javaDefaultCode:
+      "public static int countVowels(String s) {\n// Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: "1",
+        input: 's = "hello"',
+        output: "2",
+        parameter: '"hello"',
+        javaFuncCall: 'countVowels("hello")',
+        explanation: "The string \"hello\" contains 2 vowels: 'e' and 'o'.",
+        image: null,
+      },
+      {
+        number: "2",
+        input: 's = "world"',
+        output: "1",
+        parameter: '"world"',
+        javaFuncCall: 'countVowels("world")',
+        explanation: "The string \"world\" contains 1 vowel: 'o'.",
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: '"hello"',
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'countVowels("hello")',
+      },
+      {
+        parameter: '"world"',
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'countVowels("world")',
+      },
+      {
+        parameter: '"programming"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("programming")',
+      },
+      {
+        parameter: '"javascript"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("javascript")',
+      },
+      {
+        parameter: '"algorithm"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("algorithm")',
+      },
+      {
+        parameter: '"ai"',
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'countVowels("ai")',
+      },
+    ],
+  },
+  {
+    "number": 15,
+    "heading": "Remove Element",
+    "difficulty": "Easy",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given an array nums and a value val, remove all instances of that value in-place and return the new length.",
+    "constraints": [
+      "The order of elements can be changed. It doesn't matter what you leave beyond the new length."
+    ],
+    "functionName": "removeElement",
+    "returnType": "int",
+    "javascriptDefaultCode": "\n/**\n\t* @param {number[]} nums\n\t* @param {number} val\n\t* @return {number}\n*/\n\nvar removeElement = function(nums, val) {\n\t// Write your code here\n};",
+    "pythonDefaultCode": "\ndef removeElement(nums, val):\n\t# Write your code here",
+    "javaDefaultCode": "\npublic static int removeElement(int[] nums, int val) {\n\t// Write your code here\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "nums = [3, 2, 2, 3], val = 3",
+        "output": "2",
+        "parameter": "[3, 2, 2, 3], 3",
+        "explanation": "Given nums array = [3, 2, 2, 3], and val = 3, Your function should return length = 2, with the first two elements of nums being 2.",
+        "image": null,
+        "javaFuncCall": "removeElement(new int[]{3, 2, 2, 3}, 3)"
+      },
+      {
+        "number": 2,
+        "input": "nums = [0, 1, 2, 2, 3, 0, 4, 2], val = 2",
+        "output": "5",
+        "parameter": "[0, 1, 2, 2, 3, 0, 4, 2], 2",
+        "explanation": "Given nums array = [0, 1, 2, 2, 3, 0, 4, 2], and val = 2, Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.",
+        "image": null,
+        "javaFuncCall": "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)"
       }
     ],
-},
+    "cases": [
+      {
+        "parameter": "[3, 2, 2, 3], 3",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{3, 2, 2, 3}, 3)"
+      },
+      {
+        "parameter": "[0, 1, 2, 2, 3, 0, 4, 2], 2",
+        "expectedOutput": "5",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)"
+      },
+      {
+        "parameter": "[1], 1",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{1}, 1)"
+      },
+      {
+        "parameter": "[1], 2",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{1}, 2)"
+      },
+      {
+        "parameter": "[1, 2], 1",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{1, 2}, 1)"
+      },
+      {
+        "parameter": "[1, 2], 2",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "removeElement(new int[]{1, 2}, 2)"
+      }
+    ]
+  },
+  {
+    "number": 16,
+    "heading": "Search Insert Position",
+    "difficulty": "Easy",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.",
+    "constraints": [
+      "The input array is guaranteed to be sorted in ascending order.",
+      "The input array may contain duplicates, but they will not affect the answer.",
+      "The length of the input array is within the range [0, 10^4].",
+      "The elements in the input array are integers in the range [-10^4, 10^4]."
+    ],
+    "functionName": "searchInsert",
+    "returnType": "int",
+    "javascriptDefaultCode": "\n/**\n\t* @param {number[]} nums\n\t* @param {number} target\n\t* @return {number}\n*/\n\nvar searchInsert = function(nums, target) {\n\t// Write your code here\n};",
+    "pythonDefaultCode": "\ndef searchInsert(nums, target):\n\t# Write your code here",
+    "javaDefaultCode": "\npublic static int searchInsert(int[] nums, int target) {\n\t// Write your code here\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "nums = [1, 3, 5, 6], target = 5",
+        "output": "2",
+        "parameter": "[1, 3, 5, 6], 5",
+        "explanation": "Since 5 is found at index 2 in the array, the function should return 2.",
+        "image": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 5)"
+      },
+      {
+        "number": 2,
+        "input": "nums = [1, 3, 5, 6], target = 2",
+        "output": "1",
+        "parameter": "[1, 3, 5, 6], 2",
+        "explanation": "Since 2 is not found but can be inserted at index 1 in the array, the function should return 1.",
+        "image": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 2)"
+      },
+      {
+        "number": 3,
+        "input": "nums = [1, 3, 5, 6], target = 7",
+        "output": "4",
+        "parameter": "[1, 3, 5, 6], 7",
+        "explanation": "Since 7 is not found but can be inserted at index 4 in the array, the function should return 4.",
+        "image": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 7)"
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "[1, 3, 5, 6], 5",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 5)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 2",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 2)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 7",
+        "expectedOutput": "4",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 7)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 0",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 0)"
+      },
+      {
+        "parameter": "[1], 0",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1}, 0)"
+      }
+    ]
+  },
+  {
+    "number": 17,
+    "heading": "Binary Search",
+    "difficulty": "Easy",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given a sorted (in ascending order) integer array nums of n elements and a target value, write a function to search target in nums. If target exists, then return its index, otherwise return -1.",
+    "constraints": [
+      "You may assume that all elements in nums are unique.",
+      "n will be in the range [1, 10000].",
+      "The value of each element in nums will be in the range [-9999, 9999]."
+    ],
+    "functionName": "binarySearch",
+    "returnType": "int",
+    "javascriptDefaultCode": "\n/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number}\n */\nvar binarySearch = function(nums, target) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "\ndef binarySearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
+    "javaDefaultCode": "\npublic static int binarySearch(int[] nums, int target) {\n\t// Write your code here\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "nums = [-1,0,3,5,9,12], target = 9",
+        "output": "4",
+        "parameter": "[-1,0,3,5,9,12], 9",
+        "explanation": "Return index 4 (0-indexed) since 9 is present at index 4 in nums.",
+        "image": null,
+        "javaFuncCall": "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 9)"
+      },
+      {
+        "number": 2,
+        "input": "nums = [-1,0,3,5,9,12], target = 2",
+        "output": "-1",
+        "parameter": "[-1,0,3,5,9,12], 2",
+        "explanation": "2 is not present in nums so return -1.",
+        "image": null,
+        "javaFuncCall": "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 2)"
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "[-1,0,3,5,9,12], 9",
+        "expectedOutput": "4",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 9)"
+      },
+      {
+        "parameter": "[-1,0,3,5,9,12], 2",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 2)"
+      },
+      {
+        "parameter": "[-1,0,3,5,9,12], 12",
+        "expectedOutput": "5",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 12)"
+      },
+      {
+        "parameter": "[5], 5",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{5}, 5)"
+      },
+      {
+        "parameter": "[5], -5",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{5}, -5)"
+      },
+      {
+        "parameter": "[1,3,5,7,9], 7",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{1, 3, 5, 7, 9}, 7)"
+      },
+      {
+        "parameter": "[1,3,5,7,9], 10",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{1, 3, 5, 7, 9}, 10)"
+      },
+      {
+        "parameter": "[-10,-5,0,3,7], 0",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{-10, -5, 0, 3, 7}, 0)"
+      },
+      {
+        "parameter": "[-10,-5,0,3,7], -10",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{-10, -5, 0, 3, 7}, -10)"
+      },
+      {
+        "parameter": "[1,2,3,4,5], 1",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "binarySearch(new int[]{1, 2, 3, 4, 5}, 1)"
+      }
+      
+    ]
+  },
+  {
+    "number": 9,
+    "heading": "Find Middle of Linked List",
+    "difficulty": "Easy",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+    "constraints": [
+        "The number of nodes in the list is in the range [1, 100].",
+        "-100 <= Node.val <= 100",
+        "The list is guaranteed to have an odd number of nodes."
+    ],
+    "functionName": "findMiddleNode",
+    "returnType": "linkedlist",
+    "javascriptDefaultCode": `
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var findMiddleNode = function(head) {
+    // Write your code here
+};`,
+pythonDefaultCode:
+`# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def findMiddleNode(self, head: ListNode) -> ListNode:
+        # Write your code here`,
+    "javaDefaultCode": `
+/* Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+public ListNode findMiddleNode(ListNode head) {
+    // Write your code here
+}`,
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+        {
+            "number": 1,
+            "input": "head = [1,2,3,4,5]",
+            "output": "[3,4,5]",
+            "parameter": "[1,2,3,4,5]",
+            "explanation": "The middle node of the linked list is node 3.",
+            "image": null,
+            "javaFuncCall": "findMiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+        },
+        {
+            "number": 2,
+            "input": "head = [1,2,3,4,5,6]",
+            "output": "[4,5,6]",
+            "parameter": "[1,2,3,4,5,6]",
+            "explanation": "The middle node of the linked list is node 4.",
+            "image": null,
+            "javaFuncCall": "findMiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))))"
+        }
+    ],
+    "cases": [
+        {
+            "parameter": "[1,2,3,4,5]",
+            "expectedOutput": "[3,4,5]",
+            "userOutput": null,
+            "javaFuncCall": "findMiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+        },
+        {
+            "parameter": "[1,2,3,4,5,6]",
+            "expectedOutput": "[4,5,6]",
+            "userOutput": null,
+            "javaFuncCall": "findMiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))))"
+        }
+    ]
+}
 
 
 
+  
+  
 ];
 
 export const javaAllQuesObj = [
@@ -2506,7 +3034,6 @@ export const javaAllQuesObj = [
     difficulty: "Easy",
 
     attempts: 0,
-
 
     isSolved: true,
     language: "javascript",

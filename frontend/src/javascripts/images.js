@@ -19,6 +19,9 @@ import js from '../assets/images/js.png'
 import python from '../assets/images/python.png'
 import P8a from '../assets/images/P8a.jpg'
 import P8b from '../assets/images/P8b.jpg'
+import L1 from '../assets/images/L1.png'
+import L2 from '../assets/images/L2.png'
+
 
 export const images = {
   codeBroLogo,
