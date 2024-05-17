@@ -20,6 +20,7 @@ import {
   addProblemObj,
   setIsSolved,
 } from '../store/problemObjSlice'
+import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 
 function CodingPage() {
@@ -279,7 +280,7 @@ print(linkedListToArray(result))
     if (allCorrect) {
       dispatch(setIsSolved(true))
       let emailVal = localStorage.getItem('email')
-      axios
+      await axios
         .post('http://localhost:3000/addProblemRecord', {
           userEmail: emailVal,
           problemObj: problemObj,
@@ -289,6 +290,19 @@ print(linkedListToArray(result))
         })
         .catch((error) => {
           console.error('Error adding problem record:', error)
+        })
+
+      await axios
+        .post('http://localhost:3000/leaderBoard', {
+          userEmail: emailVal,
+          problemObj: problemObj,
+        })
+        .then((response) => {
+          console.log('LeaderBoard record added successfully', response.data)
+          dispatch(setLeaderBoardEntries(response.data)) // Assuming response.data is an array
+        })
+        .catch((error) => {
+          console.error('Error LeaderBoard problem record:', error)
         })
     }
 

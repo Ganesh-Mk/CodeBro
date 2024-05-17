@@ -11,12 +11,12 @@ import HomePage from './pages/HomePage'
 import AboutUsPage from './pages/AboutUsPage'
 import ProblemsPage from './pages/ProblemsPage'
 import ProgrammingPage from './pages/ProgrammingPage'
-import LeaderboardPage from './pages/LeaderboardPage'
 import AccountPage from './pages/AccountPage'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import CodingPage from './pages/CodingPage'
 import EditProfilePage from './pages/EditProfilePage'
+import LeaderBoardPage from './pages/LeaderBoardPage'
 import ProblemDisplayContainer from './components/ProblemDisplayContainer'
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/problems" element={<ProblemsPage />} />
         <Route path="/programming" element={<ProgrammingPage />} />
-        <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/leaderboard" element={<LeaderBoardPage />} />
         <Route path="/account" element={<AccountPage />} />
         <Route path="/coding" element={<CodingPage />} />
         <Route path="/editprofile" element={<EditProfilePage />} />

@@ -13,19 +13,9 @@ import { AllquesObject } from '../javascripts/data'
 import { useSelector } from 'react-redux'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
 import { addTestCaseResults } from '../store/problemObjSlice'
-import {
-  setName,
-  setEmail,
-  setPassword,
-  setInsta,
-  setGithub,
-  setLinkedin,
-  // setUserImage,
-} from '../store/userSlice'
 
 function AccountPage() {
   const userObj = useSelector((state) => state.user)
-  console.log(userObj.name)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
   const [userPassword, setUserPassword] = useState(userObj.password)
@@ -248,7 +238,7 @@ function AccountPage() {
                 </div>
               </div>
               <div className="subListBox">
-                {allProblems &&
+                {allProblems.length !== 0 ? (
                   allProblems.map((obj, i) => (
                     <DisplayProblemContainer
                       key={i}
@@ -257,7 +247,12 @@ function AccountPage() {
                       diff={obj.difficulty}
                       attempts={obj.attempts}
                     />
-                  ))}
+                  ))
+                ) : (
+                  <h3 style={{ textAlign: 'center', color: 'white' }}>
+                    No problems solved yet
+                  </h3>
+                )}
               </div>
             </div>
           </div>

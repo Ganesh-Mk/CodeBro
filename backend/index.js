@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 
 require('dotenv').config()
 const UserModel = require('./models/userModel')
+const LeaderBoard = require('./models/leaderBoardModel')
 
 const app = express()
 app.use(express.json())
@@ -52,6 +53,15 @@ app.get('/problemRecord', (req, res) => {
     })
     .catch((err) => res.send(err))
 })
+app.get('/leaderBoardprint', async (req, res) => {
+  try {
+    const leaderboard = await LeaderBoard.find()
+    return res.send(leaderboard)
+  } catch (err) {
+    console.error('Error fetching leaderboard entries:', err)
+    return res.status(500).send(err.message)
+  }
+})
 
 app.post('/updateUserDetailsByEmail', (req, res) => {
   const {
@@ -64,7 +74,7 @@ app.post('/updateUserDetailsByEmail', (req, res) => {
   } = req.body
 
   UserModel.findOneAndUpdate(
-    { email: userEmail }, // Find user by email
+    { email: userEmail },
     {
       name: userName,
       email: userEmail,
@@ -84,6 +94,50 @@ app.post('/updateUserDetailsByEmail', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
+})
+
+app.post('/leaderBoard', async (req, res) => {
+  try {
+    const { problemObj, userEmail } = req.body
+
+    if (!problemObj || !userEmail) {
+      return res
+        .status(400)
+        .send('Missing problemObj or userEmail in request body')
+    }
+
+    const userModel = await UserModel.findOne({ email: userEmail })
+
+    if (userModel) {
+      const existingEntry = await LeaderBoard.findOne({ email: userEmail })
+
+      if (existingEntry) {
+        existingEntry.total = userModel.totalSolved
+        existingEntry.easy = userModel.easySolved
+        existingEntry.medium = userModel.mediumSolved
+        existingEntry.hard = userModel.hardSolved
+        await existingEntry.save()
+      } else {
+        const newEntry = new LeaderBoard({
+          name: userModel.name,
+          email: userModel.email,
+          total: userModel.totalSolved,
+          easy: userModel.easySolved,
+          medium: userModel.mediumSolved,
+          hard: userModel.hardSolved,
+        })
+        await newEntry.save()
+      }
+
+      const leaderboard = await LeaderBoard.find()
+      return res.send(leaderboard)
+    } else {
+      return res.sendStatus(404)
+    }
+  } catch (err) {
+    console.error('Error in updating problem record:', err)
+    return res.status(500).send(err.message)
+  }
 })
 
 app.post('/addProblemRecord', async (req, res) => {
