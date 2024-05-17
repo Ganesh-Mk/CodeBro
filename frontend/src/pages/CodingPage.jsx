@@ -279,11 +279,17 @@ function CodingPage() {
     if (allCorrect) {
       dispatch(setIsSolved(true))
       let emailVal = localStorage.getItem('email')
-      console.log(emailVal)
-      axios.post('http://localhost:3000/addProblemRecord', {
-        userEmail: emailVal,
-        problemObj: problemObj,
-      })
+      axios
+        .post('http://localhost:3000/addProblemRecord', {
+          userEmail: emailVal,
+          problemObj: problemObj,
+        })
+        .then((response) => {
+          console.log('Problem record added successfully')
+        })
+        .catch((error) => {
+          console.error('Error adding problem record:', error)
+        })
     }
 
     dispatch(addAllResult([]))

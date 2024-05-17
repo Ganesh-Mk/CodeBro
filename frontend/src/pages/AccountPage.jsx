@@ -32,9 +32,7 @@ function AccountPage() {
     setUserName(localStorage.getItem('name'))
     axios
       .get('http://localhost:3000/problemRecord', {
-        params: {
-          userEmail: localStorage.getItem('email'),
-        },
+        params: { userEmail: localStorage.getItem('email') },
       })
       .then((response) => {
         setJsSolved(response.data.jsSolved || 0)
@@ -44,7 +42,7 @@ function AccountPage() {
         setMediumWidth(response.data.mediumSolved || 0)
         setHardWidth(response.data.hardSolved || 0)
         setCircleValue(response.data.totalSolved || 0)
-        setAttempts(response.data.allProblems[0].attempts)
+        setAttempts(response.data.allProblems[0]?.attempts || 0)
         setAllProblems(response.data.allProblems)
       })
       .catch((error) => {
@@ -196,11 +194,11 @@ function AccountPage() {
                 {allProblems &&
                   allProblems.map((obj, i) => (
                     <DisplayProblemContainer
-                      num={obj.number}
-                      diff={obj.difficulty}
-                      attempts={attempts}
                       key={i}
+                      num={obj.number}
                       problem={obj.heading}
+                      diff={obj.difficulty}
+                      attempts={obj.attempts}
                     />
                   ))}
               </div>

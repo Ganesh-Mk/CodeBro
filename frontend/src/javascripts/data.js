@@ -74,55 +74,55 @@ export const AllquesObject = [
       //   userOutput: null,
       //   javaFuncCall: 'addTwoNumbers(200, 300)',
       // },
-      {
-        parameter: '1000000000,1',
-        expectedOutput: '1000000001',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(1000000000, 1)',
-      },
-      {
-        parameter: '999999999,999999999',
-        expectedOutput: '1999999998',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(999999999, 999999999)',
-      },
+      // {
+      //   parameter: '1000000000,1',
+      //   expectedOutput: '1000000001',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(1000000000, 1)',
+      // },
+      // {
+      //   parameter: '999999999,999999999',
+      //   expectedOutput: '1999999998',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(999999999, 999999999)',
+      // },
 
-      {
-        parameter: '123456789,987654321',
-        expectedOutput: '1111111110',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
-      },
-      {
-        parameter: '17,23',
-        expectedOutput: '40',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(17, 23)',
-      },
-      {
-        parameter: '50,50',
-        expectedOutput: '100',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(50, 50)',
-      },
-      {
-        parameter: '-100,200',
-        expectedOutput: '100',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(-100, 200)',
-      },
-      {
-        parameter: '999,-999',
-        expectedOutput: '0',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(999, -999)',
-      },
-      {
-        parameter: '-123,-456',
-        expectedOutput: '-579',
-        userOutput: null,
-        javaFuncCall: 'addTwoNumbers(-123, -456)',
-      },
+      // {
+      //   parameter: '123456789,987654321',
+      //   expectedOutput: '1111111110',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
+      // },
+      // {
+      //   parameter: '17,23',
+      //   expectedOutput: '40',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(17, 23)',
+      // },
+      // {
+      //   parameter: '50,50',
+      //   expectedOutput: '100',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(50, 50)',
+      // },
+      // {
+      //   parameter: '-100,200',
+      //   expectedOutput: '100',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(-100, 200)',
+      // },
+      // {
+      //   parameter: '999,-999',
+      //   expectedOutput: '0',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(999, -999)',
+      // },
+      // {
+      //   parameter: '-123,-456',
+      //   expectedOutput: '-579',
+      //   userOutput: null,
+      //   javaFuncCall: 'addTwoNumbers(-123, -456)',
+      // },
       {
         parameter: '0,999',
         expectedOutput: '999',
@@ -248,203 +248,123 @@ export const AllquesObject = [
       },
     ],
     cases: [
+      // {
+      //   parameter: '"hello"',
+      //   expectedOutput: 'olleh',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("hello")',
+      // },
+      // {
+      //   parameter: '"world"',
+      //   expectedOutput: 'dlrow',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("world")',
+      // },
+      // {
+      //   parameter: '"apple"',
+      //   expectedOutput: 'elppa',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("apple")',
+      // },
+      // {
+      //   parameter: '"openai"',
+      //   expectedOutput: 'ianepo',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("openai")',
+      // },
+      // {
+      //   parameter: '"racecar"',
+      //   expectedOutput: 'racecar',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("racecar")',
+      // },
+      // {
+      //   parameter: '"123456"',
+      //   expectedOutput: '654321',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("123456")',
+      // },
+      // {
+      //   parameter: '"goodbye"',
+      //   expectedOutput: 'eybdoog',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("goodbye")',
+      // },
+      // {
+      //   parameter: '"world"',
+      //   expectedOutput: 'dlrow',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("world")',
+      // },
+      // {
+      //   parameter: '"hello world"',
+      //   expectedOutput: 'dlrow olleh',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("hello world")',
+      // },
+      // {
+      //   parameter: '"algorithm"',
+      //   expectedOutput: 'mhtirogla',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("algorithm")',
+      // },
+      // {
+      //   parameter: '"reverse"',
+      //   expectedOutput: 'esrever',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("reverse")',
+      // },
+      // {
+      //   parameter: '"abcdef"',
+      //   expectedOutput: 'fedcba',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("abcdef")',
+      // },
+      // {
+      //   parameter: '"javascript"',
+      //   expectedOutput: 'tpircsavaj',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("javascript")',
+      // },
+      // {
+      //   parameter: '"programming"',
+      //   expectedOutput: 'gnimmargorp',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("programming")',
+      // },
+      // {
+      //   parameter: '"computer"',
+      //   expectedOutput: 'retupmoc',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("computer")',
+      // },
+      // {
+      //   parameter: '"science"',
+      //   expectedOutput: 'ecneics',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("science")',
+      // },
+      // {
+      //   parameter: '"engineering"',
+      //   expectedOutput: 'gnireenigne',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("engineering")',
+      // },
+      // {
+      //   parameter: '"artificial intelligence"',
+      //   expectedOutput: 'ecnegilletni laicifitra',
+      //   userOutput: null,
+      //   javaFuncCall: 'reverseString("artificial intelligence")',
+      // },
       {
-        parameter: 'hello',
-        expectedOutput: 'olleh',
-
-        parameter: '"hello"',
-        expectedOutput: 'olleh',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("hello")',
-      },
-      {
-        parameter: 'world',
-        expectedOutput: 'dlrow',
-
-        parameter: '"world"',
-        expectedOutput: 'dlrow',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("world")',
-      },
-      {
-        parameter: 'apple',
-        expectedOutput: 'elppa',
-
-        parameter: '"apple"',
-        expectedOutput: 'elppa',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("apple")',
-      },
-      {
-        parameter: 'openai',
-        expectedOutput: 'ianepo',
-
-        parameter: '"openai"',
-        expectedOutput: 'ianepo',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("openai")',
-      },
-      {
-        parameter: 'racecar',
-        expectedOutput: 'racecar',
-
-        parameter: '"racecar"',
-        expectedOutput: 'racecar',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("racecar")',
-      },
-      {
-        parameter: '123456',
-        expectedOutput: '654321',
-
-        parameter: '"123456"',
-        expectedOutput: '654321',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("123456")',
-      },
-      {
-        parameter: 'goodbye',
-        expectedOutput: 'eybdoog',
-
-        parameter: '"goodbye"',
-        expectedOutput: 'eybdoog',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("goodbye")',
-      },
-      {
-        parameter: 'world',
-        expectedOutput: 'dlrow',
-
-        parameter: '"world"',
-        expectedOutput: 'dlrow',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("world")',
-      },
-      {
-        parameter: 'hello world',
-        expectedOutput: 'dlrow olleh',
-
-        parameter: '"hello world"',
-        expectedOutput: 'dlrow olleh',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("hello world")',
-      },
-      {
-        parameter: 'algorithm',
-        expectedOutput: 'mhtirogla',
-
-        parameter: '"algorithm"',
-        expectedOutput: 'mhtirogla',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("algorithm")',
-      },
-      {
-        parameter: 'reverse',
-        expectedOutput: 'esrever',
-
-        parameter: '"reverse"',
-        expectedOutput: 'esrever',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("reverse")',
-      },
-      {
-        parameter: 'abcdef',
-        expectedOutput: 'fedcba',
-
-        parameter: '"abcdef"',
-        expectedOutput: 'fedcba',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("abcdef")',
-      },
-      {
-        parameter: 'javascript',
-        expectedOutput: 'tpircsavaj',
-
-        parameter: '"javascript"',
-        expectedOutput: 'tpircsavaj',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("javascript")',
-      },
-      {
-        parameter: 'programming',
-        expectedOutput: 'gnimmargorp',
-
-        parameter: '"programming"',
-        expectedOutput: 'gnimmargorp',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("programming")',
-      },
-      {
-        parameter: 'computer',
-        expectedOutput: 'retupmoc',
-
-        parameter: '"computer"',
-        expectedOutput: 'retupmoc',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("computer")',
-      },
-      {
-        parameter: 'science',
-        expectedOutput: 'ecneics',
-
-        parameter: '"science"',
-        expectedOutput: 'ecneics',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("science")',
-      },
-      {
-        parameter: 'engineering',
-        expectedOutput: 'gnireenigne',
-
-        parameter: '"engineering"',
-        expectedOutput: 'gnireenigne',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("engineering")',
-      },
-      {
-        parameter: 'artificial intelligence',
-        expectedOutput: 'ecnegilletni laicifitra',
-
-        parameter: '"artificial intelligence"',
-        expectedOutput: 'ecnegilletni laicifitra',
-
-        userOutput: null,
-        javaFuncCall: 'reverseString("artificial intelligence")',
-      },
-      {
-        parameter: 'machine learning',
-        expectedOutput: 'gninrael enihcam',
-
         parameter: '"machine learning"',
         expectedOutput: 'gninrael enihcam',
-
         userOutput: null,
         javaFuncCall: 'reverseString("machine learning")',
       },
       {
-        parameter: 'data science',
-        expectedOutput: 'ecneics atad',
-
         parameter: '"data science"',
         expectedOutput: 'ecneics atad',
-
         userOutput: null,
         javaFuncCall: 'reverseString("data science")',
       },

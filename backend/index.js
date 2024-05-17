@@ -47,8 +47,6 @@ app.get('/deleteAllUser', (req, res) => {
 app.get('/problemRecord', (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
-      console.log(userModel)
-      userModel.allProblems[0].attempts++
       userModel.save()
       res.send(userModel)
     })
@@ -65,41 +63,28 @@ app.post('/addProblemRecord', async (req, res) => {
         .send('Missing problemObj or userEmail in request body')
     }
 
-    const userModel = await UserModel.findOneAndUpdate(
-      { email: userEmail },
-      { $set: { email: userEmail } },
-      { new: true, upsert: true },
-    )
+    const userModel = await UserModel.findOne({ email: userEmail })
 
     if (userModel) {
-      let isAlreadySolved = false
+      let problemUpdated = false
 
-      userModel.allProblems.forEach((problem) => {
-        if (problem.number === problemObj.number) {
-          isAlreadySolved = true
-          console.log(problem.attempts)
-          problem.attempts++
-          console.log(problem.attempts)
+      for (let i = 0; i < userModel.allProblems.length; i++) {
+        if (userModel.allProblems[i].number === problemObj.number) {
+          userModel.allProblems[i].attempts += 1
+          problemUpdated = true
+          break
         }
-      })
+      }
 
-      if (!isAlreadySolved) {
+      if (!problemUpdated) {
         userModel.totalSolved++
-        if (problemObj.difficulty === 'Easy') {
-          userModel.easySolved++
-        } else if (problemObj.difficulty === 'Medium') {
-          userModel.mediumSolved++
-        } else if (problemObj.difficulty === 'Hard') {
-          userModel.hardSolved++
-        }
+        if (problemObj.difficulty === 'Easy') userModel.easySolved++
+        else if (problemObj.difficulty === 'Medium') userModel.mediumSolved++
+        else if (problemObj.difficulty === 'Hard') userModel.hardSolved++
 
-        if (problemObj.language === 'javascript') {
-          userModel.jsSolved++
-        } else if (problemObj.language === 'python') {
-          userModel.pythonSolved++
-        } else if (problemObj.language === 'java') {
-          userModel.javaSolved++
-        }
+        if (problemObj.language === 'javascript') userModel.jsSolved++
+        else if (problemObj.language === 'python') userModel.pythonSolved++
+        else if (problemObj.language === 'java') userModel.javaSolved++
 
         userModel.allProblems.push({
           number: problemObj.number,
@@ -110,14 +95,12 @@ app.post('/addProblemRecord', async (req, res) => {
       }
 
       await userModel.save()
-      isAlreadySolved = false
+      res.sendStatus(200)
     } else {
-      console.log('Usermodel not found')
+      res.sendStatus(404)
     }
-
-    res.sendStatus(200)
   } catch (err) {
-    console.error(err)
+    console.error('Error in updating problem record:', err)
     res.status(500).send(err.message)
   }
 })

@@ -1,5 +1,24 @@
 const mongoose = require('mongoose')
 
+const ProblemSchema = new mongoose.Schema({
+  number: {
+    type: Number,
+    required: true,
+  },
+  heading: {
+    type: String,
+    required: true,
+  },
+  difficulty: {
+    type: String,
+    required: true,
+  },
+  attempts: {
+    type: Number,
+    default: 1,
+  },
+})
+
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -43,7 +62,7 @@ const UserSchema = new mongoose.Schema({
     default: 0,
   },
   allProblems: {
-    type: Array,
+    type: [ProblemSchema],
     default: [],
   },
 })
