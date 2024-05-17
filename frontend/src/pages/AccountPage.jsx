@@ -8,7 +8,8 @@ import {
   CircularProgress,
   CircularProgressLabel,
 } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import { Link, useActionData } from 'react-router-dom'
+import { AllquesObject } from '../javascripts/data'
 import { useSelector, useDispatch } from 'react-redux'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
 import { addTestCaseResults } from '../store/problemObjSlice'
@@ -27,6 +28,30 @@ function AccountPage() {
   const [javaSolved, setJavaSolved] = useState(0)
   const [attempts, setAttempts] = useState(0)
   const [allProblems, setAllProblems] = useState([])
+  const [totalEasy, setTotalEasy] = useState(0)
+  const [totalMedium, setTotalMedium] = useState(0)
+  const [totalHard, setTotalHard] = useState(0)
+  const [totalProblems, setTotalProblems] = useState(0)
+
+  useEffect(() => {
+    setTotalEasy(0)
+    setTotalMedium(0)
+    setTotalHard(0)
+    setTotalProblems(0)
+
+    setTotalProblems(AllquesObject.length)
+    AllquesObject.map((problem) => {
+      if (problem.difficulty === 'Easy') {
+        setTotalEasy((prev) => prev + 1)
+      }
+      if (problem.difficulty === 'Medium') {
+        setTotalMedium((prev) => prev + 1)
+      }
+      if (problem.difficulty === 'Hard') {
+        setTotalHard((prev) => prev + 1)
+      }
+    })
+  }, [])
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
@@ -134,11 +159,13 @@ function AccountPage() {
               <div>
                 <CircularProgress
                   size={160}
-                  value={circleValue}
+                  value={(circleValue / totalProblems) * 100}
                   color="green.400"
                 >
                   <CircularProgressLabel className="circleText">
-                    <h2>{circleValue} / 100</h2>
+                    <h2>
+                      {circleValue} / {totalProblems}
+                    </h2>
                     <p>Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
@@ -154,26 +181,34 @@ function AccountPage() {
                     <div className="range">
                       <div
                         className="easyRange"
-                        style={{ width: `${easyWidth}%` }}
+                        style={{ width: `${(easyWidth / totalEasy) * 100}%` }}
                       ></div>
                     </div>
                     <div className="range">
                       <div
                         className="mediumRange"
-                        style={{ width: `${mediumWidth}%` }}
+                        style={{
+                          width: `${(mediumWidth / totalMedium) * 100}%`,
+                        }}
                       ></div>
                     </div>
                     <div className="range">
                       <div
                         className="hardRange"
-                        style={{ width: `${hardWidth}%` }}
+                        style={{ width: `${(hardWidth / totalHard) * 100}%` }}
                       ></div>
                     </div>
                   </div>
                   <div className="numberBox">
-                    <p className="nums">{easyWidth} / 100</p>
-                    <p className="nums">{mediumWidth} / 50</p>
-                    <p className="nums">{hardWidth} / 10</p>
+                    <p className="nums">
+                      {easyWidth} / {totalEasy}
+                    </p>
+                    <p className="nums">
+                      {mediumWidth} / {totalMedium}
+                    </p>
+                    <p className="nums">
+                      {hardWidth} / {totalHard}
+                    </p>
                   </div>
                 </div>
               </div>

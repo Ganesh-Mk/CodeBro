@@ -76,15 +76,15 @@ app.post('/addProblemRecord', async (req, res) => {
         }
       }
 
+      if (problemObj.language === 'javascript') userModel.jsSolved++
+      else if (problemObj.language === 'python') userModel.pythonSolved++
+      else if (problemObj.language === 'java') userModel.javaSolved++
+
       if (!problemUpdated) {
         userModel.totalSolved++
         if (problemObj.difficulty === 'Easy') userModel.easySolved++
         else if (problemObj.difficulty === 'Medium') userModel.mediumSolved++
         else if (problemObj.difficulty === 'Hard') userModel.hardSolved++
-
-        if (problemObj.language === 'javascript') userModel.jsSolved++
-        else if (problemObj.language === 'python') userModel.pythonSolved++
-        else if (problemObj.language === 'java') userModel.javaSolved++
 
         userModel.allProblems.push({
           number: problemObj.number,

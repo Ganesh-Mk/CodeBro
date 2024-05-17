@@ -953,11 +953,10 @@ export const AllquesObject = [
     number: 7,
 
     heading: 'Number of Students Unable to Eat Lunch',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
 
     attempts: 0,
     heading: 'Number of Students Unable to Eat Lunch',
-    difficulty: 'Easy',
 
     isSolved: false,
     language: 'javascript',
@@ -1648,7 +1647,7 @@ public static int findKthLargest(int[] arr, int k) {
   {
     number: '12',
     heading: 'Remove duplicates from an array',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
     isSolved: false,
     language: 'javascript',
     image: null,
@@ -1907,7 +1906,7 @@ public static int findKthLargest(int[] arr, int k) {
   {
     number: 15,
     heading: 'Remove Element',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
     attempts: 0,
     isSolved: false,
     language: 'javascript',
@@ -2088,7 +2087,7 @@ public static int findKthLargest(int[] arr, int k) {
   {
     number: 17,
     heading: 'Binary Search',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
     attempts: 0,
     isSolved: false,
     language: 'javascript',
@@ -2199,8 +2198,8 @@ public static int findKthLargest(int[] arr, int k) {
   },
   {
     number: 18,
-    heading: 'Find Middle of Linked List',
-    difficulty: 'Easy',
+    heading: 'Find Middle of Linked List  ',
+    difficulty: 'Hard',
     attempts: 0,
     isSolved: false,
     language: 'javascript',
@@ -2295,6 +2294,32 @@ public ListNode findMiddleNode(ListNode head) {
           'findMiddleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))))',
       },
     ],
+    /* 
+      JS:
+        let slow = head;
+        let fast = head;
+        
+        while (fast !== null && fast.next !== null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        return slow;
+
+      JAVA: 
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+
+      PYTHON:
+        
+    */
   },
 ]
 

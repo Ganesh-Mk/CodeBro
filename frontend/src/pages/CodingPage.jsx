@@ -91,38 +91,38 @@ function CodingPage() {
               sourceCode += returnToPrintCode
             } else if (problemObj.language === 'python') {
               let start = `
-  class ListNode:
-    def __init__(self, val=0, next=None):
-      self.val = val
-      self.next = next
-        
-  `
+class ListNode:
+  def __init__(self, val=0, next=None):
+    self.val = val
+    self.next = next
+      
+`
               start = start + sourceCode
               let mid = `
-  
-  def linkedListToArray(head):
-    result = []
-    current = head
-    while current:
-        result.append(current.val)
-        current = current.next
-    return result
-  
-  def arrayToLinkedList(arr):
-    if not arr:
-        return None
-    head = ListNode(arr[0])
-    current = head
-    for i in range(1, len(arr)):
-        current.next = ListNode(arr[i])
-        current = current.next
-    return head
-  
-  # Added 'Solution' prefix to the function call
-  solution = Solution()
-  linkedList = arrayToLinkedList(${problemObj.cases[i].parameter})
-  result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
-  print(linkedListToArray(result))
+
+def linkedListToArray(head):
+  result = []
+  current = head
+  while current:
+      result.append(current.val)
+      current = current.next
+  return result
+
+def arrayToLinkedList(arr):
+  if not arr:
+      return None
+  head = ListNode(arr[0])
+  current = head
+  for i in range(1, len(arr)):
+      current.next = ListNode(arr[i])
+      current = current.next
+  return head
+
+# Added 'Solution' prefix to the function call
+solution = Solution()
+linkedList = arrayToLinkedList(${problemObj.cases[i].parameter})
+result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
+print(linkedListToArray(result))
   `
               sourceCode = start + mid
             } else if (problemObj.language === 'java') {
