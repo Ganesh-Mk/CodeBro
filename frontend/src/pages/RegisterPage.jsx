@@ -38,12 +38,17 @@ function RegisterPage() {
         userPassword,
       })
       .then((result) => {
-        console.log(result)
-        dispatch(setId(result.data._id))
-        dispatch(setName(userName))
-        dispatch(setEmail(userEmail))
-        dispatch(setPassword(userPassword))
-        navigate('/home')
+        if (result.data !== false) {
+          console.log(result)
+          dispatch(setId(result.data._id))
+          dispatch(setName(userName))
+          dispatch(setEmail(userEmail))
+          dispatch(setPassword(userPassword))
+          navigate('/home')
+        } else {
+          alert('Email already taken')
+          navigate('/register')
+        }
       })
       .catch((err) => console.log(err))
   }

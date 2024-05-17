@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import { images } from '../javascripts/images'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import '../style/EditProfile.scss'
 import {
   setName,
@@ -14,57 +14,69 @@ import {
   setGithub,
   setLinkedin,
 } from '../store/userSlice'
-import { useDispatch } from 'react-redux'
 
 function EditProfilePage() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
   const [userPassword, setUserPassword] = useState(userObj.password)
-  const [insta, setInsta] = useState('')
-  const [github, setGithub] = useState('')
-  const [linkedin, setLinkedin] = useState('')
+  const [userInsta, setUserInsta] = useState('')
+  const [userGithub, setUserGithub] = useState('')
+  const [userLinkedin, setUserLinkedin] = useState('')
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
     setUserEmail(localStorage.getItem('email'))
     setUserPassword(localStorage.getItem('password'))
-    // setInsta(localStorage.getItem('insta'))
-    // setGithub(localStorage.getItem('github'))
-    // setLinkedin(localStorage.getItem('linkedin'))
+    setUserInsta(localStorage.getItem('insta'))
+    setUserGithub(localStorage.getItem('github'))
+    setUserLinkedin(localStorage.getItem('linkedin'))
     // setUserImage(localStorage.getItem('userImage'))
   }, [])
 
   const handleSubmit = () => {
-    let userId = userObj.id
+    console.log(userEmail)
 
     axios
-      .post('http://localhost:3000/updateUserDetails', {
-        userId,
-        userName,
+      .post('http://localhost:3000/updateUserDetailsByEmail', {
         userEmail,
+        userName,
         userPassword,
-        insta,
-        github,
-        linkedin,
-        userImage,
+        userInsta,
+        userGithub,
+        userLinkedin,
       })
       .then((result) => {
         console.log(result)
         dispatch(setName(userName))
         dispatch(setEmail(userEmail))
         dispatch(setPassword(userPassword))
-        dispatch(setInsta(insta))
-        dispatch(setGithub(github))
-        dispatch(setLinkedin(linkedin))
-        dispatch(setUserImage(userImage))
+        dispatch(setInsta(userInsta))
+        dispatch(setGithub(userGithub))
+        dispatch(setLinkedin(userLinkedin))
         localStorage.setItem('name', userName)
         localStorage.setItem('email', userEmail)
         localStorage.setItem('password', userPassword)
+        localStorage.setItem('insta', userInsta)
+        localStorage.setItem('github', userGithub)
+        localStorage.setItem('linkedin', userLinkedin)
         navigate('/account')
       })
+      .catch((error) => {
+        console.error('Error updating user details:', error)
+      })
+  }
+
+  const handleReset = () => {
+    setUserName(localStorage.getItem('name'))
+    setUserEmail(localStorage.getItem('email'))
+    setUserPassword(localStorage.getItem('password'))
+    setUserInsta(localStorage.getItem('insta'))
+    setUserGithub(localStorage.getItem('github'))
+    setUserLinkedin(localStorage.getItem('linkedin'))
   }
 
   const handleImage = (e) => {
@@ -100,46 +112,73 @@ function EditProfilePage() {
           </div>
           <div className="editRight">
             <div className="editInputBox">
-              <Input
-                type="text"
-                onChange={(e) => setUserName(e.target.value)}
-                value={userName}
-                placeholder="Name"
-              ></Input>
-              <Input
-                type="text"
-                onChange={(e) => setUserEmail(e.target.value)}
-                value={userEmail}
-                placeholder="Email"
-              ></Input>
-              <Input
-                type="text"
-                onChange={(e) => setUserPassword(e.target.value)}
-                value={userPassword}
-                placeholder="Password"
-              ></Input>
-              <Input
-                type="text"
-                onChange={(e) => setLinkedin(e.target.value)}
-                value={linkedin}
-                placeholder="Linkedin Link"
-              ></Input>
-              <Input
-                type="text"
-                onChange={(e) => setGithub(e.target.value)}
-                value={github}
-                placeholder="Github Link"
-              ></Input>
-              <Input
-                type="text"
-                onChange={(e) => setInsta(e.target.value)}
-                value={insta}
-                placeholder="Instagram Link"
-              ></Input>
+              <div
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  gridTemplateColumns: '30% 70%',
+                }}
+              >
+                <p>Name</p>
+                <Input
+                  type="text"
+                  onChange={(e) => setUserName(e.target.value)}
+                  value={userName}
+                  placeholder="Name"
+                ></Input>
+              </div>
+
+              <div
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  gridTemplateColumns: '30% 70%',
+                }}
+              >
+                <p>Linkedin</p>
+                <Input
+                  type="text"
+                  onChange={(e) => setUserLinkedin(e.target.value)}
+                  value={userLinkedin}
+                  placeholder="Linkedin Link"
+                ></Input>
+              </div>
+
+              <div
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  gridTemplateColumns: '30% 70%',
+                }}
+              >
+                <p>Github</p>
+                <Input
+                  type="text"
+                  onChange={(e) => setUserGithub(e.target.value)}
+                  value={userGithub}
+                  placeholder="Github Link"
+                ></Input>
+              </div>
+
+              <div
+                style={{
+                  display: 'grid',
+                  placeItems: 'center',
+                  gridTemplateColumns: '30% 70%',
+                }}
+              >
+                <p>Insta</p>
+                <Input
+                  type="text"
+                  onChange={(e) => setUserInsta(e.target.value)}
+                  value={userInsta}
+                  placeholder="Instagram Link"
+                ></Input>
+              </div>
             </div>
             <div className="editBtnBox">
               <Button onClick={handleSubmit}>Submit</Button>
-              <Button>Reset</Button>
+              <Button onClick={handleReset}>Reset</Button>
             </div>
           </div>
         </div>

@@ -33,6 +33,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  insta: {
+    type: String,
+    default: '',
+  },
+  github: {
+    type: String,
+    default: '',
+  },
+  linkedin: {
+    type: String,
+    default: '',
+  },
   totalSolved: {
     type: Number,
     default: 0,

@@ -53,6 +53,39 @@ app.get('/problemRecord', (req, res) => {
     .catch((err) => res.send(err))
 })
 
+app.post('/updateUserDetailsByEmail', (req, res) => {
+  const {
+    userEmail,
+    userName,
+    userPassword,
+    userInsta,
+    userGithub,
+    userLinkedin,
+  } = req.body
+
+  UserModel.findOneAndUpdate(
+    { email: userEmail }, // Find user by email
+    {
+      name: userName,
+      email: userEmail,
+      password: userPassword,
+      insta: userInsta,
+      github: userGithub,
+      linkedin: userLinkedin,
+    },
+    { new: true },
+  )
+    .then((updatedUser) => {
+      if (!updatedUser) {
+        return res.status(404).json({ error: 'User not found' })
+      }
+      res.status(200).json(updatedUser)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
 app.post('/addProblemRecord', async (req, res) => {
   try {
     const { problemObj, userEmail } = req.body
@@ -128,12 +161,20 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/createUser', (req, res) => {
-  UserModel.create({
-    name: req.body.userName,
-    email: req.body.userEmail,
-    password: req.body.userPassword,
-  })
-    .then((userModel) => res.send(userModel))
+  UserModel.findOne({ email: req.body.userEmail })
+    .then((existingUser) => {
+      if (existingUser) {
+        res.send(false)
+      } else {
+        UserModel.create({
+          name: req.body.userName,
+          email: req.body.userEmail,
+          password: req.body.userPassword,
+        })
+          .then((userModel) => res.send(userModel))
+          .catch((err) => res.send(err))
+      }
+    })
     .catch((err) => res.send(err))
 })
 

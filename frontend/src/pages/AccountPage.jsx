@@ -8,17 +8,31 @@ import {
   CircularProgress,
   CircularProgressLabel,
 } from '@chakra-ui/react'
-import { Link, useActionData } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { AllquesObject } from '../javascripts/data'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
 import { addTestCaseResults } from '../store/problemObjSlice'
+import {
+  setName,
+  setEmail,
+  setPassword,
+  setInsta,
+  setGithub,
+  setLinkedin,
+  // setUserImage,
+} from '../store/userSlice'
 
 function AccountPage() {
   const userObj = useSelector((state) => state.user)
+  console.log(userObj.name)
   const [userName, setUserName] = useState(userObj.name)
-  const [userId, setUserId] = useState(userObj.id)
-  const problemObj = useSelector((state) => state.problemObj.obj)
+  const [userEmail, setUserEmail] = useState(userObj.email)
+  const [userPassword, setUserPassword] = useState(userObj.password)
+  const [userInsta, setUserInsta] = useState(userObj.insta)
+  const [userGithub, setUserGithub] = useState(userObj.github)
+  const [userLinkedin, setUserLinkedin] = useState(userObj.linkedin)
+  // const [userImage, setUserImage] = useState(images.accDefaultLogo)
   const [easyWidth, setEasyWidth] = useState(0)
   const [mediumWidth, setMediumWidth] = useState(0)
   const [hardWidth, setHardWidth] = useState(0)
@@ -26,12 +40,20 @@ function AccountPage() {
   const [jsSolved, setJsSolved] = useState(0)
   const [pythonSolved, setPythonSolved] = useState(0)
   const [javaSolved, setJavaSolved] = useState(0)
-  const [attempts, setAttempts] = useState(0)
   const [allProblems, setAllProblems] = useState([])
   const [totalEasy, setTotalEasy] = useState(0)
   const [totalMedium, setTotalMedium] = useState(0)
   const [totalHard, setTotalHard] = useState(0)
   const [totalProblems, setTotalProblems] = useState(0)
+
+  useEffect(() => {
+    setUserName(localStorage.getItem('name'))
+    setUserEmail(localStorage.getItem('email'))
+    setUserPassword(localStorage.getItem('password'))
+    setUserInsta(localStorage.getItem('insta'))
+    setUserGithub(localStorage.getItem('github'))
+    setUserLinkedin(localStorage.getItem('linkedin'))
+  }, [])
 
   useEffect(() => {
     setTotalEasy(0)
@@ -54,7 +76,6 @@ function AccountPage() {
   }, [])
 
   useEffect(() => {
-    setUserName(localStorage.getItem('name'))
     axios
       .get('http://localhost:3000/problemRecord', {
         params: { userEmail: localStorage.getItem('email') },
@@ -67,7 +88,6 @@ function AccountPage() {
         setMediumWidth(response.data.mediumSolved || 0)
         setHardWidth(response.data.hardSolved || 0)
         setCircleValue(response.data.totalSolved || 0)
-        setAttempts(response.data.allProblems[0]?.attempts || 0)
         setAllProblems(response.data.allProblems)
       })
       .catch((error) => {
@@ -94,36 +114,38 @@ function AccountPage() {
           </div>
 
           <div className="socialBox">
-            <p>Connect with me in -</p>
+            <p>Connect with me in</p>
             <div>
-              <Link
-                className="links"
-                target="_blank"
-                to="https://www.instagram.com/ganesh_mk_247/"
-              >
-                <img src={images.instagram} alt="insta logo" />
-              </Link>
-              <Link
-                className="links"
-                target="_blank"
-                to="https://www.instagram.com/ganesh_mk_247/"
-              >
-                <img src={images.github} alt="github logo" />
-              </Link>
-              <Link
-                className="links"
-                target="_blank"
-                to="https://www.instagram.com/ganesh_mk_247/"
-              >
-                <img src={images.linkedin} alt="github logo" />
-              </Link>
-              <Link
-                className="links"
-                target="_blank"
-                to="https://www.instagram.com/ganesh_mk_247/"
-              >
-                <img src={images.mail} alt="github logo" />
-              </Link>
+              {userInsta != '' ? (
+                <Link className="links" target="_blank" to={userInsta}>
+                  <img src={images.instagram} alt="insta logo" />
+                </Link>
+              ) : (
+                ''
+              )}
+              {userGithub != '' ? (
+                <Link className="links" target="_blank" to={userGithub}>
+                  <img src={images.github} alt="Github logo" />
+                </Link>
+              ) : (
+                ''
+              )}
+
+              {userLinkedin != '' ? (
+                <Link className="links" target="_blank" to={userLinkedin}>
+                  <img src={images.linkedin} alt="LinkedIn logo" />
+                </Link>
+              ) : (
+                ''
+              )}
+
+              {userEmail != '' ? (
+                <Link className="links" target="_blank" to={userEmail}>
+                  <img src={images.mail} alt="Mail logo" />
+                </Link>
+              ) : (
+                ''
+              )}
             </div>
           </div>
           <hr />

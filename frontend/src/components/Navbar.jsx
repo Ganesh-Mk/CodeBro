@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../style/Navbar.scss'
-import '../App.css'
 import { images } from '../javascripts/images'
 import CodeBroLogo from './CodeBroLogo'
 
-function Navbar({ fontColor = 'white', value}) {
+function Navbar({ fontColor = 'white', value }) {
   return (
     <div className="navbar">
       <Link
@@ -45,7 +44,7 @@ function Navbar({ fontColor = 'white', value}) {
           Leaderboard
         </Link>
       </div>
-      
+
       <div>
         <Link to="/account" className="navAccContainer">
           <img

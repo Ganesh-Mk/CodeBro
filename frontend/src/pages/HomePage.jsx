@@ -24,9 +24,9 @@ const HomePage = () => {
 
   const calculateRangeValue = (solvedCount, totalCount) => {
     if (totalCount === 0) {
-      return 0;
+      return 0
     }
-    return (solvedCount / totalCount) * 100;
+    return (solvedCount / totalCount) * 100
   }
 
   const getDifficultySolvedCount = (difficulty) => {
