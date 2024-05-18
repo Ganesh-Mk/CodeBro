@@ -3,20 +3,10 @@ export const AllquesObject = [
     number: 1,
     heading: 'Add two numbers',
     difficulty: 'Easy',
-
     attempts: 0,
-
-    isSolved: false,
-    language: 'javascript',
-    isSolved: false,
-
-    heading: 'Add two numbers',
-    difficulty: 'Easy',
-
-    attempts: 0,
-
     isSolved: true,
-    language: 'javascript',
+    heading: "Add two numbers",
+    language: "javascript",
     image: null,
     allOutput: [],
     allResult: [],
@@ -1304,15 +1294,14 @@ export const AllquesObject = [
     number: 8,
     heading: 'Remove Duplicates from Sorted List',
     difficulty: 'Hard',
-    attempts: 0,
-
     isSolved: false,
     language: 'javascript',
-
-    heading: 'Remove Duplicates from Sorted List',
     attempts: 0,
     isSolved: true,
     language: 'javascript',
+    heading: "Remove Duplicates from Sorted List",
+    difficulty: "Medium",
+    language: "javascript",
     image: null,
     allOutput: [],
     allResult: [],

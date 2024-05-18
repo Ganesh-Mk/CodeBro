@@ -22,6 +22,7 @@ import {
 } from '../store/problemObjSlice'
 import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
+import { setUserProblems } from '../store/userSlice'
 
 function CodingPage() {
   const editorRef = useRef()
@@ -42,6 +43,7 @@ function CodingPage() {
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
   const submitCode = async () => {
+    console.log(problemObj);
     setIsLoadingSubmit(true)
     dispatch(setIsSubmitted(true))
     setTestCaseOutput([])

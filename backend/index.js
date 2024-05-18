@@ -56,6 +56,7 @@ app.get('/problemRecord', (req, res) => {
     })
     .catch((err) => res.send(err))
 })
+
 app.get('/leaderBoardprint', async (req, res) => {
   try {
     const leaderboard = await LeaderBoard.find()
@@ -65,6 +66,7 @@ app.get('/leaderBoardprint', async (req, res) => {
     return res.status(500).send(err.message)
   }
 })
+
 app.get('/deleteleaderBoard', async (req, res) => {
   try {
     const result = await LeaderBoard.deleteMany({})
@@ -122,7 +124,7 @@ app.post('/updateUserDetails', upload.single('image'), (req, res) => {
 })
 
 app.get('/fetchUserImage', (req, res) => {
-  const { userEmail } = req.query // Ensure correct parameter extraction
+  const { userEmail } = req.query
 
   UserModel.findOne({ email: userEmail })
     .then((userModel) => {
