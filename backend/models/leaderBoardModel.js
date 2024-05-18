@@ -26,6 +26,30 @@ const LeaderBoardSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  insta: {
+    type: String,
+    default: '',
+  },
+  github: {
+    type: String,
+    default: '',
+  },
+  linkedin: {
+    type: String,
+    default: '',
+  },
+  javascript: {
+    type: Number,
+    default: 0,
+  },
+  python: {
+    type: Number,
+    default: 0,
+  },
+  java: {
+    type: Number,
+    default: 0,
+  },
 })
 
 const LeaderBoard = mongoose.model('LeaderBoard', LeaderBoardSchema)

@@ -62,8 +62,17 @@ app.get('/leaderBoardprint', async (req, res) => {
     return res.status(500).send(err.message)
   }
 })
+app.get('/deleteleaderBoard', async (req, res) => {
+  try {
+    const result = await LeaderBoard.deleteMany({})
+    return res.send({ message: 'All leaderboard entries deleted', result })
+  } catch (err) {
+    console.error('Error deleting leaderboard entries:', err)
+    return res.status(500).send(err.message)
+  }
+})
 
-app.post('/updateUserDetailsByEmail', (req, res) => {
+app.post('/updateUserDetails', (req, res) => {
   const {
     userEmail,
     userName,
@@ -96,53 +105,15 @@ app.post('/updateUserDetailsByEmail', (req, res) => {
     })
 })
 
-app.post('/leaderBoard', async (req, res) => {
-  try {
-    const { problemObj, userEmail } = req.body
-
-    if (!problemObj || !userEmail) {
-      return res
-        .status(400)
-        .send('Missing problemObj or userEmail in request body')
-    }
-
-    const userModel = await UserModel.findOne({ email: userEmail })
-
-    if (userModel) {
-      const existingEntry = await LeaderBoard.findOne({ email: userEmail })
-
-      if (existingEntry) {
-        existingEntry.total = userModel.totalSolved
-        existingEntry.easy = userModel.easySolved
-        existingEntry.medium = userModel.mediumSolved
-        existingEntry.hard = userModel.hardSolved
-        await existingEntry.save()
-      } else {
-        const newEntry = new LeaderBoard({
-          name: userModel.name,
-          email: userModel.email,
-          total: userModel.totalSolved,
-          easy: userModel.easySolved,
-          medium: userModel.mediumSolved,
-          hard: userModel.hardSolved,
-        })
-        await newEntry.save()
-      }
-
-      const leaderboard = await LeaderBoard.find()
-      return res.send(leaderboard)
-    } else {
-      return res.sendStatus(404)
-    }
-  } catch (err) {
-    console.error('Error in updating problem record:', err)
-    return res.status(500).send(err.message)
-  }
-})
-
 app.post('/addProblemRecord', async (req, res) => {
   try {
-    const { problemObj, userEmail } = req.body
+    const {
+      problemObj,
+      userEmail,
+      userInsta,
+      userGithub,
+      userLinkedin,
+    } = req.body
 
     if (!problemObj || !userEmail) {
       return res
@@ -182,6 +153,39 @@ app.post('/addProblemRecord', async (req, res) => {
       }
 
       await userModel.save()
+
+      const existingEntry = await LeaderBoard.findOne({ email: userEmail })
+
+      if (existingEntry) {
+        existingEntry.total = userModel.totalSolved
+        existingEntry.easy = userModel.easySolved
+        existingEntry.medium = userModel.mediumSolved
+        existingEntry.hard = userModel.hardSolved
+        existingEntry.insta = userInsta
+        existingEntry.github = userGithub
+        existingEntry.linkedin = userLinkedin
+        existingEntry.javascript = userModel.jsSolved
+        existingEntry.python = userModel.pythonSolved
+        existingEntry.java = userModel.javaSolved
+
+        await existingEntry.save()
+      } else {
+        const newEntry = new LeaderBoard({
+          name: userModel.name,
+          email: userModel.email,
+          total: userModel.totalSolved,
+          easy: userModel.easySolved,
+          medium: userModel.mediumSolved,
+          hard: userModel.hardSolved,
+          insta: userInsta,
+          github: userGithub,
+          linkedin: userLinkedin,
+          javascript: userModel.jsSolved,
+          python: userModel.pythonSolved,
+          java: userModel.javaSolved,
+        })
+        await newEntry.save()
+      }
       res.sendStatus(200)
     } else {
       res.sendStatus(404)
