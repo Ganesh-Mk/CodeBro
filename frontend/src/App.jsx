@@ -16,8 +16,7 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import CodingPage from './pages/CodingPage'
 import EditProfilePage from './pages/EditProfilePage'
-import LeaderBoardPage from './pages/LeaderBoardPage'
-import ProblemDisplayContainer from './components/ProblemDisplayContainer'
+import LeaderBoardPage from './pages/LeaderboardPage'
 
 const App = () => {
   return (
