@@ -19,13 +19,7 @@ const HomePage = () => {
   const [totalMedium, setTotalMedium] = useState(0);
   const [totalHard, setTotalHard] = useState(0);
   const [totalProblems, setTotalProblems] = useState(0);
-  const userObj = useSelector((state) => state.user);
-  const [userEmail, setUserEmail] = useState(userObj.email);
-  const [allProblems, setAllProblems] = useState([]);
-
   const dispatch = useDispatch();
-  const totalEasyLength = AllquesObject.map((problem) => problem.difficulty === "Easy")
-  setTotalEasy(totalEasyLength.length)
   // console.log(totalEasyLength + "h");
 
   const { easy, medium, hard } = useSelector((state) => state.ranges);
@@ -56,19 +50,6 @@ const HomePage = () => {
       .length;
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/problemRecord", {
-        params: { userEmail: localStorage.getItem("email") },
-      })
-      .then((response) => {
-        setAllProblems(response.data.allProblems);
-        console.log(allProblems);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, []);
 
   useEffect(() => {
     setTotalEasy(0);
@@ -208,33 +189,33 @@ const HomePage = () => {
                 <div className="range">
                   <div
                     className="easyRange"
-                    style={{ width: `${(easyWidth / totalEasy) * 100}%` }}
+                    style={{ width: `${(easySolvedCount / easyTotalCount) * 100}%` }}
                   ></div>
                 </div>
                 <div className="range">
                   <div
                     className="mediumRange"
                     style={{
-                      width: `${(mediumWidth / totalMedium) * 100}%`,
+                      width: `${(mediumSolvedCount / mediumTotalCount) * 100}%`,
                     }}
                   ></div>
                 </div>
                 <div className="range">
                   <div
                     className="hardRange"
-                    style={{ width: `${(hardWidth / totalHard) * 100}%` }}
+                    style={{ width: `${(hardSolvedCount / hardTotalCount) * 100}%` }}
                   ></div>
                 </div>
               </div>
               <div className="numberBox">
                 <p className="nums">
-                  {easyWidth} / {totalEasy}
+                  {easySolvedCount} / {easyTotalCount}
                 </p>
                 <p className="nums">
-                  {mediumWidth} / {totalMedium}
+                  {mediumSolvedCount} / {mediumTotalCount}
                 </p>
                 <p className="nums">
-                  {hardWidth} / {totalHard}
+                  {hardSolvedCount} / {hardTotalCount}
                 </p>
               </div>
             </div>
