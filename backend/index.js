@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const multer = require('multer')
+const path = require('path')
 
 require('dotenv').config()
 const UserModel = require('./models/userModel')
@@ -11,6 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cors())
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 mongoose.connect('mongodb://127.0.0.1:27017/CodeBro')
 
@@ -72,7 +75,18 @@ app.get('/deleteleaderBoard', async (req, res) => {
   }
 })
 
-app.post('/updateUserDetails', (req, res) => {
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/')
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  },
+})
+
+const upload = multer({ storage: storage })
+
+app.post('/updateUserDetails', upload.single('image'), (req, res) => {
   const {
     userEmail,
     userName,
@@ -82,18 +96,20 @@ app.post('/updateUserDetails', (req, res) => {
     userLinkedin,
   } = req.body
 
-  UserModel.findOneAndUpdate(
-    { email: userEmail },
-    {
-      name: userName,
-      email: userEmail,
-      password: userPassword,
-      insta: userInsta,
-      github: userGithub,
-      linkedin: userLinkedin,
-    },
-    { new: true },
-  )
+  const updateData = {
+    name: userName,
+    email: userEmail,
+    password: userPassword,
+    insta: userInsta,
+    github: userGithub,
+    linkedin: userLinkedin,
+  }
+
+  if (req.file) {
+    updateData.image = req.file.originalname
+  }
+
+  UserModel.findOneAndUpdate({ email: userEmail }, updateData, { new: true })
     .then((updatedUser) => {
       if (!updatedUser) {
         return res.status(404).json({ error: 'User not found' })
@@ -103,6 +119,19 @@ app.post('/updateUserDetails', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
+})
+
+app.get('/fetchUserImage', (req, res) => {
+  const { userEmail } = req.query // Ensure correct parameter extraction
+
+  UserModel.findOne({ email: userEmail })
+    .then((userModel) => {
+      if (!userModel) {
+        return res.status(404).json({ error: 'User not found' })
+      }
+      res.json({ userImage: userModel.image })
+    })
+    .catch((err) => res.status(500).json({ error: err.message }))
 })
 
 app.post('/addProblemRecord', async (req, res) => {

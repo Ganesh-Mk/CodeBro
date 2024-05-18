@@ -25,6 +25,7 @@ function EditProfilePage() {
   const [userInsta, setUserInsta] = useState('')
   const [userGithub, setUserGithub] = useState('')
   const [userLinkedin, setUserLinkedin] = useState('')
+  const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo)
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
 
   useEffect(() => {
@@ -38,14 +39,22 @@ function EditProfilePage() {
   }, [])
 
   const handleSubmit = () => {
+    const formData = new FormData()
+    if (userImage) {
+      formData.append('image', userImage)
+    }
+    formData.append('userEmail', userEmail)
+    formData.append('userName', userName)
+    formData.append('userPassword', userPassword)
+    formData.append('userInsta', userInsta)
+    formData.append('userGithub', userGithub)
+    formData.append('userLinkedin', userLinkedin)
+
     axios
-      .post('http://localhost:3000/updateUserDetails', {
-        userEmail,
-        userName,
-        userPassword,
-        userInsta,
-        userGithub,
-        userLinkedin,
+      .post('http://localhost:3000/updateUserDetails', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       })
       .then((result) => {
         dispatch(setName(userName))
@@ -81,10 +90,11 @@ function EditProfilePage() {
     const reader = new FileReader()
     reader.onload = () => {
       if (reader.readyState === 2) {
-        setUserImage(reader.result)
+        setEditUserImage(reader.result)
       }
     }
     reader.readAsDataURL(file)
+    setUserImage(file)
   }
   return (
     <div>
@@ -95,7 +105,7 @@ function EditProfilePage() {
         </div>
         <div className="editBox">
           <div className="editLeft">
-            {userImage && <img src={userImage} alt="Uploaded Image" />}
+            {editUserImage && <img src={editUserImage} alt="Uploaded Image" />}
 
             <label htmlFor="imageInput" className="custom-file-upload">
               Choose Image

@@ -18,6 +18,7 @@ function AccountPage() {
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
+  const [userImage, setUserImage] = useState(null)
   const [userPassword, setUserPassword] = useState(userObj.password)
   const [userInsta, setUserInsta] = useState(userObj.insta)
   const [userGithub, setUserGithub] = useState(userObj.github)
@@ -67,6 +68,21 @@ function AccountPage() {
 
   useEffect(() => {
     axios
+      .get('http://localhost:3000/fetchUserImage', {
+        params: {
+          userEmail: localStorage.getItem('email'),
+        },
+      })
+      .then((response) => {
+        setUserImage(response.data.userImage)
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios
       .get('http://localhost:3000/problemRecord', {
         params: { userEmail: localStorage.getItem('email') },
       })
@@ -91,7 +107,14 @@ function AccountPage() {
       <div className="accountPage">
         <div className="accLeft">
           <div className="accLeftTop">
-            <img src={images.accDefaultLogo} alt="account default logo" />
+            <img
+              src={
+                userImage
+                  ? `http://localhost:3000/uploads/${userImage}`
+                  : images.accDefaultLogo
+              }
+              alt="account default logo"
+            />
             <div>
               <p>User name: {userName}</p>
               <p>Rank: 0001</p>
