@@ -51,5 +51,6 @@ export const {
   setGithub,
   setLinkedin,
   setUserImage,
+  setUserProblems,
 } = userSlice.actions
 export default userSlice.reducer

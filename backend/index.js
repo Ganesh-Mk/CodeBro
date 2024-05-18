@@ -53,6 +53,15 @@ app.get('/problemRecord', (req, res) => {
     .catch((err) => res.send(err))
 })
 
+app.get('/homerecord', (req, res) => {
+  UserModel.findOne({ email: req.query.userEmail })
+    .then((userModel) => {
+      userModel.save()
+      res.send(userModel)
+    })
+    .catch((err) => res.send(err))
+})
+
 app.post('/updateUserDetailsByEmail', (req, res) => {
   const {
     userEmail,
