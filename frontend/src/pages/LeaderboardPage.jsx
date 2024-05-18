@@ -2,31 +2,40 @@ import React, { useEffect } from 'react'
 import { Accordion } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
 import LeaderBoardUsers from '../components/LeaderBoardUsers'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
+import axios from 'axios'
 
 function LeaderBoardPage() {
+  const dispatch = useDispatch()
   const leaderBoardEntries = useSelector(
     (state) => state.leaderBoard.leaderBoardEntries,
   )
 
   useEffect(() => {
-    console.log('leaderBoardPage:', leaderBoardEntries)
-  }, [leaderBoardEntries])
+    async function fetchLeaderBoard() {
+      await axios
+        .get('http://localhost:3000/leaderBoardprint')
+        .then((response) => {
+          dispatch(setLeaderBoardEntries(response.data))
+        })
+        .catch((error) => {
+          console.error('Error LeaderBoard problem record:', error)
+        })
+    }
+    fetchLeaderBoard()
+  }, [])
 
   const sortedEntries = [...leaderBoardEntries].sort((a, b) => {
-    // First compare total
     if (b.total !== a.total) {
       return b.total - a.total
     }
-    // If total is the same, compare hards
     if (b.hard !== a.hard) {
       return b.hard - a.hard
     }
-    // If hard is the same, compare medium
     if (b.medium !== a.medium) {
       return b.medium - a.medium
     }
-    // If all are the same, maintain the original order (earlier entry first)
     return 0
   })
 
@@ -72,17 +81,37 @@ function LeaderBoardPage() {
           </div>
         </div>
         <Accordion allowToggle>
-          {sortedEntries.map((user, i) => (
-            <LeaderBoardUsers
-              key={i}
-              rank={i + 1}
-              name={user.name}
-              total={user.total}
-              easy={user.easy}
-              medium={user.medium}
-              hard={user.hard}
-            />
-          ))}
+          {sortedEntries.length === 0 ? (
+            <p
+              style={{
+                fontSize: '1.5vw',
+                color: 'grey',
+                textAlign: 'center',
+                marginTop: '10vw',
+              }}
+            >
+              Be the first one in leaderboard
+            </p>
+          ) : (
+            sortedEntries.map((user, i) => (
+              <LeaderBoardUsers
+                key={i}
+                rank={i + 1}
+                name={user.name}
+                total={user.total}
+                easy={user.easy}
+                medium={user.medium}
+                hard={user.hard}
+                userInsta={user.insta}
+                userEmail={user.email}
+                userGithub={user.github}
+                userLinkedin={user.linkedin}
+                javascript={user.javascript}
+                python={user.python}
+                java={user.java}
+              />
+            ))
+          )}
         </Accordion>
       </div>
     </>

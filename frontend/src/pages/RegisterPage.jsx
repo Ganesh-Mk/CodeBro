@@ -39,7 +39,6 @@ function RegisterPage() {
       })
       .then((result) => {
         if (result.data !== false) {
-          console.log(result)
           dispatch(setId(result.data._id))
           dispatch(setName(userName))
           dispatch(setEmail(userEmail))

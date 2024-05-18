@@ -38,10 +38,8 @@ function EditProfilePage() {
   }, [])
 
   const handleSubmit = () => {
-    console.log(userEmail)
-
     axios
-      .post('http://localhost:3000/updateUserDetailsByEmail', {
+      .post('http://localhost:3000/updateUserDetails', {
         userEmail,
         userName,
         userPassword,
@@ -50,7 +48,6 @@ function EditProfilePage() {
         userLinkedin,
       })
       .then((result) => {
-        console.log(result)
         dispatch(setName(userName))
         dispatch(setEmail(userEmail))
         dispatch(setPassword(userPassword))

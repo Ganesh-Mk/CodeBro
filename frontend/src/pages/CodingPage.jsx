@@ -38,6 +38,7 @@ function CodingPage() {
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
 
   const problemObj = useSelector((state) => state.problemObj.obj)
+  const userObj = useSelector((state) => state.user)
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
   const submitCode = async () => {
@@ -280,35 +281,26 @@ print(linkedListToArray(result))
     if (allCorrect) {
       dispatch(setIsSolved(true))
       let emailVal = localStorage.getItem('email')
+      let instaVal = localStorage.getItem('insta')
+      let githubVal = localStorage.getItem('github')
+      let linkedinVal = localStorage.getItem('linkedin')
+
       await axios
         .post('http://localhost:3000/addProblemRecord', {
           userEmail: emailVal,
+          userInsta: instaVal,
+          userGithub: githubVal,
+          userLinkedin: linkedinVal,
           problemObj: problemObj,
         })
-        .then((response) => {
-          console.log('Problem record added successfully')
-        })
+        .then((response) => {})
         .catch((error) => {
           console.error('Error adding problem record:', error)
-        })
-
-      await axios
-        .post('http://localhost:3000/leaderBoard', {
-          userEmail: emailVal,
-          problemObj: problemObj,
-        })
-        .then((response) => {
-          console.log('LeaderBoard record added successfully', response.data)
-          dispatch(setLeaderBoardEntries(response.data)) // Assuming response.data is an array
-        })
-        .catch((error) => {
-          console.error('Error LeaderBoard problem record:', error)
         })
     }
 
     dispatch(addAllResult([]))
     setIsLoadingSubmit(false)
-    console.log('submit code is done')
   }
 
   useEffect(() => {
@@ -529,10 +521,6 @@ class ListNode {
         ) {
           userOutput += ']'
         }
-
-        console.log(sourceCode)
-        console.log(expectedOutput)
-        console.log(userOutput)
 
         if (expectedOutput == userOutput) {
           setAllResult((prev) => [...prev, true])

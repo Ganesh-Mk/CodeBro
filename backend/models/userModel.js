@@ -18,32 +18,6 @@ const ProblemSchema = new mongoose.Schema({
     default: 1,
   },
 })
-const LeaderBoardScheme = new mongoose.Schema({
-  name: {
-    type: String,
-    default: 'Unknown',
-  },
-  email: {
-    type: String,
-    default: '',
-  },
-  total: {
-    type: Number,
-    default: 0,
-  },
-  easy: {
-    type: Number,
-    default: 0,
-  },
-  medium: {
-    type: Number,
-    default: 0,
-  },
-  hard: {
-    type: Number,
-    default: 0,
-  },
-})
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -101,10 +75,6 @@ const UserSchema = new mongoose.Schema({
   },
   allProblems: {
     type: [ProblemSchema],
-    default: [],
-  },
-  leaderBoard: {
-    type: [LeaderBoardScheme],
     default: [],
   },
 })
