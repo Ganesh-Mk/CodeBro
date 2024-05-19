@@ -86,7 +86,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-app.post('/updateUserDetails', upload.single('image'), (req, res) => {
+app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
   const {
     userEmail,
     userName,
@@ -109,7 +109,9 @@ app.post('/updateUserDetails', upload.single('image'), (req, res) => {
     updateData.image = req.file.originalname
   }
 
-  UserModel.findOneAndUpdate({ email: userEmail }, updateData, { new: true })
+  await UserModel.findOneAndUpdate({ email: userEmail }, updateData, {
+    new: true,
+  })
     .then((updatedUser) => {
       if (!updatedUser) {
         return res.status(404).json({ error: 'User not found' })
@@ -119,6 +121,21 @@ app.post('/updateUserDetails', upload.single('image'), (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
+
+  await LeaderBoard.findOneAndUpdate(
+    { email: userEmail },
+    {
+      name: userName,
+      image: req.file.originalname,
+      email: userEmail,
+      insta: userInsta,
+      github: userGithub,
+      linkedin: userLinkedin,
+    },
+    {
+      new: true,
+    },
+  )
 })
 
 app.get('/fetchUserImage', (req, res) => {
