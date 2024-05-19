@@ -42,6 +42,17 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           )}
         </div>
         <div>
+          <h4>
+            {problemObj.difficulty === 'Hard' ? (
+              <span style={{ color: 'red' }}>Hard</span>
+            ) : problemObj.difficulty === 'Medium' ? (
+              <span style={{ color: 'orange' }}>Medium</span>
+            ) : (
+              <span style={{ color: 'yellowgreen' }}>Easy</span>
+            )}
+          </h4>
+        </div>
+        <div>
           <h4>solved</h4>
         </div>
       </div>

@@ -6,7 +6,13 @@ import { images } from '../javascripts/images'
 import '../style/problemBoxContainer.scss'
 import { AllquesObject } from '../javascripts/data'
 
-const ProblemDisplayContainer = ({ problem, value, fontSize, bool }) => {
+const ProblemDisplayContainer = ({
+  problem,
+  value,
+  fontSize,
+  bool,
+  isSolved,
+}) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {

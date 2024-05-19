@@ -23,7 +23,8 @@ import {
 import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
 import CodeInfoContainer from '../components/CodeInfoContainer'
 import { setUserProblems } from '../store/userSlice'
-
+import { AllquesObject } from '../javascripts/data'
+import { setSolvedProblems } from '../store/solvedProblemsReducer'
 function CodingPage() {
   const editorRef = useRef()
   const toast = useToast()
@@ -39,6 +40,9 @@ function CodingPage() {
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
 
   const problemObj = useSelector((state) => state.problemObj.obj)
+  const solvedProblems = useSelector(
+    (state) => state.solvedProblems.solvedProblems,
+  )
   const userObj = useSelector((state) => state.user)
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
@@ -281,7 +285,19 @@ print(linkedListToArray(result))
     let caseCorrectArr = await runAllCases()
     let allCorrect = caseCorrectArr.every((e) => e === true)
     if (allCorrect) {
-      dispatch(setIsSolved(true))
+      let solvedArr = []
+      AllquesObject.map((que) => {
+        if (
+          que.number === problemObj.number ||
+          solvedProblems[que.number - 1]
+        ) {
+          solvedArr.push(true)
+        } else {
+          solvedArr.push(false)
+        }
+      })
+      dispatch(setSolvedProblems([...solvedArr]))
+
       let emailVal = localStorage.getItem('email')
       let instaVal = localStorage.getItem('insta')
       let githubVal = localStorage.getItem('github')

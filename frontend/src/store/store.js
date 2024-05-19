@@ -4,6 +4,7 @@ import rangesReducer from './rangesSlice'
 import languageReducer from './languageSelectingSlice'
 import userReducer from './userSlice'
 import leaderBoardReducer from './leaderBoardSlice'
+import solvedProblemReducer from './solvedProblemsReducer'
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     language: languageReducer,
     user: userReducer,
     leaderBoard: leaderBoardReducer,
+    solvedProblems: solvedProblemReducer,
   },
 })
 

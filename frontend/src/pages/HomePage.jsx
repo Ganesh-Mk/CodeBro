@@ -20,6 +20,9 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0)
   const [totalProblems, setTotalProblems] = useState(0)
   const dispatch = useDispatch()
+  const solvedProblems = useSelector(
+    (state) => state.solvedProblems.solvedProblems,
+  )
   // console.log(totalEasyLength + "h");
 
   const { easy, medium, hard } = useSelector((state) => state.ranges)
@@ -235,6 +238,7 @@ const HomePage = () => {
                 (problem, index) => (
                   <ProblemDisplayContainer
                     problem={problem}
+                    isSolved={solvedProblems[index]}
                     key={index}
                     value={false}
                     fontSize={'1vw'}

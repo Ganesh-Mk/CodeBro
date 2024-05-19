@@ -4,7 +4,7 @@ export const AllquesObject = [
     heading: 'Add two numbers',
     difficulty: 'Easy',
     attempts: 0,
-    isSolved: true,
+    isSolved: false,
     heading: 'Add two numbers',
     language: 'javascript',
     image: null,
