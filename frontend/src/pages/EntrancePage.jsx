@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../style/EntrancePage.scss'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'

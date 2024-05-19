@@ -158,6 +158,7 @@ function ProblemsPage() {
               problemsToShow.map((problem, index) => (
                 <ProblemDisplayContainer
                   problem={problem}
+                  index={index}
                   value={true}
                   key={index}
                 />

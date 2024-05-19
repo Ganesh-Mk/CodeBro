@@ -297,6 +297,7 @@ print(linkedListToArray(result))
         }
       })
       dispatch(setSolvedProblems([...solvedArr]))
+      localStorage.setItem('solved', JSON.stringify([...solvedArr]))
 
       let emailVal = localStorage.getItem('email')
       let instaVal = localStorage.getItem('insta')
@@ -320,6 +321,11 @@ print(linkedListToArray(result))
     dispatch(addAllResult([]))
     setIsLoadingSubmit(false)
   }
+
+  useEffect(() => {
+    let solvedArr = JSON.parse(localStorage.getItem('solved')) || []
+    dispatch(setSolvedProblems(Array.isArray(solvedArr) ? solvedArr : []))
+  }, [])
 
   useEffect(() => {
     dispatch(addTestCaseOutput(testCaseOutput))

@@ -74,26 +74,6 @@ const HomePage = () => {
   }, [])
 
   useEffect(() => {
-    // axios
-    //   .get("http://localhost:3000/homerecord", {
-    //     params: { userEmail: localStorage.getItem("email") },
-    //   })
-    //   .then((response) => {
-    //     setJsSolved(response.data.jsSolved || 0);
-    //     setPythonSolved(response.data.pythonSolved || 0);
-    //     setJavaSolved(response.data.javaSolved || 0);
-    //     setEasyWidth(response.data.easySolved || 0);
-    //     setMediumWidth(response.data.mediumSolved || 0);
-    //     setHardWidth(response.data.hardSolved || 0);
-    //     setCircleValue(response.data.totalSolved || 0);
-    //     setAllProblems(response.data.allProblems);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching user data:", error);
-    //   });
-  }, [])
-
-  useEffect(() => {
     const solvedProblemsCount = AllquesObject.filter(
       (problem) => problem.isSolved === true,
     ).length
@@ -159,9 +139,10 @@ const HomePage = () => {
               </div>
             </div>
             <div className="problemdisplays">
-              {AllquesObject.slice(0, 18).map((problem, index) => (
+              {AllquesObject.map((problem, index) => (
                 <ProblemDisplayContainer
                   problem={problem}
+                  index={index}
                   key={index}
                   value={true}
                 />
@@ -237,9 +218,9 @@ const HomePage = () => {
               {AllquesObject.filter((problem) => problem.isSolved).map(
                 (problem, index) => (
                   <ProblemDisplayContainer
-                    problem={problem}
-                    isSolved={solvedProblems[index]}
                     key={index}
+                    idx={index}
+                    problem={problem}
                     value={false}
                     fontSize={'1vw'}
                     bool={false}
