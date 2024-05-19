@@ -67,12 +67,13 @@ function LeaderBoardPage() {
             style={{
               display: 'grid',
               width: '100%',
-              gridTemplateColumns: '5% 47% 10% 10% 10% 10% 10%',
+              gridTemplateColumns: '5% 7% 40% 10% 10% 10% 10% 10%',
               margin: '0 2vw',
             }}
           >
             <p>Rank</p>
-            <p style={{ textAlign: 'left', marginLeft: '6vw' }}>Name</p>
+            <p style={{ textAlign: 'right', marginLeft: '2vw' }}></p>
+            <p style={{ textAlign: 'left', marginLeft: '2vw' }}>Name</p>
             <p>Total</p>
             <p>Easy</p>
             <p>Medium</p>
@@ -97,6 +98,7 @@ function LeaderBoardPage() {
               <LeaderBoardUsers
                 key={i}
                 rank={i + 1}
+                image={user.image}
                 name={user.name}
                 total={user.total}
                 easy={user.easy}

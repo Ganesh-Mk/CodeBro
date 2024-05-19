@@ -56,7 +56,6 @@ app.get('/problemRecord', (req, res) => {
     })
     .catch((err) => res.send(err))
 })
-
 app.get('/leaderBoardprint', async (req, res) => {
   try {
     const leaderboard = await LeaderBoard.find()
@@ -66,7 +65,6 @@ app.get('/leaderBoardprint', async (req, res) => {
     return res.status(500).send(err.message)
   }
 })
-
 app.get('/deleteleaderBoard', async (req, res) => {
   try {
     const result = await LeaderBoard.deleteMany({})
@@ -198,6 +196,7 @@ app.post('/addProblemRecord', async (req, res) => {
         existingEntry.javascript = userModel.jsSolved
         existingEntry.python = userModel.pythonSolved
         existingEntry.java = userModel.javaSolved
+        existingEntry.image = userModel.image
 
         await existingEntry.save()
       } else {
@@ -214,6 +213,7 @@ app.post('/addProblemRecord', async (req, res) => {
           javascript: userModel.jsSolved,
           python: userModel.pythonSolved,
           java: userModel.javaSolved,
+          image: userModel.image,
         })
         await newEntry.save()
       }

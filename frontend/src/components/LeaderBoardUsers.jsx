@@ -22,6 +22,7 @@ function LeaderBoardUsers({
   javascript = 0,
   python = 0,
   java = 0,
+  image = '',
 }) {
   return (
     <>
@@ -34,12 +35,27 @@ function LeaderBoardUsers({
               style={{
                 display: 'grid',
                 width: '100%',
-                gridTemplateColumns: '5% 45% 10% 10% 10% 10% 10%',
+                gridTemplateColumns: '5% 7% 40% 10% 10% 10% 10% 10%',
               }}
             >
               <p>{rank}</p>
-              <p style={{ textAlign: 'left', marginLeft: '6vw' }}>{name}</p>
-
+              <img
+                style={{
+                  textAlign: 'right',
+                  width: '2.7vw',
+                  height: '2.7vw',
+                  borderRadius: '100vw',
+                  marginBottom: '1.2vw',
+                  marginLeft: '3.4vw',
+                }}
+                src={
+                  image
+                    ? `http://localhost:3000/uploads/${image}`
+                    : images.accDefaultLogo
+                }
+                alt="account default logo"
+              />
+              <p style={{ textAlign: 'left', marginLeft: '2vw' }}>{name}</p>
               <p>{total}</p>
               <p>{easy}</p>
               <p>{medium}</p>
