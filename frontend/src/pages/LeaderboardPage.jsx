@@ -26,7 +26,7 @@ function LeaderBoardPage() {
     fetchLeaderBoard()
   }, [])
 
-  const sortedEntries = [...leaderBoardEntries].sort((a, b) => {
+  let sortedEntries = [...leaderBoardEntries].sort((a, b) => {
     if (b.total !== a.total) {
       return b.total - a.total
     }
@@ -38,6 +38,17 @@ function LeaderBoardPage() {
     }
     return 0
   })
+
+  useEffect(() => {
+    let email = localStorage.getItem('email')
+    if (sortedEntries.length > 0) {
+      sortedEntries.forEach((entry, i) => {
+        if (entry.email === email) {
+          localStorage.setItem('rank', i + 1)
+        }
+      })
+    }
+  }, [sortedEntries])
 
   return (
     <>

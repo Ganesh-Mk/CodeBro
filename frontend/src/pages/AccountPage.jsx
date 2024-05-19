@@ -10,14 +10,16 @@ import {
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { AllquesObject } from '../javascripts/data'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import DisplayProblemContainer from '../components/DisplayProblemContainer'
+import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
 import { addTestCaseResults } from '../store/problemObjSlice'
 
 function AccountPage() {
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
+  const [userRank, setUserRank] = useState('Unranked')
   const [userImage, setUserImage] = useState(null)
   const [userPassword, setUserPassword] = useState(userObj.password)
   const [userInsta, setUserInsta] = useState(userObj.insta)
@@ -37,6 +39,50 @@ function AccountPage() {
   const [totalHard, setTotalHard] = useState(0)
   const [totalProblems, setTotalProblems] = useState(0)
 
+  const dispatch = useDispatch()
+  const leaderBoardEntries = useSelector(
+    (state) => state.leaderBoard.leaderBoardEntries,
+  )
+
+  useEffect(() => {
+    async function fetchLeaderBoard() {
+      await axios
+        .get('http://localhost:3000/leaderBoardprint')
+        .then((response) => {
+          dispatch(setLeaderBoardEntries(response.data))
+        })
+        .catch((error) => {
+          console.error('Error LeaderBoard problem record:', error)
+        })
+    }
+    fetchLeaderBoard()
+  }, [])
+
+  let sortedEntries = [...leaderBoardEntries].sort((a, b) => {
+    if (b.total !== a.total) {
+      return b.total - a.total
+    }
+    if (b.hard !== a.hard) {
+      return b.hard - a.hard
+    }
+    if (b.medium !== a.medium) {
+      return b.medium - a.medium
+    }
+    return 0
+  })
+
+  useEffect(() => {
+    let email = localStorage.getItem('email')
+    if (sortedEntries.length > 0) {
+      sortedEntries.forEach((entry, i) => {
+        if (entry.email === email) {
+          localStorage.setItem('rank', i + 1)
+        }
+      })
+    }
+    setUserRank(localStorage.getItem('rank'))
+  }, [sortedEntries])
+
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
     setUserEmail(localStorage.getItem('email'))
@@ -44,6 +90,7 @@ function AccountPage() {
     setUserInsta(localStorage.getItem('insta'))
     setUserGithub(localStorage.getItem('github'))
     setUserLinkedin(localStorage.getItem('linkedin'))
+    setUserRank(localStorage.getItem('rank'))
   }, [])
 
   useEffect(() => {
@@ -117,7 +164,7 @@ function AccountPage() {
             />
             <div>
               <p>User name: {userName}</p>
-              <p>Rank: 0001</p>
+              <p>Rank: {userRank}</p>
             </div>
           </div>
           <div className="accBtnBox">

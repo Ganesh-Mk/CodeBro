@@ -126,7 +126,7 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
     { email: userEmail },
     {
       name: userName,
-      image: req.file.originalname,
+      image: req.file.originalname || '',
       email: userEmail,
       insta: userInsta,
       github: userGithub,

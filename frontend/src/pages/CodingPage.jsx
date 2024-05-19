@@ -43,7 +43,7 @@ function CodingPage() {
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
   const submitCode = async () => {
-    console.log(problemObj);
+    console.log(problemObj)
     setIsLoadingSubmit(true)
     dispatch(setIsSubmitted(true))
     setTestCaseOutput([])

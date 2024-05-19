@@ -30,6 +30,7 @@ function RegisterPage() {
     localStorage.setItem('github', '')
     localStorage.setItem('linkedin', '')
     localStorage.setItem('userImage', '')
+    localStorage.setItem('rank', 'Unranked')
 
     axios
       .post('http://localhost:3000/createUser', {

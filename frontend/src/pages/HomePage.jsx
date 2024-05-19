@@ -1,113 +1,112 @@
-import React, { useEffect, useState } from "react";
-import "../style/Home.scss";
-import Navbar from "../components/Navbar";
-import { images } from "../javascripts/images";
-import { Link } from "react-router-dom";
-import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
-import { AllquesObject } from "../javascripts/data";
-import { useDispatch, useSelector } from "react-redux";
-import { setRangeValue, setSolvedProblemsCount } from "../store/rangesSlice";
-import { setSelectedLanguage } from "../store/languageSelectingSlice";
-import axios from "axios";
-import { setUserProblems, userSlice } from "../store/userSlice";
+import React, { useEffect, useState } from 'react'
+import '../style/Home.scss'
+import Navbar from '../components/Navbar'
+import { images } from '../javascripts/images'
+import { Link } from 'react-router-dom'
+import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
+import { AllquesObject } from '../javascripts/data'
+import { useDispatch, useSelector } from 'react-redux'
+import { setRangeValue, setSolvedProblemsCount } from '../store/rangesSlice'
+import { setSelectedLanguage } from '../store/languageSelectingSlice'
+import axios from 'axios'
+import { setUserProblems, userSlice } from '../store/userSlice'
 
 const HomePage = () => {
-  const [easyWidth, setEasyWidth] = useState(0);
-  const [mediumWidth, setMediumWidth] = useState(0);
-  const [hardWidth, setHardWidth] = useState(0);
-  const [totalEasy, setTotalEasy] = useState(0);
-  const [totalMedium, setTotalMedium] = useState(0);
-  const [totalHard, setTotalHard] = useState(0);
-  const [totalProblems, setTotalProblems] = useState(0);
-  const dispatch = useDispatch();
+  const [easyWidth, setEasyWidth] = useState(0)
+  const [mediumWidth, setMediumWidth] = useState(0)
+  const [hardWidth, setHardWidth] = useState(0)
+  const [totalEasy, setTotalEasy] = useState(0)
+  const [totalMedium, setTotalMedium] = useState(0)
+  const [totalHard, setTotalHard] = useState(0)
+  const [totalProblems, setTotalProblems] = useState(0)
+  const dispatch = useDispatch()
   // console.log(totalEasyLength + "h");
 
-  const { easy, medium, hard } = useSelector((state) => state.ranges);
+  const { easy, medium, hard } = useSelector((state) => state.ranges)
   const solvedProblemsCount = useSelector(
-    (state) => state.ranges.solvedProblemsCount
-  );
+    (state) => state.ranges.solvedProblemsCount,
+  )
 
   const handleRangeChange = (e, difficulty) => {
-    const newValue = parseInt(e.target.value);
-    dispatch(setRangeValue({ difficulty, value: newValue }));
-  };
+    const newValue = parseInt(e.target.value)
+    dispatch(setRangeValue({ difficulty, value: newValue }))
+  }
 
   const calculateRangeValue = (solvedCount, totalCount) => {
     if (totalCount === 0) {
-      return 0;
+      return 0
     }
-    return (solvedCount / totalCount) * 100;
-  };
+    return (solvedCount / totalCount) * 100
+  }
 
   const getDifficultySolvedCount = (difficulty) => {
     return AllquesObject.filter(
-      (problem) => problem.difficulty === difficulty && problem.isSolved
-    ).length;
-  };
+      (problem) => problem.difficulty === difficulty && problem.isSolved,
+    ).length
+  }
 
   const getDifficultyTotalCount = (difficulty) => {
     return AllquesObject.filter((problem) => problem.difficulty === difficulty)
-      .length;
-  };
-
+      .length
+  }
 
   useEffect(() => {
-    setTotalEasy(0);
-    setTotalMedium(0);
-    setTotalHard(0);
-    setTotalProblems(0);
+    setTotalEasy(0)
+    setTotalMedium(0)
+    setTotalHard(0)
+    setTotalProblems(0)
 
-    setTotalProblems(AllquesObject.length);
+    setTotalProblems(AllquesObject.length)
     AllquesObject.map((problem) => {
-      if (problem.difficulty === "Easy") {
-        setTotalEasy((prev) => prev + 1);
+      if (problem.difficulty === 'Easy') {
+        setTotalEasy((prev) => prev + 1)
       }
-      if (problem.difficulty === "Medium") {
-        setTotalMedium((prev) => prev + 1);
+      if (problem.difficulty === 'Medium') {
+        setTotalMedium((prev) => prev + 1)
       }
-      if (problem.difficulty === "Hard") {
-        setTotalHard((prev) => prev + 1);
+      if (problem.difficulty === 'Hard') {
+        setTotalHard((prev) => prev + 1)
       }
-    });
-  }, []);
+    })
+  }, [])
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/homerecord", {
-        params: { userEmail: localStorage.getItem("email") },
-      })
-      .then((response) => {
-        setJsSolved(response.data.jsSolved || 0);
-        setPythonSolved(response.data.pythonSolved || 0);
-        setJavaSolved(response.data.javaSolved || 0);
-        setEasyWidth(response.data.easySolved || 0);
-        setMediumWidth(response.data.mediumSolved || 0);
-        setHardWidth(response.data.hardSolved || 0);
-        setCircleValue(response.data.totalSolved || 0);
-        setAllProblems(response.data.allProblems);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, []);
+    // axios
+    //   .get("http://localhost:3000/homerecord", {
+    //     params: { userEmail: localStorage.getItem("email") },
+    //   })
+    //   .then((response) => {
+    //     setJsSolved(response.data.jsSolved || 0);
+    //     setPythonSolved(response.data.pythonSolved || 0);
+    //     setJavaSolved(response.data.javaSolved || 0);
+    //     setEasyWidth(response.data.easySolved || 0);
+    //     setMediumWidth(response.data.mediumSolved || 0);
+    //     setHardWidth(response.data.hardSolved || 0);
+    //     setCircleValue(response.data.totalSolved || 0);
+    //     setAllProblems(response.data.allProblems);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching user data:", error);
+    //   });
+  }, [])
 
   useEffect(() => {
     const solvedProblemsCount = AllquesObject.filter(
-      (problem) => problem.isSolved === true
-    ).length;
-    dispatch(setSolvedProblemsCount(solvedProblemsCount));
-  }, [dispatch]);
+      (problem) => problem.isSolved === true,
+    ).length
+    dispatch(setSolvedProblemsCount(solvedProblemsCount))
+  }, [dispatch])
 
   const handleLanguageBox = (language) => {
-    dispatch(setSelectedLanguage(language));
-  };
+    dispatch(setSelectedLanguage(language))
+  }
 
-  const easySolvedCount = getDifficultySolvedCount("Easy");
-  const mediumSolvedCount = getDifficultySolvedCount("Medium");
-  const hardSolvedCount = getDifficultySolvedCount("Hard");
-  const easyTotalCount = getDifficultyTotalCount("Easy");
-  const mediumTotalCount = getDifficultyTotalCount("Medium");
-  const hardTotalCount = getDifficultyTotalCount("Hard");
+  const easySolvedCount = getDifficultySolvedCount('Easy')
+  const mediumSolvedCount = getDifficultySolvedCount('Medium')
+  const hardSolvedCount = getDifficultySolvedCount('Hard')
+  const easyTotalCount = getDifficultyTotalCount('Easy')
+  const mediumTotalCount = getDifficultyTotalCount('Medium')
+  const hardTotalCount = getDifficultyTotalCount('Hard')
 
   return (
     <div className="home">
@@ -120,19 +119,19 @@ const HomePage = () => {
           </div>
           <div className="languages">
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox("js")}>
+              <div className="box" onClick={() => handleLanguageBox('js')}>
                 <img src={images.js} alt="" />
                 <p>JS Problems</p>
               </div>
             </Link>
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox("python")}>
+              <div className="box" onClick={() => handleLanguageBox('python')}>
                 <img src={images.python} alt="" />
                 <p>Python Problems</p>
               </div>
             </Link>
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox("java")}>
+              <div className="box" onClick={() => handleLanguageBox('java')}>
                 <img src={images.java} alt="" />
                 <p>Java Problems</p>
               </div>
@@ -189,7 +188,9 @@ const HomePage = () => {
                 <div className="range">
                   <div
                     className="easyRange"
-                    style={{ width: `${(easySolvedCount / easyTotalCount) * 100}%` }}
+                    style={{
+                      width: `${(easySolvedCount / easyTotalCount) * 100}%`,
+                    }}
                   ></div>
                 </div>
                 <div className="range">
@@ -203,7 +204,9 @@ const HomePage = () => {
                 <div className="range">
                   <div
                     className="hardRange"
-                    style={{ width: `${(hardSolvedCount / hardTotalCount) * 100}%` }}
+                    style={{
+                      width: `${(hardSolvedCount / hardTotalCount) * 100}%`,
+                    }}
                   ></div>
                 </div>
               </div>
@@ -234,17 +237,17 @@ const HomePage = () => {
                     problem={problem}
                     key={index}
                     value={false}
-                    fontSize={"1vw"}
+                    fontSize={'1vw'}
                     bool={false}
                   />
-                )
+                ),
               )}
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage
