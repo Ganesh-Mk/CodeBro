@@ -42,11 +42,32 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
         params: { userEmail: localStorage.getItem('email') },
       })
       .then((response) => {
-        localStorage.setItem(
-          'attempts',
-          JSON.stringify(response.data.allProblems),
-        )
-        setAllProblems(response.data.allProblems)
+        let arr = []
+        response.data.allProblems.map((item) => arr.push(item.number))
+
+        let attemptArr = []
+        for (let i = 0; i < AllquesObject.length; i++) {
+          if (arr.includes(AllquesObject[i].number)) {
+            attemptArr.push(true)
+          } else {
+            attemptArr.push(false)
+          }
+        }
+
+        let ansAttempArr = []
+        for (let i = 0; i < attemptArr.length; i++) {
+          if (attemptArr[i]) {
+            let problem = response.data.allProblems.find(
+              (p) => p.number === AllquesObject[i].number,
+            )
+            ansAttempArr.push(problem.attempts)
+          } else {
+            ansAttempArr.push(0)
+          }
+        }
+
+        localStorage.setItem('attempts', JSON.stringify(ansAttempArr))
+        setAllProblems(ansAttempArr)
       })
       .catch((error) => {
         console.error('Error fetching user data:', error)
@@ -54,7 +75,7 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
   }, [addTestCaseResults])
 
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('attempts'))[0])
+    console.log(JSON.parse(localStorage.getItem('attempts')))
   }, [index])
 
   return (
@@ -85,11 +106,7 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
         <div className="problemBoxPart2">
           <div className="problemBoxMiddle">{problem.ds}</div>
           <div className="difficultyDisplayer">{problem.difficulty}</div>
-          <div className="attempts">
-            {JSON.parse(localStorage.getItem('attempts'))[index]
-              ? JSON.parse(localStorage.getItem('attempts'))[index].attempts
-              : 0}
-          </div>
+          <div className="attempts">{allProblems[index]}</div>
         </div>
       )}
     </div>

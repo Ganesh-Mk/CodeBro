@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 import CodeBroLogo from '../components/CodeBroLogo'
 
 function EntrancePage() {
+  useEffect(() => {
+    localStorage.setItem('solved', '[]')
+  })
+
   return (
     <>
       <Navbar />
