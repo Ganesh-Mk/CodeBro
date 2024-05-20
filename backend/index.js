@@ -80,7 +80,8 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/')
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname)
+    console.log('multer: ', file)
+    cb(null, file.originalname || '')
   },
 })
 
@@ -106,7 +107,7 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
   }
 
   if (req.file) {
-    updateData.image = req.file.originalname
+    updateData.image = req.file.originalname || ''
   }
 
   await UserModel.findOneAndUpdate({ email: userEmail }, updateData, {

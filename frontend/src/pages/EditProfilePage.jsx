@@ -27,6 +27,7 @@ function EditProfilePage() {
   const [userLinkedin, setUserLinkedin] = useState('')
   const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo)
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
+  const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo)
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
@@ -35,11 +36,12 @@ function EditProfilePage() {
     setUserInsta(localStorage.getItem('insta'))
     setUserGithub(localStorage.getItem('github'))
     setUserLinkedin(localStorage.getItem('linkedin'))
-    // setUserImage(localStorage.getItem('userImage'))
+    setUserImage(localStorage.getItem('userImage'))
   }, [])
 
   const handleSubmit = () => {
     const formData = new FormData()
+    console.log(userImage)
     if (userImage) {
       formData.append('image', userImage)
     }
@@ -87,6 +89,8 @@ function EditProfilePage() {
 
   const handleImage = (e) => {
     const file = e.target.files[0]
+    setUserImage(file)
+    setUserImageEdit(file.name)
     const reader = new FileReader()
     reader.onload = () => {
       if (reader.readyState === 2) {
@@ -94,7 +98,6 @@ function EditProfilePage() {
       }
     }
     reader.readAsDataURL(file)
-    setUserImage(file)
   }
 
   useEffect(() => {
@@ -125,9 +128,11 @@ function EditProfilePage() {
                 borderRadius: '100vw',
               }}
               src={
-                userImage
-                  ? `http://localhost:3000/uploads/${userImage}`
-                  : images.accDefaultLogo
+                userImageEdit === images.accDefaultLogo
+                  ? userImage
+                    ? `http://localhost:3000/uploads/${userImage}`
+                    : images.accDefaultLogo
+                  : `http://localhost:3000/uploads/${userImageEdit}`
               }
               alt="account default logo"
             />
