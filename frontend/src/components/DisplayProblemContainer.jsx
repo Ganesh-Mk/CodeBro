@@ -5,6 +5,7 @@ function DisplayProblemContainer({
   diff = '',
   attempts = '',
   problem = '',
+  fontSize = '2vw',
 }) {
   return (
     <>
@@ -19,20 +20,27 @@ function DisplayProblemContainer({
           borderRadius: '100rem',
         }}
       >
-        <p>
+        <p style={{ fontSize: fontSize }}>
           {num}. {problem}
         </p>
         <div
           style={{
-            marginRight: '5vw',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '7vw',
+            gap: '1vw',
           }}
         >
-          <p>{diff}</p>
-          <p>{attempts}</p>
+          {fontSize === '2vw' ? (
+            <p style={{ fontSize: fontSize, marginRight: '5vw' }}>{diff}</p>
+          ) : (
+            <p style={{ fontSize: fontSize }}>{diff}</p>
+          )}
+          {fontSize === '2vw' ? (
+            <p style={{ fontSize: fontSize, marginRight: '5vw' }}>{attempts}</p>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </>

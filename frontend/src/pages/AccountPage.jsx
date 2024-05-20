@@ -266,7 +266,10 @@ function AccountPage() {
                     <div className="range">
                       <div
                         className="easyRange"
-                        style={{ width: `${(easyWidth / totalEasy) * 100}%` }}
+                        style={{
+                          width: `${(easyWidth / totalEasy) * 100}%`,
+                          transition: '1s ease-in-out',
+                        }}
                       ></div>
                     </div>
                     <div className="range">
@@ -274,13 +277,17 @@ function AccountPage() {
                         className="mediumRange"
                         style={{
                           width: `${(mediumWidth / totalMedium) * 100}%`,
+                          transition: '1s ease-in-out',
                         }}
                       ></div>
                     </div>
                     <div className="range">
                       <div
                         className="hardRange"
-                        style={{ width: `${(hardWidth / totalHard) * 100}%` }}
+                        style={{
+                          width: `${(hardWidth / totalHard) * 100}%`,
+                          transition: '1s ease-in-out',
+                        }}
                       ></div>
                     </div>
                   </div>

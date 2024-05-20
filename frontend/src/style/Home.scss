@@ -17,13 +17,12 @@
 }
 
 .left {
-  border-right: 2px solid rgb(240, 240, 240);
+  border-right: 1px solid rgb(240, 240, 240);
   height: 90.9vh;
   margin-right: .5vw;
   padding: 0.2vw 0.8vw;
-  width: 79vw;
+  width: 74vw;
   .head1 {
-    // border: 2px solid red;
     padding: 0.8vw 1vw;
     p {
       color: #ffffff;
@@ -142,8 +141,6 @@
 
 .right {
   width: 24vw;
-  // padding: .3vw;
-  // border: 2px solid red;
   .statShower {
     padding: 1vw;
     // border: 2px solid yellow;
@@ -263,10 +260,10 @@
   }
 }
 .SubmissionShower {
-  margin-top: 1vw;
-  padding: 0vw .4vw;
+  border-top: 1px solid white;
+  margin-top: 3vw;
+  padding: 1vw .4vw;
   // border: 2px solid red;
-  border-radius: .6vw;
   .SubmissionHead {
     display: flex;
     justify-content: center;
@@ -287,11 +284,9 @@
   }
   .SubmissionProblemShower {
     padding: 0vw .2vw;
-    border: 2px solid rgb(255, 255, 255);
     border-radius: .6vw;
-    box-shadow: -1px -1px 12px #729feb;
     overflow-y: scroll;
-    height: 44vh;
+    height: 33vh;
     overflow-x: hidden;
   }
   .SubmissionProblemShower::-webkit-scrollbar {
