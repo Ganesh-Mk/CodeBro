@@ -6,7 +6,7 @@ import { images } from '../javascripts/images'
 import '../style/problemBoxContainer.scss'
 import { AllquesObject } from '../javascripts/data'
 
-const ProblemDisplayContainer = ({ problem, value, fontSize, bool }) => {
+const ProblemDisplayContainer = ({ problem, value, fontSize, bool, Home }) => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -55,7 +55,8 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool }) => {
       </div>
       {value && (
         <div className="problemBoxPart2">
-          <div className="problemBoxMiddle">{problem.ds}</div>
+
+            <div className="problemBoxMiddle">{problem.ds}</div>
           <div className="difficultyDisplayer">{problem.difficulty}</div>
           <div className="attempts">2</div>
         </div>

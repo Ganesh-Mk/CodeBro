@@ -13,9 +13,9 @@ import { useState } from 'react'
 import CorrectIcon from './CorrectIcon'
 import WrongIcon from './WrongIcon'
 import '../style/Output.scss'
+
 const Output = ({ isError }) => {
   const problemObj = useSelector((state) => state.problemObj.obj)
-
   return (
     <>
       <Tabs size="md" isFitted variant="enclosed">

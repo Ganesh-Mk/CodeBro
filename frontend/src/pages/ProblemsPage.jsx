@@ -46,9 +46,11 @@ function ProblemsPage() {
       } else {
         filteredProblems = filteredProblems.filter(
           (problem) =>
-            problem.topic &&
-            problem.topic.toLowerCase() === lowerCaseSelectedTopic,
-        )
+            Array.isArray(problem.topic) &&
+            problem.topic.some(
+              (topic) => topic.toLowerCase() === lowerCaseSelectedTopic
+            )
+        );
       }
     }
 
@@ -84,13 +86,17 @@ function ProblemsPage() {
             >
               <option value="All">All</option>
               <option value="Array">Array</option>
-              <option value="LinkedList">LinkedList</option>
               <option value="String">String</option>
+              <option value="Two Pointer">Two Pointer</option>
+              <option value="Counter">Counter</option>
+              <option value="Math">Math</option>
+              <option value="Linked List">LinkedList</option>
               <option value="Binary Search">Binary Search</option>
               <option value="Sorting">Sorting</option>
               <option value="Stack">Stack</option>
               <option value="Tree">Tree</option>
               <option value="Queue">Queue</option>
+              <option value="Dynamic Programming">Dynamic Programming</option>
               <option value="Solved">Solved</option>
               <option value="Unsolved">Unsolved</option>
             </select>
@@ -157,6 +163,7 @@ function ProblemsPage() {
             {problemsToShow.length > 0 ? (
               problemsToShow.map((problem, index) => (
                 <ProblemDisplayContainer
+                  Home={false}
                   problem={problem}
                   value={true}
                   key={index}

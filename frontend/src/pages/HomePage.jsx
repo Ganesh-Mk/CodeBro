@@ -231,6 +231,7 @@ const HomePage = () => {
               {AllquesObject.filter((problem) => problem.isSolved).map(
                 (problem, index) => (
                   <ProblemDisplayContainer
+                    Home={true}
                     problem={problem}
                     key={index}
                     value={false}
