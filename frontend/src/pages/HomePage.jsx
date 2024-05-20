@@ -37,7 +37,6 @@ const HomePage = () => {
   const problemObj = useSelector((state) => state.problemObj.obj)
 
   useEffect(() => {
-    console.log('came')
     let solvedArr = []
     let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
     AllquesObject.map((que) => {

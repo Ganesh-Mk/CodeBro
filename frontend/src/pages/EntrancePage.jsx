@@ -8,14 +8,15 @@ import { setSolvedProblems } from '../store/solvedProblemsReducer'
 
 function EntrancePage() {
   const dispatch = useDispatch()
+  // window.location.reload()
+
   useEffect(() => {
     dispatch(setSolvedProblems([]))
     localStorage.setItem('solved', '[]')
-  })
+  }, [])
 
   return (
     <>
-      <Navbar />
       <div className="mainHome">
         <div className="newMainHome">
           <CodeBroLogo />
