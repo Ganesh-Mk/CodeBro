@@ -80,7 +80,7 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/')
   },
   filename: (req, file, cb) => {
-    console.log('multer: ', file)
+    console.log('req: ', req)
     cb(null, file.originalname || '')
   },
 })
@@ -123,11 +123,12 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
       res.status(500).json({ error: err.message })
     })
 
+  let userImage = req.file === undefined ? '' : req.file.originalname
   await LeaderBoard.findOneAndUpdate(
     { email: userEmail },
     {
       name: userName,
-      image: req.file.originalname || '',
+      image: userImage,
       email: userEmail,
       insta: userInsta,
       github: userGithub,
