@@ -1256,8 +1256,6 @@ export const AllquesObject = [
     isSolved: false,
     language: "javascript",
     attempts: 0,
-    isSolved: true,
-    language: "javascript",
     heading: "Remove Duplicates from Sorted List",
     difficulty: "Medium",
     language: "javascript",
@@ -4068,8 +4066,339 @@ public static int findKthLargest(int[] arr, int k) {
         "javaFuncCall": "isValid(\"{[]}\")"
       }
     ]
-  }
-  
+  },
+  {
+    "number": 29,
+    "heading": "Reverse Linked List",
+    "topic": ["Linked List"],
+    "ds": "[Linked List]",
+    "difficulty": "Easy",
+    "isSolved": false,
+    "language": "javascript",
+    "attempts": 0,
+    "heading": "Reverse Linked List",
+    "difficulty": "Easy",
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+    "constraints": [
+        "The number of nodes in the list is the range [0, 5000].",
+        "-5000 <= Node.val <= 5000"
+    ],
+    "functionName": "reverseList",
+    "returnType": "linkedlist",
+    "javascriptDefaultCode": `
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+    // Write your code here
+};`,
+    "pythonDefaultCode": `
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        # Write your code here`,
+    "javaDefaultCode": `
+/* Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+public ListNode reverseList(ListNode head) {
+    // Write your code here
+}`,
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+        {
+            "number": 1,
+            "input": "head = [1,2,3,4,5]",
+            "output": "[5,4,3,2,1]",
+            "parameter": "[1,2,3,4,5]",
+            "explanation": "The reversed linked list is [5,4,3,2,1].",
+            "image": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+        },
+        {
+            "number": 2,
+            "input": "head = [1,2]",
+            "output": "[2,1]",
+            "parameter": "[1,2]",
+            "explanation": "The reversed linked list is [2,1].",
+            "image": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(2)))"
+        },
+        {
+            "number": 3,
+            "input": "head = []",
+            "output": "[]",
+            "parameter": "[]",
+            "explanation": "The linked list is empty, so the reversed list is also empty.",
+            "image": null,
+            "javaFuncCall": "reverseList(null)"
+        }
+    ],
+    "cases": [
+        {
+            "parameter": "[1,2,3,4,5]",
+            "expectedOutput": "[5,4,3,2,1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+        },
+        {
+            "parameter": "[1,2]",
+            "expectedOutput": "[2,1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(2)))"
+        },
+        {
+            "parameter": "[]",
+            "expectedOutput": "[]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(null)"
+        },
+        {
+            "parameter": "[1]",
+            "expectedOutput": "[1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1))"
+        },
+        {
+            "parameter": "[1,3,5,7,9]",
+            "expectedOutput": "[9,7,5,3,1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(3, new ListNode(5, new ListNode(7, new ListNode(9))))))"
+        },
+        {
+            "parameter": "[2,4,6,8,10]",
+            "expectedOutput": "[10,8,6,4,2]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(2, new ListNode(4, new ListNode(6, new ListNode(8, new ListNode(10))))))"
+        },
+        {
+            "parameter": "[1,1,1,1,1]",
+            "expectedOutput": "[1,1,1,1,1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1, new ListNode(1))))))"
+        },
+        {
+            "parameter": "[1,2,2,3,3]",
+            "expectedOutput": "[3,3,2,2,1]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(1, new ListNode(2, new ListNode(2, new ListNode(3, new ListNode(3))))))"
+        },
+        {
+            "parameter": "[10,20,30,40,50]",
+            "expectedOutput": "[50,40,30,20,10]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(10, new ListNode(20, new ListNode(30, new ListNode(40, new ListNode(50))))))"
+        },
+        {
+            "parameter": "[7,7,7,7,7]",
+            "expectedOutput": "[7,7,7,7,7]",
+            "userOutput": null,
+            "javaFuncCall": "reverseList(new ListNode(7, new ListNode(7, new ListNode(7, new ListNode(7, new ListNode(7))))))"
+        }
+    ]
+},
+{
+  "number": 30,
+  "heading": "Middle of the Linked List",
+  "topic": ["Linked List"],
+  "ds": "[Linked List]",
+  "difficulty": "Easy",
+  "isSolved": false,
+  "language": "javascript",
+  "attempts": 0,
+  "heading": "Middle of the Linked List",
+  "difficulty": "Easy",
+  "language": "javascript",
+  "image": null,
+  "allOutput": [],
+  "allResult": [],
+  "description": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node.",
+  "constraints": [
+    "The number of nodes in the list is in the range [1, 100].",
+    "-100 <= Node.val <= 100"
+  ],
+  "functionName": "middleNode",
+  "returnType": "linkedlist",
+  "javascriptDefaultCode": `
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+    // Write your code here
+};`,
+  "pythonDefaultCode": `
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        # Write your code here`,
+  "javaDefaultCode": `
+/* Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+public ListNode middleNode(ListNode head) {
+    // Write your code here
+}`,
+  "isSubmitted": false,
+  "testCaseOutputs": [],
+  "testCaseResults": [],
+  "example": [
+    {
+      "number": 1,
+      "input": "head = [1,2,3,4,5]",
+      "output": "[3,4,5]",
+      "parameter": "[1,2,3,4,5]",
+      "explanation": "The middle node is 3, so the output is [3,4,5].",
+      "image": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+    },
+    {
+      "number": 2,
+      "input": "head = [1,2,3,4,5,6]",
+      "output": "[4,5,6]",
+      "parameter": "[1,2,3,4,5,6]",
+      "explanation": "The middle node is 4, so the output is [4,5,6].",
+      "image": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))))"
+    },
+    {
+      "number": 3,
+      "input": "head = [1,2,3,4,5,6,7]",
+      "output": "[4,5,6,7]",
+      "parameter": "[1,2,3,4,5,6,7]",
+      "explanation": "The middle node is 3, so the output is [4,5,6,7].",
+      "image": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6, new ListNode(7)))))))"
+    }
+  ],
+  "cases": [
+    {
+      "parameter": "[1,2,3,4,5]",
+      "expectedOutput": "[3,4,5]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+    },
+    {
+      "parameter": "[1,2,3,4,5,6]",
+      "expectedOutput": "[4,5,6]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6))))))"
+    },
+    {
+      "parameter": "[1]",
+      "expectedOutput": "[1]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1))"
+    },
+    {
+      "parameter": "[1,2]",
+      "expectedOutput": "[2]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2)))"
+    },
+    {
+      "parameter": "[1,2,3]",
+      "expectedOutput": "[2,3]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3))))"
+    },
+    {
+      "parameter": "[1]",
+      "expectedOutput": "[1]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1))"
+    },
+    {
+      "parameter": "[1,2]",
+      "expectedOutput": "[2]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2)))"
+    },
+    {
+      "parameter": "[1,2,3]",
+      "expectedOutput": "[2,3]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3))))"
+    },
+    {
+      "parameter": "[1,2,3,4]",
+      "expectedOutput": "[3,4]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4)))))"
+    },
+    {
+      "parameter": "[1,2,3,4,5]",
+      "expectedOutput": "[3,4,5]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5))))))"
+    },
+    {
+      "parameter": "[1,2,3,4,5,6]",
+      "expectedOutput": "[4,5,6]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))))"
+    },
+    {
+      "parameter": "[1,2,3,4,5,6,7]",
+      "expectedOutput": "[4,5,6,7]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6, new ListNode(7)))))))))"
+    },
+    {
+      "parameter": "[1,2,3,4,5,6,7,8]",
+      "expectedOutput": "[5,6,7,8]",
+      "userOutput": null,
+      "javaFuncCall": "middleNode(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6, new ListNode(7, new ListNode(8))))))))))"
+    }
+    
+  ]
+},
+
 ];
 
 export const javaAllQuesObj = [
