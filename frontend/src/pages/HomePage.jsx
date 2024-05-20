@@ -7,6 +7,7 @@ import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
 import { AllquesObject } from '../javascripts/data'
 import { useDispatch, useSelector } from 'react-redux'
 import { setRangeValue, setSolvedProblemsCount } from '../store/rangesSlice'
+import { setSolvedProblems } from '../store/solvedProblemsReducer'
 import { setSelectedLanguage } from '../store/languageSelectingSlice'
 import axios from 'axios'
 import { setUserProblems, userSlice } from '../store/userSlice'
@@ -23,6 +24,8 @@ const HomePage = () => {
   const solvedProblems = useSelector(
     (state) => state.solvedProblems.solvedProblems,
   )
+  const problemObj = useSelector((state) => state.problemObj.obj)
+
   // console.log(totalEasyLength + "h");
 
   const { easy, medium, hard } = useSelector((state) => state.ranges)
@@ -52,6 +55,27 @@ const HomePage = () => {
     return AllquesObject.filter((problem) => problem.difficulty === difficulty)
       .length
   }
+
+  useEffect(() => {
+    console.log('came')
+    let solvedArr = []
+    let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
+    console.log(attemptsArr)
+    console.log(attemptsArr[0])
+    AllquesObject.map((que) => {
+      if (
+        attemptsArr[que.number - 1] !== 0 ||
+        que.number === problemObj.number ||
+        solvedProblems[que.number - 1]
+      ) {
+        solvedArr.push(true)
+      } else {
+        solvedArr.push(false)
+      }
+    })
+    dispatch(setSolvedProblems([...solvedArr]))
+    localStorage.setItem('solved', JSON.stringify([...solvedArr]))
+  }, [])
 
   useEffect(() => {
     setTotalEasy(0)

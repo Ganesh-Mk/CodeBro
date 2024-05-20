@@ -285,8 +285,12 @@ print(linkedListToArray(result))
     let allCorrect = caseCorrectArr.every((e) => e === true)
     if (allCorrect) {
       let solvedArr = []
+      let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
+      console.log(attemptsArr)
+      console.log(attemptsArr[0])
       AllquesObject.map((que) => {
         if (
+          attemptsArr[que.number - 1] !== 0 ||
           que.number === problemObj.number ||
           solvedProblems[que.number - 1]
         ) {
