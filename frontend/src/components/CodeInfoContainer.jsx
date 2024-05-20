@@ -9,6 +9,18 @@ import Submit from './Submit'
 function CodeInfoContainer({ isLoadingSubmit }) {
   const problemObj = useSelector((state) => state.problemObj.obj)
   const [curPage, setCurPage] = useState('sub')
+  const [isSolved, setIsSolved] = useState(false)
+
+  useEffect(() => {
+    let solvedArr = []
+    const storedSolved = localStorage.getItem('solved')
+    if (storedSolved) {
+      solvedArr = JSON.parse(storedSolved)
+    }
+    if (solvedArr[problemObj.number - 1]) {
+      setIsSolved(true)
+    } else setIsSolved(false)
+  }, [localStorage.getItem('solved')])
 
   useEffect(() => {
     if (curPage === 'desc') setCurPage('sub')
@@ -53,7 +65,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           </h4>
         </div>
         <div>
-          <h4>solved</h4>
+          <h4>{isSolved ? 'Solved' : 'Not Solved'}</h4>
         </div>
       </div>
 

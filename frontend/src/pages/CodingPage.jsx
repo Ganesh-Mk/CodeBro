@@ -47,7 +47,6 @@ function CodingPage() {
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
 
   const submitCode = async () => {
-    console.log(problemObj)
     setIsLoadingSubmit(true)
     dispatch(setIsSubmitted(true))
     setTestCaseOutput([])
@@ -326,7 +325,6 @@ print(linkedListToArray(result))
     let solvedArr = []
     try {
       const storedSolved = localStorage.getItem('solved')
-      console.log(storedSolved)
       if (storedSolved) {
         solvedArr = JSON.parse(storedSolved)
       }

@@ -74,10 +74,6 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
       })
   }, [addTestCaseResults])
 
-  useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('attempts')))
-  }, [index])
-
   return (
     <div className="problemBoxContainer">
       <div className="problemBoxPart1">

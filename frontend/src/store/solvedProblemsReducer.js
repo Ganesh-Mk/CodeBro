@@ -10,7 +10,6 @@ export const solvedProblemSlice = createSlice({
   reducers: {
     setSolvedProblems: (state, action) => {
       state.solvedProblems = action.payload
-      console.log(state.solvedProblems)
     },
   },
 })
