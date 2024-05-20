@@ -40,12 +40,10 @@ const HomePage = () => {
     console.log('came')
     let solvedArr = []
     let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
-    console.log(attemptsArr)
-    console.log(attemptsArr[0])
     AllquesObject.map((que) => {
       if (
         attemptsArr[que.number - 1] !== 0 ||
-        que.number === problemObj.number ||
+        // que.number === problemObj.number ||
         solvedProblems[que.number - 1]
       ) {
         solvedArr.push(true)
@@ -55,7 +53,7 @@ const HomePage = () => {
     })
     dispatch(setSolvedProblems([...solvedArr]))
     localStorage.setItem('solved', JSON.stringify([...solvedArr]))
-  }, [])
+  }, [addTestCaseResults])
 
   useEffect(() => {
     setTotalEasy(0)
@@ -109,7 +107,6 @@ const HomePage = () => {
         setEasyWidth(response.data.easySolved || 0)
         setMediumWidth(response.data.mediumSolved || 0)
         setHardWidth(response.data.hardSolved || 0)
-        setCircleValue(response.data.totalSolved || 0)
       })
       .catch((error) => {
         console.error('Error fetching user data:', error)

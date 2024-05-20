@@ -3,9 +3,13 @@ import '../style/EntrancePage.scss'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import CodeBroLogo from '../components/CodeBroLogo'
+import { useDispatch } from 'react-redux'
+import { setSolvedProblems } from '../store/solvedProblemsReducer'
 
 function EntrancePage() {
+  const dispatch = useDispatch()
   useEffect(() => {
+    dispatch(setSolvedProblems([]))
     localStorage.setItem('solved', '[]')
   })
 
