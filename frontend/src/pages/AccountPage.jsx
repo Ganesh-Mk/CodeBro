@@ -155,6 +155,9 @@ function AccountPage() {
         <div className="accLeft">
           <div className="accLeftTop">
             <img
+              style={{
+                borderRadius: '100vw',
+              }}
               src={
                 userImage
                   ? `http://localhost:3000/uploads/${userImage}`

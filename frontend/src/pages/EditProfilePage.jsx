@@ -96,6 +96,21 @@ function EditProfilePage() {
     reader.readAsDataURL(file)
     setUserImage(file)
   }
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3000/fetchUserImage', {
+        params: {
+          userEmail: localStorage.getItem('email'),
+        },
+      })
+      .then((response) => {
+        setUserImage(response.data.userImage)
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error)
+      })
+  }, [])
   return (
     <div>
       <Navbar />
@@ -105,7 +120,17 @@ function EditProfilePage() {
         </div>
         <div className="editBox">
           <div className="editLeft">
-            {editUserImage && <img src={editUserImage} alt="Uploaded Image" />}
+            <img
+              style={{
+                borderRadius: '100vw',
+              }}
+              src={
+                userImage
+                  ? `http://localhost:3000/uploads/${userImage}`
+                  : images.accDefaultLogo
+              }
+              alt="account default logo"
+            />
 
             <label htmlFor="imageInput" className="custom-file-upload">
               Choose Image

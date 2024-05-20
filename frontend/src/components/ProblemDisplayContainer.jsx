@@ -63,11 +63,11 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
         {value && (
           <>
             <div className="statusContainer">
-              {/* {JSON.parse(localStorage.getItem('solved'))[index] ? (
+              {JSON.parse(localStorage.getItem('solved'))[index] ? (
                 <img src={images.solved} alt="Solved" />
               ) : (
                 'X'
-              )} */}
+              )}
             </div>
             <div className="numberdisplayer">{problem.number}</div>
           </>
@@ -85,11 +85,11 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
         <div className="problemBoxPart2">
           <div className="problemBoxMiddle">{problem.ds}</div>
           <div className="difficultyDisplayer">{problem.difficulty}</div>
-          {/* <div className="attempts">
-            {JSON.parse(localStorage.getItem('attempts'))[0]
-              ? JSON.parse(localStorage.getItem('attempts'))[0].attempts
+          <div className="attempts">
+            {JSON.parse(localStorage.getItem('attempts'))[index]
+              ? JSON.parse(localStorage.getItem('attempts'))[index].attempts
               : 0}
-          </div> */}
+          </div>
         </div>
       )}
     </div>

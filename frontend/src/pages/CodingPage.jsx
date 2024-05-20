@@ -323,7 +323,16 @@ print(linkedListToArray(result))
   }
 
   useEffect(() => {
-    let solvedArr = JSON.parse(localStorage.getItem('solved')) || []
+    let solvedArr = []
+    try {
+      const storedSolved = localStorage.getItem('solved')
+      console.log(storedSolved)
+      if (storedSolved) {
+        solvedArr = JSON.parse(storedSolved)
+      }
+    } catch (e) {
+      console.error("Failed to parse 'solved' from localStorage", e)
+    }
     dispatch(setSolvedProblems(Array.isArray(solvedArr) ? solvedArr : []))
   }, [])
 
