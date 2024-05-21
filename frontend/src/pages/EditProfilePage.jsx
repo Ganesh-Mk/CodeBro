@@ -128,7 +128,9 @@ function EditProfilePage() {
                 borderRadius: '100vw',
               }}
               src={
-                userImageEdit === images.accDefaultLogo
+                editUserImage !== images.accDefaultLogo
+                  ? editUserImage
+                  : userImageEdit === images.accDefaultLogo
                   ? userImage
                     ? `http://localhost:3000/uploads/${userImage}`
                     : images.accDefaultLogo

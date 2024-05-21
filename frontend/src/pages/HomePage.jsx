@@ -40,17 +40,25 @@ const HomePage = () => {
     console.log('came')
     let solvedArr = []
     let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
-    AllquesObject.map((que) => {
-      if (
-        attemptsArr[que.number - 1] !== 0 ||
-        // que.number === problemObj.number ||
-        solvedProblems[que.number - 1]
-      ) {
-        solvedArr.push(true)
-      } else {
+
+    if (attemptsArr.length !== 0) {
+      AllquesObject.map((que) => {
+        if (
+          attemptsArr[que.number - 1] !== 0 ||
+          // que.number === problemObj.number ||
+          solvedProblems[que.number - 1]
+        ) {
+          solvedArr.push(true)
+        } else {
+          solvedArr.push(false)
+        }
+      })
+    } else {
+      AllquesObject.map(() => {
         solvedArr.push(false)
-      }
-    })
+      })
+    }
+
     dispatch(setSolvedProblems([...solvedArr]))
     localStorage.setItem('solved', JSON.stringify([...solvedArr]))
   }, [addTestCaseResults])
