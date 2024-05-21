@@ -39,20 +39,44 @@ const HomePage = () => {
   useEffect(() => {
     let solvedArr = []
     let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
-    AllquesObject.map((que) => {
-      if (
-        attemptsArr[que.number - 1] !== 0 ||
-        // que.number === problemObj.number ||
-        solvedProblems[que.number - 1]
-      ) {
-        solvedArr.push(true)
-      } else {
+
+    if (attemptsArr.some((e) => e === 1)) {
+      AllquesObject.map((que) => {
+        if (
+          attemptsArr[que.number - 1] !== 0 ||
+          solvedProblems[que.number - 1]
+        ) {
+          solvedArr.push(true)
+        } else {
+          solvedArr.push(false)
+        }
+      })
+    } else {
+      AllquesObject.map(() => {
         solvedArr.push(false)
-      }
-    })
+      })
+    }
+
     dispatch(setSolvedProblems([...solvedArr]))
     localStorage.setItem('solved', JSON.stringify([...solvedArr]))
   }, [addTestCaseResults])
+
+  useEffect(() => {
+    setTimeout(() => {
+      let solvedArr = []
+
+      let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
+      AllquesObject.map((que) => {
+        if (attemptsArr[que.number - 1] !== 0) {
+          solvedArr.push(true)
+        } else {
+          solvedArr.push(false)
+        }
+      })
+      dispatch(setSolvedProblems([...solvedArr]))
+      localStorage.setItem('solved', JSON.stringify([...solvedArr]))
+    }, 50)
+  })
 
   useEffect(() => {
     setTotalEasy(0)
@@ -74,13 +98,6 @@ const HomePage = () => {
     })
   }, [])
 
-  useEffect(() => {
-    const solvedProblemsCount = AllquesObject.filter(
-      (problem) => problem.isSolved === true,
-    ).length
-    dispatch(setSolvedProblemsCount(solvedProblemsCount))
-  }, [dispatch])
-
   const handleLanguageBox = (language) => {
     dispatch(setSelectedLanguage(language))
   }
@@ -97,6 +114,7 @@ const HomePage = () => {
         console.error('Error fetching user data:', error)
       })
   }, [addTestCaseResults])
+
   useEffect(() => {
     axios
       .get('http://localhost:3000/problemRecord', {

@@ -13,6 +13,7 @@ function EntrancePage() {
   useEffect(() => {
     dispatch(setSolvedProblems([]))
     localStorage.setItem('solved', '[]')
+    localStorage.setItem('attempts', '[]')
   }, [])
 
   return (

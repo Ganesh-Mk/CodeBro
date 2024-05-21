@@ -299,6 +299,7 @@ print(linkedListToArray(result))
           solvedArr.push(false)
         }
       })
+
       dispatch(setSolvedProblems([...solvedArr]))
       localStorage.setItem('solved', JSON.stringify([...solvedArr]))
 
