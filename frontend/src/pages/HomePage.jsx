@@ -41,11 +41,10 @@ const HomePage = () => {
     let solvedArr = []
     let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
 
-    if (attemptsArr.length !== 0) {
+    if (attemptsArr.every((e) => e === 0)) {
       AllquesObject.map((que) => {
         if (
           attemptsArr[que.number - 1] !== 0 ||
-          // que.number === problemObj.number ||
           solvedProblems[que.number - 1]
         ) {
           solvedArr.push(true)
@@ -83,13 +82,6 @@ const HomePage = () => {
     })
   }, [])
 
-  useEffect(() => {
-    const solvedProblemsCount = AllquesObject.filter(
-      (problem) => problem.isSolved === true,
-    ).length
-    dispatch(setSolvedProblemsCount(solvedProblemsCount))
-  }, [dispatch])
-
   const handleLanguageBox = (language) => {
     dispatch(setSelectedLanguage(language))
   }
@@ -106,6 +98,7 @@ const HomePage = () => {
         console.error('Error fetching user data:', error)
       })
   }, [addTestCaseResults])
+
   useEffect(() => {
     axios
       .get('http://localhost:3000/problemRecord', {
