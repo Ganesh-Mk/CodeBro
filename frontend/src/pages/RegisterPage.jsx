@@ -68,7 +68,7 @@ export default function RegisterPage() {
               type="text"
               placeholder="Enter your username"
               value={userName}
-              onClick={(e) => setUserName(e.target.value)}
+              onChange={(e) => setUserName(e.target.value)}
               required
               className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
             />
@@ -82,7 +82,7 @@ export default function RegisterPage() {
               type="email"
               placeholder="Enter your email"
               value={userEmail}
-              onClick={(e) => setUserEmail(e.target.value)}
+              onChange={(e) => setUserEmail(e.target.value)}
               required
               className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
             />
@@ -96,7 +96,7 @@ export default function RegisterPage() {
               type="password"
               placeholder='Enter your passowrd'
               value={userPassword}
-              onClick={(e) => setUserPassword(e.target.value)}
+              onChange={(e) => setUserPassword(e.target.value)}
               required
               className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
             />
