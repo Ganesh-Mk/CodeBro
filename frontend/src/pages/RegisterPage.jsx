@@ -15,7 +15,7 @@ import {
   setLinkedin,
 } from '../store/userSlice'
 
-function RegisterPage() {
+export default function RegisterPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [userName, setUserName] = useState('')
@@ -53,41 +53,59 @@ function RegisterPage() {
       .catch((err) => console.log(err))
   }
   return (
-    <div className="RegisterContainer">
-      <CodeBroLogo />
-      <div className="SignUp-Container">
-        <div className="SignUpBox">
-          <h2>Sign Up</h2>
-          <div className="inputs">
-            <form action="">
-              <input
-                type="text"
-                placeholder="Enter your name"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={userEmail}
-                onChange={(e) => setUserEmail(e.target.value)}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Enter new password"
-                value={userPassword}
-                onChange={(e) => setUserPassword(e.target.value)}
-                required
-              />
-            </form>
+    <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
+        <div className="space-y-1 text-center">
+          <h1 className="text-2xl text-white">Sign Up</h1>
+        </div>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <label htmlFor="username" className="text-gray-400">
+              Username
+            </label>
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter your username"
+              value={userName}
+              onClick={(e) => setUserName(e.target.value)}
+              required
+              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+            />
           </div>
-          <Button onClick={handleSubmit}>Submit</Button>
+          <div className="space-y-2">
+            <label htmlFor="email" className="text-gray-400">
+              User Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={userEmail}
+              onClick={(e) => setUserEmail(e.target.value)}
+              required
+              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+            />
+          </div>
+          <div className="space-y-2">
+            <label htmlFor="password" className="text-gray-400">
+              User Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              placeholder='Enter your passowrd'
+              value={userPassword}
+              onClick={(e) => setUserPassword(e.target.value)}
+              required
+              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+            />
+          </div>
+        </div>
+        <div className="mt-4">
+          <button onClick={handleSubmit} className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3">Sign Up</button>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default RegisterPage
