@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import FooterComp from '../components/FooterComp'
+import axios from 'axios';
 
 export default function AboutUsPage() {
+const [name, setname] = useState('')
+const [email, setemail] = useState('')
+const [message, setmessage] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3000/userMessages', {name, email, message})
+    .then((res) => {
+      console.log(res);
+      setemail('')
+      setname('')
+      setmessage('')
+    })
+    .catch(err => console.log(err))
+  }
+
   return (
     <div>
       <Navbar/>
@@ -150,6 +167,8 @@ export default function AboutUsPage() {
                 <input
                   id="name"
                   type="text"
+                  value={name}
+                  onChange={(e) => setname(e.target.value)}
                   placeholder="Enter your name"
                   className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
@@ -159,6 +178,8 @@ export default function AboutUsPage() {
                 <input
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(e) => setemail(e.target.value)}
                   placeholder="Enter your email"
                   className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
@@ -167,12 +188,15 @@ export default function AboutUsPage() {
                 <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
+                  value={message}
+                  onChange={(e) => setmessage(e.target.value)}
                   rows="4"
                   placeholder="Enter your message"
                   className="block w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
               <button
+                onClick={handleSubmit}
                 type="submit"
                 className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 h-auto w-auto text-2xl font-semibold"
               >

@@ -8,6 +8,8 @@ const path = require('path')
 require('dotenv').config()
 const UserModel = require('./models/userModel')
 const LeaderBoard = require('./models/leaderBoardModel')
+const UserMessageModel = require('./models/userMessageModel')
+
 
 const app = express()
 app.use(express.json())
@@ -285,6 +287,12 @@ app.post('/createUser', (req, res) => {
     })
     .catch((err) => res.send(err))
 })
+
+app.post('/userMessages', (req, res) => {
+  UserMessageModel.create(req.body)
+    .then((createdMessage) => res.json({ message: 'Message received', name: createdMessage.name }))
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
 PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
