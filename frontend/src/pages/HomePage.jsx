@@ -198,7 +198,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="problemdisplays">
-              {AllquesObject.map((problem, index) => (
+              {AllquesObject.slice(0, 10).map((problem, index) => (
                 <ProblemDisplayContainer
                   problem={problem}
                   index={index}
