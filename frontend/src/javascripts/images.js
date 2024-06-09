@@ -19,6 +19,7 @@ import js from '../assets/images/js.png'
 import python from '../assets/images/python.png'
 import P8a from '../assets/images/P8a.jpg'
 import P8b from '../assets/images/P8b.jpg'
+import photo1 from '../assets/images/Profile11.jpg'
 
 export const images = {
   codeBroLogo,
@@ -42,4 +43,5 @@ export const images = {
   python,
   P8a,
   P8b,
+  photo1,
 }

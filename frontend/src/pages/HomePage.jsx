@@ -206,6 +206,10 @@ const HomePage = () => {
                   value={true}
                 />
               ))}
+              <Link to="/problems">
+              <button className='moreQuesbnt'>More Questions...</button>
+              </Link>
+              
             </div>
           </div>
         </div>

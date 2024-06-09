@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import FooterComp from '../components/FooterComp'
 import axios from 'axios';
+import '../style/AboutUs.scss'
+import { images } from '../javascripts/images';
 
 export default function AboutUsPage() {
 const [name, setname] = useState('')
@@ -32,7 +34,15 @@ const [message, setmessage] = useState('')
             members below.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <div className="creatorPhotos">
+          <div className='tejPhoto'>
+            <img src={images.photo1} alt="" />
+          </div>
+          <div className="ganeshPhoto">
+            <img src={images.photo1} alt="" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
           <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 space-y-4">
             <div className="flex items-center gap-4">
               <div className="rounded-full bg-gray-200 dark:bg-gray-700 w-12 h-12 flex items-center justify-center text-2xl font-bold">
@@ -40,7 +50,7 @@ const [message, setmessage] = useState('')
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white">Tej MH</h3>
-                <p className="text-gray-500 dark:text-gray-400">Frontend and Authentication</p>
+                <p className="text-gray-500 dark:text-gray-400">Frontend and Authentication </p>
                 <div className="flex items-center gap-5 mt-2">
                   <a href="https://www.linkedin.com/in/tej-hagargi-/" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">
                     <svg
