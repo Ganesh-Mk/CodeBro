@@ -1,49 +1,32 @@
 import React from 'react'
+import '../style/DisplayProblemContainer.css'
 
 function DisplayProblemContainer({
   num = '',
   diff = '',
   attempts = '',
   problem = '',
-  fontSize = '2vw',
+  fontSize = '1.5vw',
 }) {
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          border: '1px solid white',
-          padding: '.5vw 1vw',
-          margin: '1vw 0',
-          borderRadius: '100rem',
-        }}
-      >
-        <p style={{ fontSize: fontSize }}>
-          {num}. {problem}
-        </p>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1vw',
-          }}
+    <div className="displayProblemContainer">
+      <p className={fontSize === '1.5vw' ? 'bigFont' : 'smallFont'}>
+        {num}. &nbsp; {problem}
+      </p>
+      <div className="displayDetails">
+        <p
+          className={`${
+            fontSize === '1.5vw' ? 'bigFont' : 'smallFont'
+          } ${diff.toLowerCase()}`}
         >
-          {fontSize === '2vw' ? (
-            <p style={{ fontSize: fontSize, marginRight: '5vw' }}>{diff}</p>
-          ) : (
-            <p style={{ fontSize: fontSize }}>{diff}</p>
-          )}
-          {fontSize === '2vw' ? (
-            <p style={{ fontSize: fontSize, marginRight: '5vw' }}>{attempts}</p>
-          ) : (
-            ''
-          )}
-        </div>
+          {diff}
+        </p>
+
+        <p className={fontSize === '1.5vw' ? 'bigFont' : 'smallFont'}>
+          {attempts}
+        </p>
       </div>
-    </>
+    </div>
   )
 }
 

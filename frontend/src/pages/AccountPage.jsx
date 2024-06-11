@@ -7,6 +7,7 @@ import {
   Button,
   CircularProgress,
   CircularProgressLabel,
+  useBreakpointValue,
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { AllquesObject } from '../javascripts/data'
@@ -16,6 +17,7 @@ import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
 import { addTestCaseResults } from '../store/problemObjSlice'
 
 function AccountPage() {
+  const size = useBreakpointValue({ base: '45vw', md: '12vw' })
   const userObj = useSelector((state) => state.user)
   const [userName, setUserName] = useState(userObj.name)
   const [userEmail, setUserEmail] = useState(userObj.email)
@@ -155,9 +157,6 @@ function AccountPage() {
         <div className="accLeft">
           <div className="accLeftTop">
             <img
-              style={{
-                borderRadius: '100vw',
-              }}
               src={
                 userImage
                   ? `http://localhost:3000/uploads/${userImage}`
@@ -166,18 +165,20 @@ function AccountPage() {
               alt="account default logo"
             />
             <div>
-              <p>User name: {userName}</p>
-              <p>Rank: {userRank}</p>
+              <p>{userName}</p>
+              <p id="accEmail">{userEmail}</p>
+              <p id="accRank">
+                <span>Rank:</span> {userRank}
+              </p>
             </div>
           </div>
           <div className="accBtnBox">
             <Link to="/editprofile">
-              <Button w={400}>Edit profile</Button>
+              <Button id="accLeftBtn">Edit profile</Button>
             </Link>
           </div>
 
           <div className="socialBox">
-            <p>Connect with me in</p>
             <div>
               {userInsta != '' ? (
                 <Link className="links" target="_blank" to={userInsta}>
@@ -215,35 +216,36 @@ function AccountPage() {
           <div className="langBox">
             <p>Languages used to solve problems</p>
             <div className="langSubBox">
-              <Button w={120} fontSize={15} variant="outline">
-                Javascript{' '}
-                <span className="multipleOfLang"> &nbsp; x{jsSolved}</span>
-              </Button>
-              <Button w={120} fontSize={15} variant="outline">
-                Python{' '}
-                <span className="multipleOfLang"> &nbsp; x{pythonSolved}</span>
-              </Button>
-              <Button w={120} fontSize={15} variant="outline">
-                Java{' '}
-                <span className="multipleOfLang"> &nbsp; x{javaSolved}</span>
-              </Button>
+              <div className="langLeft">
+                <p>JavaScript</p>
+                <p>Python</p>
+                <p>Java</p>
+              </div>
+              <div className="langRight">
+                <p>
+                  <span>{jsSolved}</span> problems solved
+                </p>
+                <p>
+                  <span>{pythonSolved}</span> problems solved
+                </p>
+                <p>
+                  <span>{javaSolved}</span> problems solved
+                </p>
+              </div>
             </div>
           </div>
           <div className="accLogoutBox">
             <Link to="/">
-              <Button w={400}>Log out</Button>
+              <Button id="accLeftBtn">Log out</Button>
             </Link>
           </div>
         </div>
         <div className="accRight">
           <div className="accTop">
-            <div className="accRightTopHeadingBox">
-              <p>Solved Problems Stats</p>
-            </div>
             <div className="accRightTopContentBox">
               <div>
                 <CircularProgress
-                  size={160}
+                  size={size}
                   value={(circleValue / totalProblems) * 100}
                   color="green.400"
                 >
@@ -259,8 +261,8 @@ function AccountPage() {
                 <div className="rangeContainer">
                   <div className="diffTextBox">
                     <p className="easy">Easy</p>
-                    <p className="Medium">Medium</p>
-                    <p className="Hard">Hard</p>
+                    <p className="medium">Medium</p>
+                    <p className="hard">Hard</p>
                   </div>
                   <div className="rangeBox">
                     <div className="range">
@@ -309,7 +311,7 @@ function AccountPage() {
           <div className="accBottom">
             <p>Submission List</p>
             <hr />
-            <div>
+            <div style={{ height: '100%' }}>
               <div className="headings">
                 <p>Problem Name</p>
                 <div>

@@ -4,22 +4,41 @@ h1, p{
 
 .accountPage{
     width: 100vw;
-    height: 90vh;
+    height: 91.5vh;
+    padding: 1vw;
+    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 1.5vw;
+    background: #1A1A1A;
 
     .accLeft{
-        border: 1px solid grey;
         border-radius: 2vw;
+        background: #282828;
+        height: 100%;
+
         .accLeftTop{
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: center;
+            gap: 2vw;
             padding: 2vw 2vw 0 2vw;
+
+            #accEmail{
+                color: grey;
+                font-size: 1.3vw;
+            }
+            #accRank{
+                margin-top: 2vw;
+            }
+            #accRank span{
+                color: grey;
+            }
 
             img{
                 width: 11vw;
                 height: 11vw;
+                border-radius: 2vw;
             }
 
             p{
@@ -27,6 +46,12 @@ h1, p{
             }
         }
 
+        #accLeftBtn{
+            width: 30vw;
+            margin-top: 1vw;
+            font-size: 1.5vw;
+            height: 3vw;
+        }
         .accBtnBox{
             width: 100%;
             display: flex;
@@ -35,7 +60,8 @@ h1, p{
         }
         .socialBox{
             width: 100%;
-            padding: 2vw;
+            padding: 1vw 2vw;
+            margin-bottom: 1vw;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -52,31 +78,47 @@ h1, p{
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-
-                
             }
 
         
         }
 
         .langBox{
-            margin-top: 1vw;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-
+             
+            p{
+                margin: 1vw 0;
+        color: lightgrey;
+                font-size: 1.3vw;
+            }
             h1{
                 font-size: 2vw;
             }
 
             .langSubBox{
                 width: 100%;
+                padding: 0 3vw;
                 display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                gap: 1vw;
+                justify-content: space-between;
+                align-items: center;
+
+                .langLeft p{
+                    font-size: 1vw;
+                    background: #3E3E3E;
+                    margin: .6vw 0;
+                    border-radius: 100vw;
+                    padding: .3vw 4vw .2vw 4vw;
+                }
+
+                .langRight p{
+                    font-size: 1vw;
+                    margin: .6vw 0;
+                    color: grey;
+                }
             }
 
             .multipleOfLang{
@@ -87,23 +129,27 @@ h1, p{
         .accLogoutBox{
             width: 100%;
             display: flex;
+            margin-top: 1vw;
             justify-content: center;
             align-items: center;
 
             Button{
+                font-size: 1.7vw;
+                height: 3vw;
                 color: rgb(247, 166, 166);
             }
         }
     }
     .accRight{
         display: grid;
-        grid-template-rows: 38vh 52vh;
+        grid-template-rows: 1fr 3fr;
+        gap: 1.5vw;
         
         .accTop{
-            border: 1px solid grey;
             border-radius: 2vw;
             display: grid;
-            grid-template-rows: .2fr 1fr;
+            padding: 2vw;
+            background: #282828;
 
             .circleText{
                 h2{
@@ -148,6 +194,8 @@ h1, p{
                         flex-direction: column;
                         gap: 1.8vw;
 
+                       
+
                         .range{
                             overflow: hidden;
                             
@@ -176,8 +224,17 @@ h1, p{
                         flex-direction: column;
                         gap: 1.5vw;
 
+                        .easy{
+                            color: #1CBABA;
+                        }
+                        .medium{
+                            color: #FFB700;
+                        }
+                        .hard{
+                            color: #F63737;
+                        }
+
                         p{
-                            color: white;
                             font-size: 1.2vw;
                         }
                     }
@@ -200,8 +257,8 @@ h1, p{
                     .range{
                         width: 25vw;
                         height: 1.5vw;
-                        border: 1px solid white;
                         border-radius: 10rem;
+                        box-shadow: 0px 0px 2px 0px grey;
                     }
                 }
 
@@ -212,9 +269,14 @@ h1, p{
 
         .accBottom{
             overflow: hidden;
-            border: 1px solid grey;
+            background: #282828;
             border-radius: 2vw;
             padding: 2vw;
+
+            > p{
+                color: grey;
+                font-size: 1.4vw;
+            }
 
             .headings{
                 display: flex;
@@ -222,21 +284,130 @@ h1, p{
                 align-items: center;
                 margin-top: 2vw;
                 padding: 0 2vw;
+                
 
                 div{
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    gap: 3vw;
-                    margin-right: 3vw;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1.5vw;
+                gap: 3vw;
+                margin-right: 5vw;
                 }
             }
 
             .subListBox{
                 height: 35vh;
                 overflow: scroll;
+                overflow-x: hidden;
             }
         }
     }
 }
 
+
+
+@media screen and (max-width: 800px) {
+    .accountPage{
+        grid-template-columns: 1fr;
+        gap: 3vw;
+        overflow: scroll;
+    }
+    .accountPage .accLeft .accLeftTop {
+        gap: 10vw;
+        padding: 5vw 10vw;
+    }
+    .accountPage .accLeft .accLeftTop p {
+        font-size: 5vw;
+    }
+    .accountPage .accLeft .accLeftTop #accEmail {
+        font-size: 3vw;
+    }
+    .accountPage .accLeft .accLeftTop #accRank {
+        font-size: 5vw;
+    }
+    .accountPage .accLeft .accLeftTop span {
+        font-size: 3vw;
+    }
+    .accountPage .accLeft .accLeftTop img{
+        width: 30vw;
+        height: 30vw;
+    }
+    .accountPage .accLeft #accLeftBtn {
+        width: 88vw;
+        margin-top: 3vw;
+        font-size: 3.5vw;
+        height: 8vw;
+    }
+    .accountPage .accLeft .socialBox div{
+        justify-content: center;
+        margin: 4vw 0;
+        gap: 10vw;
+    }
+    .accountPage .accLeft .socialBox .links img {
+        width: 7vw;
+        height: 7vw;
+    }
+    .accountPage .accLeft .langBox {
+        padding: 0 5vw;
+    }
+    .accountPage .accLeft .langBox p {
+        font-size: 4vw;
+        margin-top: 5vw;
+    }
+    .accountPage .accLeft .langBox .langSubBox .langLeft p {
+        font-size: 4vw;
+        margin: 3vw 0;
+    }
+    .accountPage .accLeft .langBox .langSubBox .langRight p{
+        font-size: 4vw;
+        margin: 3vw 0;
+    }
+    .accountPage .accLeft .langBox .langSubBox .langRight p span{
+        font-size: 4vw;
+    }
+    .accountPage .accLeft .accLogoutBox Button {
+        margin-bottom: 5vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox{
+        flex-direction: column;
+        padding: 6vw 0;
+    }
+    .accountPage .accRight .accTop .circleText h2 {
+        font-size: 6vw;
+    }
+    .accountPage .accRight .accTop .circleText p {
+        font-size: 4vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .diffTextBox p {
+        font-size: 4vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .numberBox p {
+        font-size: 4vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer {
+        gap: 6vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .rangeBox {
+        margin-top: 1.5vw;
+        gap: 5vw;
+    }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .range {
+        width: 46vw;
+        height: 2.5vw;
+    }
+  
+    .accountPage .accRight .accBottom > p {
+        font-size: 5vw;
+        text-align: center;
+        margin-top: 5vw;
+    }    
+
+    .headings > div > p {
+        font-size: 2.4vw;
+    }
+
+    .accountPage .accRight {
+        grid-template-rows: 1fr 1fr;
+    }
+}

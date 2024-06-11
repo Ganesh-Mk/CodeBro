@@ -1,4 +1,4 @@
-.DisplayProblemContainer {
+/* .DisplayProblemContainer {
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -32,4 +32,54 @@
 .detail {
   font-size: 14px;
   color: #666;
+} */
+
+/* DisplayProblemContainer.css */
+
+.displayProblemContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5vw 1vw;
+  background: #373737;
+  width: 98%;
+  margin: 1vw 0;
+  border-radius: 1vw;
+}
+
+.bigFont {
+  font-size: 1.5vw;
+  margin-right: 5vw;
+}
+
+.smallFont {
+  font-size: 1vw;
+}
+
+.displayDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.easy {
+  color: #1cbaba;
+}
+
+.medium {
+  color: #ffb700;
+}
+
+.hard {
+  color: #f63737;
+}
+
+@media screen and (max-width: 800px) {
+  .displayProblemContainer p {
+    font-size: 3.3vw;
+  }
+  .accountPage .accRight .accBottom .headings {
+    margin: 3vw 0;
+  }
 }
