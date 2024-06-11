@@ -39,7 +39,7 @@ const [message, setmessage] = useState('')
             <img src={images.photo1} alt="" />
           </div>
           <div className="ganeshPhoto">
-            <img src={images.photo1} alt="" />
+            <img src={images.ganesh} alt="" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
