@@ -292,7 +292,7 @@ h1, p{
                 align-items: center;
                 font-size: 1.5vw;
                 gap: 3vw;
-                margin-right: 5vw;
+                margin-right: 3vw;
                 }
             }
 
@@ -409,5 +409,10 @@ h1, p{
 
     .accountPage .accRight {
         grid-template-rows: 1fr 1fr;
+    }
+
+    .accountPage .accRight .accBottom .headings div {
+        margin-right: 0;
+        gap: 5vw;
     }
 }
