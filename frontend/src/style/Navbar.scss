@@ -1,47 +1,49 @@
-.navbar{
-    width: 100vw;
-    height: 4vw;
+.navbar {
+    width: 100%;  // Ensure the navbar fits within the viewport width
+    height: 2vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vw 3vw;
-    // border: 1px solid black;
-
-    .codeBroLogo{
-        width: 12vw;
+    padding: 2vw 1vw; // Add padding to prevent content from touching screen edges
+    // overflow-x: hidden;
+  
+    .codeBroLogo {
+      width: 12vw;
     }
-
-    .navCenter{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 3vw;
-
-        .navItems{
-            font-size: 1.2vw;
-            color: rgb(255, 255, 255);
-            text-decoration: none;
-        }
-    }
-   
-
-    .navAccContainer{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1vw;
-        border: 1px solid rgb(255, 255, 255);
-        padding: .3vw 1vw;
-        border-radius: 1vw;
+  
+    .navCenter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3vw;
+  
+      .navItems {
+        font-size: 1.2vw;
+        color: rgb(255, 255, 255);
         text-decoration: none;
-
-        .accLogo{
-            width: 1vw;
-        }
-        p{
-            font-size: 1.2vw;
-            color: rgb(255, 255, 255);
-        }
+      }
     }
-    
-}
+  
+    .navAccContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1vw;
+      border: 1px solid rgb(255, 255, 255);
+      padding: 0.3vw 1vw;
+      border-radius: 1vw;
+      text-decoration: none;
+  
+      .accLogo {
+        width: 2vw; // Adjusted to match the size in your JSX code
+        height: 2vw; // Ensure this matches the size in your JSX code
+        border-radius: 100vw;
+      }
+  
+      p {
+        font-size: 1.2vw;
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+  

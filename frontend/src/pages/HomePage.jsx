@@ -1,44 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import '../style/Home.scss'
-import Navbar from '../components/Navbar'
-import { images } from '../javascripts/images'
-import { Link } from 'react-router-dom'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import { AllquesObject } from '../javascripts/data'
-import { useDispatch, useSelector } from 'react-redux'
-import { setRangeValue, setSolvedProblemsCount } from '../store/rangesSlice'
-import { setSolvedProblems } from '../store/solvedProblemsReducer'
-import { setSelectedLanguage } from '../store/languageSelectingSlice'
-import axios from 'axios'
-import { addTestCaseResults } from '../store/problemObjSlice'
-import { setUserProblems, userSlice } from '../store/userSlice'
-import DisplayProblemContainer from '../components/DisplayProblemContainer'
+import React, { useEffect, useState } from "react";
+import "../style/Home.scss";
+import Navbar from "../components/Navbar";
+import { images } from "../javascripts/images";
+import { Link } from "react-router-dom";
+import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
+import { AllquesObject } from "../javascripts/data";
+import { useDispatch, useSelector } from "react-redux";
+import { setRangeValue, setSolvedProblemsCount } from "../store/rangesSlice";
+import { setSolvedProblems } from "../store/solvedProblemsReducer";
+import { setSelectedLanguage } from "../store/languageSelectingSlice";
+import axios from "axios";
+import { addTestCaseResults } from "../store/problemObjSlice";
+import { setUserProblems, userSlice } from "../store/userSlice";
+import DisplayProblemContainer from "../components/DisplayProblemContainer";
 import {
   Button,
   CircularProgress,
   CircularProgressLabel,
-} from '@chakra-ui/react'
-import '../style/Account.scss'
+} from "@chakra-ui/react";
+import "../style/Account.scss";
 
 const HomePage = () => {
-  const [easyWidth, setEasyWidth] = useState(0)
-  const [mediumWidth, setMediumWidth] = useState(0)
-  const [hardWidth, setHardWidth] = useState(0)
-  const [totalSolved, setTotalSolved] = useState(0)
-  const [totalEasy, setTotalEasy] = useState(0)
-  const [totalMedium, setTotalMedium] = useState(0)
-  const [totalHard, setTotalHard] = useState(0)
-  const [allProblems, setAllProblems] = useState([])
-  const [totalProblems, setTotalProblems] = useState(0)
-  const dispatch = useDispatch()
+  const [easyWidth, setEasyWidth] = useState(0);
+  const [mediumWidth, setMediumWidth] = useState(0);
+  const [hardWidth, setHardWidth] = useState(0);
+  const [totalSolved, setTotalSolved] = useState(0);
+  const [totalEasy, setTotalEasy] = useState(0);
+  const [totalMedium, setTotalMedium] = useState(0);
+  const [totalHard, setTotalHard] = useState(0);
+  const [allProblems, setAllProblems] = useState([]);
+  const [totalProblems, setTotalProblems] = useState(0);
+  const dispatch = useDispatch();
   const solvedProblems = useSelector(
-    (state) => state.solvedProblems.solvedProblems,
-  )
-  const problemObj = useSelector((state) => state.problemObj.obj)
+    (state) => state.solvedProblems.solvedProblems
+  );
+  const problemObj = useSelector((state) => state.problemObj.obj);
 
   useEffect(() => {
-    let solvedArr = []
-    let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
+    let solvedArr = [];
+    let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
 
     if (attemptsArr.some((e) => e === 1)) {
       AllquesObject.map((que) => {
@@ -46,109 +46,109 @@ const HomePage = () => {
           attemptsArr[que.number - 1] !== 0 ||
           solvedProblems[que.number - 1]
         ) {
-          solvedArr.push(true)
+          solvedArr.push(true);
         } else {
-          solvedArr.push(false)
+          solvedArr.push(false);
         }
-      })
+      });
     } else {
       AllquesObject.map(() => {
-        solvedArr.push(false)
-      })
+        solvedArr.push(false);
+      });
     }
 
-    dispatch(setSolvedProblems([...solvedArr]))
-    localStorage.setItem('solved', JSON.stringify([...solvedArr]))
-  }, [addTestCaseResults])
+    dispatch(setSolvedProblems([...solvedArr]));
+    localStorage.setItem("solved", JSON.stringify([...solvedArr]));
+  }, [addTestCaseResults]);
 
   useEffect(() => {
     setTimeout(() => {
-      let solvedArr = []
+      let solvedArr = [];
 
-      let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
+      let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
       AllquesObject.map((que) => {
         if (attemptsArr[que.number - 1] !== 0) {
-          solvedArr.push(true)
+          solvedArr.push(true);
         } else {
-          solvedArr.push(false)
+          solvedArr.push(false);
         }
-      })
-      dispatch(setSolvedProblems([...solvedArr]))
-      localStorage.setItem('solved', JSON.stringify([...solvedArr]))
-    }, 50)
-  })
+      });
+      dispatch(setSolvedProblems([...solvedArr]));
+      localStorage.setItem("solved", JSON.stringify([...solvedArr]));
+    }, 50);
+  });
 
   useEffect(() => {
-    setTotalEasy(0)
-    setTotalMedium(0)
-    setTotalHard(0)
-    setTotalProblems(0)
+    setTotalEasy(0);
+    setTotalMedium(0);
+    setTotalHard(0);
+    setTotalProblems(0);
 
-    setTotalProblems(AllquesObject.length)
+    setTotalProblems(AllquesObject.length);
     AllquesObject.map((problem) => {
-      if (problem.difficulty === 'Easy') {
-        setTotalEasy((prev) => prev + 1)
+      if (problem.difficulty === "Easy") {
+        setTotalEasy((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Medium') {
-        setTotalMedium((prev) => prev + 1)
+      if (problem.difficulty === "Medium") {
+        setTotalMedium((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Hard') {
-        setTotalHard((prev) => prev + 1)
+      if (problem.difficulty === "Hard") {
+        setTotalHard((prev) => prev + 1);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   const handleLanguageBox = (language) => {
-    dispatch(setSelectedLanguage(language))
-  }
+    dispatch(setSelectedLanguage(language));
+  };
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/problemRecord', {
-        params: { userEmail: localStorage.getItem('email') },
+      .get("http://localhost:3000/problemRecord", {
+        params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        setAllProblems(response.data.allProblems)
+        setAllProblems(response.data.allProblems);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error)
-      })
-  }, [addTestCaseResults])
+        console.error("Error fetching user data:", error);
+      });
+  }, [addTestCaseResults]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/problemRecord', {
-        params: { userEmail: localStorage.getItem('email') },
+      .get("http://localhost:3000/problemRecord", {
+        params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        setEasyWidth(response.data.easySolved || 0)
-        setMediumWidth(response.data.mediumSolved || 0)
-        setHardWidth(response.data.hardSolved || 0)
+        setEasyWidth(response.data.easySolved || 0);
+        setMediumWidth(response.data.mediumSolved || 0);
+        setHardWidth(response.data.hardSolved || 0);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error)
-      })
-  }, [addTestCaseResults])
+        console.error("Error fetching user data:", error);
+      });
+  }, [addTestCaseResults]);
 
   useEffect(() => {
-    setTotalEasy(0)
-    setTotalMedium(0)
-    setTotalHard(0)
-    setTotalProblems(0)
+    setTotalEasy(0);
+    setTotalMedium(0);
+    setTotalHard(0);
+    setTotalProblems(0);
 
-    setTotalProblems(AllquesObject.length)
+    setTotalProblems(AllquesObject.length);
     AllquesObject.map((problem) => {
-      if (problem.difficulty === 'Easy') {
-        setTotalEasy((prev) => prev + 1)
+      if (problem.difficulty === "Easy") {
+        setTotalEasy((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Medium') {
-        setTotalMedium((prev) => prev + 1)
+      if (problem.difficulty === "Medium") {
+        setTotalMedium((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Hard') {
-        setTotalHard((prev) => prev + 1)
+      if (problem.difficulty === "Hard") {
+        setTotalHard((prev) => prev + 1);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div className="home">
@@ -161,19 +161,19 @@ const HomePage = () => {
           </div>
           <div className="languages">
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox('js')}>
+              <div className="box" onClick={() => handleLanguageBox("js")}>
                 <img src={images.js} alt="" />
                 <p>JS Problems</p>
               </div>
             </Link>
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox('python')}>
+              <div className="box" onClick={() => handleLanguageBox("python")}>
                 <img src={images.python} alt="" />
                 <p>Python Problems</p>
               </div>
             </Link>
             <Link to="/programming">
-              <div className="box" onClick={() => handleLanguageBox('java')}>
+              <div className="box" onClick={() => handleLanguageBox("java")}>
                 <img src={images.java} alt="" />
                 <p>Java Problems</p>
               </div>
@@ -206,6 +206,9 @@ const HomePage = () => {
                   value={true}
                 />
               ))}
+              <Link to="/problems">
+                <button className="moreQuesbnt">More Questions...</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -213,12 +216,12 @@ const HomePage = () => {
         <div className="right">
           <div className="accTop">
             <div className="accRightTopHeadingBox">
-              <p style={{ fontSize: '1.6vw', textAlign: 'center' }}>
+              <p style={{ fontSize: "1.6vw", textAlign: "center" }}>
                 Solved Problems Stats
               </p>
             </div>
             <div className="accRightTopContentBox">
-              <div style={{ display: 'grid', placeItems: 'center' }}>
+              <div style={{ display: "grid", placeItems: "center" }}>
                 <CircularProgress
                   thickness=".5vw"
                   size={110}
@@ -230,14 +233,14 @@ const HomePage = () => {
                 >
                   <CircularProgressLabel className="circleText">
                     <p>
-                      <span style={{ fontSize: '1.9vw' }}>
-                        {easyWidth + mediumWidth + hardWidth}{' '}
+                      <span style={{ fontSize: "1.9vw" }}>
+                        {easyWidth + mediumWidth + hardWidth}{" "}
                       </span>
-                      <span style={{ fontSize: '1.2vw', color: 'grey' }}>
+                      <span style={{ fontSize: "1.2vw", color: "grey" }}>
                         / {totalProblems}
                       </span>
                     </p>
-                    <p style={{ fontSize: '1.3vw' }}>Solved</p>
+                    <p style={{ fontSize: "1.3vw" }}>Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
@@ -254,7 +257,7 @@ const HomePage = () => {
                         className="easyRange"
                         style={{
                           width: `${(easyWidth / totalEasy) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -263,7 +266,7 @@ const HomePage = () => {
                         className="mediumRange"
                         style={{
                           width: `${(mediumWidth / totalMedium) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -272,7 +275,7 @@ const HomePage = () => {
                         className="hardRange"
                         style={{
                           width: `${(hardWidth / totalHard) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -312,7 +315,7 @@ const HomePage = () => {
                   />
                 ))
               ) : (
-                <h3 style={{ textAlign: 'center', color: 'white' }}>
+                <h3 style={{ textAlign: "center", color: "white" }}>
                   No problems solved yet
                 </h3>
               )}
@@ -321,7 +324,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

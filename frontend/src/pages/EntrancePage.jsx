@@ -178,7 +178,7 @@ export default function EntrancePage() {
           <p className="text-gray-400 text-lg md:text-xl">
             Unlock your full potential with our comprehensive coding platform.
           </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          {/* <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               to="/register"
               className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
@@ -191,9 +191,9 @@ export default function EntrancePage() {
             >
               Already have an account
             </Link>
-          </div>
+          </div> */}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
+        <div className="grid mt-10 grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col items-center gap-4">
             <CodeIcon className="w-16 h-16" />
             <h3 className="text-xl text-white font-bold">Comprehensive Curriculum</h3>
