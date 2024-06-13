@@ -82,4 +82,7 @@
   .accountPage .accRight .accBottom .headings {
     margin: 3vw 0;
   }
+  .displayProblemContainer{
+    padding: 3vw 3vw;
+  }
 }

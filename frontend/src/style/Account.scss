@@ -285,6 +285,9 @@ h1, p{
                 margin-top: 2vw;
                 padding: 0 2vw;
                 
+                p{
+                    font-size: 1.5vw;
+                }
 
                 div{
                     display: flex;
@@ -300,6 +303,7 @@ h1, p{
                 height: 35vh;
                 overflow: scroll;
                 overflow-x: hidden;
+
             }
         }
     }
@@ -312,6 +316,7 @@ h1, p{
         grid-template-columns: 1fr;
         gap: 3vw;
         overflow: scroll;
+        height: 100vh;
     }
     .accountPage .accLeft .accLeftTop {
         gap: 10vw;
@@ -414,5 +419,14 @@ h1, p{
     .accountPage .accRight .accBottom .headings div {
         margin-right: 0;
         gap: 5vw;
+    }
+    .accountPage .accRight .accBottom .headings p {
+        font-size: 3vw;
+    }
+
+    .accountPage .accRight .accBottom .subListBox {
+       display: flex;
+       flex-direction: column;
+       gap: 2vw;
     }
 }
