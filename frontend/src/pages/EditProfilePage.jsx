@@ -125,7 +125,7 @@ function EditProfilePage() {
           <div className="editLeft">
             <img
               style={{
-                borderRadius: '100vw',
+                borderRadius: '2vw',
               }}
               src={
                 editUserImage !== images.accDefaultLogo
@@ -151,73 +151,53 @@ function EditProfilePage() {
           </div>
           <div className="editRight">
             <div className="editInputBox">
-              <div
-                style={{
-                  display: 'grid',
-                  placeItems: 'center',
-                  gridTemplateColumns: '30% 70%',
-                }}
-              >
+              <div className="editInput">
                 <p>Name</p>
                 <Input
                   type="text"
                   onChange={(e) => setUserName(e.target.value)}
                   value={userName}
-                  placeholder="Name"
+                  placeholder="Enter Your Name"
                 ></Input>
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  placeItems: 'center',
-                  gridTemplateColumns: '30% 70%',
-                }}
-              >
+              <div className="editInput">
                 <p>Linkedin</p>
                 <Input
                   type="text"
                   onChange={(e) => setUserLinkedin(e.target.value)}
                   value={userLinkedin}
-                  placeholder="Linkedin Link"
+                  placeholder="Paste Your Linkedin Link"
                 ></Input>
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  placeItems: 'center',
-                  gridTemplateColumns: '30% 70%',
-                }}
-              >
+              <div className="editInput">
                 <p>Github</p>
                 <Input
                   type="text"
                   onChange={(e) => setUserGithub(e.target.value)}
                   value={userGithub}
-                  placeholder="Github Link"
+                  placeholder="Paste Your Github Link"
                 ></Input>
               </div>
 
-              <div
-                style={{
-                  display: 'grid',
-                  placeItems: 'center',
-                  gridTemplateColumns: '30% 70%',
-                }}
-              >
+              <div className="editInput">
                 <p>Insta</p>
                 <Input
                   type="text"
                   onChange={(e) => setUserInsta(e.target.value)}
                   value={userInsta}
-                  placeholder="Instagram Link"
+                  placeholder="Paste Your Instagram Link"
                 ></Input>
               </div>
             </div>
             <div className="editBtnBox">
-              <Button onClick={handleSubmit}>Submit</Button>
-              <Button onClick={handleReset}>Reset</Button>
+              <button className="editBtns" onClick={handleSubmit}>
+                Submit
+              </button>
+              <button className="editBtns" onClick={handleReset}>
+                Reset
+              </button>
             </div>
           </div>
         </div>
