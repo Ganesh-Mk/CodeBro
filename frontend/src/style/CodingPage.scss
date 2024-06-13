@@ -43,6 +43,10 @@
                 font-size: 1.5rem;
                 color: white;
                 margin-bottom: 20px;
+
+                span {
+                    font-size: 1.5rem;
+                }
             }
 
             .desc {
@@ -56,4 +60,28 @@
 
        
     }
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .codingPageBox .container {
+        display: grid;
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+    .codingPageBox .container .left {
+        padding: 20px;
+        border-right: 0;
+        height: auto;
+        width: 100vw;
+    }
+    .codingPageBox .container .left .scroller {
+        height: auto;
+        width: 100vw;
+    }
+    .codingPageBox .container .left .desc {
+        font-size: 4vw;
+    }
+
 }

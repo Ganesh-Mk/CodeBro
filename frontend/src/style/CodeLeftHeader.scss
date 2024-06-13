@@ -22,3 +22,21 @@
         color: yellowgreen;
     }
 }
+
+
+@media screen and (max-width: 800px) {
+    .codeLeftHeader{
+        width: 100vw;
+    }
+
+    .codeLeftHeader p{
+        font-size: 3vw;
+        padding: .5vw 2vw;
+    }
+    .codeLeftHeader h4{
+        font-size: 3vw;
+    }
+    .codeLeftHeader h4 span{
+        font-size: 3vw;
+    }
+}

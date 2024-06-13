@@ -15,6 +15,7 @@ function CodeHeader({
       <LanguageSelector language={language} onSelect={onSelect} />
       <div style={{ display: 'flex', gap: '2vw' }}>
         <Button
+          className="codeHeaderBtns"
           variant="outline"
           colorScheme="green"
           w={100}
@@ -27,11 +28,13 @@ function CodeHeader({
           Run
         </Button>
         <Button
+          className="codeHeaderBtns"
           variant="solid"
           colorScheme="green"
           w={100}
           h={8}
           mb={3}
+          mr={3}
           fontSize={17}
           isLoading={isLoadingSubmit}
           onClick={submitCode}

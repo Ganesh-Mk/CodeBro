@@ -54,13 +54,7 @@ const Output = ({ isError }) => {
               ))
             : ''}
         </TabList>
-        <TabPanels
-          style={{
-            height: '12vw',
-            overflowX: 'hidden',
-            overflow: 'scroll',
-          }}
-        >
+        <TabPanels className="outputContainer">
           {problemObj.example.map((testCase, i) => (
             <TabPanel key={i}>
               <TestCase

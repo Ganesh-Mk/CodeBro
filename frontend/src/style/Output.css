@@ -1,0 +1,11 @@
+.outputContainer {
+  height: 12vw;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 800px) {
+  .outputContainer {
+    height: 40vh;
+  }
+}

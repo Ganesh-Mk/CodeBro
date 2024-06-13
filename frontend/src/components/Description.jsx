@@ -3,7 +3,6 @@ import Example from './Example'
 import '../style/CodingPage.scss'
 import { useSelector } from 'react-redux'
 import Constraints from './Constraints'
-import CodeInfoContainer from './CodeInfoContainer'
 import { images } from '../javascripts/images'
 
 function Description() {

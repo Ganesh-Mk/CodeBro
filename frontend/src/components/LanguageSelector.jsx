@@ -17,11 +17,12 @@ const LanguageSelector = ({ language, onSelect }) => {
     <Box ml={2} mb={4}>
       <Menu isLazy>
         <MenuButton width={130} as={Button}>
-          {language}
+          <p style={{ fontSize: '1rem' }}>{language}</p>
         </MenuButton>
         <MenuList bg="#110c1b">
           {languages.map(([lang, version]) => (
             <MenuItem
+              h={10}
               key={lang}
               color={lang === language ? ACTIVE_COLOR : ''}
               bg={lang === language ? 'gray.900' : 'transparent'}
