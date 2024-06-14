@@ -7,7 +7,7 @@ function CodeBroLogo() {
       <span className="logo">&lt;&nbsp;</span>
       <span className="logo code">Code</span>
       <span className="logo">Bro</span>
-      <span className="logo">&nbsp;&frasl;&gt;</span>
+      <span className="logo">&nbsp;&gt;</span>
     </div>
   )
 }

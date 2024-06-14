@@ -7,6 +7,27 @@ import axios from 'axios'
 
 function Navbar({ fontColor = 'white', value }) {
   const [userImage, setUserImage] = useState(null)
+
+
+  function CodeIcon(props) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    )
+  }
   useEffect(() => {
     axios
       .get('http://localhost:3000/fetchUserImage', {
@@ -21,6 +42,8 @@ function Navbar({ fontColor = 'white', value }) {
         console.error('Error fetching user data:', error)
       })
   }, [])
+
+
   return (
     <div className="navbar">
       <Link
@@ -30,6 +53,7 @@ function Navbar({ fontColor = 'white', value }) {
       >
         <CodeBroLogo />
       </Link>
+      
       <div className="navCenter">
         <Link
           to="/home"
