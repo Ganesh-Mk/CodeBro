@@ -10,7 +10,6 @@ import {
 import CorrectIcon from './CorrectIcon'
 import WrongIcon from './WrongIcon'
 import '../style/Submit.scss'
-import { useMediaQuery } from '@mui/material'
 
 function SubmitCases({
   total,
