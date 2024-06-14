@@ -19,14 +19,22 @@ $darkMode: #1a1a1a;
     margin-top: 1vw;
   }
 }
+.problemShowerContainer{
+  // height: auto;
+  background-color: #1a1a1a;
+  // padding: 1vw .8vw;
+}
 .problemsShower {
   // border: 2px solid rgb(0, 255, 0);
   padding: 0vw .8vw;
   // margin-top: 1.2vw;
-  background-color: #1a1a1a;
+  border-radius: 1vw;
+  height: auto;
+  margin: 0vw 1vw;
+  background-color: #282828;
   .levelss {
     // border: 2px solid red;
-    background-color: #1a1a1a;
+    background-color: #282828;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -111,8 +119,11 @@ $darkMode: #1a1a1a;
 
 .SearchBarPart {
   // border: 2px solid red;
-  background-color: $darkMode;
-  border-bottom: 2px solid white;
+  background-color: #282828;
+  width: auto;
+  margin: .3vw 1vw;
+  border-radius: 1vw;
+  // border-bottom: 2px solid white;
   padding-bottom: 1vw;
   color: white;
 
@@ -178,20 +189,18 @@ $darkMode: #1a1a1a;
 .horizontallinediv {
   background-color: #1a1a1a;
 }
-.horizontalline {
-  border: 1px solid rgb(255, 255, 255);
-  // margin-top: .5vw;
-}
+
 
 .problemShower {
   //    margin-top: 2vw;
   //    border: 2px solid red;
   //    margin: 1vw 1vw 0vw 1vw;
+  background-color: #282828;
 
   height: 63vh;
   overflow-y: scroll;
   padding: 0vw 1vw;
-  background-color: $darkMode;
+  // background-color: $darkMode;
 
   h2 {
     color: white;

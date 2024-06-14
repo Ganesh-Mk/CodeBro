@@ -2,6 +2,8 @@ export const AllquesObject = [
   {
     number: 1,
     heading: "Add two numbers",
+    topic:['Array'] ,
+    ds: '[Array]',
     difficulty: "Easy",
     attempts: 0,
     isSolved: false,

@@ -160,19 +160,19 @@ const HomePage = () => {
             <p>Programming Problems</p>
           </div>
           <div className="languages">
-            <Link to="/programming">
+            <Link to="#">
               <div className="box" onClick={() => handleLanguageBox("js")}>
                 <img src={images.js} alt="" />
                 <p>JS Problems</p>
               </div>
             </Link>
-            <Link to="/programming">
+            <Link to="#">
               <div className="box" onClick={() => handleLanguageBox("python")}>
                 <img src={images.python} alt="" />
                 <p>Python Problems</p>
               </div>
             </Link>
-            <Link to="/programming">
+            <Link to="#">
               <div className="box" onClick={() => handleLanguageBox("java")}>
                 <img src={images.java} alt="" />
                 <p>Java Problems</p>

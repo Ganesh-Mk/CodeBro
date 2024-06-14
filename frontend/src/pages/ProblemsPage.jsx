@@ -47,7 +47,8 @@ function ProblemsPage() {
         filteredProblems = filteredProblems.filter(
           (problem) =>
             problem.topic &&
-            problem.topic.toLowerCase() === lowerCaseSelectedTopic,
+            problem.topic.some(topic => topic.toLowerCase() === lowerCaseSelectedTopic)
+
         )
       }
     }
@@ -68,7 +69,7 @@ function ProblemsPage() {
   const problemsToShow = filterByDifficulty(selectedValue)
 
   return (
-    <>
+    <div style={{backgroundColor:"#1a1a1a", height:"100vh"}}>
       <Navbar />
       <div className="whole-container">
         <div className="heading">
@@ -76,7 +77,7 @@ function ProblemsPage() {
         </div>
         <div className="SearchBarPart">
           <div className="filterdropdownShow">
-            <p>Filter</p>
+            <p>Topic</p>
             <select
               className="filterdropdown"
               value={selectedTopic}
@@ -84,15 +85,16 @@ function ProblemsPage() {
             >
               <option value="All">All</option>
               <option value="Array">Array</option>
-              <option value="LinkedList">LinkedList</option>
               <option value="String">String</option>
-              <option value="Binary Search">Binary Search</option>
+              <option value="Math">Math</option>
               <option value="Sorting">Sorting</option>
+              <option value="LinkedList">LinkedList</option>
+              <option value="BinarySearch">Binary Search</option>
+              <option value="Matrices">Matrices</option>
               <option value="Stack">Stack</option>
-              <option value="Tree">Tree</option>
               <option value="Queue">Queue</option>
-              <option value="Solved">Solved</option>
-              <option value="Unsolved">Unsolved</option>
+              <option value="Tree">Tree</option>
+              <option value="DynamicProgramming">Dynamic Programming</option>
             </select>
           </div>
 
@@ -152,7 +154,8 @@ function ProblemsPage() {
           <div className="horizontallinediv">
             <div className="horizontalline"></div>
           </div>
-
+          
+          <div className='problemShowerContainer'>
           <div className="problemShower">
             {problemsToShow.length > 0 ? (
               problemsToShow.map((problem, index) => (
@@ -167,9 +170,11 @@ function ProblemsPage() {
               <h2>No Problems</h2>
             )}
           </div>
+          </div>
+          
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
