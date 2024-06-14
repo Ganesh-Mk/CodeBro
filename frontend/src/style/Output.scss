@@ -10,13 +10,9 @@ Tab, Tablist, p, Box{
     height: 12vw;
     overflow-x: hidden;
     overflow-y: scroll;
-  }
-  
-  @media screen and (max-width: 800px) {
-    .outputContainer {
-      height: 40vh;
-    }
 }
+  
+
 
 
 .testCase{
@@ -26,9 +22,41 @@ Tab, Tablist, p, Box{
 }
 .testCase .testCaseBlock{
   display: grid;
-
+  align-items: center;
   grid-template-columns: 1fr 3fr;
 }
 .testCase .bold{
   font-weight: bold;
 }
+
+
+@media screen and (max-width: 800px) {
+  .outputContainer {
+    height: 100%;
+    margin-bottom: 5vh;
+  }
+  .outputBox{
+    margin-top: 5vw;
+  }
+
+  .css-1eyg6bu {
+    padding-top: 5vw !important;
+    padding-bottom: 5vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .testCase{
+    gap: 5vw;
+  }
+
+  .testCase .bold,
+  .testCase span {
+    font-size: 3vw;
+  }
+
+  .css-1g4bnrh {
+    height: 6vh !important;
+  }
+}
+

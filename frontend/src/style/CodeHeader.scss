@@ -12,3 +12,9 @@
     color: red;
 }
 
+
+@media screen and (max-width: 800px) {
+    .codeHeader{
+        justify-content: space-between;
+    }
+}

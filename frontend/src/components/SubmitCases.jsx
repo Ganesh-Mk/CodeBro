@@ -10,6 +10,7 @@ import {
 import CorrectIcon from './CorrectIcon'
 import WrongIcon from './WrongIcon'
 import '../style/Submit.scss'
+import { useMediaQuery } from '@mui/material'
 
 function SubmitCases({
   total,
@@ -32,26 +33,32 @@ function SubmitCases({
               <CircularProgress
                 isIndeterminate
                 thickness={15}
-                size="2vw"
+                size={'1.5rem'}
                 color="green.300"
               />
             )}
 
-            <Box as="span" ml={10} flex="1" textAlign="left">
+            <Box
+              className="submitCaseHeading"
+              as="span"
+              ml={10}
+              flex="1"
+              textAlign="left"
+            >
               Test case: {curNum} / {total}
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
-          <div>
+          <div className="submitCaseTexts">
             <span className="bold">Input: </span> <span>{input}</span> <br />
           </div>
-          <div>
+          <div className="submitCaseTexts">
             <span className="bold">Expected Output: </span>{' '}
             <span>{expectedOutput}</span>
           </div>
-          <div>
+          <div className="submitCaseTexts">
             <span className="bold">Your Output: </span>{' '}
             <span>{userOutput}</span>
           </div>

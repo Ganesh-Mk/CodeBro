@@ -45,7 +45,6 @@ function CodingPage() {
   )
   const userObj = useSelector((state) => state.user)
   const [value, setValue] = useState(problemObj.javascriptDefaultCode)
-
   const submitCode = async () => {
     setIsLoadingSubmit(true)
     dispatch(setIsSubmitted(true))

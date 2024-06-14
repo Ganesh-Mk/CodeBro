@@ -1,5 +1,6 @@
 import { Box, HStack } from '@chakra-ui/react'
 import { Editor } from '@monaco-editor/react'
+import '../style/style.css'
 
 const CodeEditor = ({ language, value, setValue, onMount }) => {
   return (
@@ -11,7 +12,7 @@ const CodeEditor = ({ language, value, setValue, onMount }) => {
               minimap: {
                 enabled: false,
               },
-              fontSize: '20rem',
+              fontSize: '17rem',
               detectIndentation: false,
               tabSize: 4,
             }}

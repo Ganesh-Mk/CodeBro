@@ -18,11 +18,12 @@ const Output = ({ isError }) => {
 
   return (
     <>
-      <Tabs size="md" variant="soft-rounded" isFitted>
+      <Tabs className="outputBox" size="md" variant="soft-rounded" isFitted>
         <TabList style={{ margin: '1vw 0' }}>
           {problemObj.example.length > 0
             ? problemObj.example.map((testCase, i) => (
                 <Tab
+                  className="outputCaseTab"
                   key={i}
                   style={{ margin: '0 1vw' }}
                   _selected={{ backgroundColor: '#353535' }}

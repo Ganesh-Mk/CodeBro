@@ -6,6 +6,11 @@ body {
   overflow: hidden;
 }
 
+.icons {
+  width: 2vw;
+  height: 2vw;
+}
+
 [data-scroll-container] {
   overflow: hidden;
 }
@@ -36,7 +41,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin; /* Firefox equivalent for thin scrollbar */
-  scrollbar-color: rgba(255, 255, 255, 0.263) transparent; /* Color for thumb and track */
+  scrollbar-color: rgba(255, 255, 255, 0.062) transparent; /* Color for thumb and track */
 }
 
 /* Edge and Internet Explorer */
@@ -53,7 +58,18 @@ body {
     255,
     255,
     255,
-    0.5
+    0.144
   ); /* Color for the scrollbar thumb */
   border-radius: 10px; /* Full border radius */
+}
+
+.monaco-editor .view-line span {
+  font-size: 98% !important; /* Adjust the font size as needed */
+}
+
+@media screen and (max-width: 800px) {
+  .icons {
+    width: 5vw;
+    height: 5vw;
+  }
 }

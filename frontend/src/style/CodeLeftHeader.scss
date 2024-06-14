@@ -25,12 +25,16 @@
 
 @media screen and (max-width: 800px) {
     .codeLeftHeader{
-        width: 100vw;
+        width: 95vw;
     }
 
     .codeLeftHeader p{
         font-size: 3vw;
         padding: .5vw 2vw;
+    }
+    .codeLeftHeader > div > p{
+        font-size: 4vw;
+        padding: 1vw 3vw;
     }
     .codeLeftHeader h4{
         font-size: 3vw;

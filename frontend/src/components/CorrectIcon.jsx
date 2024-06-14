@@ -1,14 +1,10 @@
 import React from 'react'
 import crtImage from '../assets/icons/correctIcon.png'
-
+import '../style/style.css'
 function CorrectIcon() {
   return (
     <div>
-      <img
-        style={{ width: '2vw', height: '2vw' }}
-        src={crtImage}
-        alt="correctImg"
-      />
+      <img className="icons" src={crtImage} alt="correctImg" />
     </div>
   )
 }

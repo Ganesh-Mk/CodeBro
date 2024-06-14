@@ -12,3 +12,13 @@
 span{
     font-size: 1.3vw;
 }
+
+@media screen and (max-width: 800px) {
+    .submitCaseHeading{
+        font-size: 4vw;
+    }
+    .submitCaseTexts span{ 
+        font-size: 3.4vw;
+        color: lightgrey;
+    }
+}
