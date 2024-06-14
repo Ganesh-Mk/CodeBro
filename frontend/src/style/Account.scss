@@ -61,16 +61,37 @@ h1, p{
         .socialBox{
             width: 100%;
             padding: 1vw 2vw;
-            margin-bottom: 1vw;
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex-direction: column;
 
-            .links img{
+            .links {
+                display: inline-block; 
+              }
+              
+              .links img {
                 width: 3vw;
                 height: 3vw;
-            }
+                transition: all 0.2s ease-in-out;
+              }
+              
+              .links p {
+                font-size: 1vw;
+                color: lightgray;
+                text-align: center;
+                transition: all 0.2s ease-in-out;
+                opacity: 0;
+              }
+              
+              .links:hover img {
+                transform: scale(0.9);
+              }
+              
+              .links:hover p {
+                opacity: 1;
+              }
+              
 
             div{
                 width: 100%;
@@ -431,5 +452,9 @@ h1, p{
        display: flex;
        flex-direction: column;
        gap: 2vw;
+    }
+
+    .accountPage .accLeft .socialBox .links p {
+        font-size: 2vw;
     }
 }

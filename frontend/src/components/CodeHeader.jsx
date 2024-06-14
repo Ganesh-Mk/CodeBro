@@ -33,7 +33,6 @@ function CodeHeader({
           w={'100%'}
           mb={3}
           mr={3}
-          fontSize={17}
           isLoading={isLoadingSubmit}
           onClick={submitCode}
         >

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import LocomotiveScroll from 'locomotive-scroll'
 import 'locomotive-scroll/src/locomotive-scroll.scss'
+
 import Navbar from './components/Navbar'
 import EntrancePage from './pages/EntrancePage'
 import HomePage from './pages/HomePage'

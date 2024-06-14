@@ -1,22 +1,10 @@
-html {
-  overflow: hidden;
-}
-
-body {
-  overflow: hidden;
-}
-
 .icons {
   width: 2vw;
   height: 2vw;
 }
 
-[data-scroll-container] {
-  overflow: hidden;
-}
-
-[data-scroll-section] {
-  position: relative;
+.entrancePage {
+  overflow-y: scroll;
 }
 
 /* Webkit-based browsers (Chrome, Safari) */

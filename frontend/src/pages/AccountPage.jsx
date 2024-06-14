@@ -181,15 +181,21 @@ function AccountPage() {
           <div className="socialBox">
             <div>
               {userInsta != '' ? (
-                <Link className="links" target="_blank" to={userInsta}>
+                <Link className="links insta" target="_blank" to={userInsta}>
                   <img src={images.instagram} alt="insta logo" />
+                  <p>Insta</p>
                 </Link>
               ) : (
                 ''
               )}
               {userGithub != '' ? (
                 <Link className="links" target="_blank" to={userGithub}>
-                  <img src={images.github} alt="Github logo" />
+                  <img
+                    src={images.github}
+                    style={{ borderRadius: '100vw' }}
+                    alt="Github logo"
+                  />
+                  <p>Github</p>
                 </Link>
               ) : (
                 ''
@@ -198,14 +204,20 @@ function AccountPage() {
               {userLinkedin != '' ? (
                 <Link className="links" target="_blank" to={userLinkedin}>
                   <img src={images.linkedin} alt="LinkedIn logo" />
+                  <p>LinkedIn</p>
                 </Link>
               ) : (
                 ''
               )}
 
               {userEmail != '' ? (
-                <Link className="links" target="_blank" to={userEmail}>
+                <Link
+                  className="links"
+                  target="_blank"
+                  to={`mailto:${userEmail}`}
+                >
                   <img src={images.mail} alt="Mail logo" />
+                  <p>Email</p>
                 </Link>
               ) : (
                 ''

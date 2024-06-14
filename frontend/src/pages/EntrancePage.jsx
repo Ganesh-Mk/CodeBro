@@ -148,10 +148,7 @@ export default function EntrancePage() {
     localStorage.setItem('attempts', '[]')
   }, [])
   return (
-    <div
-      data-scroll-section
-      className="bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col"
-    >
+    <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">
       <header className="px-4 md:px-6 py-4 flex items-center justify-between">
         <Link to="/aboutus" className="flex items-center gap-2">
           <CodeIcon className="w-8 h-8" />
