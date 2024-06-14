@@ -5,6 +5,9 @@ import '../style/CodeLeftHeader.scss'
 import Description from './Description'
 import { useEffect } from 'react'
 import Submit from './Submit'
+import { images } from '../javascripts/images'
+import CorrectIcon from './CorrectIcon'
+import WrongIcon from './WrongIcon'
 
 function CodeInfoContainer({ isLoadingSubmit }) {
   const problemObj = useSelector((state) => state.problemObj.obj)
@@ -37,14 +40,18 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           }}
         >
           <p
-            style={{ background: curPage === 'desc' ? 'grey' : 'transparent' }}
+            style={{
+              background: curPage === 'desc' ? '#343434' : 'transparent',
+            }}
             onClick={() => setCurPage('desc')}
           >
             Description
           </p>
           {problemObj.isSubmitted === true ? (
             <p
-              style={{ background: curPage === 'sub' ? 'grey' : 'transparent' }}
+              style={{
+                background: curPage === 'sub' ? '#343434' : 'transparent',
+              }}
               onClick={() => setCurPage('sub')}
             >
               Submission
@@ -65,7 +72,20 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           </h4>
         </div>
         <div>
-          <h4>{isSolved ? 'Solved' : 'Not Solved'}</h4>
+          {isSolved ? (
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <p>Solved</p>
+              <CorrectIcon />
+            </div>
+          ) : (
+            <p style={{ color: 'grey' }}>Not Solved</p>
+          )}
         </div>
       </div>
 

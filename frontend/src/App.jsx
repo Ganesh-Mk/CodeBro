@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useLocation,
 } from 'react-router-dom'
+import LocomotiveScroll from 'locomotive-scroll'
+import 'locomotive-scroll/src/locomotive-scroll.scss'
+
 import Navbar from './components/Navbar'
 import EntrancePage from './pages/EntrancePage'
 import HomePage from './pages/HomePage'
@@ -18,32 +21,57 @@ import CodingPage from './pages/CodingPage'
 import EditProfilePage from './pages/EditProfilePage'
 import LeaderBoardPage from './pages/LeaderboardPage'
 
-const App = () => {
+const ScrollProvider = ({ children }) => {
+  const scrollRef = useRef(null)
+  const location = useLocation()
+
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+    })
+
+    scroll.update()
+
+    return () => {
+      scroll.destroy()
+    }
+  }, [location.pathname])
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<EntrancePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/aboutus" element={<AboutUsPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/problems" element={<ProblemsPage />} />
-        <Route path="/programming" element={<ProgrammingPage />} />
-        <Route path="/leaderboard" element={<LeaderBoardPage />} />
-        <Route path="/account" element={<AccountPage />} />
-        <Route path="/coding" element={<CodingPage />} />
-        <Route path="/editprofile" element={<EditProfilePage />} />
-      </Routes>
-    </Router>
+    <div data-scroll-container ref={scrollRef}>
+      {children}
+    </div>
   )
 }
 
-function ShowNavbar() {
-  let location = useLocation()
-  let paths = ['/', '/login', '/register', '/coding']
-  let isThere = paths.includes(location.pathname)
-  if (isThere) return null
-  return <Navbar />
+// const ShowNavbar = () => {
+//   const location = useLocation();
+//   const noNavPaths = ['/', '/login', '/register', '/coding'];
+//   return noNavPaths.includes(location.pathname) ? null : <Navbar />;
+// };
+
+const App = () => {
+  return (
+    <Router>
+      <ScrollProvider>
+        {/* <ShowNavbar /> */}
+        <Routes>
+          <Route path="/" element={<EntrancePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/aboutus" element={<AboutUsPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/problems" element={<ProblemsPage />} />
+          <Route path="/programming" element={<ProgrammingPage />} />
+          <Route path="/leaderboard" element={<LeaderBoardPage />} />
+          <Route path="/account" element={<AccountPage />} />
+          <Route path="/coding" element={<CodingPage />} />
+          <Route path="/editprofile" element={<EditProfilePage />} />
+        </Routes>
+      </ScrollProvider>
+    </Router>
+  )
 }
 
 export default App

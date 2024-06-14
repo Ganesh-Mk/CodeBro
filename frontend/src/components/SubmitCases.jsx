@@ -23,7 +23,7 @@ function SubmitCases({
     <div>
       <AccordionItem>
         <h2>
-          <AccordionButton mb={1}>
+          <AccordionButton mb={1} mt={1} h={10}>
             {results === true ? (
               <CorrectIcon />
             ) : results === false ? (

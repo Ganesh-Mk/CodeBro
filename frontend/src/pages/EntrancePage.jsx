@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { setSolvedProblems } from "../store/solvedProblemsReducer";
-
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { setSolvedProblems } from '../store/solvedProblemsReducer'
+import '../style/style.css'
 
 function CodeIcon(props) {
   return (
@@ -21,7 +21,7 @@ function CodeIcon(props) {
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
     </svg>
-  );
+  )
 }
 
 function CombineIcon(props) {
@@ -45,7 +45,7 @@ function CombineIcon(props) {
       <polyline points="7 21 10 18 7 15" />
       <rect width="8" height="8" x="14" y="14" rx="2" />
     </svg>
-  );
+  )
 }
 
 function InfoIcon(props) {
@@ -66,7 +66,7 @@ function InfoIcon(props) {
       <path d="M12 16v-4" />
       <path d="M12 8h.01" />
     </svg>
-  );
+  )
 }
 
 function PlayIcon(props) {
@@ -85,7 +85,7 @@ function PlayIcon(props) {
     >
       <polygon points="6 3 20 12 6 21 6 3" />
     </svg>
-  );
+  )
 }
 
 function QrCodeIcon(props) {
@@ -115,7 +115,7 @@ function QrCodeIcon(props) {
       <path d="M21 12v.01" />
       <path d="M12 21v-1" />
     </svg>
-  );
+  )
 }
 
 function UserIcon(props) {
@@ -135,11 +135,10 @@ function UserIcon(props) {
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
     </svg>
-  );
+  )
 }
 
 export default function EntrancePage() {
-
   const dispatch = useDispatch()
   // window.location.reload()
 
@@ -149,12 +148,16 @@ export default function EntrancePage() {
     localStorage.setItem('attempts', '[]')
   }, [])
   return (
-    <div className="bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">
+    <div
+      data-scroll-section
+      className="bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col"
+    >
       <header className="px-4 md:px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/aboutus" className="flex items-center gap-2">
           <CodeIcon className="w-8 h-8" />
           <span className="text-xl font-bold">CodeBro</span>
         </Link>
+
         <div className="flex items-center gap-4">
           <Link
             to="/register"
@@ -196,44 +199,54 @@ export default function EntrancePage() {
         <div className="grid mt-10 grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col items-center gap-4">
             <CodeIcon className="w-16 h-16" />
-            <h3 className="text-xl text-white font-bold">Comprehensive Curriculum</h3>
+            <h3 className="text-xl text-white font-bold">
+              Comprehensive Curriculum
+            </h3>
             <p className="text-gray-400 text-center">
-              Master data structures, algorithms, and problem-solving techniques with our extensive curriculum.
+              Master data structures, algorithms, and problem-solving techniques
+              with our extensive curriculum.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <PlayIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Hands-on Practice</h3>
             <p className="text-gray-400 text-center">
-              Hone your skills with a vast library of coding challenges and real-world problems.
+              Hone your skills with a vast library of coding challenges and
+              real-world problems.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <InfoIcon className="w-16 h-16" />
-            <h3 className="text-xl font-bold text-white">Interactive Learning</h3>
+            <h3 className="text-xl font-bold text-white">
+              Interactive Learning
+            </h3>
             <p className="text-gray-400 text-center">
-              Learn from expert instructors and engage with a supportive community of learners.
+              Learn from expert instructors and engage with a supportive
+              community of learners.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <CombineIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Compete</h3>
             <p className="text-gray-400 text-center">
-              Participate in coding competitions and challenges to hone your problem-solving skills.
+              Participate in coding competitions and challenges to hone your
+              problem-solving skills.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <UserIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">User Friendly</h3>
             <p className="text-gray-400 text-center">
-              Our platform is designed to be intuitive and easy to use, making your learning experience seamless.
+              Our platform is designed to be intuitive and easy to use, making
+              your learning experience seamless.
             </p>
           </div>
           <div className="flex flex-col items-center gap-4">
             <QrCodeIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Quick Response</h3>
             <p className="text-gray-400 text-center">
-              Our team is dedicated to providing prompt and helpful support to ensure your success.
+              Our team is dedicated to providing prompt and helpful support to
+              ensure your success.
             </p>
           </div>
         </div>
@@ -243,8 +256,10 @@ export default function EntrancePage() {
           <CodeIcon className="w-6 h-6" />
           <span className="text-sm font-medium">CodeBro</span>
         </div>
-        <p className="text-sm text-gray-500">&copy; 2024 CodeBro. All rights reserved.</p>
+        <p className="text-sm text-gray-500">
+          &copy; 2024 CodeBro. All rights reserved.
+        </p>
       </footer>
     </div>
-  );
+  )
 }

@@ -10,7 +10,6 @@ const UserModel = require('./models/userModel')
 const LeaderBoard = require('./models/leaderBoardModel')
 const UserMessageModel = require('./models/userMessageModel')
 
-
 const app = express()
 app.use(express.json())
 app.use(bodyParser.json())
@@ -82,7 +81,6 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/')
   },
   filename: (req, file, cb) => {
-    console.log('req: ', req)
     cb(null, file.originalname || '')
   },
 })
@@ -290,9 +288,11 @@ app.post('/createUser', (req, res) => {
 
 app.post('/userMessages', (req, res) => {
   UserMessageModel.create(req.body)
-    .then((createdMessage) => res.json({ message: 'Message received', name: createdMessage.name }))
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
+    .then((createdMessage) =>
+      res.json({ message: 'Message received', name: createdMessage.name }),
+    )
+    .catch((err) => res.status(500).json({ error: err.message }))
+})
 
 PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

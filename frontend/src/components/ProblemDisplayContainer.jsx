@@ -83,7 +83,7 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
               {JSON.parse(localStorage.getItem('solved'))[index] ? (
                 <img src={images.solved} alt="Solved" />
               ) : (
-                'X'
+                ''
               )}
             </div>
             <div className="numberdisplayer">{problem.number}</div>

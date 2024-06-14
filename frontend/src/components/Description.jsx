@@ -25,6 +25,13 @@ function Description() {
             explanation={example.explanation}
           />
         ))}
+        <p
+          style={{
+            border: '1px solid grey',
+            marginTop: '5vw',
+            width: '95%',
+          }}
+        ></p>
 
         <Constraints values={problemObj.constraints} className="constraints" />
       </div>

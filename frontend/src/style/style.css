@@ -1,0 +1,59 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
+[data-scroll-container] {
+  overflow: hidden;
+}
+
+[data-scroll-section] {
+  position: relative;
+}
+
+/* Webkit-based browsers (Chrome, Safari) */
+*::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.217
+  ); /* Light color for the scrollbar thumb */
+  border-radius: 10px; /* Full border radius for rounded corners */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin; /* Firefox equivalent for thin scrollbar */
+  scrollbar-color: rgba(255, 255, 255, 0.263) transparent; /* Color for thumb and track */
+}
+
+/* Edge and Internet Explorer */
+* {
+  -ms-overflow-style: none; /* Hides default scrollbar */
+}
+
+*::-ms-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+*::-ms-thumb {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Color for the scrollbar thumb */
+  border-radius: 10px; /* Full border radius */
+}

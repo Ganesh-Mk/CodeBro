@@ -11,7 +11,7 @@ const CodeEditor = ({ language, value, setValue, onMount }) => {
               minimap: {
                 enabled: false,
               },
-              fontSize: '10rem',
+              fontSize: '20rem',
               detectIndentation: false,
               tabSize: 4,
             }}

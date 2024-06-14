@@ -14,7 +14,7 @@ function Submit({ isLoadingSubmit }) {
     >
       <Button
         variant="solid"
-        w={440}
+        w={'100%'}
         h={8}
         mb={8}
         fontSize={17}

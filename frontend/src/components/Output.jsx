@@ -18,20 +18,17 @@ const Output = ({ isError }) => {
 
   return (
     <>
-      <Tabs size="md" isFitted variant="enclosed">
-        <TabList>
+      <Tabs size="md" variant="soft-rounded" isFitted>
+        <TabList style={{ margin: '1vw 0' }}>
           {problemObj.example.length > 0
             ? problemObj.example.map((testCase, i) => (
                 <Tab
                   key={i}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '2vw',
-                  }}
+                  style={{ margin: '0 1vw' }}
+                  _selected={{ backgroundColor: '#353535' }}
+                  _hover={{ backgroundColor: '#353535' }}
                 >
-                  <p>Case {i + 1}</p>
+                  <p style={{ marginRight: '2vw' }}>Case {i + 1}</p>
                   {problemObj.allResult.length > 0 ? (
                     <p>
                       {problemObj.allResult[i] === true ? (

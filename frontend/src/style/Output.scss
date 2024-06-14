@@ -5,3 +5,30 @@
 Tab, Tablist, p, Box{
     color: white;
 }
+
+.outputContainer {
+    height: 12vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .outputContainer {
+      height: 40vh;
+    }
+}
+
+
+.testCase{
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+}
+.testCase .testCaseBlock{
+  display: grid;
+
+  grid-template-columns: 1fr 3fr;
+}
+.testCase .bold{
+  font-weight: bold;
+}
