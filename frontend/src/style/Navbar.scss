@@ -1,6 +1,5 @@
 .navbar {
     width: 100%;  // Ensure the navbar fits within the viewport width
-    height: 2vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,5 +44,64 @@
         color: rgb(255, 255, 255);
       }
     }
+}
+
+
+.menuIcon {
+  display: none;
+  cursor: pointer;
+}
+
+.menuContainer {
+  display: flex;
+  position: fixed;
+  top: 6vh;
+  right: 1vw;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, height 0.5s ease-in-out;
+  height: 0;
+  width: 70vw;
+  border-radius: 5vw 1vw 5vw 5vw;
+  padding: 8vw;
+  z-index: 10;
+  background: #80808024;
+  backdrop-filter: blur(28px);
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5vw;
+}
+
+.menuContainer.visible {
+  visibility: visible;
+  opacity: 1;
+  height: 40vh; /* Adjust height to the desired expanded state */
+}
+
+.menuBottom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5vw;
+}
+
+.menuContainer p {
+  font-size: 6vw;
+}
+
+.navItems.active p {
+  border-bottom: .1rem solid lightgrey;
+}
+
+@media screen and (max-width: 800px) {
+  .logoContainer span {
+    font-size: 6vw !important;
   }
-  
+  .menuIcon {
+    display: block;
+  }
+  .navbar .navCenter {
+    display: none;
+  }
+}
