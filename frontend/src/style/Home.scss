@@ -19,7 +19,8 @@
 }
 
 .left {
-  border-right: 1px solid rgb(240, 240, 240);
+  border-right: 5px solid #adff2f;
+  background-color: #1a1a1a;
   height: calc(100vh - 4vw);
   margin-right: .5vw;
   padding: 0.2vw 0.8vw;
@@ -32,7 +33,10 @@
     }
   }
   .languages {
-    border-bottom: 2px solid rgb(161, 156, 156);
+    // border-bottom: 2px solid rgb(161, 156, 156);
+    background-color: #282828;
+    padding: .7vw 0vw;
+    border-radius: 1vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -63,14 +67,14 @@
     }
   }
   .head2 {
-    border-bottom: 2px solid rgb(143, 138, 138);
+    // border-bottom: 2px solid rgb(143, 138, 138);
     font-size: 1.3vw;
 
     padding: 0.4vw 1vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1vw;
+    // margin-top: 1vw;
     button {
       display: flex;
       justify-content: center;
@@ -150,13 +154,19 @@
 .right {
   width: calc(100vw - 74vw);
   height: calc(100vh - 4vw);
+  padding: .5vw 1vw 2vw 1vw;
+  .accTop {
+    background-color: #282828;
+    padding: .6vw 0vw;
+    border-radius: 1vw;
+  }
   .statShower {
     padding: 1vw;
     // border: 2px solid yellow;
     box-shadow: -1px -1px 12px #729feb;
     border-radius: .8vw;
-    margin-right: .3vw;
-    margin-top: .5vw;
+    // margin-right: .3vw;
+    // margin-top: .5vw;
     .statPart1 {
       display: flex;
       justify-content: center;
@@ -269,8 +279,11 @@
   }
 }
 .SubmissionShower {
-  border-top: 1px solid white;
-  margin-top: 3vw;
+  // border-top: 1px solid white;
+  background-color: #282828;
+  border-radius: 1vw;
+
+  margin-top: 1vw;
   padding: 1vw .4vw;
   // border: 2px solid red;
   .SubmissionHead {
