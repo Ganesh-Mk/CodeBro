@@ -16,7 +16,12 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
-mongoose.connect('mongodb://127.0.0.1:27017/CodeBro')
+mongoose
+  .connect('mongodb://127.0.0.1:27017/CodeBro')
+  .then(() => {
+    console.log('MongoDB connected')
+  })
+  .catch((err) => console.log(err))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
