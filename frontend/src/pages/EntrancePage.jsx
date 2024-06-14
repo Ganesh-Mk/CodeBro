@@ -143,6 +143,16 @@ export default function EntrancePage() {
   // window.location.reload()
 
   useEffect(() => {
+    // Set html overflow-y to scroll when component mounts (entering Entrance page)
+    document.documentElement.style.overflowY = 'scroll'
+
+    // Clean up function to reset html overflow style when component unmounts (leaving Entrance page)
+    return () => {
+      document.documentElement.style.overflowY = 'initial'
+    }
+  }, [])
+
+  useEffect(() => {
     dispatch(setSolvedProblems([]))
     localStorage.setItem('solved', '[]')
     localStorage.setItem('attempts', '[]')

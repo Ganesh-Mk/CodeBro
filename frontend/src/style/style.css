@@ -1,3 +1,11 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
 .icons {
   width: 2vw;
   height: 2vw;
