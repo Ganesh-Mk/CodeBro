@@ -19,6 +19,7 @@
             padding: 20px;
             border-right: 0;
             width: 40vw;
+            background: none;
 
             .leftHeader {
                 width: 100%;
@@ -71,7 +72,7 @@
         width: 100vw;
         background: #242424;
         color: white;
-        min-height: 100vh;
+        min-height: 95vh;
         overflow-y: scroll;
         overflow-x: hidden;
     }
