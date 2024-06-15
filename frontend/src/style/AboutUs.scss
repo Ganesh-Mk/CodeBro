@@ -1,17 +1,12 @@
-.creatorPhotos {
-    // border: 2px solid white;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5vw;
+* {
+    font-family: "DM Sans", sans-serif;
 }
-.tejPhoto img{
-    width: 15vw;
-    border-radius: 0.2vw;
-    // box-shadow: 0px 0px 6px darkgrey;
+.container {
+    background: url('../assets//images/background.jpeg');
 }
-.ganeshPhoto img{
-    width: 15vw;
-    height: 45vh;
-    border-radius: 0.2vw;
-    // box-shadow: 0px 0px 6px darkgrey;
+input::placeholder {
+    font-size: 15px;
+}
+textarea::placeholder {
+    font-size: 15px;
 }

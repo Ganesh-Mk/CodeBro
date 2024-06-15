@@ -21,6 +21,7 @@ import P8a from '../assets/images/P8a.jpg'
 import P8b from '../assets/images/P8b.jpg'
 import photo1 from '../assets/images/Profile11.jpg'
 import ganesh from '../assets/images/ganesh.jpg'
+import back from '../assets/images/background.jpeg'
 
 export const images = {
   codeBroLogo,
@@ -29,6 +30,7 @@ export const images = {
   entranceImage,
   random,
   searchicon,
+  back,
   solved,
   fadedWall,
   outphoto,
