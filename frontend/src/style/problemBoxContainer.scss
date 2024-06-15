@@ -22,31 +22,45 @@
         .problemDisplayer {
             font-size: 1.3vw;
             color: white;
+            // border: 2px solid white;
             cursor: pointer;
             // border: 2px solid red;
-            width: 38vw;
+            width: auto;
         }
     }
     .problemBoxMiddle {
         // border: 2px solid red;
         color: white;
+        // border: 2px solid white;
         display: flex;
+        width: auto;
         justify-content: space-between;
         align-items: center;
     }
     .problemBoxPart2 {
         display: flex;
+        width: auto;
+        // border: 2px solid white;
         align-items: center;
-        gap: 5vw;
+        gap: 3.5vw;
         .difficultyDisplayer {
             font-size: 1.3vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
+            // border: 2px solid blue;
             // border: 2px solid red;
             width: 6.5vw;
         }
         .attempts {
             font-size: 1.1vw;
             color: white;
+            width: 2vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // border: 2px solid black;
         }
 
     }

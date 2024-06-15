@@ -87,13 +87,16 @@ function ProblemsPage() {
               <option value="Array">Array</option>
               <option value="String">String</option>
               <option value="Math">Math</option>
+              <option value="TwoPointer">Two Pointers</option>
               <option value="Sorting">Sorting</option>
-              <option value="LinkedList">LinkedList</option>
+              <option value="LinkedList">Linked List</option>
+              <option value="HashTable">Hash Table</option>
               <option value="BinarySearch">Binary Search</option>
               <option value="Matrices">Matrices</option>
               <option value="Stack">Stack</option>
               <option value="Queue">Queue</option>
               <option value="Tree">Tree</option>
+              <option value="SlidingWindow">Sliding Window</option>
               <option value="DynamicProgramming">Dynamic Programming</option>
             </select>
           </div>
