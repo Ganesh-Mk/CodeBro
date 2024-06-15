@@ -19,11 +19,13 @@
 }
 
 .codeLeftHeader{
-    margin-top: 2vw;
-    padding: 0 2vw;
+    padding: .5vw 2vw;
     display: flex;
+    margin-top: .8vw;
+    border-radius: 100vw;
     justify-content: space-between;
     align-items: center;
+    background: #242424;
 
     p{
         font-size: 1.3vw;
