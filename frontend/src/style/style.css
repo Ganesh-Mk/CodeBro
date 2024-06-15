@@ -5,7 +5,10 @@ html {
 body {
   overflow: hidden;
 }
-
+.css-1qw5wox {
+  border: .06rem solid #4299e16d !important;
+  border-radius: .5rem !important;
+}
 .icons {
   width: 2vw;
   height: 2vw;

@@ -36,7 +36,6 @@ function CodeInfoContainer({ isLoadingSubmit }) {
         <div
           style={{
             display: "flex",
-            gap: "2vw",
           }}
         >
           <p
