@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Box, Text } from '@chakra-ui/react'
 import '../style/Output.scss'
 
 function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
+
+  useEffect(() => {console.log("output: ", output)},[])
   return (
     <div className="testCase">
       <div className="testCaseBlock">
@@ -44,10 +46,14 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
           <p>
             {output ? (
               output
-            ) : (
-              <span style={{ color: 'grey' }}>
-                Click "Run" to see your output
+            ) : output === undefined ? (
+              (
+              <span style={{ color: '#E92700' }}>
+                Time Limit Exceed
               </span>
+            )
+            ) : (
+              <span style={{ color: 'grey' }}>Click "Run" to see your output</span>
             )}
           </p>
         </Box>
