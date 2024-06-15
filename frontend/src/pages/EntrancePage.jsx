@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { setSolvedProblems } from '../store/solvedProblemsReducer'
-import '../style/style.css'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { setSolvedProblems } from "../store/solvedProblemsReducer";
+import "../style/style.css";
 
 function CodeIcon(props) {
   return (
@@ -21,7 +21,7 @@ function CodeIcon(props) {
       <polyline points="16 18 22 12 16 6" />
       <polyline points="8 6 2 12 8 18" />
     </svg>
-  )
+  );
 }
 
 function CombineIcon(props) {
@@ -45,7 +45,7 @@ function CombineIcon(props) {
       <polyline points="7 21 10 18 7 15" />
       <rect width="8" height="8" x="14" y="14" rx="2" />
     </svg>
-  )
+  );
 }
 
 function InfoIcon(props) {
@@ -66,7 +66,7 @@ function InfoIcon(props) {
       <path d="M12 16v-4" />
       <path d="M12 8h.01" />
     </svg>
-  )
+  );
 }
 
 function PlayIcon(props) {
@@ -85,7 +85,7 @@ function PlayIcon(props) {
     >
       <polygon points="6 3 20 12 6 21 6 3" />
     </svg>
-  )
+  );
 }
 
 function QrCodeIcon(props) {
@@ -115,7 +115,7 @@ function QrCodeIcon(props) {
       <path d="M21 12v.01" />
       <path d="M12 21v-1" />
     </svg>
-  )
+  );
 }
 
 function UserIcon(props) {
@@ -135,28 +135,28 @@ function UserIcon(props) {
       <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
       <circle cx="12" cy="7" r="4" />
     </svg>
-  )
+  );
 }
 
 export default function EntrancePage() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // window.location.reload()
 
   useEffect(() => {
     // Set html overflow-y to scroll when component mounts (entering Entrance page)
-    document.documentElement.style.overflowY = 'scroll'
+    document.documentElement.style.overflowY = "scroll";
 
     // Clean up function to reset html overflow style when component unmounts (leaving Entrance page)
     return () => {
-      document.documentElement.style.overflowY = 'initial'
-    }
-  }, [])
+      document.documentElement.style.overflowY = "initial";
+    };
+  }, []);
 
   useEffect(() => {
-    dispatch(setSolvedProblems([]))
-    localStorage.setItem('solved', '[]')
-    localStorage.setItem('attempts', '[]')
-  }, [])
+    dispatch(setSolvedProblems([]));
+    localStorage.setItem("solved", "[]");
+    localStorage.setItem("attempts", "[]");
+  }, []);
   return (
     <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">
       <header className="px-4 md:px-6 py-4 flex items-center justify-between">
@@ -185,7 +185,7 @@ export default function EntrancePage() {
           <h1 className="text-4xl text-white md:text-5xl lg:text-6xl font-bold tracking-tighter">
             Elevate your DSA skills with CodeBro
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl">
+          <p className="text-gray-500 text-lg md:text-xl">
             Unlock your full potential with our comprehensive coding platform.
           </p>
           {/* <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -209,7 +209,7 @@ export default function EntrancePage() {
             <h3 className="text-xl text-white font-bold">
               Comprehensive Curriculum
             </h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Master data structures, algorithms, and problem-solving techniques
               with our extensive curriculum.
             </p>
@@ -217,7 +217,7 @@ export default function EntrancePage() {
           <div className="flex flex-col items-center gap-4">
             <PlayIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Hands-on Practice</h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Hone your skills with a vast library of coding challenges and
               real-world problems.
             </p>
@@ -227,7 +227,7 @@ export default function EntrancePage() {
             <h3 className="text-xl font-bold text-white">
               Interactive Learning
             </h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Learn from expert instructors and engage with a supportive
               community of learners.
             </p>
@@ -235,7 +235,7 @@ export default function EntrancePage() {
           <div className="flex flex-col items-center gap-4">
             <CombineIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Compete</h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Participate in coding competitions and challenges to hone your
               problem-solving skills.
             </p>
@@ -243,7 +243,7 @@ export default function EntrancePage() {
           <div className="flex flex-col items-center gap-4">
             <UserIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">User Friendly</h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Our platform is designed to be intuitive and easy to use, making
               your learning experience seamless.
             </p>
@@ -251,7 +251,7 @@ export default function EntrancePage() {
           <div className="flex flex-col items-center gap-4">
             <QrCodeIcon className="w-16 h-16" />
             <h3 className="text-xl font-bold text-white">Quick Response</h3>
-            <p className="text-gray-400 text-center">
+            <p className="text-gray-500 text-center">
               Our team is dedicated to providing prompt and helpful support to
               ensure your success.
             </p>
@@ -268,5 +268,5 @@ export default function EntrancePage() {
         </p>
       </footer>
     </div>
-  )
+  );
 }
