@@ -110,7 +110,7 @@
 }
 
 .footer__description {
-    color: rgb(65, 62, 62);
+    color: lightgrey;
 }
   
   /*===== CLASS CSS =====*/
@@ -158,9 +158,10 @@
   
   /*===== FOOTER =====*/
   .footer {
-    background-color: var(--first-color-dark);
     color: var(--first-color-lighten);
+    background: transparent;
     text-align: center;
+    height: 35vh;
   }
   
   .footer__container {
@@ -211,5 +212,12 @@
     .bd-container {
       margin-left: auto;
       margin-right: auto;
+    }
+    
+  }
+
+  @media screen and (max-width: 800px) {
+    .footer {
+      height: 30vh !important;
     }
   }

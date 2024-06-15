@@ -2,11 +2,88 @@
     font-family: "DM Sans", sans-serif;
 }
 .container {
-    background: url('../assets//images/background.jpeg');
+    // background: url('../assets//images/background.jpeg');
+    background: #1A1A1A;
 }
 input::placeholder {
     font-size: 15px;
 }
 textarea::placeholder {
     font-size: 15px;
+}
+
+.aboutUsMailBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+}
+.aboutUsMailBox a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vw;
+}
+.text-gray-400 {
+    height: 3vw !important;
+    width: 3vw !important;
+}
+
+.css-p6jkmx {
+
+    height: 100% !important;
+}
+@media screen and (max-width: 800px) {
+    .px-10 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .gap-8 {
+        gap: 4vw !important;
+    }
+    .grid-cols-1 {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .text-\[30px\] {
+        font-size: 6vw !important;
+        text-align: center !important;
+    }
+    .css-1idwstw p{
+       font-size: 3.5vw !important;
+       text-align: center;
+    }
+    .css-1idwstw p:nth-of-type(2){
+       font-size: 3vw !important;
+       color: lightgrey;
+    }
+    .text-\[\#ffffff\] {
+        margin-top: 10vw !important;
+    }
+    .flex {
+        justify-content: center !important;
+        margin-top: 6vw;
+    }
+    .mt-2 {
+        margin-top: 1.5rem !important;
+    }
+    .mt-12 {
+        grid-template-columns: 1fr !important;
+    }
+    .space-y-5 > :not([hidden]) ~ :not([hidden]) {
+        text-align: center !important;
+    }
+    .font-semibold {
+        text-align: center !important;
+    }
+    .text-gray-400 {
+        height: 8vw !important;
+        width: 8vw !important;
+    }
+    .aboutUsMailBox a{
+        gap: 3vw !important;
+    }
+    .aboutUsMailBox {
+        gap: 10vw;
+    }
 }

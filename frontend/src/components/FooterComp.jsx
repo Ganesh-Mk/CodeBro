@@ -15,17 +15,6 @@ const FooterComp = () => {
           Leverage your coding skills with CodeBro
         </p>
 
-        <div className="footer__social">
-          <a href="#" className="footer__link">
-            <i className="bx bxl-linkedin"></i>
-          </a>
-          <a href="#" className="footer__link">
-            <i className="bx bxl-github"></i>
-          </a>
-          <a href="#" className="footer__link">
-          <i className='bx bxl-instagram-alt'></i>
-          </a>
-        </div>
         <p className="footer__copy">CodeBro made with ❤️</p>
       </div>
     </footer>

@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     background: #1A1A1A;
-    padding: 1vw 1vw; // Add padding to prevent content from touching screen edges
+    padding: 1vw 2vw; // Add padding to prevent content from touching screen edges
     // overflow-x: hidden;
   
     .codeBroLogo {
@@ -114,12 +114,14 @@
   border-radius: 100vw;
 }
 @media screen and (max-width: 800px) {
+  .navbar{
+    padding: 1vw 6vw;
+  }
   .logoContainer span {
     font-size: 6vw !important;
   }
   .material-symbols-outlined {
-    font-size: 17px;
-    margin-right: 8px;
+    font-size: 7vw;
   }
   .menuIcon {
     display: block;
