@@ -77,6 +77,15 @@ function Navbar({ fontColor = "white" }) {
         >
           <p>Leaderboard</p>
         </Link>
+        <Link
+          to="/coding"
+          className={`navItems ${
+            location.pathname === "/coding" ? "active" : ""
+          }`}
+          style={{ textDecoration: "none", color: fontColor }}
+        >
+          <p>Coding</p>
+        </Link>
       </div>
 
       <div>
@@ -161,6 +170,15 @@ function Navbar({ fontColor = "white" }) {
           style={{ textDecoration: "none", color: fontColor }}
         >
           <p>Leaderboard</p>
+        </Link>
+        <Link
+          to="/coding"
+          className={`navItems ${
+            location.pathname === "/coding" ? "active" : ""
+          }`}
+          style={{ textDecoration: "none", color: fontColor }}
+        >
+          <p>Coding</p>
         </Link>
         <div className="menuBottom">
           <Link to="/account" className="navAccContainer">
