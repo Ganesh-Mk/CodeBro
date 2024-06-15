@@ -112,6 +112,8 @@ h1, h2, h3, h4, h5, h6{
 
 .monaco-editor .view-line span {
   font-size: 98% !important; /* Adjust the font size as needed */
+  letter-spacing: .04vw !important;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 @media screen and (max-width: 800px) {
