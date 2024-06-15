@@ -1,0 +1,12 @@
+* {
+    font-family: "DM Sans", sans-serif;
+}
+.container {
+    background: url('../assets//images/background.jpeg');
+}
+input::placeholder {
+    font-size: 15px;
+}
+textarea::placeholder {
+    font-size: 15px;
+}
