@@ -263,7 +263,10 @@ function AccountPage() {
                 >
                   <CircularProgressLabel className="circleText">
                     <h2>
-                      {circleValue} / {totalProblems}
+                      {circleValue}
+                      <span className="circleValueSmall">
+                        / {totalProblems}
+                      </span>
                     </h2>
                     <p>Solved</p>
                   </CircularProgressLabel>

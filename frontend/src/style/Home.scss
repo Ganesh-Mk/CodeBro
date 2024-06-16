@@ -16,10 +16,10 @@
 }
 .flexerr {
   display: flex;
+  margin-top: 2vw;
 }
 
 .left {
-  border-right: 5px solid #adff2f;
   background-color: #1a1a1a;
   height: calc(100vh - 4vw);
   margin-right: .5vw;
@@ -107,12 +107,7 @@
     // border: 2px solid rgb(0, 255, 0);
     height: calc(100vh - 43.5vh);
     .levelss {
-      // margin-top: 1vw;
-      // border: 2px solid red;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.2vw 0.8vw;
+      
       .levelspart {
         display: flex;
         justify-content: center;
@@ -128,7 +123,6 @@
     }
   }
   .problemdisplays {
-    border: 2px solid rgb(255, 255, 255);
     height: calc(100vh - 54vh);
     padding: 0.2vw 1vw;
     margin: 0.5vw;
@@ -163,7 +157,7 @@
 .right {
   width: calc(100vw - 74vw);
   height: calc(100vh - 4vw);
-  padding: .5vw 1vw 2vw 1vw;
+  padding: 0vw 1vw 2vw 1vw;
   .accTop {
     background-color: #282828;
     padding: .6vw 0vw;

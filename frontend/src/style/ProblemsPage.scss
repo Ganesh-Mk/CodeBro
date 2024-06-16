@@ -34,13 +34,14 @@ $darkMode: #1a1a1a;
   height: auto;
   margin: 0vw 1vw;
   background-color: #282828;
+
   .levelss {
     // border: 2px solid red;
     background-color: #282828;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0vw 1vw;
+    padding: 0vw 2vw;
     .levelspart {
     margin-top: 2vw;
 
@@ -62,7 +63,6 @@ $darkMode: #1a1a1a;
   justify-content: center;
   align-items: center;
   gap: 1vw;
-  width: 12vw;
  
   > p {
     font-size: 1.2vw;
@@ -84,7 +84,6 @@ $darkMode: #1a1a1a;
   justify-content: center;
   align-items: center;
   gap: 1vw;
-  width: 12vw;
  
   // border: 2px solid red;
   > p {
@@ -229,4 +228,69 @@ $darkMode: #1a1a1a;
 
 .problemShower::-webkit-scrollbar-thumb:hover {
   background: #555; /* color of the thumb on hover */
+}
+
+.topics{
+  display: none;
+}
+
+.topicsDisplayer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+.problemTopics{
+  color: lightgrey;
+}
+@media screen and (max-width: 800px) {
+  .SearchBarPart{
+    flex-direction: column;
+    padding: 4vw 0;
+    gap: 5vw;
+  }
+  .css-53y4br {
+    width: 85vw !important;
+  }
+  .css-xl71ch,
+  .css-usrv7s,
+  .chakra-button__icon{
+    font-size: 3.5vw !important;
+  }
+  .SearchBarPart .searchBarRight {
+    padding: 0 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+.problemBoxContainer .problemBoxMiddle {
+  margin-right: auto;
+  margin-left: 10vw;
+}
+.topicsDisplayer span,
+.problemsShower p{
+  font-size: 4vw;
+}
+.problemBoxContainer{
+  flex-direction: column;
+  margin-top: 3.5vw;
+}
+.problemBoxPart2{
+  padding-right: 3vw;
+}
+.topics{
+  display: block;
+  color: lightgray;
+}
+.ds{
+  display: none;
+}
+.problemTopics{
+  color: grey;
+}
+.statusContainer{
+  width: 6vw;
+  height: 6vw;
+}
 }

@@ -155,21 +155,16 @@ const HomePage = () => {
   return (
     <div className="home">
       <Navbar />
-      <div className="hori"></div>
       <div className="flexerr">
         <div className="left">
-          <div className="head1">
-            <p>Programming Problems</p>
-          </div>
           <div className="languages">
             <div className="sec1">
-                <h1>Quote of the day</h1>
+              <h1>Quote of the day</h1>
             </div>
 
             <div className="sec2">
-                <QuotesDisplay/>
+              <QuotesDisplay />
             </div>
-            
           </div>
           <div className="head2">
             <p>Probelms</p>

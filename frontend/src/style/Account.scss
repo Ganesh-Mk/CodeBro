@@ -2,11 +2,18 @@ h1, p{
     color: white;
 }
 
+.css-clwkh4 {
+    stroke-linecap: round !important;
+}
+
+.circleValueSmall{
+color: grey;
+ width: 1vw;
+}
 .accountPage{
     width: 100vw;
-    height: 91.5vh;
     padding: 1vw;
-    overflow: hidden;
+    overflow: scroll;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5vw;
@@ -457,4 +464,8 @@ h1, p{
     .accountPage .accLeft .socialBox .links p {
         font-size: 2vw;
     }
+
+    .circleValueSmall{
+         width: 3vw;
+        }
 }
