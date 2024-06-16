@@ -19,6 +19,7 @@ import {
   CircularProgressLabel,
 } from "@chakra-ui/react";
 import "../style/Account.scss";
+import QuotesDisplay from "../components/QuotesDisplay";
 
 const HomePage = () => {
   const [easyWidth, setEasyWidth] = useState(0);
@@ -30,6 +31,7 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0);
   const [allProblems, setAllProblems] = useState([]);
   const [totalProblems, setTotalProblems] = useState(0);
+
   const dispatch = useDispatch();
   const solvedProblems = useSelector(
     (state) => state.solvedProblems.solvedProblems
@@ -160,24 +162,14 @@ const HomePage = () => {
             <p>Programming Problems</p>
           </div>
           <div className="languages">
-            <Link to="#">
-              <div className="box" onClick={() => handleLanguageBox("js")}>
-                <img src={images.js} alt="" />
-                <p>JS Problems</p>
-              </div>
-            </Link>
-            <Link to="#">
-              <div className="box" onClick={() => handleLanguageBox("python")}>
-                <img src={images.python} alt="" />
-                <p>Python Problems</p>
-              </div>
-            </Link>
-            <Link to="#">
-              <div className="box" onClick={() => handleLanguageBox("java")}>
-                <img src={images.java} alt="" />
-                <p>Java Problems</p>
-              </div>
-            </Link>
+            <div className="sec1">
+                <h1>Quote of the day</h1>
+            </div>
+
+            <div className="sec2">
+                <QuotesDisplay/>
+            </div>
+            
           </div>
           <div className="head2">
             <p>Probelms</p>
