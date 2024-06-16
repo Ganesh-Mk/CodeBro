@@ -297,9 +297,9 @@ export default function AboutUsPage() {
               </div>
               <p className="text-[18px] pt-5">
                 If you have any queries and found any bugs in this website
-                please share with us via email or sms, we are always gald to
-                hear you out and don't forget to give us feedback. <br /> <br />{" "}
-                Thank you for visiting our website
+                please share with us via email, we are always glad to hear you
+                out and don't forget to give us feedback. <br /> <br /> Thank
+                you for visiting our website
               </p>
             </div>
           </div>

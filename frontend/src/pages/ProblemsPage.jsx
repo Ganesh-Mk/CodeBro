@@ -1,144 +1,214 @@
-import React, { useEffect, useState } from 'react'
-import '../style/ProblemsPage.scss'
-import { images } from '../javascripts/images'
-import Navbar from '../components/Navbar'
-import '../style/ProblemsPage.scss'
-import ProblemDisplayContainer from '../components/ProblemDisplayContainer'
-import { AllquesObject } from '../javascripts/data'
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addProblemObj } from '../store/problemObjSlice'
+import React, { useEffect, useState } from "react";
+import "../style/ProblemsPage.scss";
+import { images } from "../javascripts/images";
+import Navbar from "../components/Navbar";
+import "../style/ProblemsPage.scss";
+import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
+import { AllquesObject } from "../javascripts/data";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addProblemObj } from "../store/problemObjSlice";
+import {
+  Menu,
+  MenuButton,
+  Button,
+  MenuItem,
+  MenuList,
+  MenuDivider,
+  InputGroup,
+  InputLeftElement,
+  Input,
+} from "@chakra-ui/react";
+import {
+  ChevronDownIcon,
+  PhoneIcon,
+  SearchIcon,
+  StarIcon,
+} from "@chakra-ui/icons";
 
 function ProblemsPage() {
-  const [selectedValue, setSelectedValue] = useState('All')
-  const [selectedTopic, setSelectedTopic] = useState('All')
-  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedValue, setSelectedValue] = useState("All");
+  const [selectedTopic, setSelectedTopic] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const filterByDifficulty = (difficulty) => {
-    let filteredProblems = AllquesObject
+    let filteredProblems = AllquesObject;
 
-    if (difficulty !== 'All') {
+    if (difficulty !== "All") {
       filteredProblems = filteredProblems.filter(
         (problem) =>
-          problem.difficulty.toLowerCase() === difficulty.toLowerCase(),
-      )
+          problem.difficulty.toLowerCase() === difficulty.toLowerCase()
+      );
     }
 
     if (searchTerm) {
-      const lowerCaseSearchTerm = searchTerm.toLowerCase()
+      const lowerCaseSearchTerm = searchTerm.toLowerCase();
       filteredProblems = filteredProblems.filter((problem) =>
-        problem.heading.toLowerCase().includes(lowerCaseSearchTerm),
-      )
+        problem.heading.toLowerCase().includes(lowerCaseSearchTerm)
+      );
     }
 
-    if (selectedTopic && selectedTopic.toLowerCase() !== 'all') {
-      const lowerCaseSelectedTopic = selectedTopic.toLowerCase()
-      if (lowerCaseSelectedTopic === 'solved') {
+    if (selectedTopic && selectedTopic.toLowerCase() !== "all") {
+      const lowerCaseSelectedTopic = selectedTopic.toLowerCase();
+      if (lowerCaseSelectedTopic === "solved") {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === true,
-        )
-      } else if (lowerCaseSelectedTopic === 'unsolved') {
+          (problem) => problem.isSolved === true
+        );
+      } else if (lowerCaseSelectedTopic === "unsolved") {
         filteredProblems = filteredProblems.filter(
-          (problem) => problem.isSolved === false,
-        )
+          (problem) => problem.isSolved === false
+        );
       } else {
         filteredProblems = filteredProblems.filter(
           (problem) =>
             problem.topic &&
-            problem.topic.some(topic => topic.toLowerCase() === lowerCaseSelectedTopic)
-
-        )
+            problem.topic.some(
+              (topic) => topic.toLowerCase() === lowerCaseSelectedTopic
+            )
+        );
       }
     }
 
-    return filteredProblems
-  }
+    return filteredProblems;
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   const randomProblemPicker = () => {
-    const randomIndex = Math.floor(Math.random() * AllquesObject.length) + 1
-    const selectedProblem = AllquesObject[randomIndex]
-    dispatch(addProblemObj(selectedProblem))
-  }
+    const randomIndex = Math.floor(Math.random() * AllquesObject.length) + 1;
+    const selectedProblem = AllquesObject[randomIndex];
+    dispatch(addProblemObj(selectedProblem));
+  };
 
-  const problemsToShow = filterByDifficulty(selectedValue)
+  const problemsToShow = filterByDifficulty(selectedValue);
 
   return (
-    <div style={{backgroundColor:"#1a1a1a", height:"100vh"}}>
+    <div style={{ backgroundColor: "#1a1a1a", height: "100vh" }}>
       <Navbar />
       <div className="whole-container">
         <div className="heading">
           <p>DSA Problems</p>
         </div>
         <div className="SearchBarPart">
-          <div className="filterdropdownShow">
-            <p>Topic</p>
-            <select
-              className="filterdropdown"
-              value={selectedTopic}
-              onChange={(e) => setSelectedTopic(e.target.value)}
-            >
-              <option value="All">All</option>
-              <option value="Array">Array</option>
-              <option value="String">String</option>
-              <option value="Math">Math</option>
-              <option value="TwoPointer">Two Pointers</option>
-              <option value="Sorting">Sorting</option>
-              <option value="LinkedList">Linked List</option>
-              <option value="HashTable">Hash Table</option>
-              <option value="BinarySearch">Binary Search</option>
-              <option value="Matrices">Matrices</option>
-              <option value="Stack">Stack</option>
-              <option value="Queue">Queue</option>
-              <option value="Tree">Tree</option>
-              <option value="SlidingWindow">Sliding Window</option>
-              <option value="DynamicProgramming">Dynamic Programming</option>
-            </select>
-          </div>
-
-          <div className="SearchBarShow">
-            <form onSubmit={handleSubmit}>
-              <input
+          <form onSubmit={handleSubmit}>
+            <InputGroup width={"40vw"}>
+              <InputLeftElement pointerEvents="none">
+                <SearchIcon color="gray.300" />
+              </InputLeftElement>
+              <Input
                 type="text"
-                placeholder="Search Problems... "
+                placeholder="Search Problems..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button className="submitbutton" type="submit">
-                <img src={images.searchicon} alt="" />
-              </button>
-            </form>
-          </div>
-
-          <div className="dropDownShow">
-            <p>Difficulty</p>
-            <select
-              className="dropdown"
-              value={selectedValue}
-              onChange={(e) => setSelectedValue(e.target.value)}
-            >
-              <option value="All">All</option>
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
-          </div>
-
-          <Link to="/coding">
-            <div className="searchbarpart3">
-              <button
-                onClick={randomProblemPicker}
-                className="searchbarpart3btn"
-              >
-                pick random <img src={images.random} alt="" />
-              </button>
+            </InputGroup>
+          </form>
+          <div className="searchBarRight">
+            <div className="filterdropdownShow">
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  width={"100%"}
+                  rightIcon={<ChevronDownIcon />}
+                >
+                  Topics
+                </MenuButton>
+                <MenuList>
+                  <MenuItem onClick={() => setSelectedTopic("All")}>
+                    All
+                  </MenuItem>
+                  <MenuDivider />
+                  <MenuItem onClick={() => setSelectedTopic("Array")}>
+                    Array
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("String")}>
+                    String
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Math")}>
+                    Math
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("TwoPointer")}>
+                    Two Pointers
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Sorting")}>
+                    Sorting
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("LinkedList")}>
+                    Linked List
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("HashTable")}>
+                    Hash Table
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("BinarySearch")}>
+                    Binary Search
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Matrices")}>
+                    Matrices
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Stack")}>
+                    Stack
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Queue")}>
+                    Queue
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("Tree")}>
+                    Tree
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedTopic("SlidingWindow")}>
+                    Sliding Window
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => setSelectedTopic("DynamicProgramming")}
+                  >
+                    Dynamic Programming
+                  </MenuItem>
+                </MenuList>
+              </Menu>
             </div>
-          </Link>
+
+            <div className="dropDownShow">
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  width={"100%"}
+                  rightIcon={<ChevronDownIcon />}
+                >
+                  Difficulty
+                </MenuButton>
+                <MenuList>
+                  <MenuItem onClick={() => setSelectedValue("All")}>
+                    All
+                  </MenuItem>
+                  <MenuDivider />
+                  <MenuItem onClick={() => setSelectedValue("Easy")}>
+                    Easy
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedValue("Medium")}>
+                    Medium
+                  </MenuItem>
+                  <MenuItem onClick={() => setSelectedValue("Hard")}>
+                    Hard
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            </div>
+
+            <Link to="/coding">
+              <Button
+                width={"100%"}
+                rightIcon={<StarIcon />}
+                colorScheme="teal"
+                onClick={randomProblemPicker}
+                variant="outline"
+              >
+                pick random
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="problemsShower">
@@ -157,28 +227,27 @@ function ProblemsPage() {
           <div className="horizontallinediv">
             <div className="horizontalline"></div>
           </div>
-          
-          <div className='problemShowerContainer'>
-          <div className="problemShower">
-            {problemsToShow.length > 0 ? (
-              problemsToShow.map((problem, index) => (
-                <ProblemDisplayContainer
-                  problem={problem}
-                  index={index}
-                  value={true}
-                  key={index}
-                />
-              ))
-            ) : (
-              <h2>No Problems</h2>
-            )}
+
+          <div className="problemShowerContainer">
+            <div className="problemShower">
+              {problemsToShow.length > 0 ? (
+                problemsToShow.map((problem, index) => (
+                  <ProblemDisplayContainer
+                    problem={problem}
+                    index={index}
+                    value={true}
+                    key={index}
+                  />
+                ))
+              ) : (
+                <h2>No Problems</h2>
+              )}
+            </div>
           </div>
-          </div>
-          
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ProblemsPage
+export default ProblemsPage;
