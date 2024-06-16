@@ -1,12 +1,14 @@
 $darkMode: #1a1a1a;
 
-
-
+.css-1kfu8nn {
+  max-height: 50vh !important;
+  overflow-y: scroll !important;
+}
 .whole-conatiner {
   min-height: 104vh;
   width: 100vw;
   background-color: $darkMode;
-  
+
 }
 .heading {
   display: flex;
@@ -61,7 +63,7 @@ $darkMode: #1a1a1a;
   align-items: center;
   gap: 1vw;
   width: 12vw;
-  margin-top: 1.5vw;
+ 
   > p {
     font-size: 1.2vw;
     // margin-top: 1vw;
@@ -83,7 +85,7 @@ $darkMode: #1a1a1a;
   align-items: center;
   gap: 1vw;
   width: 12vw;
-  margin-top: 1.5vw;
+ 
   // border: 2px solid red;
   > p {
     font-size: 1.2vw;
@@ -121,23 +123,26 @@ $darkMode: #1a1a1a;
   // border: 2px solid red;
   background-color: #282828;
   width: auto;
-  margin: .3vw 1vw;
   border-radius: 1vw;
-  // border-bottom: 2px solid white;
-  padding-bottom: 1vw;
   color: white;
-
-  // margin-top: 1vw;
+  padding: 1vw 2vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 2vw 1vw;
   align-items: center;
-  gap: 10vw;
-  .SearchBarShow {
-    // border: 2px solid rgb(70, 15, 198);
+
+  .searchBarRight{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1.5vw;
+    gap: 2vw;
+  }
+
+  .SearchBarShow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
     form {
       display: flex;
 

@@ -1,11 +1,11 @@
-import React from 'react'
-import '../style/Example.scss'
+import React from "react";
+import "../style/Example.scss";
 
 function Example({
-  number = '',
-  input = '',
-  output = '',
-  explanation = '',
+  number = "",
+  input = "",
+  output = "",
+  explanation = "",
   image = null,
 }) {
   return (
@@ -19,10 +19,14 @@ function Example({
         <br />
       </div>
       {image === null ? (
-        ''
+        ""
       ) : (
         <div>
-          <img src={image} alt="example image" />
+          <img
+            style={{ borderRadius: "1vw" }}
+            src={image}
+            alt="example image"
+          />
         </div>
       )}
       <div>
@@ -34,7 +38,7 @@ function Example({
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Example
+export default Example;
