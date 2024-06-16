@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setSolvedProblems } from "../store/solvedProblemsReducer";
 import "../style/style.css";
+import CodeBroLogo from "../components/CodeBroLogo";
 
 function CodeIcon(props) {
   return (
@@ -161,11 +162,10 @@ export default function EntrancePage() {
     <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">
       <header className="px-4 md:px-6 py-4 flex items-center justify-between">
         <Link to="/aboutus" className="flex items-center gap-2">
-          <CodeIcon className="w-8 h-8" />
-          <span className="text-xl font-bold">CodeBro</span>
+          <CodeBroLogo />
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 navRemoveOnMini">
           <Link
             to="/register"
             className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
@@ -188,20 +188,18 @@ export default function EntrancePage() {
           <p className="text-gray-500 text-lg md:text-xl">
             Unlock your full potential with our comprehensive coding platform.
           </p>
-          {/* <div className="flex flex-col sm:flex-row items-center gap-4">
-            <Link
-              to="/register"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-            >
-              Create Account
-            </Link>
-            <Link
-              to="/login"
-              className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300 text-white"
-            >
-              Already have an account
-            </Link>
-          </div> */}
+          <Link
+            to="/register"
+            className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+          >
+            Create Account
+          </Link>
+          <Link
+            to="/login"
+            className="inline-flex text-white h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300"
+          >
+            Already have an account
+          </Link>
         </div>
         <div className="grid mt-10 grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col items-center gap-4">

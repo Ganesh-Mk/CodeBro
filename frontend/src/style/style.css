@@ -9,6 +9,9 @@ body {
   border: .06rem solid #4299e16d !important;
   border-radius: .5rem !important;
 }
+
+
+
 .icons {
   width: 2vw;
   height: 2vw;
@@ -123,5 +126,8 @@ h1, h2, h3, h4, h5, h6{
   .icons {
     width: 5vw;
     height: 5vw;
+  }
+  .navRemoveOnMini{
+    display: none !important;
   }
 }
