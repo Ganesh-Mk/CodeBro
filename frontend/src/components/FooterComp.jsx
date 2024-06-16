@@ -11,7 +11,7 @@ const FooterComp = () => {
           Leverage your coding skills with CodeBro
         </p>
 
-        <p className="footer__copy">CodeBro made with ❤️</p>
+        <p className="footer__copy">Made With ❤️ By CodeBro's</p>
       </div>
     </footer>
   );

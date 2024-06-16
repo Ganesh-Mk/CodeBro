@@ -1,20 +1,20 @@
-import React from 'react'
-import { Accordion, Button } from '@chakra-ui/react'
-import '../style/Submit.scss'
-import SubmitCases from './SubmitCases'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { Accordion, Button } from "@chakra-ui/react";
+import "../style/Submit.scss";
+import SubmitCases from "./SubmitCases";
+import { useSelector } from "react-redux";
 
 function Submit({ isLoadingSubmit }) {
-  const problemObj = useSelector((state) => state.problemObj.obj)
+  const problemObj = useSelector((state) => state.problemObj.obj);
 
   return (
     <div
       className="submitBox"
-      style={{ overflow: 'scroll', height: '83vh', padding: ' 2vw' }}
+      style={{ overflow: "scroll", height: "83vh", padding: " 2vw" }}
     >
       <Button
         variant="solid"
-        w={'100%'}
+        w={"100%"}
         h={8}
         mb={8}
         fontSize={17}
@@ -25,10 +25,10 @@ function Submit({ isLoadingSubmit }) {
         {problemObj.testCaseResults.includes(false)
           ? problemObj.testCaseResults.filter((bool) => bool === false)
               .length === 1
-            ? '1 Test case is wrong'
+            ? "1 Test case is wrong"
             : problemObj.testCaseResults.filter((bool) => bool === false)
-                .length + ' Test cases are wrong'
-          : 'All Correct'}
+                .length + " Test cases are wrong"
+          : "All Correct"}
       </Button>
       <Accordion allowToggle>
         {problemObj.cases.length > 0
@@ -43,10 +43,10 @@ function Submit({ isLoadingSubmit }) {
                 results={problemObj.testCaseResults[i]}
               />
             ))
-          : ''}
+          : ""}
       </Accordion>
     </div>
-  )
+  );
 }
 
-export default Submit
+export default Submit;

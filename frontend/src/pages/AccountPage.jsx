@@ -1,154 +1,154 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
-import axios from 'axios'
-import '../style/Account.scss'
-import { images } from '../javascripts/images'
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import axios from "axios";
+import "../style/Account.scss";
+import { images } from "../javascripts/images";
 import {
   Button,
   CircularProgress,
   CircularProgressLabel,
   useBreakpointValue,
-} from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
-import { AllquesObject } from '../javascripts/data'
-import { useSelector, useDispatch } from 'react-redux'
-import DisplayProblemContainer from '../components/DisplayProblemContainer'
-import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
-import { addTestCaseResults } from '../store/problemObjSlice'
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { AllquesObject } from "../javascripts/data";
+import { useSelector, useDispatch } from "react-redux";
+import DisplayProblemContainer from "../components/DisplayProblemContainer";
+import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
+import { addTestCaseResults } from "../store/problemObjSlice";
 
 function AccountPage() {
-  const size = useBreakpointValue({ base: '45vw', md: '12vw' })
-  const userObj = useSelector((state) => state.user)
-  const [userName, setUserName] = useState(userObj.name)
-  const [userEmail, setUserEmail] = useState(userObj.email)
-  const [userRank, setUserRank] = useState('Unranked')
-  const [userImage, setUserImage] = useState(null)
-  const [userPassword, setUserPassword] = useState(userObj.password)
-  const [userInsta, setUserInsta] = useState(userObj.insta)
-  const [userGithub, setUserGithub] = useState(userObj.github)
-  const [userLinkedin, setUserLinkedin] = useState(userObj.linkedin)
+  const size = useBreakpointValue({ base: "45vw", md: "12vw" });
+  const userObj = useSelector((state) => state.user);
+  const [userName, setUserName] = useState(userObj.name);
+  const [userEmail, setUserEmail] = useState(userObj.email);
+  const [userRank, setUserRank] = useState("Unranked");
+  const [userImage, setUserImage] = useState(null);
+  const [userPassword, setUserPassword] = useState(userObj.password);
+  const [userInsta, setUserInsta] = useState(userObj.insta);
+  const [userGithub, setUserGithub] = useState(userObj.github);
+  const [userLinkedin, setUserLinkedin] = useState(userObj.linkedin);
   // const [userImage, setUserImage] = useState(images.accDefaultLogo)
-  const [easyWidth, setEasyWidth] = useState(0)
-  const [mediumWidth, setMediumWidth] = useState(0)
-  const [hardWidth, setHardWidth] = useState(0)
-  const [circleValue, setCircleValue] = useState(0)
-  const [jsSolved, setJsSolved] = useState(0)
-  const [pythonSolved, setPythonSolved] = useState(0)
-  const [javaSolved, setJavaSolved] = useState(0)
-  const [allProblems, setAllProblems] = useState([])
-  const [totalEasy, setTotalEasy] = useState(0)
-  const [totalMedium, setTotalMedium] = useState(0)
-  const [totalHard, setTotalHard] = useState(0)
-  const [totalProblems, setTotalProblems] = useState(0)
+  const [easyWidth, setEasyWidth] = useState(0);
+  const [mediumWidth, setMediumWidth] = useState(0);
+  const [hardWidth, setHardWidth] = useState(0);
+  const [circleValue, setCircleValue] = useState(0);
+  const [jsSolved, setJsSolved] = useState(0);
+  const [pythonSolved, setPythonSolved] = useState(0);
+  const [javaSolved, setJavaSolved] = useState(0);
+  const [allProblems, setAllProblems] = useState([]);
+  const [totalEasy, setTotalEasy] = useState(0);
+  const [totalMedium, setTotalMedium] = useState(0);
+  const [totalHard, setTotalHard] = useState(0);
+  const [totalProblems, setTotalProblems] = useState(0);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const leaderBoardEntries = useSelector(
-    (state) => state.leaderBoard.leaderBoardEntries,
-  )
+    (state) => state.leaderBoard.leaderBoardEntries
+  );
 
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get('http://localhost:3000/leaderBoardprint')
+        .get("http://localhost:3000/leaderBoardprint")
         .then((response) => {
-          dispatch(setLeaderBoardEntries(response.data))
+          dispatch(setLeaderBoardEntries(response.data));
         })
         .catch((error) => {
-          console.error('Error LeaderBoard problem record:', error)
-        })
+          console.error("Error LeaderBoard problem record:", error);
+        });
     }
-    fetchLeaderBoard()
-  }, [])
+    fetchLeaderBoard();
+  }, []);
 
   let sortedEntries = [...leaderBoardEntries].sort((a, b) => {
     if (b.total !== a.total) {
-      return b.total - a.total
+      return b.total - a.total;
     }
     if (b.hard !== a.hard) {
-      return b.hard - a.hard
+      return b.hard - a.hard;
     }
     if (b.medium !== a.medium) {
-      return b.medium - a.medium
+      return b.medium - a.medium;
     }
-    return 0
-  })
+    return 0;
+  });
 
   useEffect(() => {
-    let email = localStorage.getItem('email')
+    let email = localStorage.getItem("email");
     if (sortedEntries.length > 0) {
       sortedEntries.forEach((entry, i) => {
         if (entry.email === email) {
-          localStorage.setItem('rank', i + 1)
+          localStorage.setItem("rank", i + 1);
         }
-      })
+      });
     }
-    setUserRank(localStorage.getItem('rank'))
-  }, [sortedEntries])
+    setUserRank(localStorage.getItem("rank"));
+  }, [sortedEntries]);
 
   useEffect(() => {
-    setUserName(localStorage.getItem('name'))
-    setUserEmail(localStorage.getItem('email'))
-    setUserPassword(localStorage.getItem('password'))
-    setUserInsta(localStorage.getItem('insta'))
-    setUserGithub(localStorage.getItem('github'))
-    setUserLinkedin(localStorage.getItem('linkedin'))
-    setUserRank(localStorage.getItem('rank'))
-  }, [])
+    setUserName(localStorage.getItem("name"));
+    setUserEmail(localStorage.getItem("email"));
+    setUserPassword(localStorage.getItem("password"));
+    setUserInsta(localStorage.getItem("insta"));
+    setUserGithub(localStorage.getItem("github"));
+    setUserLinkedin(localStorage.getItem("linkedin"));
+    setUserRank(localStorage.getItem("rank"));
+  }, []);
 
   useEffect(() => {
-    setTotalEasy(0)
-    setTotalMedium(0)
-    setTotalHard(0)
-    setTotalProblems(0)
+    setTotalEasy(0);
+    setTotalMedium(0);
+    setTotalHard(0);
+    setTotalProblems(0);
 
-    setTotalProblems(AllquesObject.length)
+    setTotalProblems(AllquesObject.length);
     AllquesObject.map((problem) => {
-      if (problem.difficulty === 'Easy') {
-        setTotalEasy((prev) => prev + 1)
+      if (problem.difficulty === "Easy") {
+        setTotalEasy((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Medium') {
-        setTotalMedium((prev) => prev + 1)
+      if (problem.difficulty === "Medium") {
+        setTotalMedium((prev) => prev + 1);
       }
-      if (problem.difficulty === 'Hard') {
-        setTotalHard((prev) => prev + 1)
+      if (problem.difficulty === "Hard") {
+        setTotalHard((prev) => prev + 1);
       }
-    })
-  }, [])
+    });
+  }, []);
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/fetchUserImage', {
+      .get("http://localhost:3000/fetchUserImage", {
         params: {
-          userEmail: localStorage.getItem('email'),
+          userEmail: localStorage.getItem("email"),
         },
       })
       .then((response) => {
-        setUserImage(response.data.userImage)
+        setUserImage(response.data.userImage);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error)
-      })
-  }, [])
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/problemRecord', {
-        params: { userEmail: localStorage.getItem('email') },
+      .get("http://localhost:3000/problemRecord", {
+        params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        setJsSolved(response.data.jsSolved || 0)
-        setPythonSolved(response.data.pythonSolved || 0)
-        setJavaSolved(response.data.javaSolved || 0)
-        setEasyWidth(response.data.easySolved || 0)
-        setMediumWidth(response.data.mediumSolved || 0)
-        setHardWidth(response.data.hardSolved || 0)
-        setCircleValue(response.data.totalSolved || 0)
-        setAllProblems(response.data.allProblems)
+        setJsSolved(response.data.jsSolved || 0);
+        setPythonSolved(response.data.pythonSolved || 0);
+        setJavaSolved(response.data.javaSolved || 0);
+        setEasyWidth(response.data.easySolved || 0);
+        setMediumWidth(response.data.mediumSolved || 0);
+        setHardWidth(response.data.hardSolved || 0);
+        setCircleValue(response.data.totalSolved || 0);
+        setAllProblems(response.data.allProblems);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error)
-      })
-  }, [addTestCaseResults])
+        console.error("Error fetching user data:", error);
+      });
+  }, [addTestCaseResults]);
 
   return (
     <div>
@@ -180,37 +180,37 @@ function AccountPage() {
 
           <div className="socialBox">
             <div>
-              {userInsta != '' ? (
+              {userInsta != "" ? (
                 <Link className="links insta" target="_blank" to={userInsta}>
                   <img src={images.instagram} alt="insta logo" />
                   <p>Insta</p>
                 </Link>
               ) : (
-                ''
+                ""
               )}
-              {userGithub != '' ? (
+              {userGithub != "" ? (
                 <Link className="links" target="_blank" to={userGithub}>
                   <img
                     src={images.github}
-                    style={{ borderRadius: '100vw' }}
+                    style={{ borderRadius: "100vw" }}
                     alt="Github logo"
                   />
                   <p>Github</p>
                 </Link>
               ) : (
-                ''
+                ""
               )}
 
-              {userLinkedin != '' ? (
+              {userLinkedin != "" ? (
                 <Link className="links" target="_blank" to={userLinkedin}>
                   <img src={images.linkedin} alt="LinkedIn logo" />
                   <p>LinkedIn</p>
                 </Link>
               ) : (
-                ''
+                ""
               )}
 
-              {userEmail != '' ? (
+              {userEmail != "" ? (
                 <Link
                   className="links"
                   target="_blank"
@@ -220,7 +220,7 @@ function AccountPage() {
                   <p>Email</p>
                 </Link>
               ) : (
-                ''
+                ""
               )}
             </div>
           </div>
@@ -282,7 +282,7 @@ function AccountPage() {
                         className="easyRange"
                         style={{
                           width: `${(easyWidth / totalEasy) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -291,7 +291,7 @@ function AccountPage() {
                         className="mediumRange"
                         style={{
                           width: `${(mediumWidth / totalMedium) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -300,7 +300,7 @@ function AccountPage() {
                         className="hardRange"
                         style={{
                           width: `${(hardWidth / totalHard) * 100}%`,
-                          transition: '1s ease-in-out',
+                          transition: "1s ease-in-out",
                         }}
                       ></div>
                     </div>
@@ -323,7 +323,7 @@ function AccountPage() {
           <div className="accBottom">
             <p>Submission List</p>
             <hr />
-            <div style={{ height: '100%' }}>
+            <div style={{ height: "100%" }}>
               <div className="headings">
                 <p>Problem Name</p>
                 <div>
@@ -333,17 +333,20 @@ function AccountPage() {
               </div>
               <div className="subListBox">
                 {allProblems.length !== 0 ? (
-                  allProblems.map((obj, i) => (
-                    <DisplayProblemContainer
-                      key={i}
-                      num={obj.number}
-                      problem={obj.heading}
-                      diff={obj.difficulty}
-                      attempts={obj.attempts}
-                    />
-                  ))
+                  allProblems
+                    .slice()
+                    .reverse()
+                    .map((obj, i) => (
+                      <DisplayProblemContainer
+                        key={i}
+                        num={obj.number}
+                        problem={obj.heading}
+                        diff={obj.difficulty}
+                        attempts={obj.attempts}
+                      />
+                    ))
                 ) : (
-                  <h3 style={{ textAlign: 'center', color: 'white' }}>
+                  <h3 style={{ textAlign: "center", color: "white" }}>
                     No problems solved yet
                   </h3>
                 )}
@@ -353,7 +356,7 @@ function AccountPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AccountPage
+export default AccountPage;
