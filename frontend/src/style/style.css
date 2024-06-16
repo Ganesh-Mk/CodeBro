@@ -102,6 +102,11 @@ h1, h2, h3, h4, h5, h6{
   -ms-overflow-style: none; /* Hides default scrollbar */
 }
 
+.css-clwkh4 {
+  transition-duration: 1s !important;
+}
+
+
 *::-ms-scrollbar {
   width: 8px; /* Width of the scrollbar */
 }

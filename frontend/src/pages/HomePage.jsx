@@ -179,7 +179,7 @@ const HomePage = () => {
                 <p>Problem name</p>
               </div>
               <div className="levelspart">
-                <p className="ds">DS</p>
+                <p className="ds">Topics</p>
                 <p>Difficulty</p>
                 <p>Attempts</p>
               </div>
