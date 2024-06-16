@@ -59,15 +59,7 @@ function Navbar({ fontColor = "white" }) {
         >
           <p>Problems</p>
         </Link>
-        {/* <Link
-          to="/programming"
-          className={`navItems ${
-            location.pathname === "/programming" ? "active" : ""
-          }`}
-          style={{ textDecoration: "none", color: fontColor }}
-        >
-          <p>Programming</p>
-        </Link> */}
+
         <Link
           to="/leaderboard"
           className={`navItems ${
@@ -153,15 +145,7 @@ function Navbar({ fontColor = "white" }) {
         >
           <p>Problems</p>
         </Link>
-        {/* <Link
-          to="/programming"
-          className={`navItems ${
-            location.pathname === "/programming" ? "active" : ""
-          }`}
-          style={{ textDecoration: "none", color: fontColor }}
-        >
-          <p>Programming</p>
-        </Link> */}
+
         <Link
           to="/leaderboard"
           className={`navItems ${

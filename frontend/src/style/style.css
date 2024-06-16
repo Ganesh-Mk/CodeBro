@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6{
 /* Firefox */
 * {
   scrollbar-width: thin; /* Firefox equivalent for thin scrollbar */
-  scrollbar-color: rgba(255, 255, 255, 0.062) transparent; /* Color for thumb and track */
+  scrollbar-color: rgba(255, 255, 255, 0.413) transparent; /* Color for thumb and track */
 }
 
 /* Edge and Internet Explorer */

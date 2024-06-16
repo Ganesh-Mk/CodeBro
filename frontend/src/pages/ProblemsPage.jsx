@@ -91,7 +91,7 @@ function ProblemsPage() {
       <Navbar />
       <div className="whole-container">
         <div className="heading">
-          <p>DSA Problems</p>
+          <p>Coding Problem Explorer</p>
         </div>
         <div className="SearchBarPart">
           <form onSubmit={handleSubmit}>
@@ -215,7 +215,7 @@ function ProblemsPage() {
           <div className="levelss">
             <div className="levelspart">
               <p>Solved</p>
-              <p>Problem name</p>
+              <p className="problemName">Problem name</p>
             </div>
 
             <div className="levelspart">

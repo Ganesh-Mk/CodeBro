@@ -19,6 +19,7 @@ $darkMode: #1a1a1a;
   color: white;
   > p {
     margin-top: 1vw;
+    font-size: 2vw;
   }
 }
 .problemShowerContainer{
@@ -29,7 +30,6 @@ $darkMode: #1a1a1a;
 .problemsShower {
   // border: 2px solid rgb(0, 255, 0);
   padding: 0vw .8vw;
-  // margin-top: 1.2vw;
   border-radius: 1vw;
   height: auto;
   margin: 0vw 1vw;
@@ -203,7 +203,8 @@ $darkMode: #1a1a1a;
 
   height: 63vh;
   overflow-y: scroll;
-  padding: 0vw 1vw;
+  padding: 0vw 1vw 7vw 1vw;
+
   // background-color: $darkMode;
 
   h2 {
@@ -264,17 +265,45 @@ $darkMode: #1a1a1a;
     align-items: center;
     width: 100vw;
 }
+.problemBoxContainer .problemBoxPart1 p{
+  font-size: 4.5vw;
+}
+.problemBoxContainer .problemBoxPart1{
+  
+  align-items: baseline;
+}
+.notSolved, 
+.solvedIcons{
+  margin: 5vw 0;
+}
+.problemsShower .levelss .levelspart p{
+  font-size: 3vw;
+  color: lightgrey;
+}
 .problemBoxContainer .problemBoxMiddle {
   margin-right: auto;
   margin-left: 10vw;
 }
-.topicsDisplayer span,
 .problemsShower p{
   font-size: 4vw;
+}
+.difficultyDisplayer p,
+.attempts p,
+.topicsDisplayer span{
+  font-size: 3.5vw;
 }
 .problemBoxContainer{
   flex-direction: column;
   margin-top: 3.5vw;
+}
+.problemsShower .levelss .levelspart .problemName{
+  font-size: 4vw;
+}
+.css-18esm8n{
+  height: 10vw !important;
+}
+.problemsShower .levelss{
+  margin: 6vw 0;
 }
 .problemBoxPart2{
   padding-right: 3vw;
@@ -289,8 +318,17 @@ $darkMode: #1a1a1a;
 .problemTopics{
   color: grey;
 }
+.problemBoxContainer .problemBoxPart2 .difficultyDisplayer {
+  margin-right: 5vw;
+}
 .statusContainer{
   width: 6vw;
   height: 6vw;
+}
+.problemShower {
+  padding: 0vw 1vw 20vw 1vw;
+}
+.heading p{
+  font-size: 5vw;
 }
 }
