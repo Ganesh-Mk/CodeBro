@@ -352,6 +352,10 @@ color: grey;
 
 
 @media screen and (max-width: 800px) {
+    .css-1kd86nz {
+        width: 40vw !important;
+        height: 40vw !important;
+    }
     .accountPage{
         grid-template-columns: 1fr;
         gap: 3vw;
