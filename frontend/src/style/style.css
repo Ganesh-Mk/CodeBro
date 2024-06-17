@@ -10,6 +10,9 @@ body {
   border-radius: .5rem !important;
 }
 
+:root[data-theme=dark], [data-theme][data-theme=dark] {
+  --chakra-colors-chakra-body-bg: #1A1A1A !important;
+}
 
 
 .icons {

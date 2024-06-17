@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1A1A1A;
+    background: #1a1a1a;
     padding: 1vw 2vw; // Add padding to prevent content from touching screen edges
     // overflow-x: hidden;
   
@@ -29,9 +29,7 @@
       justify-content: center;
       align-items: center;
       gap: 1vw;
-      border: 1px solid rgb(255, 255, 255);
       padding: 0.3vw 1vw;
-      border-radius: 1vw;
       text-decoration: none;
   
       .accLogo {
@@ -43,6 +41,7 @@
       p {
         font-size: 1.2vw;
         color: rgb(255, 255, 255);
+        border-bottom: 1px solid lightblue;
       }
     }
 }
