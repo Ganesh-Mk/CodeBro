@@ -149,6 +149,11 @@ color: grey;
                     font-size: 1vw;
                     margin: .6vw 0;
                     color: grey;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1vw
+
                 }
             }
 
@@ -180,6 +185,7 @@ color: grey;
             border-radius: 2vw;
             display: grid;
             background: #282828;
+            padding: 1vw;
 
             .circleText{
                 h2{
@@ -223,6 +229,7 @@ color: grey;
                         align-items: center;
                         flex-direction: column;
                         gap: 1.8vw;
+                        margin-top: .1vw;
 
                        
 
@@ -274,11 +281,15 @@ color: grey;
                         justify-content: center;
                         align-items: center;
                         flex-direction: column;
-                        gap: 1.5vw;
+                        gap: 1.2vw;
 
                         p{
                             color: white;
                             font-size: 1.2vw;
+
+                            span{
+                                color: grey;
+                            }
                         }
                     }
 
@@ -341,8 +352,8 @@ color: grey;
 }
 
 .css-1kd86nz {
-    width: 13vw !important;
-    height: 13vw !important;
+    width: 11vw !important;
+    height: 11vw !important;
 }
 
 .accRightTopHeadingBox{
@@ -448,6 +459,9 @@ color: grey;
     .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .numberBox p {
         font-size: 4vw;
     }
+    .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .numberBox p span{
+        font-size: 4vw;
+    }
     .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer {
         gap: 6vw;
     }
@@ -486,6 +500,7 @@ color: grey;
        display: flex;
        flex-direction: column;
        gap: 2vw;
+       padding-bottom: 20vw;
     }
 
     .accountPage .accLeft .socialBox .links p {

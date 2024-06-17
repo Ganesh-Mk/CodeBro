@@ -8,7 +8,6 @@
   background-color: #1a1a1a;
 }
 .flexerr {
-  margin-top: 2vw;
   display: grid;
   grid-template-columns: 2.4fr 1fr;
 }
@@ -39,7 +38,9 @@
       margin-top: 0;
       h1 {
         // border: 2px solid blue;
-        border-bottom: 1px solid white;
+        font-size: 1.5vw;
+        color: lightblue;
+        border-bottom: .15vw solid gray;
       }
     }
     .sec2 {
@@ -99,7 +100,12 @@
     border-radius: 100vw;
     padding: .8vw 2vw;
     color: lightblue;
+    transition: .2s ease-in-out;
 
+  }
+
+  .moreQues:hover{
+    border: 0.2vw solid lightblue;
   }
 
   .problemsShower {
@@ -112,18 +118,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 4.3vw;
+        gap: 1.5vw;
         p{
           color: #ffffff;
         }
       }
+
+    
       .ds {
         margin-right: 1vw;
       }
     }
   }
   .problemdisplays {
-    height: calc(100vh - 58vh);
+    height: calc(100vh - 55vh);
     padding: 0.2vw 1vw;
     margin: 0.5vw;
     border-radius: 0.5vw;
@@ -206,6 +214,7 @@
         align-items: center;
         flex-direction: column;
         gap: 1.4vw;
+        margin-top: .1vw;
 
         .range{
             overflow: hidden;
@@ -235,6 +244,16 @@
         flex-direction: column;
         gap: 1.2vw;
 
+        .easy{
+          color: #1CBABA;
+      }
+      .medium{
+          color: #FFB700;
+      }
+      .hard{
+          color: #F63737;
+      }
+
         p{
             color: white;
             font-size: 1vw;
@@ -246,11 +265,16 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 1.2vw;
+        gap: .6vw;
 
         p{
             color: white;
+            font-size: 1.2vw;
+
+            span{
             font-size: 1vw;
+              color: grey;
+            }
         }
     }
 
@@ -269,7 +293,7 @@
   font-size: 1.9vw;
 }
 .circleTextSpan2{
-  font-size: 1.9vw;
+  font-size: 1.3vw;
   color: grey;
 }
 .circleTextP{
@@ -316,12 +340,12 @@
     gap: 12vw;
     p {
       font-size: 1vw;
-      color: lightgrey;
+      color: lightblue;
     }
   }
   .SubmissionProblemShower {
-    padding: 0vw .2vw;
-    border-radius: .6vw;
+    padding: 0vw 0.2vw 4vw 0.2vw;
+    border-radius: 0.6vw;
     overflow-y: scroll;
     height: 33vh;
     overflow-x: hidden;
@@ -354,7 +378,13 @@
 .accRightTopHeading{
   font-size: 1.6vw;
   text-align: center;
+  margin-bottom: 1vw;
+
   
+}
+.css-1kd86nz{
+  height: 10vw !important;
+  width: 10vw !important;
 }
 
 
@@ -399,6 +429,9 @@
 .right .rangeContainer .numberBox p {
   font-size: 4vw;
 }
+.right .rangeContainer .numberBox p span{
+  font-size: 4vw;
+}
 .right .rangeContainer .rangeBox {
   gap: 2vw;
   margin: 0 3vw;
@@ -423,7 +456,7 @@
   }
   .SubmissionShower {
     margin: 0 1vw;
-    height: 60vh;
+    height: 50vh;
     border-radius: 5vw;}
 
   .left .languages .sec2 p {
@@ -462,5 +495,15 @@
 }
 .circleTextP{
   font-size: 3vw;
+}
+.left .problemsShower .levelss .levelspart {
+  gap: 3.5vw;
+}
+.left .problemsShower .levelss .levelspart p{
+  color: lightgrey;
+  font-size: 3.5vw;
+}
+.left .problemsShower .levelss .levelspart .problemName{
+  font-size: 4vw;
 }
 }

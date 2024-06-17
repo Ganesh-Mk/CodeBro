@@ -254,9 +254,6 @@ function AccountPage() {
         </div>
         <div className="accRight">
           <div className="accTop">
-            <div className="accRightTopHeadingBox">
-              <p className="accRightTopHeading">Solved Problems Stats</p>
-            </div>
             <div className="accRightTopContentBox">
               <div style={{ display: "grid", placeItems: "center" }}>
                 <CircularProgress
@@ -279,7 +276,11 @@ function AccountPage() {
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
+
               <div className="rangeStatContainer">
+                <div className="accRightTopHeadingBox">
+                  <p className="accRightTopHeading">Solved Problems Stats</p>
+                </div>
                 <div className="rangeContainer">
                   <div className="diffTextBox">
                     <p className="easy">Easy</p>
@@ -317,13 +318,13 @@ function AccountPage() {
                   </div>
                   <div className="numberBox">
                     <p className="nums">
-                      {easyWidth} / {totalEasy}
+                      {easyWidth} <span>/ {totalEasy}</span>
                     </p>
                     <p className="nums">
-                      {mediumWidth} / {totalMedium}
+                      {mediumWidth} <span>/ {totalMedium}</span>
                     </p>
                     <p className="nums">
-                      {hardWidth} / {totalHard}
+                      {hardWidth} <span>/ {totalHard}</span>
                     </p>
                   </div>
                 </div>

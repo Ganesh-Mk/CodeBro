@@ -174,9 +174,9 @@ const HomePage = () => {
             <div className="levelss">
               <div className="levelspart">
                 <p>Status</p>
-                <p>Problem name</p>
+                <p className="problemName">Problem name</p>
               </div>
-              <div className="levelspart">
+              <div className="levelspart levelspartMargin">
                 <p className="ds">Topics</p>
                 <p>Difficulty</p>
                 <p>Attempts</p>
@@ -185,6 +185,7 @@ const HomePage = () => {
             <div className="problemdisplays">
               {AllquesObject.slice(0, 10).map((problem, index) => (
                 <ProblemDisplayContainer
+                  isGapSmall={true}
                   problem={problem}
                   index={index}
                   key={index}
@@ -229,8 +230,8 @@ const HomePage = () => {
                 <div className="rangeContainer">
                   <div className="diffTextBox">
                     <p className="easy">Easy</p>
-                    <p className="Medium">Medium</p>
-                    <p className="Hard">Hard</p>
+                    <p className="medium">Medium</p>
+                    <p className="hard">Hard</p>
                   </div>
                   <div className="rangeBox">
                     <div className="range">
@@ -263,13 +264,13 @@ const HomePage = () => {
                   </div>
                   <div className="numberBox">
                     <p className="nums">
-                      {easyWidth} / {totalEasy}
+                      {easyWidth} <span>/ {totalEasy}</span>
                     </p>
                     <p className="nums">
-                      {mediumWidth} / {totalMedium}
+                      {mediumWidth} <span>/ {totalMedium}</span>
                     </p>
                     <p className="nums">
-                      {hardWidth} / {totalHard}
+                      {hardWidth} <span>/ {totalHard}</span>
                     </p>
                   </div>
                 </div>

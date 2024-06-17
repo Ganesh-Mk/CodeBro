@@ -11,7 +11,14 @@ import crtImage from "../assets/icons/correctIcon.png";
 
 import CorrectIcon from "./CorrectIcon";
 
-const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
+const ProblemDisplayContainer = ({
+  problem,
+  value,
+  fontSize,
+  bool,
+  index,
+  isGapSmall,
+}) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
 
@@ -108,7 +115,13 @@ const ProblemDisplayContainer = ({ problem, value, fontSize, bool, index }) => {
           <p>{problem.heading}</p>
         </div>
         {value && (
-          <div className="problemBoxPart2">
+          <div
+            className={
+              isGapSmall
+                ? "problemBoxPart2Margin problemBoxPart2"
+                : "problemBoxPart2"
+            }
+          >
             <div className="problemBoxMiddle">
               <div className="topicsDisplayer">
                 <span className="topics">Topics: </span>
