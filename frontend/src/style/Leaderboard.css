@@ -1,35 +1,81 @@
+.leaderTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Default to 3 columns */
+  grid-template-areas: 
+    "left center right";
+  place-items: center;
+  margin-bottom: 2vw;
+}
 
-.leaderBottom{
+.leaderTopLeft {
+  grid-area: left;
+}
+
+.leaderTopCenter {
+  grid-area: center;
+}
+
+.leaderTopRight {
+  grid-area: right;
+  display: grid;
+  place-items: flex-end;
+}
+
+/* Media query to switch to single column layout and reverse the order */
+
+
+/* Additional styling */
+.leaderTopCenter p {
+  color: lightgrey;
+}
+
+.leaderTopRight span {
+  font-size: 1.4vw;
+  color: lightgrey;
+}
+
+.leaderTopRight h1 {
+  font-size: 2.2vw;
+}
+
+/* Rest of your CSS code */
+.leaderBottom {
   border-radius: 3vw;
   padding: 2vw 1vw;
   background: #242424;
 }
-.leaderBoardPage h3{
+
+.leaderBoardPage h3 {
   font-size: 3vw;
   margin-top: 2vw;
   color: lightblue;
   text-align: center;
 }
-.leaderBoardPage > p{
+
+.leaderBoardPage > p {
   font-size: 1vw;
   color: grey;
   margin-bottom: 4vw;
   text-align: center;
 }
-.leaderBoardPage p{
+
+.leaderBoardPage p {
   font-size: 1.3vw;
 }
-.chakra-accordion__item{
+
+.chakra-accordion__item {
   min-height: 4vw !important;
 }
-.chakra-accordion__item svg{
+
+.chakra-accordion__item svg {
   font-size: 2vw;
 }
-.chakra-accordion__item h2 button{
+
+.chakra-accordion__item h2 button {
   margin-top: 1.1vw !important;
 }
 
-.leadersImage{
+.leadersImage {
   text-align: right;
   width: 2.7vw;
   height: 2.7vw;
@@ -37,7 +83,217 @@
   margin-left: 3.4vw;
 }
 
-.leadersBox{
+.leadersBox {
   height: 45vh;
   overflow-y: scroll;
+}
+
+.leaderTop div {
+  display: grid;
+  place-items: center;
+}
+
+.leaderHeadings{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 5% 4% 46% 10% 9% 11% 9% 9%;
+  margin: 0 2vw;
+}
+
+.leaderBoardUsers{
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  grid-template-columns: 3% 8% 39% 10% 9% 11% 9% 9%;
+  align-items: center;
+}
+
+.leaderHeadingsTags{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vw;
+  padding: 0 2vw 0 0;
+}
+
+.leaderHeadingsTags p{
+  color: lightgrey;
+}
+
+.leaderName{
+  margin-left: 2vw;
+  text-align: left;
+}
+
+.leaderBoardUserDetails{
+  display:flex;
+  margin: 1vw 0;
+  padding:1vw;
+  justify-content: space-between;
+  gap:2vw;
+}
+.linksContainerMain{
+  display: flex;
+  gap: 2vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.linksContainer{
+  display: flex;
+  gap: 2vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.linksContainerMain h1{
+  font-size: 1.4vw;
+  color: lightblue;
+}
+.langDetailsMain h1{
+  font-size: 1.4vw;
+  color: lightblue;
+}
+.langDetailsMain{
+  display: flex;
+  gap: 2vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.langDetails{
+  display: flex;
+  gap: 1vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.langDetails p{
+  font-size: 1.3vw;
+  background: #343434;
+  padding: .2vw 1vw;
+  border-radius: 2vw;
+}
+.langDetails span{
+  font-size: 1.1vw;
+  margin-left: 1vw;
+}
+.linksContainer img{
+  width: 3vw;
+}
+p.leaderEmail {
+  font-size: 1vw;
+  color: grey;
+  text-align: left;
+  margin-left: 2vw;
+}
+
+.noUser{
+    font-size: 1.5vw;
+    color: grey;
+    text-align: center;
+    margin-top: 10vw;
+}
+
+@media screen and (max-width: 800px) {
+  .leaderTop {
+    grid-template-columns: 1fr; /* Switch to single column layout */
+    grid-template-areas: 
+    "center"
+    "left" /* Reverse the order of elements */
+    "right"
+  }
+
+  .noUser{
+    font-size: 2.5vw;
+    margin-top: 20vw;
+}
+  .linksContainer{
+    gap: 5vw;
+
+  }
+  .linksContainer img{
+    width: 5vw;
+  }
+  .leaderBoardUserDetails{
+    flex-direction: column;
+  }
+  .linksContainerMain h1{
+    font-size: 3vw;
+  }
+
+  .leaderBoardUsers{
+    grid-template-columns: 1fr 1fr 5fr 2fr 1fr;
+  }
+
+  .leaderName{
+    margin-left: 9vw;
+  }
+ 
+ 
+
+  .leaderTopCenter h3{
+    font-size: 8vw;
+  }
+  .css-gv1iwz{
+    left: 42vw !important;
+  }
+  .chakra-accordion__item svg {
+    font-size: 5vw !important;
+}
+  .css-18z7r7u{
+    width: 350% !important;
+  }
+  .leaderTopCenter p{
+    font-size: 3.5vw;
+    margin-bottom: 6vw;
+  }
+  .leaderTopRight span{
+    font-size: 3vw;
+  }
+  .leaderTopRight h1{
+    font-size: 3.5vw;
+  }
+  .leaderTopRight{
+    margin: 3vw 0;
+  }
+  .leaderBottom p{
+    font-size: 3.4vw;
+  }
+  .leadersImage {
+    width: 7vw;
+    height: 7vw;
+}
+  .removeEle {
+    display: none;
+  }
+  .leaderHeadings{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 5fr 2fr 1fr;
+    margin: 0 2vw;
+  }
+
+  .langDetailsMain h1{
+    font-size: 3vw;
+  }
+  
+.leaderBoardUsers{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 5fr 2fr 1fr;
+}
+.chakra-accordion__item h2 button {
+  margin-top: 3.1vw !important;
+}
+.chakra-accordion__item {
+  min-height: 10vw !important;
+}
+p.leaderEmail {
+  font-size: 2vw;
+  margin-left: 9vw;
+}
+
+.langDetails p{
+  font-size: 2.5vw;
+  padding: .5vw 2vw;
+}
+.langDetails p span{
+  font-size: 2.5vw;
+}
 }

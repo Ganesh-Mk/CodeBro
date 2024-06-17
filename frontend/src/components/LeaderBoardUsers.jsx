@@ -32,13 +32,7 @@ function LeaderBoardUsers({
           <AccordionButton
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <div
-              style={{
-                display: "grid",
-                width: "100%",
-                gridTemplateColumns: "5% 7% 40% 10% 10% 10% 10% 10%",
-              }}
-            >
+            <div className="leaderBoardUsers">
               <p>{rank}</p>
               <img
                 className="leadersImage"
@@ -49,11 +43,14 @@ function LeaderBoardUsers({
                 }
                 alt="account default logo"
               />
-              <p style={{ textAlign: "left", marginLeft: "2vw" }}>{name}</p>
+              <div>
+                <p className="leaderName">{name}</p>
+                <p className="leaderEmail">{userEmail}</p>
+              </div>
               <p>{total}</p>
-              <p>{easy}</p>
-              <p>{medium}</p>
-              <p>{hard}</p>
+              <p className="removeEle">{easy}</p>
+              <p className="removeEle">{medium}</p>
+              <p className="removeEle">{hard}</p>
               <AccordionIcon
                 style={{ textAlign: "right", marginLeft: "2vw" }}
               />
@@ -61,77 +58,58 @@ function LeaderBoardUsers({
           </AccordionButton>
         </h2>
         <AccordionPanel pb={3} w="100%">
-          <div
-            style={{
-              display: "flex",
-              padding: "1vw",
-              justifyContent: "space-between",
-              gap: "2vw",
-            }}
-          >
-            <div style={{ display: "flex", gap: "2vw" }}>
+          <div className="leaderBoardUserDetails">
+            <div className="linksContainerMain">
               <h1>Connect with - </h1>
-              {userInsta != "" ? (
-                <Link className="links" target="_blank" to={userInsta}>
-                  <img
-                    style={{ width: "3vw" }}
-                    src={images.instagram}
-                    alt="insta logo"
-                  />
-                </Link>
-              ) : (
-                ""
-              )}
-              {userGithub != "" ? (
-                <Link className="links" target="_blank" to={userGithub}>
-                  <img
-                    style={{ width: "3vw" }}
-                    src={images.github}
-                    alt="Github logo"
-                  />
-                </Link>
-              ) : (
-                ""
-              )}
+              <div className="linksContainer">
+                {userInsta != "" ? (
+                  <Link className="links" target="_blank" to={userInsta}>
+                    <img src={images.instagram} alt="insta logo" />
+                  </Link>
+                ) : (
+                  ""
+                )}
+                {userGithub != "" ? (
+                  <Link className="links" target="_blank" to={userGithub}>
+                    <img src={images.github} alt="Github logo" />
+                  </Link>
+                ) : (
+                  ""
+                )}
 
-              {userLinkedin != "" ? (
-                <Link className="links" target="_blank" to={userLinkedin}>
-                  <img
-                    style={{ width: "3vw" }}
-                    src={images.linkedin}
-                    alt="LinkedIn logo"
-                  />
-                </Link>
-              ) : (
-                ""
-              )}
+                {userLinkedin != "" ? (
+                  <Link className="links" target="_blank" to={userLinkedin}>
+                    <img src={images.linkedin} alt="LinkedIn logo" />
+                  </Link>
+                ) : (
+                  ""
+                )}
 
-              {userEmail != "" ? (
-                <Link className="links" target="_blank" to={userEmail}>
-                  <img
-                    style={{ width: "3vw" }}
-                    src={images.mail}
-                    alt="Mail logo"
-                  />
-                </Link>
-              ) : (
-                ""
-              )}
+                {userEmail != "" ? (
+                  <Link className="links" target="_blank" to={userEmail}>
+                    <img src={images.mail} alt="Mail logo" />
+                  </Link>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
-            <div style={{ display: "flex", gap: "2vw" }}>
+            <div className="langDetailsMain">
               <h1>Solved in - </h1>
-              <p>
-                Javascript <span style={{ color: "grey" }}>x</span>
-                {javascript}
-              </p>
-              <p>
-                Python <span style={{ color: "grey" }}>x</span>
-                {python}
-              </p>
-              <p>
-                java <span style={{ color: "grey" }}>x</span>
-                {java}
-              </p>
+              <div className="langDetails">
+                <p>
+                  Javascript <span style={{ color: "grey" }}>x </span>
+                  {javascript}
+                </p>
+                <p>
+                  Python <span style={{ color: "grey" }}>x </span>
+                  {python}
+                </p>
+                <p>
+                  java <span style={{ color: "grey" }}>x </span>
+                  {java}
+                </p>
+              </div>
             </div>
           </div>
         </AccordionPanel>
