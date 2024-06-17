@@ -1568,6 +1568,46 @@ public static int findMedian(int[] arr) {
         javaFuncCall: "findMedian(new int[]{-3, -2, -1, 0, 1, 2, 3})",
       },
     ],
+
+    /* js :
+          const n = arr.length;
+    const mid = Math.floor(n / 2);
+    
+    if (n % 2 === 1) {
+        // Odd number of elements
+        return Math.floor(arr[mid]);
+    } else {
+        // Even number of elements
+        return Math.floor((arr[mid - 1] + arr[mid]) / 2);
+    }
+
+    return 0;
+
+
+    python:
+          n = len(arr)
+    mid = n // 2
+    
+    if n % 2 == 1:
+        # Odd number of elements
+        return arr[mid]
+    else:
+        # Even number of elements
+        return (arr[mid - 1] + arr[mid]) // 2
+
+
+    java :
+           int n = arr.length;
+    int mid = n / 2;
+    
+    if (n % 2 == 1) {
+        // Odd number of elements
+        return arr[mid];
+    } else {
+        // Even number of elements
+        return (arr[mid - 1] + arr[mid]) / 2;
+    }
+    */
   },
   {
     number: 10,
@@ -1643,7 +1683,7 @@ public static int findKthLargest(int[] arr, int k) {
         explanation:
           "The 4th largest element in the array [3, 2, 3, 1, 2, 4, 5, 5, 6] is 4.",
 
-        number: "1",
+        number: "3",
         input: "arr = [3, 2, 1, 5, 6, 4], k = 2",
         output: "5",
         parameter: "[3,2,1,5,6,4], 2",
@@ -1653,7 +1693,7 @@ public static int findKthLargest(int[] arr, int k) {
         image: null,
       },
       {
-        number: "2",
+        number: "4",
         input: "arr = [3, 2, 3, 1, 2, 4, 5, 5, 6], k = 4",
         output: "4",
         parameter: "[3,2,3,1,2,4,5,5,6], 4",
@@ -1694,7 +1734,8 @@ public static int findKthLargest(int[] arr, int k) {
         expectedOutput: "2",
         userOutput: null,
         javaFuncCall: "findKthLargest(new int[]{2, 2, 2, 2, 2}, 1)",
-
+      },
+      {
         parameter: "[3,2,1,5,6,4], 2",
         expectedOutput: "5",
         userOutput: null,
@@ -1725,6 +1766,26 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "findKthLargest(new int[]{2, 2, 2, 2, 2}, 1)",
       },
     ],
+
+
+    /* 
+    js : 
+        arr.sort((a, b) => b - a); // Sort array in descending order
+    return arr[k - 1];
+
+
+    python :
+          arr.sort(reverse=True)
+    
+    # Return the k-th largest element
+    return arr[k - 1]
+
+
+    java :
+        Arrays.sort(arr);
+        return arr[arr.length - k];
+    
+    */
   },
   {
     number: "11",
@@ -1800,24 +1861,13 @@ public static int findKthLargest(int[] arr, int k) {
         explanation:
           "In the array [1, 2, 2, 2, 3, 4, 5, 2, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
 
-        number: "1",
+        number: "3",
         input: "arr = [3, 2, 2, 2, 2, 4, 2]",
         output: "2",
         parameter: "[3, 2, 2, 2, 2, 4, 2]",
         javaFuncCall: "findMajorityElement(new int[]{3, 2, 2, 2, 2, 4, 2})",
         explanation:
           "In the array [3, 2, 2, 2, 2, 4, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
-        image: null,
-      },
-      {
-        number: "2",
-        input: "arr = [1, 2, 2, 2, 3, 4, 5, 2, 2]",
-        output: "2",
-        parameter: "[1, 2, 2, 2, 3, 4, 5, 2, 2]",
-        javaFuncCall:
-          "findMajorityElement(new int[]{1, 2, 2, 2, 3, 4, 5, 2, 2})",
-        explanation:
-          "In the array [1, 2, 2, 2, 3, 4, 5, 2, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
         image: null,
       },
     ],
@@ -2013,6 +2063,9 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "removeDuplicates(new int[]{0, 0, 0, 0, 0})",
       },
     ],
+
+    
+  
   },
   {
     number: 13,
@@ -2774,6 +2827,15 @@ public static int findKthLargest(int[] arr, int k) {
         image: null,
         javaFuncCall: "findPeakElement(new int[]{1, 2, 1, 3, 5, 6, 4})",
       },
+      {
+        number: 3,
+        input: "nums = [1]",
+        output: "0",
+        parameter: "[1]",
+        explanation: "The element at index 0 (1) is a peak element.",
+        image: null,
+        javaFuncCall: "findPeakElement(new int[]{1})",
+      },
     ],
     cases: [
       {
@@ -2861,6 +2923,57 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "findPeakElement(new int[]{1, 2})",
       },
     ],
+
+
+    /* var findPeakElement = function(nums) {
+    // Write your code here
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        
+        if (nums[mid] > nums[mid + 1]) {
+            right = mid; // Peak is potentially at mid or to the left
+        } else {
+            left = mid + 1; // Peak is definitely to the right
+        }
+    }
+    
+    return left;
+
+}; */
+
+
+    /*     left, right = 0, len(nums) - 1
+    
+    while left < right:
+        mid = (left + right) // 2
+        
+        if nums[mid] > nums[mid + 1]:  # Peak is on the left side
+            right = mid
+        else:  # Peak is on the right side
+            left = mid + 1
+    
+    return left */
+
+
+    /* int left = 0;
+    int right = nums.length - 1;
+    
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        
+        if (nums[mid] > nums[mid + 1]) {
+            // Peak is on the left side or at mid
+            right = mid;
+        } else {
+            // Peak is on the right side of mid
+            left = mid + 1;
+        }
+    }
+    
+    return left; */
   },
   {
     number: 20,
@@ -2883,7 +2996,7 @@ public static int findKthLargest(int[] arr, int k) {
       "\n/**\n * @param {number} num\n * @return {number}\n */\nvar sqrt = function(num) {\n    // Write your code here\n};",
     pythonDefaultCode: "def sqrt(x: int) -> int:\n  ",
     javaDefaultCode:
-      "// public static int sqrt(int n) {\n // write your code here\n// }",
+      "public static int sqrt(int n) {\n \t// write your code here\n }",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -2905,6 +3018,15 @@ public static int findKthLargest(int[] arr, int k) {
         explanation: "The floor(sqrt(8)) is 2.82842..., so the result is 2.",
         image: null,
         javaFuncCall: "sqrt(8)",
+      },
+      {
+        number: 3,
+        input: "n = 49",
+        output: "7",
+        parameter: "49",
+        explanation: "The floor(sqrt(49)) is 7.82842..., so the result is 7.",
+        image: null,
+        javaFuncCall: "sqrt(49)",
       },
     ],
     cases: [
@@ -2975,6 +3097,71 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "sqrt(144)",
       },
     ],
+
+    /* if (num < 2) return num; // Base cases for 0 and 1
+    
+    let left = 0;
+    let right = num;
+    
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let square = mid * mid;
+        
+        if (square === num) {
+            return mid; // Found the exact square root
+        } else if (square < num) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    // If we don't find an exact square root, return the floor value
+    return right; */
+
+
+
+    /* if x < 2:
+        return x  # Base cases for 0 and 1
+    
+    left, right = 0, x
+    
+    while left <= right:
+        mid = (left + right) // 2
+        mid_squared = mid * mid
+        
+        if mid_squared == x:
+            return mid
+        elif mid_squared < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return right  # Return the largest integer r such that r*r <= x */
+
+
+    /* if (n < 2) {
+        return n; // Base cases for 0 and 1
+    }
+    
+    long left = 0;
+    long right = n;
+    
+    while (left <= right) {
+        long mid = left + (right - left) / 2;
+        long midSquared = mid * mid;
+        
+        if (midSquared == n) {
+            return (int) mid; // Found the exact square root
+        } else if (midSquared < n) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    // Return the largest integer r such that r*r <= n
+    return (int) right; */
   },
   {
     number: 21,
@@ -2996,7 +3183,7 @@ public static int findKthLargest(int[] arr, int k) {
       "/**\n\t*@param{number} n\n\t*@return{number}\n*/\n\n var reverseInteger = function(n) {\n//write your code here\n}",
     pythonDefaultCode: "def reverseInteger(n: int) -> int:\n",
     javaDefaultCode:
-      "// public static int reverseInteger(int n) {\n \t//write your code here\n",
+      "public static int reverseInteger(int n) {\n \t//write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -3018,6 +3205,15 @@ public static int findKthLargest(int[] arr, int k) {
         explanation: "The reverse of -123 is -321.",
         image: null,
         javaFuncCall: "reverseInteger(-123)",
+      },
+      {
+        number: 3,
+        input: "x = 120",
+        output: "21",
+        parameter: "120",
+        explanation: "The reverse of 120 is 21.",
+        image: null,
+        javaFuncCall: "reverseInteger(120)",
       },
     ],
     cases: [
@@ -3082,6 +3278,81 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "reverseInteger(-450)",
       },
     ],
+
+    /* const maxInt = Math.pow(2, 31) - 1; // 2^31 - 1
+    const minInt = -Math.pow(2, 31);    // -2^31
+    
+    // Convert number to string to handle negative sign
+    let str = Math.abs(n).toString();
+    
+    // Reverse the string
+    let reversed = parseInt(str.split('').reverse().join(''));
+    
+    // Check for overflow
+    if (reversed > maxInt) {
+        return 0;
+    }
+    
+    // Apply original sign
+    if (n < 0) {
+        reversed *= -1;
+    }
+    
+    return reversed; */
+
+
+    /* MAX_INT = 2**31 - 1
+    MIN_INT = -2**31
+    
+    # Convert integer to string to handle digits easily
+    str_n = str(n)
+    
+    # Handle negative sign
+    if str_n[0] == '-':
+        reversed_str = '-' + str_n[:0:-1]  # Reverse digits excluding the negative sign
+    else:
+        reversed_str = str_n[::-1]         # Reverse all digits
+    
+    # Convert reversed string back to integer
+    reversed_int = int(reversed_str)
+    
+    # Check for overflow
+    if reversed_int < MIN_INT or reversed_int > MAX_INT:
+        return 0
+    
+    return reversed_int
+ */
+
+
+    /*     final int MAX_INT = Integer.MAX_VALUE;   // 2^31 - 1
+    final int MIN_INT = Integer.MIN_VALUE;   // -2^31
+    
+    // Convert integer to string to handle digits easily
+    String strN = Integer.toString(n);
+    
+    // Handle negative sign
+    boolean isNegative = strN.charAt(0) == '-';
+    StringBuilder reversedStr = new StringBuilder();
+    
+    // Reverse the digits excluding the negative sign
+    for (int i = strN.length() - 1; i >= (isNegative ? 1 : 0); i--) {
+        reversedStr.append(strN.charAt(i));
+    }
+    
+    // Convert reversed string back to integer
+    int reversedInt;
+    try {
+        reversedInt = isNegative ? -Integer.parseInt(reversedStr.toString()) : Integer.parseInt(reversedStr.toString());
+    } catch (NumberFormatException e) {
+        return 0; // Handle NumberFormatException
+    }
+    
+    // Check for overflow
+    if (reversedInt < MIN_INT || reversedInt > MAX_INT) {
+        return 0;
+    }
+    
+    return reversedInt; */
   },
   {
     number: 22,
@@ -3176,12 +3447,88 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "sortColors(new int[]{1,2,0})",
       },
     ],
+    /*var sortColors = function(nums) {
+      let low = 0, mid = 0, high = nums.length - 1;
+      
+      while (mid <= high) {
+          if (nums[mid] === 0) {
+              [nums[low], nums[mid]] = [nums[mid], nums[low]];
+              low++;
+              mid++;
+          } else if (nums[mid] === 1) {
+              mid++;
+          } else {
+              [nums[mid], nums[high]] = [nums[high], nums[mid]];
+              high--;
+          }
+      }
+  }; */
+
+  /* def sortColors(nums):
+    low, mid, high = 0, 0, len(nums) - 1
+    
+    while mid <= high:
+        if nums[mid] == 0:
+            nums[low], nums[mid] = nums[mid], nums[low]
+            low += 1
+            mid += 1
+        elif nums[mid] == 1:
+            mid += 1
+        else:
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high -= 1
+ */
+
+   /* import java.util.Arrays;
+
+public class Solution {
+    public static String sortColors(int[] nums) {
+        // Count the occurrences of 0s, 1s, and 2s
+        int count0 = 0, count1 = 0, count2 = 0;
+        
+        for (int num : nums) {
+            switch (num) {
+                case 0:
+                    count0++;
+                    break;
+                case 1:
+                    count1++;
+                    break;
+                case 2:
+                    count2++;
+                    break;
+            }
+        }
+        
+        // Overwrite the original array based on the counts
+        int index = 0;
+        while (count0 > 0) {
+            nums[index++] = 0;
+            count0--;
+        }
+        while (count1 > 0) {
+            nums[index++] = 1;
+            count1--;
+        }
+        while (count2 > 0) {
+            nums[index++] = 2;
+            count2--;
+        }
+        
+        return Arrays.toString(nums);
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2, 0, 2, 1, 1, 0};
+        System.out.println(sortColors(nums)); // Output: [0, 0, 1, 1, 2, 2]
+    }
+}
+ */
   },
   {
     number: 23,
     heading: "Sort Even Odd",
     difficulty: "Medium",
-
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -3227,13 +3574,13 @@ public static int findKthLargest(int[] arr, int k) {
       },
       {
         number: 3,
-        input: "nums = [9,8,7,6,5,4,3,2,1,0]",
-        output: "[0,2,4,6,8,9,7,5,3,1]",
-        parameter: "[9,8,7,6,5,4,3,2,1,0]",
+        input: "nums = [20,10,30,15,25,35]",
+        output: "[10,20,30,35,25,15]",
+        parameter: "[20,10,30,15,25,35]",
         explanation:
-          "The sorted array is [0,2,4,6,8,9,7,5,3,1]. Even numbers are sorted in ascending order and odd numbers are sorted in descending order.",
+          "The sorted array is [0,2,4,6,7,5,3,1]. Even numbers are sorted in ascending order and odd numbers are sorted in descending order.",
         image: null,
-        javaFuncCall: "sortEvenOdd(new int[]{9,8,7,6,5,4,3,2,1,0})",
+        javaFuncCall: "sortEvenOdd(new int[]{20,10,30,15,25,35})",
       },
     ],
     cases: [
@@ -3274,58 +3621,16 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "sortEvenOdd(new int[]{3,2,1})",
       },
       {
-        parameter: "[1,3,5,7,9,2,4,6,8,10]",
-        expectedOutput: "[2,4,6,8,10,9,7,5,3,1]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{1,3,5,7,9,2,4,6,8,10})",
-      },
-      {
-        parameter: "[10,8,6,4,2,9,7,5,3,1]",
-        expectedOutput: "[2,4,6,8,10,9,7,5,3,1]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{10,8,6,4,2,9,7,5,3,1})",
-      },
-      {
-        parameter: "[12,11,10,9,8,7,6,5,4,3,2,1]",
-        expectedOutput: "[2,4,6,8,10,12,11,9,7,5,3,1]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{12,11,10,9,8,7,6,5,4,3,2,1})",
-      },
-      {
-        parameter: "[13,2,4,15,6,8,17]",
-        expectedOutput: "[2,4,6,8,17,15,13]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{13,2,4,15,6,8,17})",
-      },
-      {
         parameter: "[5,3,8,6,7,2]",
         expectedOutput: "[2,6,8,7,5,3]",
         userOutput: null,
         javaFuncCall: "sortEvenOdd(new int[]{5,3,8,6,7,2})",
       },
       {
-        parameter: "[21,22,23,24,25,26,27]",
-        expectedOutput: "[22,24,26,27,25,23,21]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{21,22,23,24,25,26,27})",
-      },
-      {
         parameter: "[32,11,23,15,42,66]",
         expectedOutput: "[32,42,66,23,15,11]",
         userOutput: null,
         javaFuncCall: "sortEvenOdd(new int[]{32,11,23,15,42,66})",
-      },
-      {
-        parameter: "[99,98,97,96,95,94,93,92]",
-        expectedOutput: "[92,94,96,98,99,97,95,93]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{99,98,97,96,95,94,93,92})",
-      },
-      {
-        parameter: "[1,1,1,1,1,1,2,2,2,2]",
-        expectedOutput: "[2,2,2,2,1,1,1,1,1,1]",
-        userOutput: null,
-        javaFuncCall: "sortEvenOdd(new int[]{1,1,1,1,1,1,2,2,2,2})",
       },
       {
         parameter: "[3,3,2,2,1,1]",
@@ -3340,6 +3645,164 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "sortEvenOdd(new int[]{20,10,30,15,25,35})",
       },
     ],
+
+    /*  const isEven = num => num % 2 === 0;
+
+    // Two pointers approach
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        // Move left pointer to find the next odd number
+        while (left < right && isEven(nums[left])) {
+            left++;
+        }
+
+        // Move right pointer to find the next even number
+        while (left < right && !isEven(nums[right])) {
+            right--;
+        }
+
+        // Swap nums[left] (odd) with nums[right] (even)
+        if (left < right) {
+            let temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+    }
+
+    // Sort even numbers in ascending order (only the first left+1 elements)
+    nums.sort((a, b) => (isEven(a) && isEven(b)) ? a - b : 0);
+
+    // Sort odd numbers in descending order (from right to left)
+    for (let i = left; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (!isEven(nums[i]) && !isEven(nums[j]) && nums[j] > nums[i]) {
+                let temp = nums[j];
+                nums[j] = nums[i];
+                nums[i] = temp;
+            }
+        }
+    }
+
+    return nums; */
+    
+    /*     # Function to check if a number is even
+    def is_even(num):
+        return num % 2 == 0
+    
+    # Two pointers approach
+    left = 0
+    right = len(nums) - 1
+    
+    while left < right:
+        # Move left pointer to find the next odd number
+        while left < right and is_even(nums[left]):
+            left += 1
+        
+        # Move right pointer to find the next even number
+        while left < right and not is_even(nums[right]):
+            right -= 1
+        
+        # Swap nums[left] (odd) with nums[right] (even)
+        if left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+    
+    # Sort even numbers in ascending order
+    evens = [num for num in nums if is_even(num)]
+    evens.sort()
+    
+    # Sort odd numbers in descending order
+    odds = [num for num in nums if not is_even(num)]
+    odds.sort(reverse=True)
+    
+    # Combine sorted even and odd numbers
+    sorted_nums = []
+    even_index = 0
+    odd_index = 0
+    
+    for num in nums:
+        if is_even(num):
+            sorted_nums.append(evens[even_index])
+            even_index += 1
+        else:
+            sorted_nums.append(odds[odd_index])
+            odd_index += 1
+    
+    return sorted_nums  */
+
+    /*         boolean isEven = false;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                isEven = true;
+                break;
+            }
+        }
+
+        // Two pointers approach
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            // Move left pointer to find the next odd number
+            while (left < right && nums[left] % 2 == 0) {
+                left++;
+            }
+
+            // Move right pointer to find the next even number
+            while (left < right && nums[right] % 2 != 0) {
+                right--;
+            }
+
+            // Swap nums[left] (odd) with nums[right] (even)
+            if (left < right) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+            }
+        }
+
+        // Convert int[] to List<Integer> for easier manipulation
+        List<Integer> numList = new ArrayList<>();
+        for (int num : nums) {
+            numList.add(num);
+        }
+
+        // Separate even and odd numbers
+        List<Integer> evens = new ArrayList<>();
+        List<Integer> odds = new ArrayList<>();
+        for (int num : numList) {
+            if (num % 2 == 0) {
+                evens.add(num);
+            } else {
+                odds.add(num);
+            }
+        }
+
+        // Sort evens in ascending order
+        Collections.sort(evens);
+
+        // Sort odds in descending order
+        Collections.sort(odds, Collections.reverseOrder());
+
+        // Combine sorted evens and odds back into nums
+        int evensIndex = 0, oddsIndex = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                nums[i] = evens.get(evensIndex++);
+            } else {
+                nums[i] = odds.get(oddsIndex++);
+            }
+        }
+
+        // Return the sorted array as a string
+        return Arrays.toString(nums); */
   },
   {
     number: 24,
@@ -3490,6 +3953,84 @@ public static int findKthLargest(int[] arr, int k) {
           "longestConsecutive(new int[]{10, 11, 12, 13, 14, 15, 1, 2, 3, 4, 5, 6, 7, 8, 9})",
       },
     ],
+    /* var longestConsecutive = function(nums) {
+    if (nums.length === 0) {
+        return 0;
+    }
+    
+    // Use a set for fast lookup
+    let numSet = new Set(nums);
+    let maxLength = 0;
+    
+    for (let num of numSet) {
+        // Only process if num is the start of a sequence
+        if (!numSet.has(num - 1)) {
+            let currentNum = num;
+            let currentLength = 1;
+            
+            // Count the sequence length
+            while (numSet.has(currentNum + 1)) {
+                currentNum++;
+                currentLength++;
+            }
+            
+            // Update maxLength if currentLength is greater
+            maxLength = Math.max(maxLength, currentLength);
+        }
+    }
+    
+    return maxLength;
+}; */
+
+    /*     if not nums:
+        return 0
+    
+    num_set = set(nums)
+    max_length = 0
+    
+    for num in nums:
+        if num - 1 not in num_set:  # Only start counting from the beginning of a sequence
+            current_num = num
+            current_length = 1
+            
+            # Count the length of the sequence
+            while current_num + 1 in num_set:
+                current_num += 1
+                current_length += 1
+            
+            # Update the maximum length found
+            max_length = max(max_length, current_length)
+    
+    return max_length */
+
+    /* if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        
+        HashSet<Integer> numSet = new HashSet<>();
+        for (int num : nums) {
+            numSet.add(num);
+        }
+        
+        int maxLength = 0;
+        
+        for (int num : nums) {
+            if (!numSet.contains(num - 1)) {  // Only start counting from the beginning of a sequence
+                int currentNum = num;
+                int currentLength = 1;
+                
+                // Count the length of the sequence
+                while (numSet.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentLength++;
+                }
+                
+                // Update the maximum length found
+                maxLength = Math.max(maxLength, currentLength);
+            }
+        }
+        
+        return maxLength; */
   },
   {
     number: 25,
@@ -3640,6 +4181,53 @@ public static int findKthLargest(int[] arr, int k) {
           'lengthOfLongestSubstring("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")',
       },
     ],
+
+    /*   let maxLength = 0;
+    let left = 0;
+    let right = 0;
+    let set = new Set();
+    
+    while (right < s.length) {
+        if (!set.has(s[right])) {
+            set.add(s[right]);
+            right++;
+            maxLength = Math.max(maxLength, right - left);
+        } else {
+            set.delete(s[left]);
+            left++;
+        }
+    }
+    
+    return maxLength; */
+
+    /*     char_map = {}
+    max_length = 0
+    left = 0
+    
+    for right in range(len(s)):
+        if s[right] in char_map:
+            left = max(char_map[s[right]] + 1, left)
+        
+        char_map[s[right]] = right
+        max_length = max(max_length, right - left + 1)
+    
+    return max_length */
+
+
+    /*         HashMap<Character, Integer> charMap = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+        
+        for (int right = 0; right < s.length(); right++) {
+            char ch = s.charAt(right);
+            if (charMap.containsKey(ch)) {
+                left = Math.max(charMap.get(ch) + 1, left);
+            }
+            charMap.put(ch, right);
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+        
+        return maxLength; */
   },
   {
     number: 26,
@@ -3767,7 +4355,7 @@ public static int findKthLargest(int[] arr, int k) {
       },
       {
         parameter: "'Java is fun!'",
-        expectedOutput: "3",
+        expectedOutput: "4",
         userOutput: null,
         javaFuncCall: 'lengthOfLastWord("Java is fun!")',
       },
@@ -3815,4 +4403,38 @@ public static int findKthLargest(int[] arr, int k) {
       },
     ],
   },
+
+  
+  /*  s = s.trim();
+    
+    // Split by spaces
+    let words = s.split(' ');
+    
+    // Find the last non-empty word
+    for (let i = words.length - 1; i >= 0; i--) {
+        if (words[i] !== '') {
+            return words[i].length;
+        }
+    }
+    
+    // If no valid word found, return 0
+    return 0; */
+
+
+    /*   s = s.strip()
+    
+    # Split by spaces
+    words = s.split()
+    
+    # Return length of the last word
+    return len(words[-1]) if words else 0 */
+
+
+    /* s = s.trim();
+    
+    // Split by one or more whitespace characters
+    String[] words = s.split("\\s+");
+    
+    // Return length of the last word
+    return words.length > 0 ? words[words.length - 1].length() : 0; */
 ];
