@@ -5707,7 +5707,7 @@ def maxSubArray(nums: List[int]) -> int:
     "number": 30,
     "heading": "Decode Ways",
     "difficulty": "Hard",
-    "topic": ["Dynamic Programming", "String"],
+    "topic": ["DynamicProgramming", "String"],
     "ds": "[ String, Dynamic Programming ]",
     "attempts": 0,
     "isSolved": false,
