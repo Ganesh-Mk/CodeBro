@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import {codeQuotes} from '../javascripts/codequotes.js'; // Adjust the import path if necessary
+import React, { useState, useEffect } from "react";
+import { codeQuotes } from "../javascripts/codequotes.js"; // Adjust the import path if necessary
 
 const QuotesDisplay = () => {
   const [currentQuote, setCurrentQuote] = useState("");
 
   useEffect(() => {
     const getStoredQuote = () => {
-      const storedQuote = localStorage.getItem('quoteOfTheDay');
-      const storedDate = localStorage.getItem('quoteDate');
-      const today = new Date().toISOString().split('T')[0];
+      const storedQuote = localStorage.getItem("quoteOfTheDay");
+      const storedDate = localStorage.getItem("quoteDate");
+      const today = new Date().toISOString().split("T")[0];
 
       if (storedQuote && storedDate === today) {
         return storedQuote;
@@ -17,9 +17,9 @@ const QuotesDisplay = () => {
     };
 
     const setStoredQuote = (quote) => {
-      const today = new Date().toISOString().split('T')[0];
-      localStorage.setItem('quoteOfTheDay', quote);
-      localStorage.setItem('quoteDate', today);
+      const today = new Date().toISOString().split("T")[0];
+      localStorage.setItem("quoteOfTheDay", quote);
+      localStorage.setItem("quoteDate", today);
     };
 
     const getRandomQuote = () => {
@@ -39,7 +39,7 @@ const QuotesDisplay = () => {
 
   return (
     <div className="sec2">
-      <p><span>"</span>{currentQuote}<span>"</span></p>
+      <p>"{currentQuote}"</p>
     </div>
   );
 };

@@ -162,14 +162,12 @@ const HomePage = () => {
               <h1>Quote of the day</h1>
             </div>
 
-            <div className="sec2">
-              <QuotesDisplay />
-            </div>
+            <QuotesDisplay />
           </div>
           <div className="head2">
-            <p>Probelms</p>
+            <p>Explore Probelms</p>
             <Link to="/problems">
-              <button>Expand</button>
+              <p className="seeall">See all</p>
             </Link>
           </div>
           <div className="problemsShower">
@@ -194,7 +192,7 @@ const HomePage = () => {
                 />
               ))}
               <Link to="/problems">
-                <button className="moreQuesbnt">More Questions...</button>
+                <p className="moreQues">See all problems...</p>
               </Link>
             </div>
           </div>
@@ -203,9 +201,7 @@ const HomePage = () => {
         <div className="right">
           <div className="accTop">
             <div className="accRightTopHeadingBox">
-              <p style={{ fontSize: "1.6vw", textAlign: "center" }}>
-                Solved Problems Stats
-              </p>
+              <p className="accRightTopHeading">Solved Problems Stats</p>
             </div>
             <div className="accRightTopContentBox">
               <div style={{ display: "grid", placeItems: "center" }}>
@@ -220,14 +216,12 @@ const HomePage = () => {
                 >
                   <CircularProgressLabel className="circleText">
                     <p>
-                      <span style={{ fontSize: "1.9vw" }}>
-                        {easyWidth + mediumWidth + hardWidth}{" "}
+                      <span className="circleTextSpan">
+                        {easyWidth + mediumWidth + hardWidth}
                       </span>
-                      <span style={{ fontSize: "1.2vw", color: "grey" }}>
-                        / {totalProblems}
-                      </span>
+                      <span className="circleTextSpan2">/ {totalProblems}</span>
                     </p>
-                    <p style={{ fontSize: "1.3vw" }}>Solved</p>
+                    <p className="circleTextP">Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
@@ -287,20 +281,23 @@ const HomePage = () => {
               <p>Submission List</p>
             </div>
             <div className="SubmissionStatusBar">
-              <p>Problem name</p>
+              <p>Problem names</p>
             </div>
             <div className="SubmissionProblemShower">
               {allProblems.length !== 0 ? (
-                allProblems.map((obj, i) => (
-                  <DisplayProblemContainer
-                    key={i}
-                    fontSize="1.4vw"
-                    num={obj.number}
-                    problem={obj.heading}
-                    diff={obj.difficulty}
-                    attempts={obj.attempts}
-                  />
-                ))
+                allProblems
+                  .slice()
+                  .reverse()
+                  .map((obj, i) => (
+                    <DisplayProblemContainer
+                      key={i}
+                      fontSize="1.4vw"
+                      num={obj.number}
+                      problem={obj.heading}
+                      diff={obj.difficulty}
+                      attempts={obj.attempts}
+                    />
+                  ))
               ) : (
                 <h3 style={{ textAlign: "center", color: "white" }}>
                   No problems solved yet

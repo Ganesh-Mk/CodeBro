@@ -6,6 +6,7 @@ h1, p{
     stroke-linecap: round !important;
 }
 
+
 .circleValueSmall{
 color: grey;
  width: 1vw;
@@ -178,7 +179,6 @@ color: grey;
         .accTop{
             border-radius: 2vw;
             display: grid;
-            padding: 2vw;
             background: #282828;
 
             .circleText{
@@ -340,6 +340,15 @@ color: grey;
     }
 }
 
+.css-1kd86nz {
+    width: 13vw !important;
+    height: 13vw !important;
+}
+
+.accRightTopHeadingBox{
+    padding: 0 !important;
+    padding-top: 1vw !important;
+}
 
 
 @media screen and (max-width: 800px) {
@@ -405,6 +414,9 @@ color: grey;
     .accountPage .accLeft .accLogoutBox Button {
         margin-bottom: 5vw;
     }
+    .accountPage .accRight .accTop .accRightTopHeadingBox p {
+        font-size: 6.5vw;
+    }
     .accountPage .accRight .accTop .accRightTopContentBox{
         flex-direction: column;
         padding: 6vw 0;
@@ -417,6 +429,17 @@ color: grey;
     }
     .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .diffTextBox p {
         font-size: 4vw;
+    }
+    .accountPage .accRight .accTop{
+        margin: 4vw 0;
+        border-radius: 5vw;
+    }
+    .accountPage .accRight .accBottom{
+        border-radius: 5vw;
+    }
+    .accountPage .accLeft{
+        padding-bottom: 4vw;
+        border-radius: 5vw;
     }
     .accountPage .accRight .accTop .accRightTopContentBox .rangeContainer .numberBox p {
         font-size: 4vw;

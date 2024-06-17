@@ -78,6 +78,7 @@
 @media screen and (max-width: 800px) {
   .displayProblemContainer p {
     font-size: 3.3vw;
+    margin-right: 2vw;
   }
   .accountPage .accRight .accBottom .headings {
     margin: 3vw 0;

@@ -4,27 +4,20 @@
   }
 }
 .home {
-  min-height: 100vh;
-  width: 100vw;
-  // overflow-y: hidden;
+  // width: 100vw;
   background-color: #1a1a1a;
-  // overflow-x: hidden;
-  .hori {
-    width: 100vw;
-    border: 1px solid #ffffff;
-  }
 }
 .flexerr {
-  display: flex;
   margin-top: 2vw;
+  display: grid;
+  grid-template-columns: 2.4fr 1fr;
 }
 
 .left {
   background-color: #1a1a1a;
-  height: calc(100vh - 4vw);
   margin-right: .5vw;
   padding: 0.2vw 0.8vw;
-  width: 74vw;
+  
   .head1 {
     padding: 0.8vw 1vw;
     p {
@@ -35,16 +28,14 @@
   .languages {
     // border-bottom: 2px solid rgb(161, 156, 156);
     background-color: #282828;
-    padding: .2vw 0vw;
+    padding: 1vw 0vw;
     border-radius: 1vw;
-    height: 8vw;
     .sec1 {
       display: flex;
       justify-content: center;
       align-items: center;
       padding-top: .8vw;
       // border: 2px solid blue;
-      height: 1.7vw;
       margin-top: 0;
       h1 {
         // border: 2px solid blue;
@@ -53,7 +44,6 @@
     }
     .sec2 {
       // border: 2px solid white;
-      height: calc(8vw - 2vw);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -61,7 +51,6 @@
         font-size: 1.4vw;
         width: 50vw;
         // border: 2px solid white;
-        line-height: 1.6vw;
         text-align: center;
         color: white;
         padding: .6vw .8vw;
@@ -78,34 +67,45 @@
   .head2 {
     // border-bottom: 2px solid rgb(143, 138, 138);
     font-size: 1.3vw;
-
+    margin: 1vw 2vw;
     padding: 0.4vw 1vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     // margin-top: 1vw;
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      font-weight: 200;
-      // border: 2px solid white;
-      transition: ease-in .3s;
-      background-color: rgb(26, 98, 222);
+
+    > p{
+      font-size: 2vw;
     }
-    p{
-      color: #ffffff;
+
+    .seeall{
+      color: lightblue;
+      border-bottom: .1vw solid lightblue;
+      font-size: 1.5vw;
     }
+   
+  
+
     button:hover {
       box-shadow: 1px 1px 8px #dde8fd;
       
     }
   }
 
+  .moreQues{
+    display: inline-block;
+    margin-top: 2vw;
+    border: 0.2vw solid grey;
+    border-radius: 100vw;
+    padding: .8vw 2vw;
+    color: lightblue;
+
+  }
+
   .problemsShower {
     // border: 2px solid rgb(0, 255, 0);
-    height: calc(100vh - 43.5vh);
+    height: 85%;
+    
     .levelss {
       
       .levelspart {
@@ -123,7 +123,7 @@
     }
   }
   .problemdisplays {
-    height: calc(100vh - 54vh);
+    height: calc(100vh - 58vh);
     padding: 0.2vw 1vw;
     margin: 0.5vw;
     border-radius: 0.5vw;
@@ -155,9 +155,9 @@
 }
 
 .right {
-  width: calc(100vw - 74vw);
-  height: calc(100vh - 4vw);
-  padding: 0vw 1vw 2vw 1vw;
+  display: grid;
+  padding-right: 1.5vw;
+  margin-bottom: 2vw;
   .accTop {
     background-color: #282828;
     padding: .6vw 0vw;
@@ -198,14 +198,14 @@
     justify-content: center;
     align-items: flex-start;
     gap: 2vw;
-    margin-top: 1.5vw;
+    margin-top: 1.2vw;
 
     .rangeBox{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 1.8vw;
+        gap: 1.4vw;
 
         .range{
             overflow: hidden;
@@ -233,7 +233,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 1.5vw;
+        gap: 1.2vw;
 
         p{
             color: white;
@@ -246,7 +246,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 1.5vw;
+        gap: 1.2vw;
 
         p{
             color: white;
@@ -259,10 +259,22 @@
     .range{
         width: 10vw;
         height: 1.2vw;
-        border: 1px solid white;
+        box-shadow: 0px 0px 2px 0px grey;
         border-radius: 10rem;
     }
 }
+}
+
+.circleTextSpan{
+  font-size: 1.9vw;
+}
+.circleTextSpan2{
+  font-size: 1.9vw;
+  color: grey;
+}
+.circleTextP{
+  color: lightblue;
+  font-size: 1.3vw;
 }
 .Solvedhead {
   p{
@@ -304,7 +316,7 @@
     gap: 12vw;
     p {
       font-size: 1vw;
-      color: #ffffff;
+      color: lightgrey;
     }
   }
   .SubmissionProblemShower {
@@ -332,4 +344,123 @@
   .SubmissionProblemShower::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+
+
+
+
+
+}
+.accRightTopHeading{
+  font-size: 1.6vw;
+  text-align: center;
+  
+}
+
+
+@media screen and (max-width: 800px) {
+  .css-ol3i12,
+  .css-clwkh4{
+    stroke-width: 2vw !important;
+  }
+
+  .flexerr {
+    overflow-y: scroll;
+  height: 100vh;
+
+    grid-template-columns: 1fr;
+  }
+
+  .left .languages {
+    border-radius: 5vw;
+    padding: 4.2vw 0vw;
+  }
+  .left .moreQues {
+    margin-top: 6vw;
+    font-size: 5vw;
+}
+.left .problemsShower {
+  padding-bottom: 4vw;
+  height: auto;
+
+}
+.right .accTop {
+  margin: 5vw 1vw;
+  padding: 6vw;
+  border-radius: 5vw;
+}
+.accRightTopHeading{
+  font-size: 5vw;
+}
+
+.right .rangeContainer .diffTextBox p {
+  font-size: 4vw;
+}
+.right .rangeContainer .numberBox p {
+  font-size: 4vw;
+}
+.right .rangeContainer .rangeBox {
+  gap: 2vw;
+  margin: 0 3vw;
+}
+.right .rangeContainer .range{
+  margin-top: 1.2vw;
+}
+.right .rangeContainer{
+  margin-top: 6vw;
+}
+.right .rangeContainer .range {
+  width: 40vw;
+  height: 4vw;
+  border-radius: 10rem;
+}
+.SubmissionShower .SubmissionStatusBar p {
+  font-size: 3vw;
+}
+
+  .left .languages .sec1 h1 {
+    font-size: 5vw;
+  }
+  .SubmissionShower {
+    margin: 0 1vw;
+    height: 60vh;
+    border-radius: 5vw;}
+
+  .left .languages .sec2 p {
+    font-size: 3.4vw;
+    width: 80vw;
+    margin-top: 2vw;
+  }
+
+  .accRightTopHeadingBox{
+    margin-bottom: 5vw;
+  }
+  .css-1kd86nz {
+    width: 40vw !important;
+    height: 40vw !important;
+  }
+  .left .head2{
+    margin-top: 3vh;
+  }
+  .left .head2 p{
+    font-size: 5vw;
+  }
+  .left .head2 .seeall {
+    font-size: 4.5vw;
+}
+.SubmissionShower .SubmissionProblemShower {
+  padding: 5vw 2vw 20vw 2vw;
+  border-radius: 0.6vw;
+  overflow-y: scroll;
+  height: 62vw;
+}
+.circleTextSpan{
+  font-size: 9vw;
+}
+.circleTextSpan2{
+  font-size: 5vw;
+}
+.circleTextP{
+  font-size: 3vw;
+}
 }

@@ -254,21 +254,28 @@ function AccountPage() {
         </div>
         <div className="accRight">
           <div className="accTop">
+            <div className="accRightTopHeadingBox">
+              <p className="accRightTopHeading">Solved Problems Stats</p>
+            </div>
             <div className="accRightTopContentBox">
-              <div>
+              <div style={{ display: "grid", placeItems: "center" }}>
                 <CircularProgress
-                  size={size}
-                  value={(circleValue / totalProblems) * 100}
+                  thickness=".5vw"
+                  size={110}
+                  value={
+                    ((easyWidth + mediumWidth + hardWidth) / totalProblems) *
+                    100
+                  }
                   color="green.400"
                 >
                   <CircularProgressLabel className="circleText">
-                    <h2>
-                      {circleValue}
-                      <span className="circleValueSmall">
-                        / {totalProblems}
+                    <p>
+                      <span className="circleTextSpan">
+                        {easyWidth + mediumWidth + hardWidth}
                       </span>
-                    </h2>
-                    <p>Solved</p>
+                      <span className="circleTextSpan2">/ {totalProblems}</span>
+                    </p>
+                    <p className="circleTextP">Solved</p>
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
