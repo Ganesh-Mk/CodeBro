@@ -159,7 +159,7 @@ const HomePage = () => {
         <div className="left">
           <div className="languages">
             <div className="sec1">
-              <h1>Quote of the day</h1>
+              <h1>Coding Facts</h1>
             </div>
 
             <QuotesDisplay />

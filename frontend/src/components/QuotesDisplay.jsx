@@ -28,13 +28,13 @@ const QuotesDisplay = () => {
     };
 
     const quote = getStoredQuote();
-    if (quote) {
-      setCurrentQuote(quote);
-    } else {
-      const newQuote = getRandomQuote();
-      setStoredQuote(newQuote);
-      setCurrentQuote(newQuote);
-    }
+    // if (quote) {
+    //   setCurrentQuote(quote);
+    // } else {
+    const newQuote = getRandomQuote();
+    setStoredQuote(newQuote);
+    setCurrentQuote(newQuote);
+    // }
   }, []);
 
   return (
