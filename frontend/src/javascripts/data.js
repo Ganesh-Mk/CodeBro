@@ -17,8 +17,8 @@ export const AllquesObject = [
     functionName: "addTwoNumbers",
     returnType: "int",
     javascriptDefaultCode: `\n/**\n\t* @param {number} a\n\t* @param {number} b\n\t* @return {number}\n*/\n\nvar addTwoNumbers = function(a, b) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef addTwoNumbers(a,b):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
+    pythonDefaultCode: `def addTwoNumbers(a,b):\n\t# Write your code here`,
+    javaDefaultCode: `public static int addTwoNumbers(int a, int b){\n\t// Write your code here\n}`,
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -273,9 +273,9 @@ export const AllquesObject = [
     returnType: "string",
     javascriptDefaultCode:
       "\n/**\n\t* @param {string} str\n\t* @return {string}\n*/\n\nvar reverseString = function(str) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "\ndef reverseString(s):\n\t# Write your code here",
+    pythonDefaultCode: "def reverseString(s):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static String reverseString(String str) {\n\t// Write your code here\n}",
+      "public static String reverseString(String str) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -459,9 +459,9 @@ export const AllquesObject = [
     returnType: "array",
     javascriptDefaultCode:
       "\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "\ndef findMinMax(nums):\n\t# Write your code here",
+    pythonDefaultCode: "def findMinMax(nums):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int[] findMinMax(int[] nums) {\n\t// Write your code here\n}",
+      "public static int[] findMinMax(int[] nums) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -601,9 +601,9 @@ export const AllquesObject = [
     javascriptDefaultCode:
       "\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};",
     pythonDefaultCode:
-      "\ndef findSecondLargest(nums):\n\t# Write your code here",
+      "def findSecondLargest(nums):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}",
+      "public static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -754,9 +754,9 @@ export const AllquesObject = [
     returnType: "array",
     javascriptDefaultCode:
       "\n/**\n\t* @param {number} n\n\t* @return {number[]}\n*/\n\nvar createArray = function(n) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "\ndef createArray(n):\n\t# Write your code here",
+    pythonDefaultCode: "def createArray(n):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int[] createArray(int n) {\n\t// Write your code here\n}",
+      "public static int[] createArray(int n) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -884,9 +884,9 @@ export const AllquesObject = [
     javascriptDefaultCode:
       "\n/**\n\t* @param {number[][]} matrix\n\t* @return {number[][]}\n*/\n\nvar increment_matrix_values = function(matrix) {\n\t// Write your code here\n};",
     pythonDefaultCode:
-      "\ndef increment_matrix_values(matrix):\n\t# Write your code here",
+      "def increment_matrix_values(matrix):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int[][] increment_matrix_values(int[][] matrix) {\n\t// Write your code here\n}",
+      "public static int[][] increment_matrix_values(int[][] matrix) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -1019,8 +1019,8 @@ export const AllquesObject = [
     functionName: "countStudents",
     returnType: "number",
     javascriptDefaultCode: `\n/**\n\t* @param {number[]} students\n\t* @param {number[]} sandwiches\n\t* @return {number}\n*/\n\nvar countStudents = function(students, sandwiches) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `\ndef countStudents(students, sandwiches):\n\t# Write your code here`,
-    javaDefaultCode: `\npublic static int countStudents(int[] students, int[] sandwiches) {\n\t// Write your code here\n}`,
+    pythonDefaultCode: `def countStudents(students, sandwiches):\n\t# Write your code here`,
+    javaDefaultCode: `public static int countStudents(int[] students, int[] sandwiches) {\n\t// Write your code here\n}`,
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -1767,7 +1767,6 @@ public static int findKthLargest(int[] arr, int k) {
       },
     ],
 
-
     /* 
     js : 
         arr.sort((a, b) => b - a); // Sort array in descending order
@@ -1829,11 +1828,11 @@ public static int findKthLargest(int[] arr, int k) {
     };
     `,
     pythonDefaultCode: `
-    def findMajorityElement(arr):
+def findMajorityElement(arr):
         # Write your code here
     `,
     javaDefaultCode: `
-    public static int findMajorityElement(int[] arr) {
+public static int findMajorityElement(int[] arr) {
         // Write your code here
     }
     `,
@@ -1860,14 +1859,15 @@ public static int findKthLargest(int[] arr, int k) {
           "findMajorityElement(new int[]{1, 2, 2, 2, 3, 4, 5, 2, 2})",
         explanation:
           "In the array [1, 2, 2, 2, 3, 4, 5, 2, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
-
+      },
+      {
         number: "3",
-        input: "arr = [3, 2, 2, 2, 2, 4, 2]",
-        output: "2",
-        parameter: "[3, 2, 2, 2, 2, 4, 2]",
-        javaFuncCall: "findMajorityElement(new int[]{3, 2, 2, 2, 2, 4, 2})",
+        input: "arr = [3, 3, 3, 3, 2, 4, 2]",
+        output: "3",
+        parameter: "[3, 3, 3, 3, 2, 4, 2]",
+        javaFuncCall: "findMajorityElement(new int[]{3, 3, 3, 3, 2, 4, 2})",
         explanation:
-          "In the array [3, 2, 2, 2, 2, 4, 2], the majority element is 2 as it appears more than ⌊ n/2 ⌋ times.",
+          "In the array [3, 3, 3, 3, 2, 4, 2], the majority element is 3 as it appears more than ⌊ n/2 ⌋ times.",
         image: null,
       },
     ],
@@ -1878,6 +1878,77 @@ public static int findKthLargest(int[] arr, int k) {
         userOutput: null,
         javaFuncCall: "findMajorityElement(new int[]{3, 2, 2, 2, 2, 4, 2})",
       },
+      {
+        parameter: "[6, 6, 6, 7, 7, 7, 7, 6, 7]",
+        expectedOutput: "7",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{6, 6, 6, 7, 7, 7, 7, 6, 7})",
+      },
+      {
+        parameter: "[4, 4, 4, 4, 4, 5, 5, 5, 5]",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{4, 4, 4, 4, 4, 5, 5, 5, 5})",
+      },
+      {
+        parameter: "[1, 1, 1, 2, 3, 4, 5, 1, 1]",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{1, 1, 1, 2, 3, 4, 5, 1, 1})",
+      },
+      {
+        parameter: "[2, 3, 2, 3, 2, 3, 2, 3, 2]",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{2, 3, 2, 3, 2, 3, 2, 3, 2})",
+      },
+      {
+        parameter: "[7, 8, 8, 8, 9, 8, 8, 8, 7]",
+        expectedOutput: "8",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{7, 8, 8, 8, 9, 8, 8, 8, 7})",
+      },
+      {
+        parameter: "[3, 1, 2, 2, 2, 3, 2, 2, 2]",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{3, 1, 2, 2, 2, 3, 2, 2, 2})",
+      },
+      {
+        parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9})",
+      },
+      {
+        parameter: "[9, 9, 9, 9, 1, 2, 3, 9, 9]",
+        expectedOutput: "9",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{9, 9, 9, 9, 1, 2, 3, 9, 9})",
+      },
+      {
+        parameter: "[2, 2, 2, 1, 1, 1, 2, 2, 2, 2]",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{2, 2, 2, 1, 1, 1, 2, 2, 2, 2})",
+      },
+      {
+        parameter: "[5, 6, 5, 6, 5, 6, 6, 6, 6]",
+        expectedOutput: "6",
+        userOutput: null,
+        javaFuncCall:
+          "findMajorityElement(new int[]{5, 6, 5, 6, 5, 6, 6, 6, 6})",
+      },
+
       {
         parameter: "[1, 2, 2, 2, 3, 4, 5, 2, 2]",
         expectedOutput: "2",
@@ -1907,6 +1978,90 @@ public static int findKthLargest(int[] arr, int k) {
           "findMajorityElement(new int[]{5, 5, 5, 5, 1, 1, 1, 1, 1})",
       },
     ],
+
+    /* 
+    js :
+              var findMajorityElement = function(arr) {
+            // Write your code here
+            let candidate = null;
+    let count = 0;
+    
+    for (let num of arr) {
+        if (count === 0) {
+            candidate = num;
+        }
+        count += (num === candidate) ? 1 : -1;
+    }
+    
+    // Step 2: Verify that the candidate is indeed the majority element
+    count = 0;
+    for (let num of arr) {
+        if (num === candidate) {
+            count++;
+        }
+    }
+    
+    // If the candidate appears more than n/2 times, it is the majority element
+    if (count > Math.floor(arr.length / 2)) {
+        return candidate;
+    } else {
+        return -1;  // Assuming the majority element always exists, otherwise handle it accordingly
+    }
+        };
+
+
+
+
+    python:
+          candidate = None
+    count = 0
+    
+    for num in arr:
+        if count == 0:
+            candidate = num
+        count += 1 if num == candidate else -1
+    
+    # Step 2: Verify that the candidate is indeed the majority element
+    count = 0
+    for num in arr:
+        if num == candidate:
+            count += 1
+    
+    # If the candidate appears more than n/2 times, it is the majority element
+    if count > len(arr) // 2:
+        return candidate
+    else:
+        return -1
+
+ int candidate = 0;
+        int count = 0;
+        
+        for (int num : arr) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+        
+        // Step 2: Verify that the candidate is indeed the majority element
+        count = 0;
+        for (int num : arr) {
+            if (num == candidate) {
+                count++;
+            }
+        }
+        
+        // If the candidate appears more than n/2 times, it is the majority element
+        if (count > arr.length / 2) {
+            return candidate;
+        } else {
+            return -1;  // If no majority element found, return -1
+        }
+
+    java :
+
+    
+    */
   },
   {
     number: "12",
@@ -1941,11 +2096,11 @@ public static int findKthLargest(int[] arr, int k) {
     };
     `,
     pythonDefaultCode: `
-    def removeDuplicates(arr):
+def removeDuplicates(arr):
         # Write your code here
     `,
     javaDefaultCode: `
-    public static String removeDuplicates(int[] arr) {
+public static String removeDuplicates(int[] arr) {
         // Write your code here
     }
     `,
@@ -2064,8 +2219,44 @@ public static int findKthLargest(int[] arr, int k) {
       },
     ],
 
+
+    /* 
+      js :
+        var removeDuplicates = function(arr) {
+    let uniqueElements = new Set(arr);
+    return Array.from(uniqueElements);
+};
+   python :
+      def removeDuplicates(arr):
+    seen = set()
+    result = []
+    for num in arr:
+        if num not in seen:
+            seen.add(num)
+            result.append(num)
+    return result 
     
-  
+    
+
+    java : 
+        public class RemoveDuplicates {
+    public static String removeDuplicates(int[] arr) {
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+        for (int num : arr) {
+            set.add(num);
+        }
+        
+        int[] result = new int[set.size()];
+        int i = 0;
+        for (int num : set) {
+            result[i++] = num;
+        }
+        
+        return Arrays.toString(result);
+    }
+    */
+
+    
   },
   {
     number: 13,
@@ -2099,9 +2290,9 @@ public static int findKthLargest(int[] arr, int k) {
     javascriptDefaultCode:
       "\n/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findMaxConsecutiveOnes = function(nums) {\n    // Write your code here\n};\n",
     pythonDefaultCode:
-      "\ndef findMaxConsecutiveOnes(nums):\n    # Write your code here\n",
+      "def findMaxConsecutiveOnes(nums):\n    # Write your code here\n",
     javaDefaultCode:
-      "\npublic static int findMaxConsecutiveOnes(int[] nums) {\n    // Write your code here\n}\n",
+      "public static int findMaxConsecutiveOnes(int[] nums) {\n    // Write your code here\n}\n",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -2174,6 +2365,8 @@ public static int findKthLargest(int[] arr, int k) {
         expectedOutput: "1",
         userOutput: null,
         javaFuncCall: "findMaxConsecutiveOnes(new int[]{0,1,0,1,0,1})",
+      },
+      {
         parameter: "[1,1,0,1,1,1]",
         expectedOutput: "3",
         userOutput: null,
@@ -2204,6 +2397,62 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "findMaxConsecutiveOnes(new int[]{0,1,0,1,0,1})",
       },
     ],
+
+    /* 
+    js : 
+      var findMaxConsecutiveOnes = function(nums) {
+    let maxCount = 0;
+    let currentCount = 0;
+    
+    for (let num of nums) {
+        if (num === 1) {
+            currentCount++;
+            if (currentCount > maxCount) {
+                maxCount = currentCount;
+            }
+        } else {
+            currentCount = 0;
+        }
+    }
+    
+    return maxCount;
+};
+
+    python :
+      def findMaxConsecutiveOnes(nums):
+    max_count = 0
+    current_count = 0
+    
+    for num in nums:
+        if num == 1:
+            current_count += 1
+            if current_count > max_count:
+                max_count = current_count
+        else:
+            current_count = 0
+    
+    return max_count
+
+    java :
+      public static int findMaxConsecutiveOnes(int[] nums) {
+        int maxCount = 0;
+        int currentCount = 0;
+        
+        for (int num : nums) {
+            if (num == 1) {
+                currentCount++;
+                if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                }
+            } else {
+                currentCount = 0;
+            }
+        }
+        
+        return maxCount;
+    }
+    
+    */
   },
   {
     number: 14,
@@ -2252,9 +2501,6 @@ public static int findKthLargest(int[] arr, int k) {
         number: "1",
         input: 's = "hello"',
         output: "2",
-        number: "1",
-        input: 's = "hello"',
-        output: "2",
         parameter: '"hello"',
         javaFuncCall: 'countVowels("hello")',
         explanation: "The string \"hello\" contains 2 vowels: 'e' and 'o'.",
@@ -2268,18 +2514,22 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: 'countVowels("world")',
         explanation: "The string \"world\" contains 1 vowel: 'o'.",
         number: "2",
-        input: 's = "world"',
-        output: "1",
-        parameter: '"world"',
-        javaFuncCall: 'countVowels("world")',
-        explanation: "The string \"world\" contains 1 vowel: 'o'.",
+        image: null,
+      },
+      {
+        number: "3",
+        input: 's = "javascript"',
+        output: "3",
+        parameter: "javascript",
+        javaFuncCall: 'countVowels("javascript")',
+        explanation: "The string \"javascript\" contains 2 vowel: 'a' and one vowel : i total  = 3.",
+        number: "2",
         image: null,
       },
     ],
     cases: [
-      {
+        {
         parameter: '"hello"',
-        expectedOutput: "2",
         expectedOutput: "2",
         userOutput: null,
         javaFuncCall: 'countVowels("hello")',
@@ -2287,13 +2537,11 @@ public static int findKthLargest(int[] arr, int k) {
       {
         parameter: '"world"',
         expectedOutput: "1",
-        expectedOutput: "1",
         userOutput: null,
         javaFuncCall: 'countVowels("world")',
       },
       {
         parameter: '"programming"',
-        expectedOutput: "3",
         expectedOutput: "3",
         userOutput: null,
         javaFuncCall: 'countVowels("programming")',
@@ -2301,13 +2549,12 @@ public static int findKthLargest(int[] arr, int k) {
       {
         parameter: '"javascript"',
         expectedOutput: "3",
-        expectedOutput: "3",
         userOutput: null,
         javaFuncCall: 'countVowels("javascript")',
       },
+      
       {
         parameter: '"algorithm"',
-        expectedOutput: "3",
         expectedOutput: "3",
         userOutput: null,
         javaFuncCall: 'countVowels("algorithm")',
@@ -2315,103 +2562,129 @@ public static int findKthLargest(int[] arr, int k) {
       {
         parameter: '"ai"',
         expectedOutput: "2",
-        expectedOutput: "2",
         userOutput: null,
         javaFuncCall: 'countVowels("ai")',
       },
+      {
+        "parameter": "\"hello\"",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"hello\")"
+      },
+      {
+        "parameter": "\"world\"",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"world\")"
+      },
+      {
+        "parameter": "\"programming\"",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"programming\")"
+      },
+      {
+        "parameter": "\"javascript\"",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"javascript\")"
+      },
+      {
+        "parameter": "\"algorithm\"",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"algorithm\")"
+      },
+      {
+        "parameter": "\"ai\"",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"ai\")"
+      },
+      {
+        "parameter": "\"abcdefghijklmnopqrstuvwxyz\"",
+        "expectedOutput": "5",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"abcdefghijklmnopqrstuvwxyz\")"
+      },
+      {
+        "parameter": "\"AEIOUaeiou\"",
+        "expectedOutput": "10",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"AEIOUaeiou\")"
+      },
+      {
+        "parameter": "\"12345\"",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "countVowels(\"12345\")"
+      }
     ],
+
+    /* 
+      js :
+            const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    let count = 0;
+    
+    // Iterate through each character in the string
+    for (let char of s) {
+        // Check if the character is a vowel
+        if (vowels.has(char)) {
+            count++;
+        }
+    }
+    
+    return count;
+
+      python :
+        def countVowels(s):
+    # Define a set of vowels
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    
+    # Initialize count to zero
+    count = 0
+    
+    # Iterate through each character in the string
+    for char in s:
+        # Check if the character is in the set of vowels
+        if char in vowels:
+            count += 1
+            
+    return count
+
+      java : 
+        public static int countVowels(String s) {
+        // Define a set of vowels
+        HashSet<Character> vowels = new HashSet<>();
+        vowels.add('a');
+        vowels.add('e');
+        vowels.add('i');
+        vowels.add('o');
+        vowels.add('u');
+        vowels.add('A');
+        vowels.add('E');
+        vowels.add('I');
+        vowels.add('O');
+        vowels.add('U');
+        
+        // Initialize count to zero
+        int count = 0;
+        
+        // Iterate through each character in the string
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            // Check if the character is in the set of vowels
+            if (vowels.contains(c)) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+    */
   },
   {
     number: 15,
-    heading: "Remove Element",
-    difficulty: "Medium",
-    attempts: 0,
-    isSolved: false,
-    language: "javascript",
-    topic: ["Array", "TwoPointer"],
-    ds: "[ Array, TwoPointer ]",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "Given an array nums and a value val, remove all instances of that value in-place and return the new length.",
-    constraints: [
-      "The order of elements can be changed. It doesn't matter what you leave beyond the new length.",
-    ],
-    functionName: "removeElement",
-    returnType: "int",
-    javascriptDefaultCode:
-      "/** @param {number[]} nums\n\t* @param {number} val\n\t* @return {number}\n*/\n\nvar removeElement = function(nums, val) {\n\t// Write your code here\n};",
-    pythonDefaultCode:
-      "\ndef removeElement(nums, val):\n\t# Write your code here",
-    javaDefaultCode:
-      "\npublic static int removeElement(int[] nums, int val) {\n\t// Write your code here\n}",
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "nums = [3, 2, 2, 3], val = 3",
-        output: "2",
-        parameter: "[3, 2, 2, 3], 3",
-        explanation:
-          "Given nums array = [3, 2, 2, 3], and val = 3, Your function should return length = 2, with the first two elements of nums being 2.",
-        image: null,
-        javaFuncCall: "removeElement(new int[]{3, 2, 2, 3}, 3)",
-      },
-      {
-        number: 2,
-        input: "nums = [0, 1, 2, 2, 3, 0, 4, 2], val = 2",
-        output: "5",
-        parameter: "[0, 1, 2, 2, 3, 0, 4, 2], 2",
-        explanation:
-          "Given nums array = [0, 1, 2, 2, 3, 0, 4, 2], and val = 2, Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.",
-        image: null,
-        javaFuncCall: "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)",
-      },
-    ],
-    cases: [
-      {
-        parameter: "[3, 2, 2, 3], 3",
-        expectedOutput: "2",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{3, 2, 2, 3}, 3)",
-      },
-      {
-        parameter: "[0, 1, 2, 2, 3, 0, 4, 2], 2",
-        expectedOutput: "5",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)",
-      },
-      {
-        parameter: "[1], 1",
-        expectedOutput: "0",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{1}, 1)",
-      },
-      {
-        parameter: "[1], 2",
-        expectedOutput: "1",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{1}, 2)",
-      },
-      {
-        parameter: "[1, 2], 1",
-        expectedOutput: "1",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{1, 2}, 1)",
-      },
-      {
-        parameter: "[1, 2], 2",
-        expectedOutput: "1",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{1, 2}, 2)",
-      },
-    ],
-  },
-  {
-    number: 16,
     heading: "Search Insert Position",
     difficulty: "Easy",
     attempts: 0,
@@ -2435,9 +2708,9 @@ public static int findKthLargest(int[] arr, int k) {
     javascriptDefaultCode:
       "/** @param {number[]} nums\n\t* @param {number} target\n\t* @return {number}\n*/\n\nvar searchInsert = function(nums, target) {\n\t// Write your code here\n};",
     pythonDefaultCode:
-      "\ndef searchInsert(nums, target):\n\t# Write your code here",
+      "def searchInsert(nums, target):\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int searchInsert(int[] nums, int target) {\n\t// Write your code here\n}",
+      "public static int searchInsert(int[] nums, int target) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -2475,6 +2748,66 @@ public static int findKthLargest(int[] arr, int k) {
     ],
     cases: [
       {
+        "parameter": "[1, 3, 5, 6], 5",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 5)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 2",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 2)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 7",
+        "expectedOutput": "4",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 7)"
+      },
+      {
+        "parameter": "[1, 3, 5, 6], 0",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 0)"
+      },
+      {
+        "parameter": "[1], 0",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1}, 0)"
+      },
+      {
+        "parameter": "[], 5",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{}, 5)"
+      },
+      {
+        "parameter": "[2, 4, 6, 8, 10], 7",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, 7)"
+      },
+      {
+        "parameter": "[2, 4, 6, 8, 10], 11",
+        "expectedOutput": "5",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, 11)"
+      },
+      {
+        "parameter": "[2, 4, 6, 8, 10], -1",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, -1)"
+      },
+      {
+        "parameter": "[1, 2, 3, 4, 5], 3",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": "searchInsert(new int[]{1, 2, 3, 4, 5}, 3)"
+      },
+      {
         parameter: "[1, 3, 5, 6], 5",
         expectedOutput: "2",
         userOutput: null,
@@ -2505,9 +2838,71 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "searchInsert(new int[]{1}, 0)",
       },
     ],
+
+
+    
+    /* 
+    js :
+      var searchInsert = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while (left <= right) {
+        let mid = left + Math.floor((right - left) / 2);
+        
+        if (nums[mid] === target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return left;
+};
+
+
+    python :
+      def searchInsert(nums, target):
+    left, right = 0, len(nums) - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return left
+
+
+    java : 
+          public static int searchInsert(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return left;
+    }
+
+    */
   },
   {
-    number: 17,
+    number: 16,
     heading: "Binary Search",
     difficulty: "Medium",
     topic: ["Array", "BinarySearch"],
@@ -2530,9 +2925,9 @@ public static int findKthLargest(int[] arr, int k) {
     javascriptDefaultCode:
       "/** @param {number[]} nums\n * @param {number} target\n * @return {number}\n */\nvar binarySearch = function(nums, target) {\n    // Write your code here\n};",
     pythonDefaultCode:
-      "\ndef binarySearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
+      "def binarySearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int binarySearch(int[] nums, int target) {\n\t// Write your code here\n}",
+      "public static int binarySearch(int[] nums, int target) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -2555,6 +2950,15 @@ public static int findKthLargest(int[] arr, int k) {
         explanation: "2 is not present in nums so return -1.",
         image: null,
         javaFuncCall: "binarySearch(new int[]{-1, 0, 3, 5, 9, 12}, 2)",
+      },
+      {
+        number: 3,
+        input: "nums = [0,0,3,5,9,13], target = 2",
+        output: "-1",
+        parameter: "[0,0,3,5,9,13], 2",
+        explanation: "2 is not present in nums so return -1.",
+        image: null,
+        javaFuncCall: "binarySearch(new int[]{0, 0, 3, 5, 9, 13}, 2)",
       },
     ],
     cases: [
@@ -2619,12 +3023,68 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "binarySearch(new int[]{1, 2, 3, 4, 5}, 1)",
       },
     ],
+
+
+    /* 
+    js :
+      var binarySearch = function(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    
+    while (left <= right) {
+        let mid = left + Math.floor((right - left) / 2);
+        
+        if (nums[mid] === target) {
+            return mid; // Found the target, return the index
+        } else if (nums[mid] < target) {
+            left = mid + 1; // Search in the right half
+        } else {
+            right = mid - 1; // Search in the left half
+        }
+    }
+    
+    return -1; // Target not found
+};
+    
+    python:
+      def binarySearch(nums, target):
+    left, right = 0, len(nums) - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1
+
+    java:
+         public static int binarySearch(int[] nums, int target) {
+        int left = 0, right = nums.length - 1;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        
+        return -1;
+    }
+    */
   },
   {
-    number: 18,
+    number: 17,
     heading: "Linear Search",
-    number: 15,
-    heading: "Remove Element",
     difficulty: "Easy",
     attempts: 0,
     isSolved: false,
@@ -2635,33 +3095,24 @@ public static int findKthLargest(int[] arr, int k) {
     allOutput: [],
     allResult: [],
     description:
-      "Given an integer array nums and a target value, write a function to search target in nums. If target exists, then return its index, otherwise return -1.",
+      "Given an array nums and searching value as target, search the target element in array nums and return its index, otherwise return -1.",
     constraints: [
       "You may assume that all elements in nums are unique.",
       "n will be in the range [1, 100].",
       "The value of each element in nums will be in the range [-100, 100].",
     ],
     functionName: "linearSearch",
-    returnType: "int",
+    returnType: "number",
     javascriptDefaultCode:
       "/** @param {number[]} nums\n * @param {number} target\n * @return {number}\n */\nvar linearSearch = function(nums, target) {\n    // Write your code here\n};",
     pythonDefaultCode:
-      "\ndef linearSearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
+      "from typing import List \ndef linearSearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int linearSearch(int[] nums, int target) {\n\t// Write your code here\n}",
-    description:
-      "Given an array nums and a value val, remove all instances of that value in-place and return the new length.",
+      "public static int linearSearch(int[] nums, int target) {\n\t// Write your code here\n}",
     constraints: [
-      "The order of elements can be changed. It doesn't matter what you leave beyond the new length.",
+      "1 <= nums.length <= 100",
+      "1 <= nums[i] <= 99"
     ],
-    functionName: "removeElement",
-    returnType: "int",
-    javascriptDefaultCode:
-      "\n/**\n\t* @param {number[]} nums\n\t* @param {number} val\n\t* @return {number}\n*/\n\nvar removeElement = function(nums, val) {\n\t// Write your code here\n};",
-    pythonDefaultCode:
-      "\ndef removeElement(nums, val):\n\t# Write your code here",
-    javaDefaultCode:
-      "\npublic static int removeElement(int[] nums, int val) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -2677,31 +3128,24 @@ public static int findKthLargest(int[] arr, int k) {
         javaFuncCall: "linearSearch(new int[]{1, 2, 3, 4, 5}, 3)",
       },
       {
-        number: 2,
-        input: "nums = [1, 2, 3, 4, 5], target = 6",
-        output: "-1",
-        parameter: "[1, 2, 3, 4, 5], 6",
-        explanation: "6 is not present in nums so return -1.",
-        image: null,
-        javaFuncCall: "linearSearch(new int[]{1, 2, 3, 4, 5}, 6)",
-        input: "nums = [3, 2, 2, 3], val = 3",
-        output: "2",
-        parameter: "[3, 2, 2, 3], 3",
-        explanation:
-          "Given nums array = [3, 2, 2, 3], and val = 3, Your function should return length = 2, with the first two elements of nums being 2.",
-        image: null,
-        javaFuncCall: "removeElement(new int[]{3, 2, 2, 3}, 3)",
+        "number": 2,
+        "input": "nums = [1, 2, 3, 4, 5], target = 2",
+        "output": "1",
+        "parameter": "[1, 2, 3, 4, 5], 2",
+        "explanation": "Return index 2 (0-indexed) since 3 is present at index 2 in nums.",
+        "image": null,
+        "javaFuncCall": "linearSearch(new int[]{1, 2, 3, 4, 5}, 2)"
       },
       {
-        number: 2,
-        input: "nums = [0, 1, 2, 2, 3, 0, 4, 2], val = 2",
-        output: "5",
-        parameter: "[0, 1, 2, 2, 3, 0, 4, 2], 2",
-        explanation:
-          "Given nums array = [0, 1, 2, 2, 3, 0, 4, 2], and val = 2, Your function should return length = 5, with the first five elements of nums containing 0, 1, 3, 0, and 4.",
-        image: null,
-        javaFuncCall: "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)",
-      },
+        "number": 3,
+        "input": "nums = [1, 2, 8, 4, 7], target = 2",
+        "output": "1",
+        "parameter": "[1, 2, 2, 4, 2], 2",
+        "explanation": "After removing all instances of 2, the array becomes [1, 4]. The new length of the array is 2.",
+        "image": null,
+        "javaFuncCall": "linearSearch(new int[]{1, 2, 2, 4, 2}, 2)"
+      }
+
     ],
     cases: [
       {
@@ -2733,14 +3177,10 @@ public static int findKthLargest(int[] arr, int k) {
         expectedOutput: "0",
         userOutput: null,
         javaFuncCall: "linearSearch(new int[]{-5, 0, 5, 10}, -5)",
-        parameter: "[3, 2, 2, 3], 3",
-        expectedOutput: "2",
-        userOutput: null,
-        javaFuncCall: "removeElement(new int[]{3, 2, 2, 3}, 3)",
       },
       {
-        parameter: "[0, 1, 2, 2, 3, 0, 4, 2], 2",
-        expectedOutput: "5",
+        parameter: "[0, 1, 2, 7, 3], 2",
+        expectedOutput: "2",
         userOutput: null,
         javaFuncCall: "removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2)",
       },
@@ -2778,9 +3218,43 @@ public static int findKthLargest(int[] arr, int k) {
           "linearSearch(new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}, 11)",
       },
     ],
+
+
+    /* 
+    js:
+      var linearSearch = function(nums, target) {
+    // Write your code here
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] === target) {
+            return i;
+        }
+    }
+    
+    return -1;
+};
+
+    python:
+      from typing import List 
+def linearSearch(nums: List[int], target: int) -> int:
+	# Write your code here
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i  # Return the index if target is found
+    
+    return -1 
+
+    java:
+      public static int linearSearch(int[] nums, int target) {
+// Write your code here
+for(int i = 0; i < nums.length; i++) {
+if(nums[i] == target) {
+return i;
+}
+} 
+    */
   },
   {
-    number: 19,
+    number: 18,
     heading: "Find Peak Element",
     difficulty: "Medium",
     attempts: 0,
@@ -2924,7 +3398,6 @@ public static int findKthLargest(int[] arr, int k) {
       },
     ],
 
-
     /* var findPeakElement = function(nums) {
     // Write your code here
     let left = 0;
@@ -2944,7 +3417,6 @@ public static int findKthLargest(int[] arr, int k) {
 
 }; */
 
-
     /*     left, right = 0, len(nums) - 1
     
     while left < right:
@@ -2956,7 +3428,6 @@ public static int findKthLargest(int[] arr, int k) {
             left = mid + 1
     
     return left */
-
 
     /* int left = 0;
     int right = nums.length - 1;
@@ -2976,7 +3447,7 @@ public static int findKthLargest(int[] arr, int k) {
     return left; */
   },
   {
-    number: 20,
+    number: 19,
     heading: "Square Root of an Integer",
     difficulty: "Medium",
     topic: ["Math"],
@@ -3119,8 +3590,6 @@ public static int findKthLargest(int[] arr, int k) {
     // If we don't find an exact square root, return the floor value
     return right; */
 
-
-
     /* if x < 2:
         return x  # Base cases for 0 and 1
     
@@ -3138,7 +3607,6 @@ public static int findKthLargest(int[] arr, int k) {
             right = mid - 1
     
     return right  # Return the largest integer r such that r*r <= x */
-
 
     /* if (n < 2) {
         return n; // Base cases for 0 and 1
@@ -3164,7 +3632,7 @@ public static int findKthLargest(int[] arr, int k) {
     return (int) right; */
   },
   {
-    number: 21,
+    number: 20,
     heading: "Reverse Integer",
     difficulty: "Easy",
     topic: ["Array", "TwoPointer"],
@@ -3300,7 +3768,6 @@ public static int findKthLargest(int[] arr, int k) {
     
     return reversed; */
 
-
     /* MAX_INT = 2**31 - 1
     MIN_INT = -2**31
     
@@ -3322,7 +3789,6 @@ public static int findKthLargest(int[] arr, int k) {
     
     return reversed_int
  */
-
 
     /*     final int MAX_INT = Integer.MAX_VALUE;   // 2^31 - 1
     final int MIN_INT = Integer.MIN_VALUE;   // -2^31
@@ -3355,7 +3821,7 @@ public static int findKthLargest(int[] arr, int k) {
     return reversedInt; */
   },
   {
-    number: 22,
+    number: 21,
     heading: "Sort Colors",
     difficulty: "Medium",
     topic: ["Array", "TwoPointer", "Sorting"],
@@ -3464,7 +3930,7 @@ public static int findKthLargest(int[] arr, int k) {
       }
   }; */
 
-  /* def sortColors(nums):
+    /* def sortColors(nums):
     low, mid, high = 0, 0, len(nums) - 1
     
     while mid <= high:
@@ -3479,7 +3945,7 @@ public static int findKthLargest(int[] arr, int k) {
             high -= 1
  */
 
-   /* import java.util.Arrays;
+    /* import java.util.Arrays;
 
 public class Solution {
     public static String sortColors(int[] nums) {
@@ -3526,7 +3992,7 @@ public class Solution {
  */
   },
   {
-    number: 23,
+    number: 22,
     heading: "Sort Even Odd",
     difficulty: "Medium",
     attempts: 0,
@@ -3688,7 +4154,7 @@ public class Solution {
     }
 
     return nums; */
-    
+
     /*     # Function to check if a number is even
     def is_even(num):
         return num % 2 == 0
@@ -3805,7 +4271,7 @@ public class Solution {
         return Arrays.toString(nums); */
   },
   {
-    number: 24,
+    number: 23,
     heading: "Longest Consecutive Sequence",
     difficulty: "Hard",
     topic: ["Array", "HashTable"],
@@ -3826,7 +4292,7 @@ public class Solution {
     pythonDefaultCode:
       "from typing import List \ndef longestConsecutive(nums: List[int]) -> int:\n\t# Write your code here",
     javaDefaultCode:
-      "\npublic static int longestConsecutive(int[] nums) {\n\t// Write your code here\n}",
+      "public static int longestConsecutive(int[] nums) {\n\t// Write your code here\n}",
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -4033,7 +4499,7 @@ public class Solution {
         return maxLength; */
   },
   {
-    number: 25,
+    number: 24,
     heading: "Longest Substring Without Repeating Characters",
     difficulty: "Hard",
     attempts: 0,
@@ -4213,7 +4679,6 @@ public class Solution {
     
     return max_length */
 
-
     /*         HashMap<Character, Integer> charMap = new HashMap<>();
         int maxLength = 0;
         int left = 0;
@@ -4230,7 +4695,7 @@ public class Solution {
         return maxLength; */
   },
   {
-    number: 26,
+    number: 25,
     heading: "Length of Last Word",
     difficulty: "Easy",
     topic: ["String"],
@@ -4402,10 +4867,9 @@ public class Solution {
         javaFuncCall: 'lengthOfLastWord("Data Structures")',
       },
     ],
-  },
 
-  
-  /*  s = s.trim();
+
+      /*  s = s.trim();
     
     // Split by spaces
     let words = s.split(' ');
@@ -4420,8 +4884,7 @@ public class Solution {
     // If no valid word found, return 0
     return 0; */
 
-
-    /*   s = s.strip()
+  /*   s = s.strip()
     
     # Split by spaces
     words = s.split()
@@ -4429,12 +4892,1047 @@ public class Solution {
     # Return length of the last word
     return len(words[-1]) if words else 0 */
 
-
-    /* s = s.trim();
+  /* s = s.trim();
     
     // Split by one or more whitespace characters
     String[] words = s.split("\\s+");
     
     // Return length of the last word
     return words.length > 0 ? words[words.length - 1].length() : 0; */
+  },
+
+  {
+    "number": 26,
+    "heading": "First Unique Character in a String",
+    "difficulty": "Easy",
+    "topic": ["String", "HashTable"],
+    "ds": "[ Hash Table, String ]",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+    "constraints": [
+      "1 <= s.length <= 105",
+      "s consists of only lowercase English letters."
+    ],
+    "functionName": "firstUniqueChar",
+    "returnType": "number",
+    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {number}\n */\nvar firstUniqueChar = function(s) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "def firstUniqueChar(s: str) -> int:\n    # Write your code here",
+    "javaDefaultCode": "public static int firstUniqueChar(String s) {\n    // Write your code here\n    return -1;\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "s = 'leetcode'",
+        "output": "0",
+        "parameter": "'leetcode'",
+        "explanation": "The first non-repeating character in 'leetcode' is 'l', which has index 0.",
+        "image": null,
+        "javaFuncCall": 'firstUniqueChar("leetcode")'
+      },
+      {
+        "number": 2,
+        "input": "s = 'loveleetcode'",
+        "output": "2",
+        "parameter": "'loveleetcode'",
+        "explanation": "The first non-repeating character in 'loveleetcode' is 'v', which has index 2.",
+        "image": null,
+        "javaFuncCall": 'firstUniqueChar("loveleetcode")'
+      },
+      {
+        "number": 3,
+        "input": "s = 'aabb'",
+        "output": "-1",
+        "parameter": "'aabb'",
+        "explanation": "'aabb' does not have any unique characters, so return -1.",
+        "image": null,
+        "javaFuncCall": 'firstUniqueChar("aabb")'
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "'leetcode'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("leetcode")'
+      },
+      {
+        "parameter": "'loveleetcode'",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("loveleetcode")'
+      },
+      {
+        "parameter": "'aabb'",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("aabb")'
+      },
+      {
+        "parameter": "'abcde'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("abcde")'
+      },
+      {
+        "parameter": "'abacabad'",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("abacabad")'
+      },
+      {
+        "parameter": "'hello'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("hello")'
+      },
+      {
+        "parameter": "'racecar'",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("racecar")'
+      },
+      {
+        "parameter": "'apple'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("apple")'
+      },
+      {
+        "parameter": "'xyyx'",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("xyyx")'
+      },
+      {
+        "parameter": "'programmer'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("programmer")'
+      },
+      {
+        "parameter": "'algorithm'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("algorithm")'
+      },
+      {
+        "parameter": "'leetcodeisfun'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("leetcodeisfun")'
+      },
+      {
+        "parameter": "'codingisfun'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("codingisfun")'
+      },
+      {
+        "parameter": "'programming'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("programming")'
+      },
+      {
+        "parameter": "'interview'",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": 'firstUniqueChar("interview")'
+      }
+    ]
+
+
+    /* 
+  js:
+    var firstUniqueChar = function(s) {
+    let charCount = new Map();
+    
+    // Count occurrences of each character
+    for (let char of s) {
+        if (charCount.has(char)) {
+            charCount.set(char, charCount.get(char) + 1);
+        } else {
+            charCount.set(char, 1);
+        }
+    }
+    
+    // Find the index of the first unique character
+    for (let i = 0; i < s.length; i++) {
+        if (charCount.get(s[i]) === 1) {
+            return i;
+        }
+    }
+    
+    return -1; // No unique character found
+};
+
+
+  python:
+    def firstUniqueChar(s: str) -> int:
+    char_count = {}
+    
+    # Count occurrences of each character
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    
+    # Find the index of the first unique character
+    for i in range(len(s)):
+        if char_count[s[i]] == 1:
+            return i
+    
+    return -1 
+
+
+  java:
+      public static int firstUniqueChar(String s) {
+    Map<Character, Integer> charCount = new HashMap<>();
+    
+    // Count occurrences of each character
+    for (char c : s.toCharArray()) {
+        charCount.put(c, charCount.getOrDefault(c, 0) + 1);
+    }
+    
+    // Find the index of the first unique character
+    for (int i = 0; i < s.length(); i++) {
+        if (charCount.get(s.charAt(i)) == 1) {
+            return i;
+        }
+    }
+    
+    return -1; // No unique character found
+}
+  */
+  },
+
+  {
+    "number": 27,
+    "heading": "Sum of All Multiples of 3 or 5",
+    "difficulty": "Easy",
+    "topic": ["Math", "Looping"],
+    "ds": "[ Integer ]",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Write a function sumMultiples(n) that takes an integer n as input and returns the sum of all positive integers that are multiples of either 3 or 5 up to n (exclusive).",
+    "constraints": [
+      "1 <= n <= 10^6"
+    ],
+    "functionName": "sumMultiples",
+    "returnType": "int",
+    "javascriptDefaultCode": "/**\n * @param {number} n\n * @return {number}\n */\nvar sumMultiples = function(n) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "def sumMultiples(n: int) -> int:\n    # Write your code here",
+    "javaDefaultCode": "public static int sumMultiples(int n) {\n        // Write your code here\n    }",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "n = 10",
+        "output": "23",
+        "parameter": "10",
+        "explanation": "The multiples of 3 or 5 up to 10 are 3, 5, 6, and 9. Their sum is 3 + 5 + 6 + 9 = 23.",
+        "image": null,
+        "javaFuncCall": "sumMultiples(10)"
+      },
+      {
+        "number": 2,
+        "input": "n = 20",
+        "output": "78",
+        "parameter": "20",
+        "explanation": "The multiples of 3 or 5 up to 20 are 3, 5, 6, 9, 10, 12, and 15. Their sum is 3 + 5 + 6 + 9 + 10 + 12 + 15 = 78.",
+        "image": null,
+        "javaFuncCall": "sumMultiples(20)"
+      },
+      {
+        "number": 3,
+        "input": "n = 6",
+        "output": "8",
+        "parameter": "6",
+        "explanation": "The multiples of 3 or 5 up to 6 are 3 and 5. Their sum is 3 + 5 = 8.",
+        "image": null,
+        "javaFuncCall": "sumMultiples(6)"
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "10",
+        "expectedOutput": "23",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(10)"
+      },
+      {
+        "parameter": "20",
+        "expectedOutput": "78",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(20)"
+      },
+      {
+        "parameter": "6",
+        "expectedOutput": "8",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(6)"
+      },
+      {
+        "parameter": "15",
+        "expectedOutput": "45",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(15)"
+      },
+      {
+        "parameter": "100",
+        "expectedOutput": "2318",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(100)"
+      },
+      {
+        "parameter": "50",
+        "expectedOutput": "543",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(50)"
+      },
+      {
+        "parameter": "1000",
+        "expectedOutput": "233168",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(1000)"
+      },
+      {
+        "parameter": "5",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(5)"
+      },
+      {
+        "parameter": "12",
+        "expectedOutput": "33",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(12)"
+      },
+      {
+        "parameter": "3",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(3)"
+      },
+      {
+        "parameter": "1",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(1)"
+      },
+      {
+        "parameter": "7",
+        "expectedOutput": "14",
+        "userOutput": null,
+        "javaFuncCall": "sumMultiples(7)"
+      },
+    ]
+
+    /*  
+    js:
+      var sumMultiples = function(n) {
+    let sum = 0;
+    for (let i = 1; i < n; i++) {
+        if (i % 3 === 0 || i % 5 === 0) {
+            sum += i;
+        }
+    }
+    return sum;
+};
+
+
+    python:
+      def sumMultiples(n: int) -> int:
+    sum = 0
+    for i in range(1, n):
+        if i % 3 == 0 or i % 5 == 0:
+            sum += i
+    return sum
+
+
+    java:
+         public static int sumMultiples(int n) {
+        int sum = 0;
+        for (int i = 1; i < n; i++) {
+            if (i % 3 == 0 || i % 5 == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    */
+  },
+  {
+    "number": 28,
+    "heading": "Maximum Subarray",
+    "difficulty": "Medium",
+    "topic": ["Array", "Dynamic Programming"],
+    "ds": "[ Array ]",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+    "constraints": [
+      "1 <= nums.length <= 10^5",
+      "-10^4 <= nums[i] <= 10^4"
+    ],
+    "functionName": "maxSubArray",
+    "returnType": "number",
+    "javascriptDefaultCode": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar maxSubArray = function(nums) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "from typing import List\n\ndef maxSubArray(nums: List[int]) -> int:\n    # Write your code here",
+    "javaDefaultCode": "public static int maxSubArray(int[] nums) {\n    // Write your code here\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        "output": "6",
+        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        "explanation": "The contiguous subarray [4, -1, 2, 1] has the largest sum = 6.",
+        "image": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
+      },
+      {
+        "number": 2,
+        "input": "nums = [1]",
+        "output": "1",
+        "parameter": "[1]",
+        "explanation": "The contiguous subarray [1] itself is the maximum subarray with sum 1.",
+        "image": null,
+        "javaFuncCall": "maxSubArray(new int[]{1})"
+      },
+      {
+        "number": 3,
+        "input": "nums = [5, 4, -1, 7, 8]",
+        "output": "23",
+        "parameter": "[5, 4, -1, 7, 8]",
+        "explanation": "The entire array [5, 4, -1, 7, 8] itself is the maximum subarray with sum 23.",
+        "image": null,
+        "javaFuncCall": "maxSubArray(new int[]{5, 4, -1, 7, 8})"
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        "expectedOutput": "6",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
+      },
+      {
+        "parameter": "[1]",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{1})"
+      },
+      {
+        "parameter": "[5, 4, -1, 7, 8]",
+        "expectedOutput": "23",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{5, 4, -1, 7, 8})"
+      },
+      {
+        "parameter": "[-1, -2, -3, -4]",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4})"
+      },
+      {
+        "parameter": "[10, -2, 3, -4, 7, 2, -5]",
+        "expectedOutput": "16",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{10, -2, 3, -4, 7, 2, -5})"
+      },
+      {
+        "parameter": "[1, 2, 3, 4, 5]",
+        "expectedOutput": "15",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{1, 2, 3, 4, 5})"
+      },
+      {
+        "parameter": "[-2, -3, -1, -5, -7]",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, -3, -1, -5, -7})"
+      },
+      {
+        "parameter": "[3, -1, 6, 4, 2]",
+        "expectedOutput": "14",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{3, -1, 6, 4, 2})"
+      },
+      {
+        "parameter": "[-1, 2, -3, 4, -5]",
+        "expectedOutput": "4",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-1, 2, -3, 4, -5})"
+      },
+      {
+        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        "expectedOutput": "6",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
+      },
+      {
+        "parameter": "[-2, -5, 6, -2, -3, 1, 5, -6]",
+        "expectedOutput": "7",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, -5, 6, -2, -3, 1, 5, -6})"
+      },
+      {
+        "parameter": "[1, 2, -1, -2, 2, 1, -2, 1]",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{1, 2, -1, -2, 2, 1, -2, 1})"
+      },
+      {
+        "parameter": "[-1, -2, -3, -4, -5]",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4, -5})"
+      },
+      {
+        "parameter": "[-2, -1, -3, -4, -1, -2, -1, -5, -4]",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-2, -1, -3, -4, -1, -2, -1, -5, -4})"
+      },
+      {
+        "parameter": "[-1, -2, -3, -4, -5, -6, -7, -8, -9]",
+        "expectedOutput": "-1",
+        "userOutput": null,
+        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4, -5, -6, -7, -8, -9})"
+      }
+    ]
+
+    /*  
+    js:
+      var maxSubArray = function(nums) {
+    if (nums.length === 0) return 0;
+    
+    let maxSum = nums[0];
+    let currentSum = nums[0];
+    
+    for (let i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    
+    return maxSum;
+};
+
+
+    python:
+      from typing import List
+
+def maxSubArray(nums: List[int]) -> int:
+    if not nums:
+        return 0
+    
+    max_sum = current_sum = nums[0]
+    
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+    
+    return max_sum
+
+
+    java:
+      public static int maxSubArray(int[] nums) {
+    if (nums.length == 0) return 0;
+    
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+    
+    for (int i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    
+    return maxSum;
+}
+    
+    */
+  },
+
+  {
+    "number": 29,
+    "heading": "Longest Palindromic Substring",
+    "difficulty": "Hard",
+    "topic": ["String", "Dynamic Programming"],
+    "ds": "[ String ]",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. A palindrome is a sequence that reads the same backward as forward.",
+    "constraints": [
+      "1 <= s.length <= 1000",
+      "s consists only of lowercase English letters."
+    ],
+    "functionName": "longestPalindrome",
+    "returnType": "string",
+    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {string}\n */\nvar longestPalindrome = function(s) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "def longestPalindrome(s: str) -> str:\n    # Write your code here",
+    "javaDefaultCode": "public static String longestPalindrome(String s) {\n    // Write your code here\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "s = babad",
+        "output": "bab",
+        "parameter": "'babad'",
+        "explanation": "'aba' is also a valid answer.",
+        "image": null,
+        "javaFuncCall": 'longestPalindrome("babad")'
+      },
+      {
+        "number": 2,
+        "input": "s = aaabbbaa",
+        "output": "aabbbaa",
+        "parameter": "'aaabbbaa'",
+        "explanation": "",
+        "image": null,
+        "javaFuncCall": 'longestPalindrome("aaabbbaa")'
+      },
+      {
+        "number": 3,
+        "input": "s = a",
+        "output": "a",
+        "parameter": "'a'",
+        "explanation": "",
+        "image": null,
+        "javaFuncCall": 'longestPalindrome("a")'
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "'cbbd'",
+        "expectedOutput": "bb",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("cbbd")'
+      },
+      {
+        "parameter": "'a'",
+        "expectedOutput": "a",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("a")'
+      },
+      {
+        "parameter": "'ac'",
+        "expectedOutput": "a",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("ac")'
+      },
+      {
+        "parameter": "'racecar'",
+        "expectedOutput": "racecar",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("racecar")'
+      },
+      {
+        "parameter": "'abcdefedcba'",
+        "expectedOutput": "abcdefedcba",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("abcdefedcba")'
+      },
+      {
+        "parameter": "'aaaabaaaa'",
+        "expectedOutput": "aaaabaaaa",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("aaaabaaaa")'
+      },
+      {
+        "parameter": "'banana'",
+        "expectedOutput": "anana",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("banana")'
+      },
+      {
+        "parameter": "'forgeeksskeegfor'",
+        "expectedOutput": "geeksskeeg",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("forgeeksskeegfor")'
+      },
+      {
+        "parameter": "'ababababababa'",
+        "expectedOutput": "ababababababa",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("ababababababa")'
+      },
+      {
+        "parameter": "'zxabcyxcba'",
+        "expectedOutput": "z",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("zxabcyxcba")'
+      },
+      {
+        "parameter": "'madam'",
+        "expectedOutput": "madam",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("madam")'
+      },
+      {
+        "parameter": "'abaxyzzyxf'",
+        "expectedOutput": "xyzzyx",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("abaxyzzyxf")'
+      },
+      {
+        "parameter": "'abcdxyzyxabcdd'",
+        "expectedOutput": "xyzyx",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("abcdxyzyxabcdd")'
+      },
+      {
+        "parameter": "'abcbadefgfedcba'",
+        "expectedOutput": "defgfed",
+        "userOutput": null,
+        "javaFuncCall": 'longestPalindrome("abcbadefgfedcba")'
+      }
+    ]
+
+
+    /*  
+    js:
+      var longestPalindrome = function(s) {
+    if (!s) return "";
+    
+    let start = 0, maxLen = 1;
+    
+    function expandAroundCenter(left, right) {
+        while (left >= 0 && right < s.length && s[left] === s[right]) {
+            const currLen = right - left + 1;
+            if (currLen > maxLen) {
+                maxLen = currLen;
+                start = left;
+            }
+            left--;
+            right++;
+        }
+    }
+    
+    for (let i = 0; i < s.length; i++) {
+        expandAroundCenter(i, i);     // odd length palindromes
+        expandAroundCenter(i, i + 1); // even length palindromes
+    }
+    
+    return s.substring(start, start + maxLen);
+};
+
+
+
+    python:
+        def longestPalindrome(s: str) -> str:
+    if not s:
+        return ""
+    
+    n = len(s)
+    start, max_len = 0, 1
+    
+    def expand_around_center(left, right):
+        nonlocal start, max_len
+        while left >= 0 and right < n and s[left] == s[right]:
+            if right - left + 1 > max_len:
+                start = left
+                max_len = right - left + 1
+            left -= 1
+            right += 1
+    
+    for i in range(n):
+        expand_around_center(i, i)      # odd length palindromes
+        expand_around_center(i, i + 1)  # even length palindromes
+    
+    return s[start:start + max_len]
+
+
+    java:
+      if (s == null || s.length() < 1) return "";
+        
+        int start = 0, end = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expandAroundCenter(s, i, i);     // odd length palindromes
+            int len2 = expandAroundCenter(s, i, i + 1); // even length palindromes
+            int maxLen = Math.max(len1, len2);
+            if (maxLen > end - start) {
+                start = i - (maxLen - 1) / 2;
+                end = i + maxLen / 2;
+            }
+        }
+        
+        // Handle case where no palindrome longer than 1 character is found
+        if (end - start == 0) {
+            return String.valueOf(s.charAt(0));
+        }
+        
+        return s.substring(start, end + 1);
+    }
+    
+    private static int expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return right - left - 1;
+    }
+    
+    */
+  },
+
+  {
+    "number": 30,
+    "heading": "Decode Ways",
+    "difficulty": "Hard",
+    "topic": ["Dynamic Programming", "String"],
+    "ds": "[ String, Dynamic Programming ]",
+    "attempts": 0,
+    "isSolved": false,
+    "language": "javascript",
+    "image": null,
+    "allOutput": [],
+    "allResult": [],
+    "description": "A message containing letters from A-Z can be encoded into numbers using the following mapping: 'A' -> '1', 'B' -> '2', ..., 'Z' -> '26'. Given a string s containing only digits, determine the total number of ways to decode it.",
+    "constraints": [
+      "1 <= s.length <= 100",
+      "s contains only digits and may contain leading zeros."
+    ],
+    "functionName": "numDecodings",
+    "returnType": "number",
+    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {number}\n */\nvar numDecodings = function(s) {\n    // Write your code here\n};",
+    "pythonDefaultCode": "def numDecodings(s: str) -> int:\n    # Write your code here",
+    "javaDefaultCode": "public static int numDecodings(String s) {\n    // Write your code here\n    return 0;\n}",
+    "isSubmitted": false,
+    "testCaseOutputs": [],
+    "testCaseResults": [],
+    "example": [
+      {
+        "number": 1,
+        "input": "s = '12'",
+        "output": "2",
+        "parameter": "'12'",
+        "explanation": "It could be decoded as 'AB' (1 2) or 'L' (12).",
+        "image": null,
+        "javaFuncCall": 'numDecodings("12")'
+      },
+      {
+        "number": 2,
+        "input": "s = '226'",
+        "output": "3",
+        "parameter": "'226'",
+        "explanation": "It could be decoded as 'BZ' (2 26), 'VF' (22 6), or 'BBF' (2 2 6).",
+        "image": null,
+        "javaFuncCall": 'numDecodings("226")'
+      },
+      {
+        "number": 3,
+        "input": "s = '0'",
+        "output": "0",
+        "parameter": "'0'",
+        "explanation": "There is no valid encoding starting with '0'.",
+        "image": null,
+        "javaFuncCall": 'numDecodings("0")'
+      }
+    ],
+    "cases": [
+      {
+        "parameter": "'12'",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("12")'
+      },
+      {
+        "parameter": "'226'",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("226")'
+      },
+      {
+        "parameter": "'0'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("0")'
+      },
+      {
+        "parameter": "'11106'",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("11106")'
+      },
+      {
+        "parameter": "'27'",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("27")'
+      },
+      {
+        "parameter": "'10'",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("10")'
+      },
+      {
+        "parameter": "'01'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("01")'
+      },
+      {
+        "parameter": "'230'",
+        "expectedOutput": "0",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("230")'
+      },
+      {
+        "parameter": "'123456789'",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("123456789")'
+      },
+      {
+        "parameter": "'1123'",
+        "expectedOutput": "5",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("1123")'
+      },
+      {
+        "parameter": "'27'",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("27")'
+      },
+      {
+        "parameter": "'2611055971756562'",
+        "expectedOutput": "4",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("2611055971756562")'
+      },
+      {
+        "parameter": "'206'",
+        "expectedOutput": "1",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("206")'
+      },
+      {
+        "parameter": "'611'",
+        "expectedOutput": "2",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("611")'
+      },
+      {
+        "parameter": "'226'",
+        "expectedOutput": "3",
+        "userOutput": null,
+        "javaFuncCall": 'numDecodings("226")'
+      }
+    ]
+
+
+
+    /*  
+    js:
+      var numDecodings = function(s) {
+    if (s === null || s.length === 0) {
+        return 0;
+    }
+    
+    const n = s.length;
+    const dp = new Array(n + 1).fill(0);
+    dp[0] = 1;
+    dp[1] = s.charAt(0) === '0' ? 0 : 1;
+    
+    for (let i = 2; i <= n; i++) {
+        let oneDigit = parseInt(s.substring(i - 1, i));
+        let twoDigits = parseInt(s.substring(i - 2, i));
+        
+        if (oneDigit >= 1) {
+            dp[i] += dp[i - 1];
+        }
+        
+        if (twoDigits >= 10 && twoDigits <= 26) {
+            dp[i] += dp[i - 2];
+        }
+    }
+    
+    return dp[n];
+};
+
+
+    python:
+      def numDecodings(s: str) -> int:
+    if not s or s[0] == '0':
+        return 0
+    
+    n = len(s)
+    dp = [0] * (n + 1)
+    dp[0] = 1
+    dp[1] = 1 if s[0] != '0' else 0
+    
+    for i in range(2, n + 1):
+        one_digit = int(s[i - 1:i])
+        two_digits = int(s[i - 2:i])
+        
+        if 1 <= one_digit <= 9:
+            dp[i] += dp[i - 1]
+        
+        if 10 <= two_digits <= 26:
+            dp[i] += dp[i - 2]
+    
+    return dp[n]
+
+
+    java:
+      def numDecodings(s: str) -> int:
+    if not s or s[0] == '0':
+        return 0
+    
+    n = len(s)
+    dp = [0] * (n + 1)
+    dp[0] = 1
+    dp[1] = 1 if s[0] != '0' else 0
+    
+    for i in range(2, n + 1):
+        one_digit = int(s[i - 1:i])
+        two_digits = int(s[i - 2:i])
+        
+        if 1 <= one_digit <= 9:
+            dp[i] += dp[i - 1]
+        
+        if 10 <= two_digits <= 26:
+            dp[i] += dp[i - 2]
+    
+    return dp[n]
+
+    */
+  }
+  
+  
+  
+  
+  
+
+
 ];
