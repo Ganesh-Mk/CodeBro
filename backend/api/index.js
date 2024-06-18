@@ -6,9 +6,9 @@ const multer = require('multer')
 const path = require('path')
 
 require('dotenv').config()
-const UserModel = require('./models/userModel')
-const LeaderBoard = require('./models/leaderBoardModel')
-const UserMessageModel = require('./models/userMessageModel')
+const UserModel = require('../models/userModel')
+const LeaderBoard = require('../models/leaderBoardModel')
+const UserMessageModel = require('../models/userMessageModel')
 
 const app = express()
 app.use(express.json())
@@ -17,7 +17,7 @@ app.use(cors())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017/CodeBro')
+  .connect(process.env.DATABASE_URI)
   .then(() => {
     console.log('MongoDB connected')
   })
