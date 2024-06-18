@@ -183,7 +183,7 @@ export default function EntrancePage() {
       <main className="flex-1 flex flex-col items-center justify-center gap-8 px-4 md:px-6 py-12 md:py-24 lg:py-32">
         <div className="max-w-3xl text-center space-y-4">
           <h1 className="text-4xl text-white md:text-5xl lg:text-6xl font-bold tracking-tighter">
-           
+            Elevate your DSA skills with CodeBro
           </h1>
           <p className="text-gray-500 text-lg md:text-xl">
             Unlock your full potential with our comprehensive coding platform.
