@@ -21,7 +21,6 @@ export default function RegisterPage() {
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
 
 
   const handleSubmit = () => {
