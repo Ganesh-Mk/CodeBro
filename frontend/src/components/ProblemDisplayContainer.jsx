@@ -21,7 +21,7 @@ const ProblemDisplayContainer = ({
 }) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const handleClick = () => {
@@ -50,7 +50,7 @@ const ProblemDisplayContainer = ({
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

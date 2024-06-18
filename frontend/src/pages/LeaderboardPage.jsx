@@ -16,7 +16,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 function LeaderBoardPage() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const leaderBoardEntries = useSelector(
@@ -28,7 +28,7 @@ function LeaderBoardPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get(`${backend_url}/leaderBoardprint`)
+        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })

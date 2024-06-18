@@ -9,7 +9,7 @@ function Navbar({ fontColor = "white" }) {
   const [userImage, setUserImage] = useState("home");
   const [menuVisible, setMenuVisible] = useState(false);
   const location = useLocation(); // Get current location
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
   
 
   const handleMenuToggle = () => {
@@ -19,7 +19,7 @@ function Navbar({ fontColor = "white" }) {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/fetchUserImage`, {
+      .get("https://code-bro-tau.vercel.app/fetchUserImage", {
         params: {
           userEmail: localStorage.getItem("email"),
         },

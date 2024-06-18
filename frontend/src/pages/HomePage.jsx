@@ -31,7 +31,7 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0);
   const [allProblems, setAllProblems] = useState([]);
   const [totalProblems, setTotalProblems] = useState(0);
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const dispatch = useDispatch();
@@ -108,7 +108,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -121,7 +121,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

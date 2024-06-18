@@ -40,7 +40,7 @@ function AccountPage() {
   const [totalMedium, setTotalMedium] = useState(0);
   const [totalHard, setTotalHard] = useState(0);
   const [totalProblems, setTotalProblems] = useState(0);
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function AccountPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get(`${backend_url}/leaderBoardprint`)
+        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })
@@ -119,7 +119,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/fetchUserImage`, {
+      .get("https://code-bro-tau.vercel.app/fetchUserImage", {
         params: {
           userEmail: localStorage.getItem("email"),
         },
@@ -134,7 +134,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

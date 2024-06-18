@@ -13,8 +13,13 @@ const UserMessageModel = require('../models/userMessageModel')
 const app = express()
 app.use(express.json())
 app.use(bodyParser.json())
-app.use(cors())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+
+const corsOptions = {
+  origin: 'http://localhost:5173', // Your frontend URL
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 mongoose
   .connect(process.env.DATABASE_URI)

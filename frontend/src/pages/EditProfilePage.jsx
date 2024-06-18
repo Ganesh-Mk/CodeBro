@@ -28,7 +28,7 @@ function EditProfilePage() {
   const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo)
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
   const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo)
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function EditProfilePage() {
     formData.append('userLinkedin', userLinkedin)
 
     axios
-      .post(`${backend_url}/updateUserDetails`, formData, {
+      .post("https://code-bro-tau.vercel.app/updateUserDetails", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -104,7 +104,7 @@ function EditProfilePage() {
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/fetchUserImage`, {
+      .get("https://code-bro-tau.vercel.app/fetchUserImage", {
         params: {
           userEmail: localStorage.getItem('email'),
         },

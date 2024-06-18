@@ -23,7 +23,7 @@ export default function AboutUsPage() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const handleSubmit = (e) => {
@@ -33,7 +33,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post(`${backend_url}/userMessages`, {
+      .post("https://code-bro-tau.vercel.app/userMessages", {
         name,
         email,
         message,

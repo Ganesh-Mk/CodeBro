@@ -38,7 +38,7 @@ function CodingPage() {
   const [testCaseOutput, setTestCaseOutput] = useState([])
   const [testCaseResult, setTestCaseResult] = useState([])
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
-  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const problemObj = useSelector((state) => state.problemObj.obj)
@@ -310,7 +310,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem('linkedin')
 
       await axios
-        .post(`${backend_url}/addProblemRecord`, {
+        .post("https://code-bro-tau.vercel.app/addProblemRecord", {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,
