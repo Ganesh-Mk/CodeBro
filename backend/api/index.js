@@ -273,7 +273,7 @@ app.post('/login', (req, res) => {
     .catch((err) => res.send(err))
 })
 
-app.post('/createUser', (req, res) => {y
+app.post('/createUser', (req, res) => {
   UserModel.findOne({ email: req.body.userEmail })
     .then((existingUser) => {
       if (existingUser) {
