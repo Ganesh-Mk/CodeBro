@@ -21,7 +21,7 @@ export default function RegisterPage() {
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
-  const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
 
   const handleSubmit = () => {
@@ -35,7 +35,7 @@ export default function RegisterPage() {
     localStorage.setItem('rank', 'Unranked')
 
     axios
-      .post(`${backend_url}/createUser`, {
+      .post("https://codebro-backend.vercel.app//createUser", {
         userName,
         userEmail,
         userPassword,
