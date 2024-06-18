@@ -35,7 +35,7 @@ export default function RegisterPage() {
     localStorage.setItem('rank', 'Unranked')
 
     axios
-      .post(`${backend_url}/createUser`, {
+      .post("https://codebro-backend.vercel.app/createUser", {
         userName,
         userEmail,
         userPassword,
