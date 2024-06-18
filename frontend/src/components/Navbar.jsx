@@ -9,6 +9,8 @@ function Navbar({ fontColor = "white" }) {
   const [userImage, setUserImage] = useState("home");
   const [menuVisible, setMenuVisible] = useState(false);
   const location = useLocation(); // Get current location
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+  
 
   const handleMenuToggle = () => {
     console.log("menuVisible", menuVisible);
@@ -17,7 +19,7 @@ function Navbar({ fontColor = "white" }) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/fetchUserImage", {
+      .get(`${backend_url}/fetchUserImage`, {
         params: {
           userEmail: localStorage.getItem("email"),
         },

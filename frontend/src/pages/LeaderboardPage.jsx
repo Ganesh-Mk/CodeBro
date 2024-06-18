@@ -16,6 +16,8 @@ import { SearchIcon } from "@chakra-ui/icons";
 function LeaderBoardPage() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const leaderBoardEntries = useSelector(
     (state) => state.leaderBoard.leaderBoardEntries
@@ -26,7 +28,7 @@ function LeaderBoardPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get("http://localhost:3000/leaderBoardprint")
+        .get(`${backend_url}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })

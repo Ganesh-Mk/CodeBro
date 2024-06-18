@@ -38,6 +38,8 @@ function CodingPage() {
   const [testCaseOutput, setTestCaseOutput] = useState([])
   const [testCaseResult, setTestCaseResult] = useState([])
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const problemObj = useSelector((state) => state.problemObj.obj)
   const solvedProblems = useSelector(
@@ -308,7 +310,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem('linkedin')
 
       await axios
-        .post('http://localhost:3000/addProblemRecord', {
+        .post(`${backend_url}/addProblemRecord`, {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,

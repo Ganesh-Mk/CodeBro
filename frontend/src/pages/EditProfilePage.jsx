@@ -28,6 +28,8 @@ function EditProfilePage() {
   const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo)
   const [userImage, setUserImage] = useState(images.accDefaultLogo)
   const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo)
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   useEffect(() => {
     setUserName(localStorage.getItem('name'))
@@ -53,7 +55,7 @@ function EditProfilePage() {
     formData.append('userLinkedin', userLinkedin)
 
     axios
-      .post('http://localhost:3000/updateUserDetails', formData, {
+      .post(`${backend_url}/updateUserDetails`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -102,7 +104,7 @@ function EditProfilePage() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/fetchUserImage', {
+      .get(`${backend_url}/fetchUserImage`, {
         params: {
           userEmail: localStorage.getItem('email'),
         },

@@ -21,6 +21,8 @@ const ProblemDisplayContainer = ({
 }) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const handleClick = () => {
     if (bool === true) {
@@ -48,7 +50,7 @@ const ProblemDisplayContainer = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${backend_url}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

@@ -23,6 +23,8 @@ export default function AboutUsPage() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post("http://localhost:3000/userMessages", {
+      .post(`${backend_url}/userMessages`, {
         name,
         email,
         message,

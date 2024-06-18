@@ -40,6 +40,8 @@ function AccountPage() {
   const [totalMedium, setTotalMedium] = useState(0);
   const [totalHard, setTotalHard] = useState(0);
   const [totalProblems, setTotalProblems] = useState(0);
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const dispatch = useDispatch();
   const leaderBoardEntries = useSelector(
@@ -49,7 +51,7 @@ function AccountPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get("http://localhost:3000/leaderBoardprint")
+        .get(`${backend_url}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })
@@ -117,7 +119,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/fetchUserImage", {
+      .get(`${backend_url}/fetchUserImage`, {
         params: {
           userEmail: localStorage.getItem("email"),
         },
@@ -132,7 +134,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${backend_url}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

@@ -31,6 +31,8 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0);
   const [allProblems, setAllProblems] = useState([]);
   const [totalProblems, setTotalProblems] = useState(0);
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const dispatch = useDispatch();
   const solvedProblems = useSelector(
@@ -106,7 +108,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${backend_url}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -119,7 +121,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${backend_url}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

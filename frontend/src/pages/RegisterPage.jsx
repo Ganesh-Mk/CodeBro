@@ -21,6 +21,8 @@ export default function RegisterPage() {
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
+  const backend_url = process.env.REACT_APP_BACKEND_URL;
+
 
   const handleSubmit = () => {
     localStorage.setItem('name', userName)
@@ -33,7 +35,7 @@ export default function RegisterPage() {
     localStorage.setItem('rank', 'Unranked')
 
     axios
-      .post('http://localhost:3000/createUser', {
+      .post(`${backend_url}/createUser`, {
         userName,
         userEmail,
         userPassword,
