@@ -1,42 +1,42 @@
-
-import React, { useState } from 'react'
-import '../style/Login.scss'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import CodeBroLogo from '../components/CodeBroLogo'
-import { setName, setEmail, setPassword } from '../store/userSlice'
+import React, { useState } from "react";
+import "../style/Login.scss";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import CodeBroLogo from "../components/CodeBroLogo";
+import { setName, setEmail, setPassword } from "../store/userSlice";
 
 export default function LoginPage() {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
-
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
   const handleSubmit = () => {
     axios
-      .post("https://code-bro-tau.vercel.app/login", { userEmail, userPassword })
+      .post("https://code-bro-tau.vercel.app/login", {
+        userEmail,
+        userPassword,
+      })
       .then((result) => {
-        console.log(result)
+        console.log(result);
         if (result.data !== false) {
-          dispatch(setName(result.data.name))
-          dispatch(setEmail(result.data.email))
-          dispatch(setPassword(result.data.password))
+          dispatch(setName(result.data.name));
+          dispatch(setEmail(result.data.email));
+          dispatch(setPassword(result.data.password));
 
-          localStorage.setItem('name', result.data.name)
-          localStorage.setItem('email', userEmail)
-          localStorage.setItem('password', userPassword)
-          navigate('/home')
+          localStorage.setItem("name", result.data.name);
+          localStorage.setItem("email", userEmail);
+          localStorage.setItem("password", userPassword);
+          navigate("/home");
         } else {
-          alert('User not found')
-          navigate('/login')
+          alert("User not found");
+          navigate("/login");
         }
       })
-      .catch((err) => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
@@ -64,7 +64,7 @@ export default function LoginPage() {
             </label>
             <input
               id="password"
-              placeholder='password'
+              placeholder="Password"
               value={userPassword}
               type="password"
               onChange={(e) => setUserPassword(e.target.value)}
@@ -74,7 +74,12 @@ export default function LoginPage() {
           </div>
         </div>
         <div className="mt-4">
-          <button onClick={handleSubmit} className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3">Login</button>
+          <button
+            onClick={handleSubmit}
+            className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>
