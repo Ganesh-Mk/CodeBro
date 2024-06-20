@@ -4,7 +4,7 @@ export const AllquesObject = [
     heading: "Add two numbers",
     topic: ["Math"],
     ds: "[ Math ]",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     attempts: 0,
     isSolved: false,
     heading: "Add two numbers",
@@ -253,7 +253,7 @@ export const AllquesObject = [
   {
     number: 2,
     heading: "String Reverse",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     attempts: 0,
     topic: ["String"],
     ds: "[ String ]",
@@ -436,7 +436,7 @@ export const AllquesObject = [
     number: 3,
 
     heading: "Find Minimum and Maximum Number",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array", "Math"],
     ds: "[ Array, Math ]",
     attempts: 0,
@@ -577,7 +577,7 @@ export const AllquesObject = [
     number: 4,
 
     heading: "Find Second Largest Element in Array",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array", "Math"],
     ds: "[ Array, Math ]",
     attempts: 0,
@@ -733,7 +733,7 @@ export const AllquesObject = [
     number: 5,
 
     heading: "Create Array of Numbers",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array"],
     ds: "[ Array ]",
     attempts: 0,
@@ -862,7 +862,7 @@ export const AllquesObject = [
     number: 6,
 
     heading: "Increment Matrix Values",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Matrices"],
     ds: "[ Matrices ]",
     attempts: 0,
@@ -999,7 +999,7 @@ export const AllquesObject = [
     number: 7,
 
     heading: "Number of Students Unable to Eat Lunch",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     topic: ["Array", "Stack", "Queue"],
     ds: "[ Array, Stack, Queue ]",
     attempts: 0,
@@ -1173,7 +1173,7 @@ export const AllquesObject = [
   {
     number: 8,
     heading: "Remove Duplicates from Sorted List",
-    difficulty: "Hard",
+    difficulty: "Advance",
     topic: ["LinkedList"],
     ds: "[ LinkedList ]",
     isSolved: false,
@@ -1390,7 +1390,7 @@ public ListNode deleteDuplicates(ListNode head) {
     number: 9,
 
     heading: "Find the median of an array",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     isSolved: false,
     language: "javascript",
     topic: ["BinarySearch", "Array"],
@@ -1612,7 +1612,7 @@ public static int findMedian(int[] arr) {
   {
     number: 10,
     heading: "Find the kth largest element in an array",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     isSolved: false,
     language: "javascript",
     topic: ["Array", "Sorting"],
@@ -1789,7 +1789,7 @@ public static int findKthLargest(int[] arr, int k) {
   {
     number: "11",
     heading: "Find the majority element in an array",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     topic: ["Array", "Sorting", "HashTable"],
     ds: "[ Array, Sorting, HashTable ]",
     isSolved: false,
@@ -2066,10 +2066,10 @@ public static int findMajorityElement(int[] arr) {
   {
     number: "12",
     heading: "Remove duplicates from an array",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     number: "12",
     heading: "Remove duplicates from an array",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array", "TwoPointer"],
     ds: "[ Array, TwoPointer ]",
     isSolved: false,
@@ -2261,11 +2261,11 @@ public static String removeDuplicates(int[] arr) {
   {
     number: 13,
     heading: "Find the maximum consecutive ones in an array",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     isSolved: false,
     language: "javascript",
     heading: "Find the maximum consecutive ones in an array",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     isSolved: false,
     topic: ["Array"],
     ds: "[ Array ]",
@@ -2457,11 +2457,11 @@ public static String removeDuplicates(int[] arr) {
   {
     number: 14,
     heading: "Count Vowels in a String",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     isSolved: false,
     language: "javascript",
     heading: "Count Vowels in a String",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array", "String"],
     ds: "[ Array, String ]",
     isSolved: false,
@@ -2686,7 +2686,7 @@ public static String removeDuplicates(int[] arr) {
   {
     number: 15,
     heading: "Search Insert Position",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -2904,7 +2904,7 @@ public static String removeDuplicates(int[] arr) {
   {
     number: 16,
     heading: "Binary Search",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     topic: ["Array", "BinarySearch"],
     ds: "[ Array, BinarySearch ]",
     attempts: 0,
@@ -3085,7 +3085,7 @@ public static String removeDuplicates(int[] arr) {
   {
     number: 17,
     heading: "Linear Search",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -3256,7 +3256,7 @@ return i;
   {
     number: 18,
     heading: "Find Peak Element",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -3449,7 +3449,7 @@ return i;
   {
     number: 19,
     heading: "Square Root of an Integer",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     topic: ["Math"],
     ds: "[ Math ]",
     attempts: 0,
@@ -3634,7 +3634,7 @@ return i;
   {
     number: 20,
     heading: "Reverse Integer",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["Array", "TwoPointer"],
     ds: "[ Array, TwoPointer ]",
     attempts: 0,
@@ -3823,7 +3823,7 @@ return i;
   {
     number: 21,
     heading: "Sort Colors",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     topic: ["Array", "TwoPointer", "Sorting"],
     ds: "[ Array, TwoPointer, Sorting ]",
     attempts: 0,
@@ -3994,7 +3994,7 @@ public class Solution {
   {
     number: 22,
     heading: "Sort Even Odd",
-    difficulty: "Medium",
+    difficulty: "Intermediate",
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -4273,7 +4273,7 @@ public class Solution {
   {
     number: 23,
     heading: "Longest Consecutive Sequence",
-    difficulty: "Hard",
+    difficulty: "Advance",
     topic: ["Array", "HashTable"],
     ds: "[ Array, HashTable ]",
     attempts: 0,
@@ -4501,7 +4501,7 @@ public class Solution {
   {
     number: 24,
     heading: "Longest Substring Without Repeating Characters",
-    difficulty: "Hard",
+    difficulty: "Advance",
     attempts: 0,
     isSolved: false,
     language: "javascript",
@@ -4697,7 +4697,7 @@ public class Solution {
   {
     number: 25,
     heading: "Length of Last Word",
-    difficulty: "Easy",
+    difficulty: "Beginner",
     topic: ["String"],
     ds: "[ String ]",
     attempts: 0,
@@ -4904,7 +4904,7 @@ public class Solution {
   {
     "number": 26,
     "heading": "First Unique Character in a String",
-    "difficulty": "Easy",
+    "difficulty": "Beginner",
     "topic": ["String", "HashTable"],
     "ds": "[ Hash Table, String ]",
     "attempts": 0,
@@ -5117,7 +5117,7 @@ public class Solution {
   {
     "number": 27,
     "heading": "Sum of All Multiples of 3 or 5",
-    "difficulty": "Easy",
+    "difficulty": "Beginner",
     "topic": ["Math", "Looping"],
     "ds": "[ Integer ]",
     "attempts": 0,
@@ -5279,7 +5279,7 @@ public class Solution {
   {
     "number": 28,
     "heading": "Maximum Subarray",
-    "difficulty": "Medium",
+    "difficulty": "Intermediate",
     "topic": ["Array", "Dynamic Programming"],
     "ds": "[ Array ]",
     "attempts": 0,
@@ -5477,7 +5477,7 @@ def maxSubArray(nums: List[int]) -> int:
   {
     "number": 29,
     "heading": "Longest Palindromic Substring",
-    "difficulty": "Hard",
+    "difficulty": "Advance",
     "topic": ["String", "Dynamic Programming"],
     "ds": "[ String ]",
     "attempts": 0,
@@ -5706,7 +5706,7 @@ def maxSubArray(nums: List[int]) -> int:
   {
     "number": 30,
     "heading": "Decode Ways",
-    "difficulty": "Hard",
+    "difficulty": "Advance",
     "topic": ["DynamicProgramming", "String"],
     "ds": "[ String, Dynamic Programming ]",
     "attempts": 0,

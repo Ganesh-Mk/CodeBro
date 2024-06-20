@@ -131,9 +131,9 @@ const ProblemDisplayContainer = ({
               </div>
             </div>
             <div className="difficultyDisplayer">
-              {problem.difficulty === "Easy" ? (
+              {problem.difficulty === "Beginner" ? (
                 <p style={{ color: "#1CBABA" }}>{problem.difficulty}</p>
-              ) : problem.difficulty === "Medium" ? (
+              ) : problem.difficulty === "Intermediate" ? (
                 <p style={{ color: "#FFB700" }}>{problem.difficulty}</p>
               ) : (
                 <p style={{ color: "#F63737" }}>{problem.difficulty}</p>
