@@ -2,6 +2,9 @@
     color: white;
     font-family: sans-serif;
   }
+
+
+
 .codingPageBox {
     overflow: hidden;
     width: 100vw;
@@ -66,6 +69,11 @@
 
 
 @media screen and (max-width: 800px) {
+    .css-1as86t7{
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 5vw !important;
+      }
     .codingPageBox .container {
         display: grid;
         grid-template-columns: 1fr;
