@@ -19,7 +19,7 @@ function Navbar({ fontColor = "white" }) {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/fetchUserImage", {
+      .get("http://localhost:3000/fetchUserImage", {
         params: {
           userEmail: localStorage.getItem("email"),
         },

@@ -108,7 +108,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get("http://localhost:3000/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -121,7 +121,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get("http://localhost:3000/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

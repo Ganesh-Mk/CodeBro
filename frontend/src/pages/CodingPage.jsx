@@ -310,7 +310,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem('linkedin')
 
       await axios
-        .post("https://code-bro-tau.vercel.app/addProblemRecord", {
+        .post("http://localhost:3000/addProblemRecord", {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,

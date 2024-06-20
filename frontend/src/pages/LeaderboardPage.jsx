@@ -28,7 +28,7 @@ function LeaderBoardPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
+        .get("http://localhost:3000/leaderBoardprint")
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })

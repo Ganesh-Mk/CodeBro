@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 const corsOptions = {
-  origin: 'https://codebrowebsite.vercel.app', // Your frontend URL
+  origin: 'http://localhost:5173', // Your frontend URL
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));

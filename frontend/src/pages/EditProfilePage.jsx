@@ -55,7 +55,7 @@ function EditProfilePage() {
     formData.append('userLinkedin', userLinkedin)
 
     axios
-      .post("https://code-bro-tau.vercel.app/updateUserDetails", formData, {
+      .post("http://localhost:3000/updateUserDetails", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -104,7 +104,7 @@ function EditProfilePage() {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/fetchUserImage", {
+      .get("http://localhost:3000/fetchUserImage", {
         params: {
           userEmail: localStorage.getItem('email'),
         },

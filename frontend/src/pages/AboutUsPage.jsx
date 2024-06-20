@@ -33,7 +33,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post("https://code-bro-tau.vercel.app/userMessages", {
+      .post("http://localhost:3000/userMessages", {
         name,
         email,
         message,
