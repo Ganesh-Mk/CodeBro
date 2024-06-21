@@ -184,14 +184,14 @@ function ProblemsPage() {
                     All
                   </MenuItem>
                   <MenuDivider />
-                  <MenuItem onClick={() => setSelectedValue("Beginner")}>
-                    Beginner
+                  <MenuItem onClick={() => setSelectedValue("Easy")}>
+                    Easy
                   </MenuItem>
-                  <MenuItem onClick={() => setSelectedValue("Intermediate")}>
-                    Intermediate
+                  <MenuItem onClick={() => setSelectedValue("Medium")}>
+                    Medium
                   </MenuItem>
-                  <MenuItem onClick={() => setSelectedValue("Advance")}>
-                    Advance
+                  <MenuItem onClick={() => setSelectedValue("Hard")}>
+                    Hard
                   </MenuItem>
                 </MenuList>
               </Menu>

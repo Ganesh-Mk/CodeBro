@@ -285,9 +285,9 @@ function AccountPage() {
                 </div>
                 <div className="rangeContainer">
                   <div className="diffTextBox">
-                    <p className="easy">Beginner</p>
-                    <p className="medium">Intermediate</p>
-                    <p className="hard">Advance</p>
+                    <p className="easy">Easy</p>
+                    <p className="medium">Medium</p>
+                    <p className="hard">Hard</p>
                   </div>
                   <div className="rangeBox">
                     <div className="range">
