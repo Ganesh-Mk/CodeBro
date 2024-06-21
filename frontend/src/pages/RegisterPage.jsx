@@ -1,38 +1,85 @@
-import React, { useState } from 'react'
-import '../style/Register.scss'
-import { Button } from '@chakra-ui/react'
-import CodeBroLogo from '../components/CodeBroLogo'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import '../style/Register.scss';
+import { Button, Stack } from '@chakra-ui/react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   setId,
   setName,
   setEmail,
   setPassword,
-  setInsta,
-  setGithub,
-  setLinkedin,
-} from '../store/userSlice'
+} from '../store/userSlice';
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RegisterPage() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const [userName, setUserName] = useState('')
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!#%*&])[A-Za-z\d@$!#%*&]{8,}$/;
+    return passwordRegex.test(password);
+  };
 
   const handleSubmit = () => {
-    localStorage.setItem('name', userName)
-    localStorage.setItem('email', userEmail)
-    localStorage.setItem('password', userPassword)
-    localStorage.setItem('insta', '')
-    localStorage.setItem('github', '')
-    localStorage.setItem('linkedin', '')
-    localStorage.setItem('userImage', '')
-    localStorage.setItem('rank', 'Unranked')
+    if(userEmail || userName || userPassword == "") {
+      toast.error('Enter the all Feilds', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+        });
+        return
+    }
+    if(userPassword.length < 8) {
+      toast.error('Password should be atleast 8 Characters', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+        });
+        return
+    }
+    if (!validatePassword(userPassword)) {
+      toast.error('Enter a strong password, Including Capital letter, special characters, and numbers', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+        });
+      return;
+    }
+
+    setIsLoading(true);
+
+    localStorage.setItem('name', userName);
+    localStorage.setItem('email', userEmail);
+    localStorage.setItem('password', userPassword);
+    localStorage.setItem('insta', '');
+    localStorage.setItem('github', '');
+    localStorage.setItem('linkedin', '');
+    localStorage.setItem('userImage', '');
+    localStorage.setItem('rank', 'Unranked');
 
     axios
       .post("http://localhost:3000/createUser", {
@@ -42,18 +89,51 @@ export default function RegisterPage() {
       })
       .then((result) => {
         if (result.data !== false) {
-          dispatch(setId(result.data._id))
-          dispatch(setName(userName))
-          dispatch(setEmail(userEmail))
-          dispatch(setPassword(userPassword))
-          navigate('/home')
+          dispatch(setId(result.data._id));
+          dispatch(setName(userName));
+          dispatch(setEmail(userEmail));
+          dispatch(setPassword(userPassword));
+          setTimeout(() => {
+          setIsLoading(false);
+
+            navigate('/home');
+          }, 2000)
+          toast.success('Signning Up!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Flip,
+            });
+          return;
+          
         } else {
-          alert('Email already taken')
-          navigate('/register')
+          setIsLoading(false);
+          navigate('/register');
+          toast.error('Email already taken', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Flip,
+            });
+            return
         }
       })
-      .catch((err) => console.log(err))
-  }
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
       <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
@@ -96,7 +176,7 @@ export default function RegisterPage() {
             <input
               id="password"
               type="password"
-              placeholder='Enter your passowrd'
+              placeholder='Enter your password'
               value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
               required
@@ -104,9 +184,23 @@ export default function RegisterPage() {
             />
           </div>
         </div>
-        <div className="mt-4">
-          <button onClick={handleSubmit} className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3">Sign Up</button>
+        <div className="mt-4 flex justify-center">
+          <Stack direction="row" spacing={4}>
+            {isLoading ? (
+              <Button isLoading colorScheme="teal" variant="solid">
+                Loading
+              </Button>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+              >
+                Sign Up
+              </button>
+            )}
+          </Stack>
         </div>
+        <ToastContainer transition={Flip} />
       </div>
     </div>
   );

@@ -5,14 +5,23 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import CodeBroLogo from "../components/CodeBroLogo";
 import { setName, setEmail, setPassword } from "../store/userSlice";
+import { Button, Stack } from "@chakra-ui/react";
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = () => {
+
+    setIsLoading(true);
+   
+      
+    
     axios
       .post("http://localhost:3000/login", {
         userEmail,
@@ -20,6 +29,7 @@ export default function LoginPage() {
       })
       .then((result) => {
         console.log(result);
+          // toastShower()
         if (result.data !== false) {
           dispatch(setName(result.data.name));
           dispatch(setEmail(result.data.email));
@@ -28,17 +38,63 @@ export default function LoginPage() {
           localStorage.setItem("name", result.data.name);
           localStorage.setItem("email", userEmail);
           localStorage.setItem("password", userPassword);
-          navigate("/home");
+          setTimeout(() => { 
+            setTimeout(() => {
+              setIsLoading(false)
+              navigate("/home");
+            }, 2500)
+            toast.success('Logging In!', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Flip,
+              });
+          }, 2000);
         } else {
-          alert("User not found");
-          navigate("/login");
+          setTimeout(() => {
+            toast.error('User Not Found', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Flip,
+              });
+          setIsLoading(false)
+
+          }, 1500)
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      // .finally(() => setIsLoading(false));
   };
+
+
+  const toastShower = () => {
+    toast.success('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+      });
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
+      <ToastContainer />
       <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
         <div className="space-y-1 text-center">
           <h1 className="text-2xl text-white">Login</h1>
@@ -73,13 +129,21 @@ export default function LoginPage() {
             />
           </div>
         </div>
-        <div className="mt-4">
-          <button
-            onClick={handleSubmit}
-            className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
-          >
-            Login
-          </button>
+        <div className="mt-4 flex justify-center">
+          <Stack direction="row" spacing={4}>
+            {isLoading ? (
+              <Button isLoading colorScheme="teal" variant="solid">
+                Loading
+              </Button>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+              >
+                Login
+              </button>
+            )}
+          </Stack>
         </div>
       </div>
     </div>
