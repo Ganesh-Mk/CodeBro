@@ -157,6 +157,7 @@ export default function EntrancePage() {
     dispatch(setSolvedProblems([]));
     localStorage.setItem("solved", "[]");
     localStorage.setItem("attempts", "[]");
+    localStorage.setItem("userAttempts", "[]");
   }, []);
   return (
     <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">

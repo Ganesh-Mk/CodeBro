@@ -1,22 +1,22 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const multer = require('multer')
-const path = require('path')
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const multer = require("multer");
+const path = require("path");
 
-require('dotenv').config()
-const UserModel = require('../models/userModel')
-const LeaderBoard = require('../models/leaderBoardModel')
-const UserMessageModel = require('../models/userMessageModel')
+require("dotenv").config();
+const UserModel = require("../models/userModel");
+const LeaderBoard = require("../models/leaderBoardModel");
+const UserMessageModel = require("../models/userMessageModel");
 
-const app = express()
-app.use(express.json())
-app.use(bodyParser.json())
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
+const app = express();
+app.use(express.json());
+app.use(bodyParser.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Your frontend URL
+  origin: "http://localhost:5173", // Your frontend URL
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
@@ -24,80 +24,80 @@ app.use(cors(corsOptions));
 mongoose
   .connect(process.env.DATABASE_URI)
   .then(() => {
-    console.log('MongoDB connected')
+    console.log("MongoDB connected");
   })
-  .catch((err) => console.log(err))
+  .catch((err) => console.log(err));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
-app.get('/deleteAllProblem', (req, res) => {
-  UserModel.find({ email: 'me@' })
+app.get("/deleteAllProblem", (req, res) => {
+  UserModel.find({ email: "me@" })
     .then((userModel) => {
-      userModel.allProblems = []
-      res.send(userModel)
+      userModel.allProblems = [];
+      res.send(userModel);
     })
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.get('/allUserDetails', (req, res) => {
+app.get("/allUserDetails", (req, res) => {
   UserModel.find()
     .then((userModel) => res.send(userModel))
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.get('/deleteOneUser/:id', (req, res) => {
+app.get("/deleteOneUser/:id", (req, res) => {
   UserModel.findByIdAndDelete(req.params.id)
     .then((userModel) => res.send(userModel))
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.get('/deleteAllUser', (req, res) => {
+app.get("/deleteAllUser", (req, res) => {
   UserModel.deleteMany()
     .then((userModel) => res.send(userModel))
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.get('/problemRecord', (req, res) => {
+app.get("/problemRecord", (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
-      userModel.save()
-      res.send(userModel)
+      userModel.save();
+      res.send(userModel);
     })
-    .catch((err) => res.send(err))
-})
-app.get('/leaderBoardprint', async (req, res) => {
+    .catch((err) => res.send(err));
+});
+app.get("/leaderBoardprint", async (req, res) => {
   try {
-    const leaderboard = await LeaderBoard.find()
-    return res.send(leaderboard)
+    const leaderboard = await LeaderBoard.find();
+    return res.send(leaderboard);
   } catch (err) {
-    console.error('Error fetching leaderboard entries:', err)
-    return res.status(500).send(err.message)
+    console.error("Error fetching leaderboard entries:", err);
+    return res.status(500).send(err.message);
   }
-})
-app.get('/deleteleaderBoard', async (req, res) => {
+});
+app.get("/deleteleaderBoard", async (req, res) => {
   try {
-    const result = await LeaderBoard.deleteMany({})
-    return res.send({ message: 'All leaderboard entries deleted', result })
+    const result = await LeaderBoard.deleteMany({});
+    return res.send({ message: "All leaderboard entries deleted", result });
   } catch (err) {
-    console.error('Error deleting leaderboard entries:', err)
-    return res.status(500).send(err.message)
+    console.error("Error deleting leaderboard entries:", err);
+    return res.status(500).send(err.message);
   }
-})
+});
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/')
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname || '')
+    cb(null, file.originalname || "");
   },
-})
+});
 
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage });
 
-app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
+app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
   const {
     userEmail,
     userName,
@@ -105,7 +105,7 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
     userInsta,
     userGithub,
     userLinkedin,
-  } = req.body
+  } = req.body;
 
   const updateData = {
     name: userName,
@@ -114,10 +114,10 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
     insta: userInsta,
     github: userGithub,
     linkedin: userLinkedin,
-  }
+  };
 
   if (req.file) {
-    updateData.image = req.file.originalname || ''
+    updateData.image = req.file.originalname || "";
   }
 
   await UserModel.findOneAndUpdate({ email: userEmail }, updateData, {
@@ -125,15 +125,15 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
   })
     .then((updatedUser) => {
       if (!updatedUser) {
-        return res.status(404).json({ error: 'User not found' })
+        return res.status(404).json({ error: "User not found" });
       }
-      res.status(200).json(updatedUser)
+      res.status(200).json(updatedUser);
     })
     .catch((err) => {
-      res.status(500).json({ error: err.message })
-    })
+      res.status(500).json({ error: err.message });
+    });
 
-  let userImage = req.file === undefined ? '' : req.file.originalname
+  let userImage = req.file === undefined ? "" : req.file.originalname;
   await LeaderBoard.findOneAndUpdate(
     { email: userEmail },
     {
@@ -146,88 +146,83 @@ app.post('/updateUserDetails', upload.single('image'), async (req, res) => {
     },
     {
       new: true,
-    },
-  )
-})
+    }
+  );
+});
 
-app.get('/fetchUserImage', (req, res) => {
-  const { userEmail } = req.query
+app.get("/fetchUserImage", (req, res) => {
+  const { userEmail } = req.query;
 
   UserModel.findOne({ email: userEmail })
     .then((userModel) => {
       if (!userModel) {
-        return res.status(404).json({ error: 'User not found' })
+        return res.status(404).json({ error: "User not found" });
       }
-      res.json({ userImage: userModel.image })
+      res.json({ userImage: userModel.image });
     })
-    .catch((err) => res.status(500).json({ error: err.message }))
-})
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
-app.post('/addProblemRecord', async (req, res) => {
+app.post("/addProblemRecord", async (req, res) => {
   try {
-    const {
-      problemObj,
-      userEmail,
-      userInsta,
-      userGithub,
-      userLinkedin,
-    } = req.body
+    const { problemObj, userEmail, userInsta, userGithub, userLinkedin } =
+      req.body;
 
     if (!problemObj || !userEmail) {
       return res
         .status(400)
-        .send('Missing problemObj or userEmail in request body')
+        .send("Missing problemObj or userEmail in request body");
     }
 
-    const userModel = await UserModel.findOne({ email: userEmail })
+    const userModel = await UserModel.findOne({ email: userEmail });
 
     if (userModel) {
-      let problemUpdated = false
+      let problemUpdated = false;
 
       for (let i = 0; i < userModel.allProblems.length; i++) {
         if (userModel.allProblems[i].number === problemObj.number) {
-          userModel.allProblems[i].attempts += 1
-          problemUpdated = true
-          break
+          userModel.allProblems[i].attempts += 1;
+          problemUpdated = true;
+          break;
         }
       }
 
-      if (problemObj.language === 'javascript') userModel.jsSolved++
-      else if (problemObj.language === 'python') userModel.pythonSolved++
-      else if (problemObj.language === 'java') userModel.javaSolved++
+      if (problemObj.language === "javascript") userModel.jsSolved++;
+      else if (problemObj.language === "python") userModel.pythonSolved++;
+      else if (problemObj.language === "java") userModel.javaSolved++;
 
       if (!problemUpdated) {
-        userModel.totalSolved++
-        if (problemObj.difficulty === 'Easy') userModel.easySolved++
-        else if (problemObj.difficulty === 'Medium') userModel.mediumSolved++
-        else if (problemObj.difficulty === 'Hard') userModel.hardSolved++
+        userModel.totalSolved++;
+        if (problemObj.difficulty === "Easy") userModel.easySolved++;
+        else if (problemObj.difficulty === "Medium") userModel.mediumSolved++;
+        else if (problemObj.difficulty === "Hard") userModel.hardSolved++;
 
         userModel.allProblems.push({
           number: problemObj.number,
           heading: problemObj.heading,
           difficulty: problemObj.difficulty,
           attempts: 1,
-        })
+        });
       }
 
-      await userModel.save()
+      await userModel.save();
 
-      const existingEntry = await LeaderBoard.findOne({ email: userEmail })
+      const existingEntry = await LeaderBoard.findOne({ email: userEmail });
 
       if (existingEntry) {
-        existingEntry.total = userModel.totalSolved
-        existingEntry.easy = userModel.easySolved
-        existingEntry.medium = userModel.mediumSolved
-        existingEntry.hard = userModel.hardSolved
-        existingEntry.insta = userInsta
-        existingEntry.github = userGithub
-        existingEntry.linkedin = userLinkedin
-        existingEntry.javascript = userModel.jsSolved
-        existingEntry.python = userModel.pythonSolved
-        existingEntry.java = userModel.javaSolved
-        existingEntry.image = userModel.image
+        existingEntry.total = userModel.totalSolved;
+        existingEntry.easy = userModel.easySolved;
+        existingEntry.medium = userModel.mediumSolved;
+        existingEntry.hard = userModel.hardSolved;
+        existingEntry.insta = userInsta;
+        existingEntry.github = userGithub;
+        existingEntry.linkedin = userLinkedin;
+        existingEntry.javascript = userModel.jsSolved;
+        existingEntry.python = userModel.pythonSolved;
+        existingEntry.java = userModel.javaSolved;
+        existingEntry.image = userModel.image;
 
-        await existingEntry.save()
+        await existingEntry.save();
       } else {
         const newEntry = new LeaderBoard({
           name: userModel.name,
@@ -243,20 +238,46 @@ app.post('/addProblemRecord', async (req, res) => {
           python: userModel.pythonSolved,
           java: userModel.javaSolved,
           image: userModel.image,
-        })
-        await newEntry.save()
+        });
+        await newEntry.save();
       }
-      res.sendStatus(200)
+      res.sendStatus(200);
     } else {
-      res.sendStatus(404)
+      res.sendStatus(404);
     }
   } catch (err) {
-    console.error('Error in updating problem record:', err)
-    res.status(500).send(err.message)
+    console.error("Error in updating problem record:", err);
+    res.status(500).send(err.message);
   }
-})
+});
 
-app.post('/login', (req, res) => {
+app.post("/userAttempts", (req, res) => {
+  console.log(req.body);
+  UserModel.findOne({ email: req.body.userEmail })
+    .then((userModel) => {
+      if (userModel) {
+        userModel.allAttempts = req.body.attempts;
+        userModel.save();
+      } else {
+        res.status(404).send(false);
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+});
+app.get("/getUserAttempts", (req, res) => {
+  console.log(req.query.userEmail);
+  UserModel.findOne({ email: req.query.userEmail })
+    .then((userModel) => {
+      if (userModel) {
+        res.send(userModel.allAttempts || []);
+      } else {
+        res.status(404).send([]);
+      }
+    })
+    .catch((err) => res.status(500).send(err));
+});
+
+app.post("/login", (req, res) => {
   UserModel.findOne({
     email: req.body.userEmail,
     password: req.body.userPassword,
@@ -267,22 +288,22 @@ app.post('/login', (req, res) => {
           userModel.email === req.body.userEmail &&
           userModel.password === req.body.userPassword
         ) {
-          res.send(userModel)
+          res.send(userModel);
         } else {
-          res.send(false)
+          res.send(false);
         }
       } else {
-        res.send(false)
+        res.send(false);
       }
     })
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.post('/createUser', (req, res) => {
+app.post("/createUser", (req, res) => {
   UserModel.findOne({ email: req.body.userEmail })
     .then((existingUser) => {
       if (existingUser) {
-        res.send(false)
+        res.send(false);
       } else {
         UserModel.create({
           name: req.body.userName,
@@ -290,21 +311,21 @@ app.post('/createUser', (req, res) => {
           password: req.body.userPassword,
         })
           .then((userModel) => res.send(userModel))
-          .catch((err) => res.send(err))
+          .catch((err) => res.send(err));
       }
     })
-    .catch((err) => res.send(err))
-})
+    .catch((err) => res.send(err));
+});
 
-app.post('/userMessages', (req, res) => {
+app.post("/userMessages", (req, res) => {
   UserMessageModel.create(req.body)
     .then((createdMessage) =>
-      res.json({ message: 'Message received', name: createdMessage.name }),
+      res.json({ message: "Message received", name: createdMessage.name })
     )
-    .catch((err) => res.status(500).json({ error: err.message }))
-})
+    .catch((err) => res.status(500).json({ error: err.message }));
+});
 
-PORT = process.env.PORT || 3000
+PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log('listening on port: ' + PORT)
-})
+  console.log("listening on port: " + PORT);
+});

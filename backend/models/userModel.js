@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const ProblemSchema = new mongoose.Schema({
   number: {
@@ -17,7 +17,11 @@ const ProblemSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
-})
+  allAttempts: {
+    type: Array,
+    default: [],
+  },
+});
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -35,19 +39,19 @@ const UserSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    default: '',
+    default: "",
   },
   insta: {
     type: String,
-    default: '',
+    default: "",
   },
   github: {
     type: String,
-    default: '',
+    default: "",
   },
   linkedin: {
     type: String,
-    default: '',
+    default: "",
   },
   totalSolved: {
     type: Number,
@@ -81,7 +85,7 @@ const UserSchema = new mongoose.Schema({
     type: [ProblemSchema],
     default: [],
   },
-})
+});
 
-const UserModel = mongoose.model('User', UserSchema)
-module.exports = UserModel
+const UserModel = mongoose.model("User", UserSchema);
+module.exports = UserModel;

@@ -1,14 +1,14 @@
-import React, { useRef, useState, useEffect } from 'react'
-import '../style/CodingPage.scss'
-import '../style/CodeBroLogo.scss'
-import CodeEditor from '../components/CodeEditor'
-import Navbar from '../components/Navbar'
-import CodeHeader from '../components/CodeHeader'
-import axios from 'axios'
-import Output from '../components/Output'
-import { useToast } from '@chakra-ui/react'
-import { executeCode } from '../javascripts/api'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useRef, useState, useEffect } from "react";
+import "../style/CodingPage.scss";
+import "../style/CodeBroLogo.scss";
+import CodeEditor from "../components/CodeEditor";
+import Navbar from "../components/Navbar";
+import CodeHeader from "../components/CodeHeader";
+import axios from "axios";
+import Output from "../components/Output";
+import { useToast } from "@chakra-ui/react";
+import { executeCode } from "../javascripts/api";
+import { useSelector, useDispatch } from "react-redux";
 import {
   addAllOutput,
   addAllResult,
@@ -19,52 +19,74 @@ import {
   setAttempts,
   addProblemObj,
   setIsSolved,
-} from '../store/problemObjSlice'
-import { setLeaderBoardEntries } from '../store/leaderBoardSlice'
-import CodeInfoContainer from '../components/CodeInfoContainer'
-import { setUserProblems } from '../store/userSlice'
-import { AllquesObject } from '../javascripts/data'
-import { setSolvedProblems } from '../store/solvedProblemsReducer'
+} from "../store/problemObjSlice";
+import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
+import CodeInfoContainer from "../components/CodeInfoContainer";
+import { setUserProblems } from "../store/userSlice";
+import { AllquesObject } from "../javascripts/data";
+import { setSolvedProblems } from "../store/solvedProblemsReducer";
+import { setStoreAttempts } from "../store/attemptsSlice";
 function CodingPage() {
-  const editorRef = useRef()
-  const toast = useToast()
-  const dispatch = useDispatch()
-  const [language, setLanguage] = useState('javascript')
-  const [output, setOutput] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [allOutput, setAllOutput] = useState([])
-  const [allResult, setAllResult] = useState([])
-  const [testCaseOutput, setTestCaseOutput] = useState([])
-  const [testCaseResult, setTestCaseResult] = useState([])
-  const [isLoadingSubmit, setIsLoadingSubmit] = useState(false)
+  const editorRef = useRef();
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const [language, setLanguage] = useState("javascript");
+  const [output, setOutput] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [allOutput, setAllOutput] = useState([]);
+  const [allResult, setAllResult] = useState([]);
+  const [testCaseOutput, setTestCaseOutput] = useState([]);
+  const [testCaseResult, setTestCaseResult] = useState([]);
+  const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
+  const attempts = useSelector((state) => state.attempts.attempts);
+
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
-
-  const problemObj = useSelector((state) => state.problemObj.obj)
+  const problemObj = useSelector((state) => state.problemObj.obj);
   const solvedProblems = useSelector(
-    (state) => state.solvedProblems.solvedProblems,
-  )
-  const userObj = useSelector((state) => state.user)
-  const [value, setValue] = useState(problemObj.javascriptDefaultCode)
-  const submitCode = async () => {
-    setIsLoadingSubmit(true)
-    dispatch(setIsSubmitted(true))
-    setTestCaseOutput([])
-    dispatch(addAllOutput([]))
-    setTestCaseResult([])
-    dispatch(addAllResult([]))
+    (state) => state.solvedProblems.solvedProblems
+  );
+  const userObj = useSelector((state) => state.user);
+  const [value, setValue] = useState(problemObj.javascriptDefaultCode);
 
-    let returnToPrintCode = ''
+  const submitCode = async () => {
+    setIsLoadingSubmit(true);
+    dispatch(setIsSubmitted(true));
+    setTestCaseOutput([]);
+    dispatch(addAllOutput([]));
+    setTestCaseResult([]);
+    dispatch(addAllResult([]));
+
+    function attemptsReducer() {
+      let updatedAttempts = [...attempts];
+      updatedAttempts[problemObj.number - 1] =
+        (updatedAttempts[problemObj.number - 1] || 0) + 1;
+      dispatch(setStoreAttempts(updatedAttempts));
+      console.log("Updated attempts: ", updatedAttempts);
+
+      localStorage.setItem("userAttempts", JSON.stringify(updatedAttempts));
+
+      axios
+        .post("http://localhost:3000/userAttempts", {
+          userEmail: localStorage.getItem("email"),
+          attempts: updatedAttempts,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    }
+    attemptsReducer();
+
+    let returnToPrintCode = "";
 
     const runAllCases = async () => {
-      let caseCorrectArr = []
+      let caseCorrectArr = [];
       for (let i = 0; i < problemObj.cases.length; i++) {
-        let sourceCode = editorRef.current.getValue()
-        if (!sourceCode) return
+        let sourceCode = editorRef.current.getValue();
+        if (!sourceCode) return;
         try {
-          if (problemObj.returnType === 'linkedlist') {
-            if (problemObj.language === 'javascript') {
+          if (problemObj.returnType === "linkedlist") {
+            if (problemObj.language === "javascript") {
               returnToPrintCode = `
               function ListNode(val) {
                   this.val = val;
@@ -95,17 +117,17 @@ function CodingPage() {
               const linkedList = arrayToLinkedList(${problemObj.cases[i].parameter});
               const result = ${problemObj.functionName}(linkedList);
               console.log(linkedListToArray(result));
-              `
-              sourceCode += returnToPrintCode
-            } else if (problemObj.language === 'python') {
+              `;
+              sourceCode += returnToPrintCode;
+            } else if (problemObj.language === "python") {
               let start = `
 class ListNode:
   def __init__(self, val=0, next=None):
     self.val = val
     self.next = next
       
-`
-              start = start + sourceCode
+`;
+              start = start + sourceCode;
               let mid = `
 
 def linkedListToArray(head):
@@ -131,9 +153,9 @@ solution = Solution()
 linkedList = arrayToLinkedList(${problemObj.cases[i].parameter})
 result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
 print(linkedListToArray(result))
-  `
-              sourceCode = start + mid
-            } else if (problemObj.language === 'java') {
+  `;
+              sourceCode = start + mid;
+            } else if (problemObj.language === "java") {
               returnToPrintCode = `
   import java.util.*;
   
@@ -165,7 +187,7 @@ print(linkedListToArray(result))
           Solution solution = new Solution();
           int[] arr = {${problemObj.cases[i].parameter.substring(
             1,
-            problemObj.cases[i].parameter.length - 1,
+            problemObj.cases[i].parameter.length - 1
           )}};
           ListNode linkedList = solution.arrayToLinkedList(arr);
           ListNode result = solution.${problemObj.functionName}(linkedList);
@@ -182,12 +204,12 @@ print(linkedListToArray(result))
         this.next = null;
     }
   }
-              `
-              sourceCode = returnToPrintCode
+              `;
+              sourceCode = returnToPrintCode;
             }
           } else {
-            if (problemObj.language === 'java') {
-              if (problemObj.returnType === 'array') {
+            if (problemObj.language === "java") {
+              if (problemObj.returnType === "array") {
                 let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
                 int[] result = ${problemObj.cases[i].javaFuncCall}
   
@@ -200,10 +222,10 @@ print(linkedListToArray(result))
                     }
                   System.out.print(']');
     
-                \n}`
+                \n}`;
 
-                sourceCode = startCode + sourceCode + '\n}'
-              } else if (problemObj.returnType === 'matrix') {
+                sourceCode = startCode + sourceCode + "\n}";
+              } else if (problemObj.returnType === "matrix") {
                 let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
                 int[][] result = ${problemObj.cases[i].javaFuncCall}
   
@@ -223,91 +245,92 @@ print(linkedListToArray(result))
                 }
                 System.out.print(']');
     
-                \n}`
+                \n}`;
 
-                sourceCode = startCode + sourceCode + '\n}'
+                sourceCode = startCode + sourceCode + "\n}";
               } else {
                 let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-                System.out.println(${problemObj.cases[i].javaFuncCall}); \n}`
-                sourceCode = startCode + sourceCode + '\n}'
+                System.out.println(${problemObj.cases[i].javaFuncCall}); \n}`;
+                sourceCode = startCode + sourceCode + "\n}";
               }
-            } else if (problemObj.language === 'javascript') {
-              returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`
-              sourceCode += returnToPrintCode
-            } else if (problemObj.language === 'python') {
-              returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`
-              sourceCode += returnToPrintCode
+            } else if (problemObj.language === "javascript") {
+              returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.cases[i].parameter}));`;
+              sourceCode += returnToPrintCode;
+            } else if (problemObj.language === "python") {
+              returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.cases[i].parameter}))`;
+              sourceCode += returnToPrintCode;
             }
           }
 
-          const { run: result } = await executeCode(language, sourceCode)
+          const { run: result } = await executeCode(language, sourceCode);
 
           let expectedOutput = String(
-            problemObj.cases[i].expectedOutput,
-          ).replace(/\s/g, '')
+            problemObj.cases[i].expectedOutput
+          ).replace(/\s/g, "");
 
-          let userOutput = String(result.output.split('\n'))
-            .replace(/\s/g, '')
-            .slice(0, -1)
+          let userOutput = String(result.output.split("\n"))
+            .replace(/\s/g, "")
+            .slice(0, -1);
 
           if (
-            problemObj.language === 'java' &&
-            (problemObj.returnType === 'array' ||
-              problemObj.returnType === 'matrix')
+            problemObj.language === "java" &&
+            (problemObj.returnType === "array" ||
+              problemObj.returnType === "matrix")
           ) {
-            userOutput += ']'
+            userOutput += "]";
           }
 
-          let isTestCaseCorrect = expectedOutput === userOutput
-          setTestCaseResult((prev) => [...prev, isTestCaseCorrect])
-          caseCorrectArr.push(isTestCaseCorrect)
+          let isTestCaseCorrect = expectedOutput === userOutput;
+          setTestCaseResult((prev) => [...prev, isTestCaseCorrect]);
+          caseCorrectArr.push(isTestCaseCorrect);
 
           setTestCaseOutput((prev) => [
             ...prev,
-            ...result.output.split('\n').filter((value) => value !== ''),
-          ])
+            ...result.output.split("\n").filter((value) => value !== ""),
+          ]);
 
-          result.stderr ? setIsError(true) : setIsError(false)
+          result.stderr ? setIsError(true) : setIsError(false);
         } catch (error) {
-          console.log(error)
+          console.log(error);
           toast({
-            title: 'An error occurred.',
-            description: error.message || 'Unable to run code',
-            status: 'error',
+            title: "An error occurred.",
+            description: error.message || "Unable to run code",
+            status: "error",
             duration: 6000,
-          })
+          });
         }
       }
 
-      return caseCorrectArr
-    }
+      return caseCorrectArr;
+    };
 
-    let caseCorrectArr = await runAllCases()
-    let allCorrect = caseCorrectArr.every((e) => e === true)
+    let caseCorrectArr = await runAllCases();
+    let allCorrect = caseCorrectArr.every((e) => e === true);
+
     if (allCorrect) {
-      let solvedArr = []
-      let attemptsArr = JSON.parse(localStorage.getItem('attempts')) || []
-      console.log(attemptsArr)
-      console.log(attemptsArr[0])
+      let solvedArr = [];
+      let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
+      console.log(attemptsArr);
+      console.log(attemptsArr[0]);
       AllquesObject.map((que) => {
         if (
           attemptsArr[que.number - 1] !== 0 ||
           que.number === problemObj.number ||
           solvedProblems[que.number - 1]
         ) {
-          solvedArr.push(true)
+          solvedArr.push(true);
         } else {
-          solvedArr.push(false)
+          solvedArr.push(false);
         }
-      })
+      });
 
-      dispatch(setSolvedProblems([...solvedArr]))
-      localStorage.setItem('solved', JSON.stringify([...solvedArr]))
+      dispatch(setSolvedProblems([...solvedArr]));
+      localStorage.setItem("solved", JSON.stringify([...solvedArr]));
 
-      let emailVal = localStorage.getItem('email')
-      let instaVal = localStorage.getItem('insta')
-      let githubVal = localStorage.getItem('github')
-      let linkedinVal = localStorage.getItem('linkedin')
+      let emailVal = localStorage.getItem("email");
+      let instaVal = localStorage.getItem("insta");
+      let githubVal = localStorage.getItem("github");
+      let linkedinVal = localStorage.getItem("linkedin");
 
       await axios
         .post("http://localhost:3000/addProblemRecord", {
@@ -319,49 +342,49 @@ print(linkedListToArray(result))
         })
         .then((response) => {})
         .catch((error) => {
-          console.error('Error adding problem record:', error)
-        })
+          console.error("Error adding problem record:", error);
+        });
     }
 
-    dispatch(addAllResult([]))
-    setIsLoadingSubmit(false)
-  }
+    dispatch(addAllResult([]));
+    setIsLoadingSubmit(false);
+  };
 
   useEffect(() => {
-    let solvedArr = []
+    let solvedArr = [];
     try {
-      const storedSolved = localStorage.getItem('solved')
+      const storedSolved = localStorage.getItem("solved");
       if (storedSolved) {
-        solvedArr = JSON.parse(storedSolved)
+        solvedArr = JSON.parse(storedSolved);
       }
     } catch (e) {
-      console.error("Failed to parse 'solved' from localStorage", e)
+      console.error("Failed to parse 'solved' from localStorage", e);
     }
-    dispatch(setSolvedProblems(Array.isArray(solvedArr) ? solvedArr : []))
-  }, [])
+    dispatch(setSolvedProblems(Array.isArray(solvedArr) ? solvedArr : []));
+  }, []);
 
   useEffect(() => {
-    dispatch(addTestCaseOutput(testCaseOutput))
-  }, [testCaseOutput])
+    dispatch(addTestCaseOutput(testCaseOutput));
+  }, [testCaseOutput]);
 
   useEffect(() => {
-    dispatch(addTestCaseResults(testCaseResult))
-  }, [testCaseResult])
+    dispatch(addTestCaseResults(testCaseResult));
+  }, [testCaseResult]);
 
   const runCode = async () => {
-    setAllOutput([])
-    dispatch(addAllOutput([]))
-    setAllResult([])
-    dispatch(addAllResult([]))
+    setAllOutput([]);
+    dispatch(addAllOutput([]));
+    setAllResult([]);
+    dispatch(addAllResult([]));
 
-    let returnToPrintCode = ''
+    let returnToPrintCode = "";
 
     for (let i = 0; i < problemObj.example.length; i++) {
-      let sourceCode = editorRef.current.getValue()
-      if (!sourceCode) return
+      let sourceCode = editorRef.current.getValue();
+      if (!sourceCode) return;
       try {
-        if (problemObj.returnType === 'linkedlist') {
-          if (problemObj.language === 'javascript') {
+        if (problemObj.returnType === "linkedlist") {
+          if (problemObj.language === "javascript") {
             returnToPrintCode = `
             function ListNode(val) {
                 this.val = val;
@@ -392,17 +415,17 @@ print(linkedListToArray(result))
             const linkedList = arrayToLinkedList(${problemObj.example[i].parameter});
             const result = ${problemObj.functionName}(linkedList);
             console.log(linkedListToArray(result));
-            `
-            sourceCode += returnToPrintCode
-          } else if (problemObj.language === 'python') {
+            `;
+            sourceCode += returnToPrintCode;
+          } else if (problemObj.language === "python") {
             let start = `
 class ListNode:
   def __init__(self, val=0, next=None):
     self.val = val
     self.next = next
         
-`
-            start = start + sourceCode
+`;
+            start = start + sourceCode;
 
             let mid = `
 
@@ -429,9 +452,9 @@ solution = Solution()
 linkedList = arrayToLinkedList(${problemObj.example[i].parameter})
 result = solution.${problemObj.functionName}(linkedList)  # Added 'solution.' prefix
 print(linkedListToArray(result))
-`
-            sourceCode = start + mid
-          } else if (problemObj.language === 'java') {
+`;
+            sourceCode = start + mid;
+          } else if (problemObj.language === "java") {
             returnToPrintCode = `
 import java.util.*;
 
@@ -463,7 +486,7 @@ public class Solution {
         Solution solution = new Solution();
         int[] arr = {${problemObj.example[i].parameter.substring(
           1,
-          problemObj.example[i].parameter.length - 1,
+          problemObj.example[i].parameter.length - 1
         )}};
         ListNode linkedList = solution.arrayToLinkedList(arr);
         ListNode result = solution.${problemObj.functionName}(linkedList);
@@ -480,12 +503,12 @@ class ListNode {
       this.next = null;
   }
 }
-            `
-            sourceCode = returnToPrintCode
+            `;
+            sourceCode = returnToPrintCode;
           }
         } else {
-          if (problemObj.language === 'java') {
-            if (problemObj.returnType === 'array') {
+          if (problemObj.language === "java") {
+            if (problemObj.returnType === "array") {
               let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
                 int[] result = ${problemObj.example[i].javaFuncCall}
   
@@ -498,10 +521,10 @@ class ListNode {
                     }
                   System.out.print(']');
     
-                \n}`
+                \n}`;
 
-              sourceCode = startCode + sourceCode + '\n}'
-            } else if (problemObj.returnType === 'matrix') {
+              sourceCode = startCode + sourceCode + "\n}";
+            } else if (problemObj.returnType === "matrix") {
               let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
                 int[][] result = ${problemObj.example[i].javaFuncCall}
   
@@ -521,95 +544,95 @@ class ListNode {
                 }
                 System.out.print(']');
     
-                \n}`
+                \n}`;
 
-              sourceCode = startCode + sourceCode + '\n}'
+              sourceCode = startCode + sourceCode + "\n}";
             } else {
               let startCode = `import java.util.*;\npublic class Main{\n\npublic static void main(String[] args){\n\t
-                System.out.println(${problemObj.example[i].javaFuncCall}); \n}`
-              sourceCode = startCode + sourceCode + '\n}'
+                System.out.println(${problemObj.example[i].javaFuncCall}); \n}`;
+              sourceCode = startCode + sourceCode + "\n}";
             }
           } else {
-            if (problemObj.language === 'javascript') {
-              returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.example[i].parameter}));`
-              sourceCode += returnToPrintCode
-            } else if (problemObj.language === 'python') {
-              returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.example[i].parameter}))`
-              sourceCode += returnToPrintCode
+            if (problemObj.language === "javascript") {
+              returnToPrintCode = `\nconsole.log(${problemObj.functionName}(${problemObj.example[i].parameter}));`;
+              sourceCode += returnToPrintCode;
+            } else if (problemObj.language === "python") {
+              returnToPrintCode = `\n\nprint(${problemObj.functionName}(${problemObj.example[i].parameter}))`;
+              sourceCode += returnToPrintCode;
             }
           }
         }
 
-        setIsLoading(true)
-        const { run: result } = await executeCode(language, sourceCode)
+        setIsLoading(true);
+        const { run: result } = await executeCode(language, sourceCode);
 
         let expectedOutput = String(problemObj.example[i].output).replace(
           /\s/g,
-          '',
-        )
-        let userOutput = String(result.output.split('\n'))
-          .replace(/\s/g, '')
-          .slice(0, -1)
+          ""
+        );
+        let userOutput = String(result.output.split("\n"))
+          .replace(/\s/g, "")
+          .slice(0, -1);
 
         if (
-          problemObj.language === 'java' &&
-          (problemObj.returnType === 'array' ||
-            problemObj.returnType === 'matrix')
+          problemObj.language === "java" &&
+          (problemObj.returnType === "array" ||
+            problemObj.returnType === "matrix")
         ) {
-          userOutput += ']'
+          userOutput += "]";
         }
 
         if (expectedOutput == userOutput) {
-          setAllResult((prev) => [...prev, true])
+          setAllResult((prev) => [...prev, true]);
         } else {
-          setAllResult((prev) => [...prev, false])
+          setAllResult((prev) => [...prev, false]);
         }
-        setOutput(result.output.split('\n'))
+        setOutput(result.output.split("\n"));
 
         setAllOutput((prev) => [
           ...prev,
-          ...result.output.split('\n').filter((value) => value !== ''),
-        ])
+          ...result.output.split("\n").filter((value) => value !== ""),
+        ]);
 
-        result.stderr ? setIsError(true) : setIsError(false)
+        result.stderr ? setIsError(true) : setIsError(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
         toast({
-          title: 'An error occurred.',
-          description: error.message || 'Unable to run code',
-          status: 'error',
+          title: "An error occurred.",
+          description: error.message || "Unable to run code",
+          status: "error",
           duration: 6000,
-        })
+        });
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
-  }
+  };
 
   useEffect(() => {
-    dispatch(addAllOutput(allOutput))
-  }, [allOutput])
+    dispatch(addAllOutput(allOutput));
+  }, [allOutput]);
 
   useEffect(() => {
-    dispatch(addAllResult(allResult))
-  }, [allResult])
+    dispatch(addAllResult(allResult));
+  }, [allResult]);
 
   const onMount = (editor) => {
-    editorRef.current = editor
-    editor.focus()
-  }
+    editorRef.current = editor;
+    editor.focus();
+  };
 
   const onSelect = (language) => {
-    setLanguage(language)
-    dispatch(addLanguage(language))
-    if (language === 'javascript') {
-      setValue(problemObj.javascriptDefaultCode)
-    } else if (language === 'python') {
-      setValue(problemObj.pythonDefaultCode)
+    setLanguage(language);
+    dispatch(addLanguage(language));
+    if (language === "javascript") {
+      setValue(problemObj.javascriptDefaultCode);
+    } else if (language === "python") {
+      setValue(problemObj.pythonDefaultCode);
     } else {
-      setValue(problemObj.javaDefaultCode)
+      setValue(problemObj.javaDefaultCode);
     }
-  }
+  };
 
   return (
     <div className="codingPageBox">
@@ -641,7 +664,7 @@ class ListNode {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CodingPage
+export default CodingPage;

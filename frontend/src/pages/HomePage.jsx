@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import "../style/Account.scss";
 import QuotesDisplay from "../components/QuotesDisplay";
+import { setStoreAttempts } from "../store/attemptsSlice";
 
 const HomePage = () => {
   const [easyWidth, setEasyWidth] = useState(0);
@@ -31,8 +32,9 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0);
   const [allProblems, setAllProblems] = useState([]);
   const [totalProblems, setTotalProblems] = useState(0);
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
+  const attempts = useSelector((state) => state.attempts.attempts);
 
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   const dispatch = useDispatch();
   const solvedProblems = useSelector(
@@ -64,6 +66,41 @@ const HomePage = () => {
     dispatch(setSolvedProblems([...solvedArr]));
     localStorage.setItem("solved", JSON.stringify([...solvedArr]));
   }, [addTestCaseResults]);
+
+  // Save attempts to local storage
+  // useEffect(() => {
+  //   if (attempts.length > 0) {
+  //     localStorage.setItem("userAttempts", JSON.stringify(attempts));
+
+  //     dispatch(setStoreAttempts(attempts));
+  //   }
+  // }, [attempts]);
+
+  // Load attempts from local storage or fetch from backend on component mount
+  useEffect(() => {
+    const savedAttempts = JSON.parse(localStorage.getItem("userAttempts"));
+
+    if (savedAttempts && savedAttempts.length === AllquesObject.length) {
+      dispatch(setStoreAttempts(savedAttempts));
+    } else {
+      axios
+        .get("http://localhost:3000/getUserAttempts", {
+          params: { userEmail: localStorage.getItem("email") },
+        })
+        .then((response) => {
+          const attemptsData = response.data;
+          const initializedAttempts = Array.from(
+            { length: AllquesObject.length },
+            (_, i) => attemptsData[i] || 0
+          );
+          console.log("Initialized attempts: ", initializedAttempts);
+          dispatch(setStoreAttempts(initializedAttempts));
+        })
+        .catch((error) => {
+          console.error("Error fetching user attempts:", error);
+        });
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -294,11 +331,11 @@ const HomePage = () => {
                   .map((obj, i) => (
                     <DisplayProblemContainer
                       key={i}
+                      index={i}
                       fontSize="1.4vw"
                       num={obj.number}
                       problem={obj.heading}
                       diff={obj.difficulty}
-                      attempts={obj.attempts}
                     />
                   ))
               ) : (

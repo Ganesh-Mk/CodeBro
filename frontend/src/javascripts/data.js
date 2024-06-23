@@ -528,36 +528,36 @@ export const AllquesObject = [
         userOutput: null,
         javaFuncCall: "findMinMax(new int[]{0, 0, 0, 0, 0});",
       },
-      {
-        parameter: "[100, 200, 300, 400, 500]",
-        expectedOutput: "[100,500]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{100, 200, 300, 400, 500});",
-      },
-      {
-        parameter: "[-100, -200, -300, -400, -500]",
-        expectedOutput: "[-500,-100]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{-100, -200, -300, -400, -500});",
-      },
-      {
-        parameter: "[5, 4, 3, 2, 1]",
-        expectedOutput: "[1,5]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{5, 4, 3, 2, 1});",
-      },
-      {
-        parameter: "[10, -5, 8, -3, 6]",
-        expectedOutput: "[-5,10]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{10, -5, 8, -3, 6});",
-      },
-      {
-        parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
-        expectedOutput: "[1,10]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});",
-      },
+      // {
+      //   parameter: "[100, 200, 300, 400, 500]",
+      //   expectedOutput: "[100,500]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{100, 200, 300, 400, 500});",
+      // },
+      // {
+      //   parameter: "[-100, -200, -300, -400, -500]",
+      //   expectedOutput: "[-500,-100]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{-100, -200, -300, -400, -500});",
+      // },
+      // {
+      //   parameter: "[5, 4, 3, 2, 1]",
+      //   expectedOutput: "[1,5]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{5, 4, 3, 2, 1});",
+      // },
+      // {
+      //   parameter: "[10, -5, 8, -3, 6]",
+      //   expectedOutput: "[-5,10]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{10, -5, 8, -3, 6});",
+      // },
+      // {
+      //   parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+      //   expectedOutput: "[1,10]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});",
+      // },
     ],
 
     /*
@@ -600,8 +600,7 @@ export const AllquesObject = [
     returnType: "int",
     javascriptDefaultCode:
       "\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};",
-    pythonDefaultCode:
-      "def findSecondLargest(nums):\n\t# Write your code here",
+    pythonDefaultCode: "def findSecondLargest(nums):\n\t# Write your code here",
     javaDefaultCode:
       "public static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}",
     isSubmitted: false,
@@ -2219,7 +2218,6 @@ public static String removeDuplicates(int[] arr) {
       },
     ],
 
-
     /* 
       js :
         var removeDuplicates = function(arr) {
@@ -2255,8 +2253,6 @@ public static String removeDuplicates(int[] arr) {
         return Arrays.toString(result);
     }
     */
-
-    
   },
   {
     number: 13,
@@ -2522,13 +2518,14 @@ public static String removeDuplicates(int[] arr) {
         output: "3",
         parameter: "javascript",
         javaFuncCall: 'countVowels("javascript")',
-        explanation: "The string \"javascript\" contains 2 vowel: 'a' and one vowel : i total  = 3.",
+        explanation:
+          "The string \"javascript\" contains 2 vowel: 'a' and one vowel : i total  = 3.",
         number: "2",
         image: null,
       },
     ],
     cases: [
-        {
+      {
         parameter: '"hello"',
         expectedOutput: "2",
         userOutput: null,
@@ -2552,7 +2549,7 @@ public static String removeDuplicates(int[] arr) {
         userOutput: null,
         javaFuncCall: 'countVowels("javascript")',
       },
-      
+
       {
         parameter: '"algorithm"',
         expectedOutput: "3",
@@ -2566,59 +2563,59 @@ public static String removeDuplicates(int[] arr) {
         javaFuncCall: 'countVowels("ai")',
       },
       {
-        "parameter": "\"hello\"",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"hello\")"
+        parameter: '"hello"',
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'countVowels("hello")',
       },
       {
-        "parameter": "\"world\"",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"world\")"
+        parameter: '"world"',
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'countVowels("world")',
       },
       {
-        "parameter": "\"programming\"",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"programming\")"
+        parameter: '"programming"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("programming")',
       },
       {
-        "parameter": "\"javascript\"",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"javascript\")"
+        parameter: '"javascript"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("javascript")',
       },
       {
-        "parameter": "\"algorithm\"",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"algorithm\")"
+        parameter: '"algorithm"',
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'countVowels("algorithm")',
       },
       {
-        "parameter": "\"ai\"",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"ai\")"
+        parameter: '"ai"',
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'countVowels("ai")',
       },
       {
-        "parameter": "\"abcdefghijklmnopqrstuvwxyz\"",
-        "expectedOutput": "5",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"abcdefghijklmnopqrstuvwxyz\")"
+        parameter: '"abcdefghijklmnopqrstuvwxyz"',
+        expectedOutput: "5",
+        userOutput: null,
+        javaFuncCall: 'countVowels("abcdefghijklmnopqrstuvwxyz")',
       },
       {
-        "parameter": "\"AEIOUaeiou\"",
-        "expectedOutput": "10",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"AEIOUaeiou\")"
+        parameter: '"AEIOUaeiou"',
+        expectedOutput: "10",
+        userOutput: null,
+        javaFuncCall: 'countVowels("AEIOUaeiou")',
       },
       {
-        "parameter": "\"12345\"",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "countVowels(\"12345\")"
-      }
+        parameter: '"12345"',
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'countVowels("12345")',
+      },
     ],
 
     /* 
@@ -2748,64 +2745,64 @@ public static String removeDuplicates(int[] arr) {
     ],
     cases: [
       {
-        "parameter": "[1, 3, 5, 6], 5",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 5)"
+        parameter: "[1, 3, 5, 6], 5",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1, 3, 5, 6}, 5)",
       },
       {
-        "parameter": "[1, 3, 5, 6], 2",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 2)"
+        parameter: "[1, 3, 5, 6], 2",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1, 3, 5, 6}, 2)",
       },
       {
-        "parameter": "[1, 3, 5, 6], 7",
-        "expectedOutput": "4",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 7)"
+        parameter: "[1, 3, 5, 6], 7",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1, 3, 5, 6}, 7)",
       },
       {
-        "parameter": "[1, 3, 5, 6], 0",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1, 3, 5, 6}, 0)"
+        parameter: "[1, 3, 5, 6], 0",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1, 3, 5, 6}, 0)",
       },
       {
-        "parameter": "[1], 0",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1}, 0)"
+        parameter: "[1], 0",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1}, 0)",
       },
       {
-        "parameter": "[], 5",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{}, 5)"
+        parameter: "[], 5",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{}, 5)",
       },
       {
-        "parameter": "[2, 4, 6, 8, 10], 7",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, 7)"
+        parameter: "[2, 4, 6, 8, 10], 7",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{2, 4, 6, 8, 10}, 7)",
       },
       {
-        "parameter": "[2, 4, 6, 8, 10], 11",
-        "expectedOutput": "5",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, 11)"
+        parameter: "[2, 4, 6, 8, 10], 11",
+        expectedOutput: "5",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{2, 4, 6, 8, 10}, 11)",
       },
       {
-        "parameter": "[2, 4, 6, 8, 10], -1",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{2, 4, 6, 8, 10}, -1)"
+        parameter: "[2, 4, 6, 8, 10], -1",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{2, 4, 6, 8, 10}, -1)",
       },
       {
-        "parameter": "[1, 2, 3, 4, 5], 3",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": "searchInsert(new int[]{1, 2, 3, 4, 5}, 3)"
+        parameter: "[1, 2, 3, 4, 5], 3",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: "searchInsert(new int[]{1, 2, 3, 4, 5}, 3)",
       },
       {
         parameter: "[1, 3, 5, 6], 5",
@@ -2839,8 +2836,6 @@ public static String removeDuplicates(int[] arr) {
       },
     ],
 
-
-    
     /* 
     js :
       var searchInsert = function(nums, target) {
@@ -3024,7 +3019,6 @@ public static String removeDuplicates(int[] arr) {
       },
     ],
 
-
     /* 
     js :
       var binarySearch = function(nums, target) {
@@ -3109,10 +3103,7 @@ public static String removeDuplicates(int[] arr) {
       "from typing import List \ndef linearSearch(nums: List[int], target: int) -> int:\n\t# Write your code here",
     javaDefaultCode:
       "public static int linearSearch(int[] nums, int target) {\n\t// Write your code here\n}",
-    constraints: [
-      "1 <= nums.length <= 100",
-      "1 <= nums[i] <= 99"
-    ],
+    constraints: ["1 <= nums.length <= 100", "1 <= nums[i] <= 99"],
     isSubmitted: false,
     testCaseOutputs: [],
     testCaseResults: [],
@@ -3128,24 +3119,25 @@ public static String removeDuplicates(int[] arr) {
         javaFuncCall: "linearSearch(new int[]{1, 2, 3, 4, 5}, 3)",
       },
       {
-        "number": 2,
-        "input": "nums = [1, 2, 3, 4, 5], target = 2",
-        "output": "1",
-        "parameter": "[1, 2, 3, 4, 5], 2",
-        "explanation": "Return index 2 (0-indexed) since 3 is present at index 2 in nums.",
-        "image": null,
-        "javaFuncCall": "linearSearch(new int[]{1, 2, 3, 4, 5}, 2)"
+        number: 2,
+        input: "nums = [1, 2, 3, 4, 5], target = 2",
+        output: "1",
+        parameter: "[1, 2, 3, 4, 5], 2",
+        explanation:
+          "Return index 2 (0-indexed) since 3 is present at index 2 in nums.",
+        image: null,
+        javaFuncCall: "linearSearch(new int[]{1, 2, 3, 4, 5}, 2)",
       },
       {
-        "number": 3,
-        "input": "nums = [1, 2, 8, 4, 7], target = 2",
-        "output": "1",
-        "parameter": "[1, 2, 2, 4, 2], 2",
-        "explanation": "After removing all instances of 2, the array becomes [1, 4]. The new length of the array is 2.",
-        "image": null,
-        "javaFuncCall": "linearSearch(new int[]{1, 2, 2, 4, 2}, 2)"
-      }
-
+        number: 3,
+        input: "nums = [1, 2, 8, 4, 7], target = 2",
+        output: "1",
+        parameter: "[1, 2, 2, 4, 2], 2",
+        explanation:
+          "After removing all instances of 2, the array becomes [1, 4]. The new length of the array is 2.",
+        image: null,
+        javaFuncCall: "linearSearch(new int[]{1, 2, 2, 4, 2}, 2)",
+      },
     ],
     cases: [
       {
@@ -3218,7 +3210,6 @@ public static String removeDuplicates(int[] arr) {
           "linearSearch(new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}, 11)",
       },
     ],
-
 
     /* 
     js:
@@ -4868,8 +4859,7 @@ public class Solution {
       },
     ],
 
-
-      /*  s = s.trim();
+    /*  s = s.trim();
     
     // Split by spaces
     let words = s.split(' ');
@@ -4884,7 +4874,7 @@ public class Solution {
     // If no valid word found, return 0
     return 0; */
 
-  /*   s = s.strip()
+    /*   s = s.strip()
     
     # Split by spaces
     words = s.split()
@@ -4892,7 +4882,7 @@ public class Solution {
     # Return length of the last word
     return len(words[-1]) if words else 0 */
 
-  /* s = s.trim();
+    /* s = s.trim();
     
     // Split by one or more whitespace characters
     String[] words = s.split("\\s+");
@@ -4902,152 +4892,158 @@ public class Solution {
   },
 
   {
-    "number": 26,
-    "heading": "First Unique Character in a String",
-    "difficulty": "Easy",
-    "topic": ["String", "HashTable"],
-    "ds": "[ Hash Table, String ]",
-    "attempts": 0,
-    "isSolved": false,
-    "language": "javascript",
-    "image": null,
-    "allOutput": [],
-    "allResult": [],
-    "description": "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
-    "constraints": [
+    number: 26,
+    heading: "First Unique Character in a String",
+    difficulty: "Easy",
+    topic: ["String", "HashTable"],
+    ds: "[ Hash Table, String ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+    constraints: [
       "1 <= s.length <= 105",
-      "s consists of only lowercase English letters."
+      "s consists of only lowercase English letters.",
     ],
-    "functionName": "firstUniqueChar",
-    "returnType": "number",
-    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {number}\n */\nvar firstUniqueChar = function(s) {\n    // Write your code here\n};",
-    "pythonDefaultCode": "def firstUniqueChar(s: str) -> int:\n    # Write your code here",
-    "javaDefaultCode": "public static int firstUniqueChar(String s) {\n    // Write your code here\n    return -1;\n}",
-    "isSubmitted": false,
-    "testCaseOutputs": [],
-    "testCaseResults": [],
-    "example": [
+    functionName: "firstUniqueChar",
+    returnType: "number",
+    javascriptDefaultCode:
+      "/**\n * @param {string} s\n * @return {number}\n */\nvar firstUniqueChar = function(s) {\n    // Write your code here\n};",
+    pythonDefaultCode:
+      "def firstUniqueChar(s: str) -> int:\n    # Write your code here",
+    javaDefaultCode:
+      "public static int firstUniqueChar(String s) {\n    // Write your code here\n    return -1;\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
       {
-        "number": 1,
-        "input": "s = 'leetcode'",
-        "output": "0",
-        "parameter": "'leetcode'",
-        "explanation": "The first non-repeating character in 'leetcode' is 'l', which has index 0.",
-        "image": null,
-        "javaFuncCall": 'firstUniqueChar("leetcode")'
+        number: 1,
+        input: "s = 'leetcode'",
+        output: "0",
+        parameter: "'leetcode'",
+        explanation:
+          "The first non-repeating character in 'leetcode' is 'l', which has index 0.",
+        image: null,
+        javaFuncCall: 'firstUniqueChar("leetcode")',
       },
       {
-        "number": 2,
-        "input": "s = 'loveleetcode'",
-        "output": "2",
-        "parameter": "'loveleetcode'",
-        "explanation": "The first non-repeating character in 'loveleetcode' is 'v', which has index 2.",
-        "image": null,
-        "javaFuncCall": 'firstUniqueChar("loveleetcode")'
+        number: 2,
+        input: "s = 'loveleetcode'",
+        output: "2",
+        parameter: "'loveleetcode'",
+        explanation:
+          "The first non-repeating character in 'loveleetcode' is 'v', which has index 2.",
+        image: null,
+        javaFuncCall: 'firstUniqueChar("loveleetcode")',
       },
       {
-        "number": 3,
-        "input": "s = 'aabb'",
-        "output": "-1",
-        "parameter": "'aabb'",
-        "explanation": "'aabb' does not have any unique characters, so return -1.",
-        "image": null,
-        "javaFuncCall": 'firstUniqueChar("aabb")'
-      }
+        number: 3,
+        input: "s = 'aabb'",
+        output: "-1",
+        parameter: "'aabb'",
+        explanation:
+          "'aabb' does not have any unique characters, so return -1.",
+        image: null,
+        javaFuncCall: 'firstUniqueChar("aabb")',
+      },
     ],
-    "cases": [
+    cases: [
       {
-        "parameter": "'leetcode'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("leetcode")'
+        parameter: "'leetcode'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("leetcode")',
       },
       {
-        "parameter": "'loveleetcode'",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("loveleetcode")'
+        parameter: "'loveleetcode'",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("loveleetcode")',
       },
       {
-        "parameter": "'aabb'",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("aabb")'
+        parameter: "'aabb'",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("aabb")',
       },
       {
-        "parameter": "'abcde'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("abcde")'
+        parameter: "'abcde'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("abcde")',
       },
       {
-        "parameter": "'abacabad'",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("abacabad")'
+        parameter: "'abacabad'",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("abacabad")',
       },
       {
-        "parameter": "'hello'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("hello")'
+        parameter: "'hello'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("hello")',
       },
       {
-        "parameter": "'racecar'",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("racecar")'
+        parameter: "'racecar'",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("racecar")',
       },
       {
-        "parameter": "'apple'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("apple")'
+        parameter: "'apple'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("apple")',
       },
       {
-        "parameter": "'xyyx'",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("xyyx")'
+        parameter: "'xyyx'",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("xyyx")',
       },
       {
-        "parameter": "'programmer'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("programmer")'
+        parameter: "'programmer'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("programmer")',
       },
       {
-        "parameter": "'algorithm'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("algorithm")'
+        parameter: "'algorithm'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("algorithm")',
       },
       {
-        "parameter": "'leetcodeisfun'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("leetcodeisfun")'
+        parameter: "'leetcodeisfun'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("leetcodeisfun")',
       },
       {
-        "parameter": "'codingisfun'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("codingisfun")'
+        parameter: "'codingisfun'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("codingisfun")',
       },
       {
-        "parameter": "'programming'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("programming")'
+        parameter: "'programming'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("programming")',
       },
       {
-        "parameter": "'interview'",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": 'firstUniqueChar("interview")'
-      }
-    ]
-
+        parameter: "'interview'",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'firstUniqueChar("interview")',
+      },
+    ],
 
     /* 
   js:
@@ -5115,132 +5111,137 @@ public class Solution {
   },
 
   {
-    "number": 27,
-    "heading": "Sum of All Multiples of 3 or 5",
-    "difficulty": "Easy",
-    "topic": ["Math", "Looping"],
-    "ds": "[ Integer ]",
-    "attempts": 0,
-    "isSolved": false,
-    "language": "javascript",
-    "image": null,
-    "allOutput": [],
-    "allResult": [],
-    "description": "Write a function sumMultiples(n) that takes an integer n as input and returns the sum of all positive integers that are multiples of either 3 or 5 up to n (exclusive).",
-    "constraints": [
-      "1 <= n <= 10^6"
+    number: 27,
+    heading: "Sum of All Multiples of 3 or 5",
+    difficulty: "Easy",
+    topic: ["Math", "Looping"],
+    ds: "[ Integer ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Write a function sumMultiples(n) that takes an integer n as input and returns the sum of all positive integers that are multiples of either 3 or 5 up to n (exclusive).",
+    constraints: ["1 <= n <= 10^6"],
+    functionName: "sumMultiples",
+    returnType: "int",
+    javascriptDefaultCode:
+      "/**\n * @param {number} n\n * @return {number}\n */\nvar sumMultiples = function(n) {\n    // Write your code here\n};",
+    pythonDefaultCode:
+      "def sumMultiples(n: int) -> int:\n    # Write your code here",
+    javaDefaultCode:
+      "public static int sumMultiples(int n) {\n        // Write your code here\n    }",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "n = 10",
+        output: "23",
+        parameter: "10",
+        explanation:
+          "The multiples of 3 or 5 up to 10 are 3, 5, 6, and 9. Their sum is 3 + 5 + 6 + 9 = 23.",
+        image: null,
+        javaFuncCall: "sumMultiples(10)",
+      },
+      {
+        number: 2,
+        input: "n = 20",
+        output: "78",
+        parameter: "20",
+        explanation:
+          "The multiples of 3 or 5 up to 20 are 3, 5, 6, 9, 10, 12, and 15. Their sum is 3 + 5 + 6 + 9 + 10 + 12 + 15 = 78.",
+        image: null,
+        javaFuncCall: "sumMultiples(20)",
+      },
+      {
+        number: 3,
+        input: "n = 6",
+        output: "8",
+        parameter: "6",
+        explanation:
+          "The multiples of 3 or 5 up to 6 are 3 and 5. Their sum is 3 + 5 = 8.",
+        image: null,
+        javaFuncCall: "sumMultiples(6)",
+      },
     ],
-    "functionName": "sumMultiples",
-    "returnType": "int",
-    "javascriptDefaultCode": "/**\n * @param {number} n\n * @return {number}\n */\nvar sumMultiples = function(n) {\n    // Write your code here\n};",
-    "pythonDefaultCode": "def sumMultiples(n: int) -> int:\n    # Write your code here",
-    "javaDefaultCode": "public static int sumMultiples(int n) {\n        // Write your code here\n    }",
-    "isSubmitted": false,
-    "testCaseOutputs": [],
-    "testCaseResults": [],
-    "example": [
+    cases: [
       {
-        "number": 1,
-        "input": "n = 10",
-        "output": "23",
-        "parameter": "10",
-        "explanation": "The multiples of 3 or 5 up to 10 are 3, 5, 6, and 9. Their sum is 3 + 5 + 6 + 9 = 23.",
-        "image": null,
-        "javaFuncCall": "sumMultiples(10)"
+        parameter: "10",
+        expectedOutput: "23",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(10)",
       },
       {
-        "number": 2,
-        "input": "n = 20",
-        "output": "78",
-        "parameter": "20",
-        "explanation": "The multiples of 3 or 5 up to 20 are 3, 5, 6, 9, 10, 12, and 15. Their sum is 3 + 5 + 6 + 9 + 10 + 12 + 15 = 78.",
-        "image": null,
-        "javaFuncCall": "sumMultiples(20)"
+        parameter: "20",
+        expectedOutput: "78",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(20)",
       },
       {
-        "number": 3,
-        "input": "n = 6",
-        "output": "8",
-        "parameter": "6",
-        "explanation": "The multiples of 3 or 5 up to 6 are 3 and 5. Their sum is 3 + 5 = 8.",
-        "image": null,
-        "javaFuncCall": "sumMultiples(6)"
-      }
+        parameter: "6",
+        expectedOutput: "8",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(6)",
+      },
+      {
+        parameter: "15",
+        expectedOutput: "45",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(15)",
+      },
+      {
+        parameter: "100",
+        expectedOutput: "2318",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(100)",
+      },
+      {
+        parameter: "50",
+        expectedOutput: "543",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(50)",
+      },
+      {
+        parameter: "1000",
+        expectedOutput: "233168",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(1000)",
+      },
+      {
+        parameter: "5",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(5)",
+      },
+      {
+        parameter: "12",
+        expectedOutput: "33",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(12)",
+      },
+      {
+        parameter: "3",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(3)",
+      },
+      {
+        parameter: "1",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(1)",
+      },
+      {
+        parameter: "7",
+        expectedOutput: "14",
+        userOutput: null,
+        javaFuncCall: "sumMultiples(7)",
+      },
     ],
-    "cases": [
-      {
-        "parameter": "10",
-        "expectedOutput": "23",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(10)"
-      },
-      {
-        "parameter": "20",
-        "expectedOutput": "78",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(20)"
-      },
-      {
-        "parameter": "6",
-        "expectedOutput": "8",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(6)"
-      },
-      {
-        "parameter": "15",
-        "expectedOutput": "45",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(15)"
-      },
-      {
-        "parameter": "100",
-        "expectedOutput": "2318",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(100)"
-      },
-      {
-        "parameter": "50",
-        "expectedOutput": "543",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(50)"
-      },
-      {
-        "parameter": "1000",
-        "expectedOutput": "233168",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(1000)"
-      },
-      {
-        "parameter": "5",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(5)"
-      },
-      {
-        "parameter": "12",
-        "expectedOutput": "33",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(12)"
-      },
-      {
-        "parameter": "3",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(3)"
-      },
-      {
-        "parameter": "1",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(1)"
-      },
-      {
-        "parameter": "7",
-        "expectedOutput": "14",
-        "userOutput": null,
-        "javaFuncCall": "sumMultiples(7)"
-      },
-    ]
 
     /*  
     js:
@@ -5277,151 +5278,157 @@ public class Solution {
     */
   },
   {
-    "number": 28,
-    "heading": "Maximum Subarray",
-    "difficulty": "Medium",
-    "topic": ["Array", "Dynamic Programming"],
-    "ds": "[ Array ]",
-    "attempts": 0,
-    "isSolved": false,
-    "language": "javascript",
-    "image": null,
-    "allOutput": [],
-    "allResult": [],
-    "description": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
-    "constraints": [
-      "1 <= nums.length <= 10^5",
-      "-10^4 <= nums[i] <= 10^4"
+    number: 28,
+    heading: "Maximum Subarray",
+    difficulty: "Medium",
+    topic: ["Array", "Dynamic Programming"],
+    ds: "[ Array ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+    constraints: ["1 <= nums.length <= 10^5", "-10^4 <= nums[i] <= 10^4"],
+    functionName: "maxSubArray",
+    returnType: "number",
+    javascriptDefaultCode:
+      "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar maxSubArray = function(nums) {\n    // Write your code here\n};",
+    pythonDefaultCode:
+      "from typing import List\n\ndef maxSubArray(nums: List[int]) -> int:\n    # Write your code here",
+    javaDefaultCode:
+      "public static int maxSubArray(int[] nums) {\n    // Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        output: "6",
+        parameter: "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        explanation:
+          "The contiguous subarray [4, -1, 2, 1] has the largest sum = 6.",
+        image: null,
+        javaFuncCall: "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})",
+      },
+      {
+        number: 2,
+        input: "nums = [1]",
+        output: "1",
+        parameter: "[1]",
+        explanation:
+          "The contiguous subarray [1] itself is the maximum subarray with sum 1.",
+        image: null,
+        javaFuncCall: "maxSubArray(new int[]{1})",
+      },
+      {
+        number: 3,
+        input: "nums = [5, 4, -1, 7, 8]",
+        output: "23",
+        parameter: "[5, 4, -1, 7, 8]",
+        explanation:
+          "The entire array [5, 4, -1, 7, 8] itself is the maximum subarray with sum 23.",
+        image: null,
+        javaFuncCall: "maxSubArray(new int[]{5, 4, -1, 7, 8})",
+      },
     ],
-    "functionName": "maxSubArray",
-    "returnType": "number",
-    "javascriptDefaultCode": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar maxSubArray = function(nums) {\n    // Write your code here\n};",
-    "pythonDefaultCode": "from typing import List\n\ndef maxSubArray(nums: List[int]) -> int:\n    # Write your code here",
-    "javaDefaultCode": "public static int maxSubArray(int[] nums) {\n    // Write your code here\n}",
-    "isSubmitted": false,
-    "testCaseOutputs": [],
-    "testCaseResults": [],
-    "example": [
+    cases: [
       {
-        "number": 1,
-        "input": "nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]",
-        "output": "6",
-        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
-        "explanation": "The contiguous subarray [4, -1, 2, 1] has the largest sum = 6.",
-        "image": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
+        parameter: "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        expectedOutput: "6",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})",
       },
       {
-        "number": 2,
-        "input": "nums = [1]",
-        "output": "1",
-        "parameter": "[1]",
-        "explanation": "The contiguous subarray [1] itself is the maximum subarray with sum 1.",
-        "image": null,
-        "javaFuncCall": "maxSubArray(new int[]{1})"
+        parameter: "[1]",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{1})",
       },
       {
-        "number": 3,
-        "input": "nums = [5, 4, -1, 7, 8]",
-        "output": "23",
-        "parameter": "[5, 4, -1, 7, 8]",
-        "explanation": "The entire array [5, 4, -1, 7, 8] itself is the maximum subarray with sum 23.",
-        "image": null,
-        "javaFuncCall": "maxSubArray(new int[]{5, 4, -1, 7, 8})"
-      }
+        parameter: "[5, 4, -1, 7, 8]",
+        expectedOutput: "23",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{5, 4, -1, 7, 8})",
+      },
+      {
+        parameter: "[-1, -2, -3, -4]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-1, -2, -3, -4})",
+      },
+      {
+        parameter: "[10, -2, 3, -4, 7, 2, -5]",
+        expectedOutput: "16",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{10, -2, 3, -4, 7, 2, -5})",
+      },
+      {
+        parameter: "[1, 2, 3, 4, 5]",
+        expectedOutput: "15",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{1, 2, 3, 4, 5})",
+      },
+      {
+        parameter: "[-2, -3, -1, -5, -7]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-2, -3, -1, -5, -7})",
+      },
+      {
+        parameter: "[3, -1, 6, 4, 2]",
+        expectedOutput: "14",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{3, -1, 6, 4, 2})",
+      },
+      {
+        parameter: "[-1, 2, -3, 4, -5]",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-1, 2, -3, 4, -5})",
+      },
+      {
+        parameter: "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+        expectedOutput: "6",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})",
+      },
+      {
+        parameter: "[-2, -5, 6, -2, -3, 1, 5, -6]",
+        expectedOutput: "7",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-2, -5, 6, -2, -3, 1, 5, -6})",
+      },
+      {
+        parameter: "[1, 2, -1, -2, 2, 1, -2, 1]",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{1, 2, -1, -2, 2, 1, -2, 1})",
+      },
+      {
+        parameter: "[-1, -2, -3, -4, -5]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall: "maxSubArray(new int[]{-1, -2, -3, -4, -5})",
+      },
+      {
+        parameter: "[-2, -1, -3, -4, -1, -2, -1, -5, -4]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall:
+          "maxSubArray(new int[]{-2, -1, -3, -4, -1, -2, -1, -5, -4})",
+      },
+      {
+        parameter: "[-1, -2, -3, -4, -5, -6, -7, -8, -9]",
+        expectedOutput: "-1",
+        userOutput: null,
+        javaFuncCall:
+          "maxSubArray(new int[]{-1, -2, -3, -4, -5, -6, -7, -8, -9})",
+      },
     ],
-    "cases": [
-      {
-        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
-        "expectedOutput": "6",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
-      },
-      {
-        "parameter": "[1]",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{1})"
-      },
-      {
-        "parameter": "[5, 4, -1, 7, 8]",
-        "expectedOutput": "23",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{5, 4, -1, 7, 8})"
-      },
-      {
-        "parameter": "[-1, -2, -3, -4]",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4})"
-      },
-      {
-        "parameter": "[10, -2, 3, -4, 7, 2, -5]",
-        "expectedOutput": "16",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{10, -2, 3, -4, 7, 2, -5})"
-      },
-      {
-        "parameter": "[1, 2, 3, 4, 5]",
-        "expectedOutput": "15",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{1, 2, 3, 4, 5})"
-      },
-      {
-        "parameter": "[-2, -3, -1, -5, -7]",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, -3, -1, -5, -7})"
-      },
-      {
-        "parameter": "[3, -1, 6, 4, 2]",
-        "expectedOutput": "14",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{3, -1, 6, 4, 2})"
-      },
-      {
-        "parameter": "[-1, 2, -3, 4, -5]",
-        "expectedOutput": "4",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-1, 2, -3, 4, -5})"
-      },
-      {
-        "parameter": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]",
-        "expectedOutput": "6",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})"
-      },
-      {
-        "parameter": "[-2, -5, 6, -2, -3, 1, 5, -6]",
-        "expectedOutput": "7",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, -5, 6, -2, -3, 1, 5, -6})"
-      },
-      {
-        "parameter": "[1, 2, -1, -2, 2, 1, -2, 1]",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{1, 2, -1, -2, 2, 1, -2, 1})"
-      },
-      {
-        "parameter": "[-1, -2, -3, -4, -5]",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4, -5})"
-      },
-      {
-        "parameter": "[-2, -1, -3, -4, -1, -2, -1, -5, -4]",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-2, -1, -3, -4, -1, -2, -1, -5, -4})"
-      },
-      {
-        "parameter": "[-1, -2, -3, -4, -5, -6, -7, -8, -9]",
-        "expectedOutput": "-1",
-        "userOutput": null,
-        "javaFuncCall": "maxSubArray(new int[]{-1, -2, -3, -4, -5, -6, -7, -8, -9})"
-      }
-    ]
 
     /*  
     js:
@@ -5475,146 +5482,149 @@ def maxSubArray(nums: List[int]) -> int:
   },
 
   {
-    "number": 29,
-    "heading": "Longest Palindromic Substring",
-    "difficulty": "Hard",
-    "topic": ["String", "Dynamic Programming"],
-    "ds": "[ String ]",
-    "attempts": 0,
-    "isSolved": false,
-    "language": "javascript",
-    "image": null,
-    "allOutput": [],
-    "allResult": [],
-    "description": "Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. A palindrome is a sequence that reads the same backward as forward.",
-    "constraints": [
+    number: 29,
+    heading: "Longest Palindromic Substring",
+    difficulty: "Hard",
+    topic: ["String", "Dynamic Programming"],
+    ds: "[ String ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000. A palindrome is a sequence that reads the same backward as forward.",
+    constraints: [
       "1 <= s.length <= 1000",
-      "s consists only of lowercase English letters."
+      "s consists only of lowercase English letters.",
     ],
-    "functionName": "longestPalindrome",
-    "returnType": "string",
-    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {string}\n */\nvar longestPalindrome = function(s) {\n    // Write your code here\n};",
-    "pythonDefaultCode": "def longestPalindrome(s: str) -> str:\n    # Write your code here",
-    "javaDefaultCode": "public static String longestPalindrome(String s) {\n    // Write your code here\n}",
-    "isSubmitted": false,
-    "testCaseOutputs": [],
-    "testCaseResults": [],
-    "example": [
+    functionName: "longestPalindrome",
+    returnType: "string",
+    javascriptDefaultCode:
+      "/**\n * @param {string} s\n * @return {string}\n */\nvar longestPalindrome = function(s) {\n    // Write your code here\n};",
+    pythonDefaultCode:
+      "def longestPalindrome(s: str) -> str:\n    # Write your code here",
+    javaDefaultCode:
+      "public static String longestPalindrome(String s) {\n    // Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
       {
-        "number": 1,
-        "input": "s = babad",
-        "output": "bab",
-        "parameter": "'babad'",
-        "explanation": "'aba' is also a valid answer.",
-        "image": null,
-        "javaFuncCall": 'longestPalindrome("babad")'
+        number: 1,
+        input: "s = babad",
+        output: "bab",
+        parameter: "'babad'",
+        explanation: "'aba' is also a valid answer.",
+        image: null,
+        javaFuncCall: 'longestPalindrome("babad")',
       },
       {
-        "number": 2,
-        "input": "s = aaabbbaa",
-        "output": "aabbbaa",
-        "parameter": "'aaabbbaa'",
-        "explanation": "",
-        "image": null,
-        "javaFuncCall": 'longestPalindrome("aaabbbaa")'
+        number: 2,
+        input: "s = aaabbbaa",
+        output: "aabbbaa",
+        parameter: "'aaabbbaa'",
+        explanation: "",
+        image: null,
+        javaFuncCall: 'longestPalindrome("aaabbbaa")',
       },
       {
-        "number": 3,
-        "input": "s = a",
-        "output": "a",
-        "parameter": "'a'",
-        "explanation": "",
-        "image": null,
-        "javaFuncCall": 'longestPalindrome("a")'
-      }
+        number: 3,
+        input: "s = a",
+        output: "a",
+        parameter: "'a'",
+        explanation: "",
+        image: null,
+        javaFuncCall: 'longestPalindrome("a")',
+      },
     ],
-    "cases": [
+    cases: [
       {
-        "parameter": "'cbbd'",
-        "expectedOutput": "bb",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("cbbd")'
+        parameter: "'cbbd'",
+        expectedOutput: "bb",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("cbbd")',
       },
       {
-        "parameter": "'a'",
-        "expectedOutput": "a",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("a")'
+        parameter: "'a'",
+        expectedOutput: "a",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("a")',
       },
       {
-        "parameter": "'ac'",
-        "expectedOutput": "a",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("ac")'
+        parameter: "'ac'",
+        expectedOutput: "a",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("ac")',
       },
       {
-        "parameter": "'racecar'",
-        "expectedOutput": "racecar",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("racecar")'
+        parameter: "'racecar'",
+        expectedOutput: "racecar",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("racecar")',
       },
       {
-        "parameter": "'abcdefedcba'",
-        "expectedOutput": "abcdefedcba",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("abcdefedcba")'
+        parameter: "'abcdefedcba'",
+        expectedOutput: "abcdefedcba",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("abcdefedcba")',
       },
       {
-        "parameter": "'aaaabaaaa'",
-        "expectedOutput": "aaaabaaaa",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("aaaabaaaa")'
+        parameter: "'aaaabaaaa'",
+        expectedOutput: "aaaabaaaa",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("aaaabaaaa")',
       },
       {
-        "parameter": "'banana'",
-        "expectedOutput": "anana",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("banana")'
+        parameter: "'banana'",
+        expectedOutput: "anana",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("banana")',
       },
       {
-        "parameter": "'forgeeksskeegfor'",
-        "expectedOutput": "geeksskeeg",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("forgeeksskeegfor")'
+        parameter: "'forgeeksskeegfor'",
+        expectedOutput: "geeksskeeg",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("forgeeksskeegfor")',
       },
       {
-        "parameter": "'ababababababa'",
-        "expectedOutput": "ababababababa",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("ababababababa")'
+        parameter: "'ababababababa'",
+        expectedOutput: "ababababababa",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("ababababababa")',
       },
       {
-        "parameter": "'zxabcyxcba'",
-        "expectedOutput": "z",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("zxabcyxcba")'
+        parameter: "'zxabcyxcba'",
+        expectedOutput: "z",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("zxabcyxcba")',
       },
       {
-        "parameter": "'madam'",
-        "expectedOutput": "madam",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("madam")'
+        parameter: "'madam'",
+        expectedOutput: "madam",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("madam")',
       },
       {
-        "parameter": "'abaxyzzyxf'",
-        "expectedOutput": "xyzzyx",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("abaxyzzyxf")'
+        parameter: "'abaxyzzyxf'",
+        expectedOutput: "xyzzyx",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("abaxyzzyxf")',
       },
       {
-        "parameter": "'abcdxyzyxabcdd'",
-        "expectedOutput": "xyzyx",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("abcdxyzyxabcdd")'
+        parameter: "'abcdxyzyxabcdd'",
+        expectedOutput: "xyzyx",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("abcdxyzyxabcdd")',
       },
       {
-        "parameter": "'abcbadefgfedcba'",
-        "expectedOutput": "defgfed",
-        "userOutput": null,
-        "javaFuncCall": 'longestPalindrome("abcbadefgfedcba")'
-      }
-    ]
-
+        parameter: "'abcbadefgfedcba'",
+        expectedOutput: "defgfed",
+        userOutput: null,
+        javaFuncCall: 'longestPalindrome("abcbadefgfedcba")',
+      },
+    ],
 
     /*  
     js:
@@ -5704,153 +5714,156 @@ def maxSubArray(nums: List[int]) -> int:
   },
 
   {
-    "number": 30,
-    "heading": "Decode Ways",
-    "difficulty": "Hard",
-    "topic": ["DynamicProgramming", "String"],
-    "ds": "[ String, Dynamic Programming ]",
-    "attempts": 0,
-    "isSolved": false,
-    "language": "javascript",
-    "image": null,
-    "allOutput": [],
-    "allResult": [],
-    "description": "A message containing letters from A-Z can be encoded into numbers using the following mapping: 'A' -> '1', 'B' -> '2', ..., 'Z' -> '26'. Given a string s containing only digits, determine the total number of ways to decode it.",
-    "constraints": [
+    number: 30,
+    heading: "Decode Ways",
+    difficulty: "Hard",
+    topic: ["DynamicProgramming", "String"],
+    ds: "[ String, Dynamic Programming ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "A message containing letters from A-Z can be encoded into numbers using the following mapping: 'A' -> '1', 'B' -> '2', ..., 'Z' -> '26'. Given a string s containing only digits, determine the total number of ways to decode it.",
+    constraints: [
       "1 <= s.length <= 100",
-      "s contains only digits and may contain leading zeros."
+      "s contains only digits and may contain leading zeros.",
     ],
-    "functionName": "numDecodings",
-    "returnType": "number",
-    "javascriptDefaultCode": "/**\n * @param {string} s\n * @return {number}\n */\nvar numDecodings = function(s) {\n    // Write your code here\n};",
-    "pythonDefaultCode": "def numDecodings(s: str) -> int:\n    # Write your code here",
-    "javaDefaultCode": "public static int numDecodings(String s) {\n    // Write your code here\n    return 0;\n}",
-    "isSubmitted": false,
-    "testCaseOutputs": [],
-    "testCaseResults": [],
-    "example": [
+    functionName: "numDecodings",
+    returnType: "number",
+    javascriptDefaultCode:
+      "/**\n * @param {string} s\n * @return {number}\n */\nvar numDecodings = function(s) {\n    // Write your code here\n};",
+    pythonDefaultCode:
+      "def numDecodings(s: str) -> int:\n    # Write your code here",
+    javaDefaultCode:
+      "public static int numDecodings(String s) {\n    // Write your code here\n    return 0;\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
       {
-        "number": 1,
-        "input": "s = '12'",
-        "output": "2",
-        "parameter": "'12'",
-        "explanation": "It could be decoded as 'AB' (1 2) or 'L' (12).",
-        "image": null,
-        "javaFuncCall": 'numDecodings("12")'
+        number: 1,
+        input: "s = '12'",
+        output: "2",
+        parameter: "'12'",
+        explanation: "It could be decoded as 'AB' (1 2) or 'L' (12).",
+        image: null,
+        javaFuncCall: 'numDecodings("12")',
       },
       {
-        "number": 2,
-        "input": "s = '226'",
-        "output": "3",
-        "parameter": "'226'",
-        "explanation": "It could be decoded as 'BZ' (2 26), 'VF' (22 6), or 'BBF' (2 2 6).",
-        "image": null,
-        "javaFuncCall": 'numDecodings("226")'
+        number: 2,
+        input: "s = '226'",
+        output: "3",
+        parameter: "'226'",
+        explanation:
+          "It could be decoded as 'BZ' (2 26), 'VF' (22 6), or 'BBF' (2 2 6).",
+        image: null,
+        javaFuncCall: 'numDecodings("226")',
       },
       {
-        "number": 3,
-        "input": "s = '0'",
-        "output": "0",
-        "parameter": "'0'",
-        "explanation": "There is no valid encoding starting with '0'.",
-        "image": null,
-        "javaFuncCall": 'numDecodings("0")'
-      }
+        number: 3,
+        input: "s = '0'",
+        output: "0",
+        parameter: "'0'",
+        explanation: "There is no valid encoding starting with '0'.",
+        image: null,
+        javaFuncCall: 'numDecodings("0")',
+      },
     ],
-    "cases": [
+    cases: [
       {
-        "parameter": "'12'",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("12")'
+        parameter: "'12'",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("12")',
       },
       {
-        "parameter": "'226'",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("226")'
+        parameter: "'226'",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("226")',
       },
       {
-        "parameter": "'0'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("0")'
+        parameter: "'0'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("0")',
       },
       {
-        "parameter": "'11106'",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("11106")'
+        parameter: "'11106'",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("11106")',
       },
       {
-        "parameter": "'27'",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("27")'
+        parameter: "'27'",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("27")',
       },
       {
-        "parameter": "'10'",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("10")'
+        parameter: "'10'",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("10")',
       },
       {
-        "parameter": "'01'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("01")'
+        parameter: "'01'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("01")',
       },
       {
-        "parameter": "'230'",
-        "expectedOutput": "0",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("230")'
+        parameter: "'230'",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("230")',
       },
       {
-        "parameter": "'123456789'",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("123456789")'
+        parameter: "'123456789'",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("123456789")',
       },
       {
-        "parameter": "'1123'",
-        "expectedOutput": "5",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("1123")'
+        parameter: "'1123'",
+        expectedOutput: "5",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("1123")',
       },
       {
-        "parameter": "'27'",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("27")'
+        parameter: "'27'",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("27")',
       },
       {
-        "parameter": "'2611055971756562'",
-        "expectedOutput": "4",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("2611055971756562")'
+        parameter: "'2611055971756562'",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("2611055971756562")',
       },
       {
-        "parameter": "'206'",
-        "expectedOutput": "1",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("206")'
+        parameter: "'206'",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("206")',
       },
       {
-        "parameter": "'611'",
-        "expectedOutput": "2",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("611")'
+        parameter: "'611'",
+        expectedOutput: "2",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("611")',
       },
       {
-        "parameter": "'226'",
-        "expectedOutput": "3",
-        "userOutput": null,
-        "javaFuncCall": 'numDecodings("226")'
-      }
-    ]
-
-
+        parameter: "'226'",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall: 'numDecodings("226")',
+      },
+    ],
 
     /*  
     js:
@@ -5927,6 +5940,5 @@ def maxSubArray(nums: List[int]) -> int:
     return dp[n]
 
     */
-  }
-  
+  },
 ];

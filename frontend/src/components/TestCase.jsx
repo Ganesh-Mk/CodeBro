@@ -3,9 +3,6 @@ import { Box, Text } from "@chakra-ui/react";
 import "../style/Output.scss";
 
 function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
-  useEffect(() => {
-    console.log("output: ", output);
-  }, []);
   return (
     <div className="testCase">
       <div className="testCaseBlock">

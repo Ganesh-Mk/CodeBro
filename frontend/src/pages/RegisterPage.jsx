@@ -1,34 +1,30 @@
-import React, { useState } from 'react';
-import '../style/Register.scss';
-import { Button, Stack } from '@chakra-ui/react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import {
-  setId,
-  setName,
-  setEmail,
-  setPassword,
-} from '../store/userSlice';
-import { Flip, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import "../style/Register.scss";
+import { Button, Stack } from "@chakra-ui/react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setId, setName, setEmail, setPassword } from "../store/userSlice";
+import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!#%*&])[A-Za-z\d@$!#%*&]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!#%*&])[A-Za-z\d@$!#%*&]{8,}$/;
     return passwordRegex.test(password);
   };
 
   const handleSubmit = () => {
-    if(userEmail || userName || userPassword == "") {
-      toast.error('Enter the all Feilds', {
+    if (!userEmail || !userName || userPassword == "") {
+      toast.error("Enter the all Feilds", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -38,11 +34,11 @@ export default function RegisterPage() {
         progress: undefined,
         theme: "dark",
         transition: Flip,
-        });
-        return
+      });
+      return;
     }
-    if(userPassword.length < 8) {
-      toast.error('Password should be atleast 8 Characters', {
+    if (userPassword.length < 8) {
+      toast.error("Password should be atleast 8 Characters", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -52,34 +48,37 @@ export default function RegisterPage() {
         progress: undefined,
         theme: "dark",
         transition: Flip,
-        });
-        return
+      });
+      return;
     }
     if (!validatePassword(userPassword)) {
-      toast.error('Enter a strong password, Including Capital letter, special characters, and numbers', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        transition: Flip,
-        });
+      toast.error(
+        "Enter a strong password, Including Capital letter, special characters, and numbers",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Flip,
+        }
+      );
       return;
     }
 
     setIsLoading(true);
 
-    localStorage.setItem('name', userName);
-    localStorage.setItem('email', userEmail);
-    localStorage.setItem('password', userPassword);
-    localStorage.setItem('insta', '');
-    localStorage.setItem('github', '');
-    localStorage.setItem('linkedin', '');
-    localStorage.setItem('userImage', '');
-    localStorage.setItem('rank', 'Unranked');
+    localStorage.setItem("name", userName);
+    localStorage.setItem("email", userEmail);
+    localStorage.setItem("password", userPassword);
+    localStorage.setItem("insta", "");
+    localStorage.setItem("github", "");
+    localStorage.setItem("linkedin", "");
+    localStorage.setItem("userImage", "");
+    localStorage.setItem("rank", "Unranked");
 
     axios
       .post("http://localhost:3000/createUser", {
@@ -94,11 +93,11 @@ export default function RegisterPage() {
           dispatch(setEmail(userEmail));
           dispatch(setPassword(userPassword));
           setTimeout(() => {
-          setIsLoading(false);
+            setIsLoading(false);
 
-            navigate('/home');
-          }, 2000)
-          toast.success('Signning Up!', {
+            navigate("/home");
+          }, 2000);
+          toast.success("Signning Up!", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -108,13 +107,12 @@ export default function RegisterPage() {
             progress: undefined,
             theme: "dark",
             transition: Flip,
-            });
+          });
           return;
-          
         } else {
           setIsLoading(false);
-          navigate('/register');
-          toast.error('Email already taken', {
+          navigate("/register");
+          toast.error("Email already taken", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -124,8 +122,8 @@ export default function RegisterPage() {
             progress: undefined,
             theme: "dark",
             transition: Flip,
-            });
-            return
+          });
+          return;
         }
       })
       .catch((err) => {
@@ -176,7 +174,7 @@ export default function RegisterPage() {
             <input
               id="password"
               type="password"
-              placeholder='Enter your password'
+              placeholder="Enter your password"
               value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
               required

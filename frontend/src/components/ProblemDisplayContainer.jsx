@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProblemObj } from "../store/problemObjSlice";
 import { Link } from "react-router-dom";
 import { images } from "../javascripts/images";
@@ -21,8 +21,9 @@ const ProblemDisplayContainer = ({
 }) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
+  const attempts = useSelector((state) => state.attempts.attempts);
 
+  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   const handleClick = () => {
     if (bool === true) {
@@ -140,7 +141,7 @@ const ProblemDisplayContainer = ({
               )}
             </div>
             <div className="attempts">
-              <p>{allProblems[index]}</p>
+              <p>{attempts[index]}</p>
             </div>
           </div>
         )}
