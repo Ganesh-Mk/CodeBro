@@ -6,6 +6,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import '../style/EditProfile.scss'
+import { Flip, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   setName,
   setEmail,
@@ -55,29 +57,68 @@ function EditProfilePage() {
     formData.append('userLinkedin', userLinkedin)
 
     axios
-      .post("http://localhost:3000/updateUserDetails", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((result) => {
-        dispatch(setName(userName))
-        dispatch(setEmail(userEmail))
-        dispatch(setPassword(userPassword))
-        dispatch(setInsta(userInsta))
-        dispatch(setGithub(userGithub))
-        dispatch(setLinkedin(userLinkedin))
-        localStorage.setItem('name', userName)
-        localStorage.setItem('email', userEmail)
-        localStorage.setItem('password', userPassword)
-        localStorage.setItem('insta', userInsta)
-        localStorage.setItem('github', userGithub)
-        localStorage.setItem('linkedin', userLinkedin)
+    .post("http://localhost:3000/updateUserDetails", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((result) => {
+      const currentName = localStorage.getItem('name');
+      const currentEmail = localStorage.getItem('email');
+      const currentPassword = localStorage.getItem('password');
+      const currentInsta = localStorage.getItem('insta');
+      const currentGithub = localStorage.getItem('github');
+      const currentLinkedin = localStorage.getItem('linkedin');
+      let bool = false
+  
+      const nameChanged = currentName !== userName;
+      const emailChanged = currentEmail !== userEmail;
+      const passwordChanged = currentPassword !== userPassword;
+      const instaChanged = currentInsta !== userInsta;
+      const githubChanged = currentGithub !== userGithub;
+      const linkedinChanged = currentLinkedin !== userLinkedin;
+  
+      // Update local storage and Redux state
+      localStorage.setItem('name', userName);
+      localStorage.setItem('email', userEmail);
+      localStorage.setItem('password', userPassword);
+      localStorage.setItem('insta', userInsta);
+      localStorage.setItem('github', userGithub);
+      localStorage.setItem('linkedin', userLinkedin);
+  
+      dispatch(setName(userName));
+      dispatch(setEmail(userEmail));
+      dispatch(setPassword(userPassword));
+      dispatch(setInsta(userInsta));
+      dispatch(setGithub(userGithub));
+      dispatch(setLinkedin(userLinkedin));
+  
+      if (nameChanged || emailChanged || passwordChanged || instaChanged || githubChanged || linkedinChanged) {
+        bool = true
+        toast.success('Profile Updated', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Flip,
+        });
+      }
+      if(bool === false) {
         navigate('/account')
-      })
-      .catch((error) => {
-        console.error('Error updating user details:', error)
-      })
+      }
+  
+      setTimeout(() => {
+        bool = false
+        navigate('/account')
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error('Error updating user details:', error);
+    });
   }
 
   const handleReset = () => {
@@ -87,6 +128,20 @@ function EditProfilePage() {
     setUserInsta(localStorage.getItem('insta'))
     setUserGithub(localStorage.getItem('github'))
     setUserLinkedin(localStorage.getItem('linkedin'))
+    toast.success('Reset Successfull', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Flip,
+      });
+      setTimeout(() => {
+
+      }, 2500)
   }
 
   const handleImage = (e) => {
@@ -204,6 +259,7 @@ function EditProfilePage() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   )
 }
