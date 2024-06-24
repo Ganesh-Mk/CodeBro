@@ -252,7 +252,6 @@ app.post("/addProblemRecord", async (req, res) => {
 });
 
 app.post("/userAttempts", (req, res) => {
-  console.log(req.body);
   UserModel.findOne({ email: req.body.userEmail })
     .then((userModel) => {
       if (userModel) {
@@ -265,7 +264,6 @@ app.post("/userAttempts", (req, res) => {
     .catch((err) => res.status(500).send(err));
 });
 app.get("/getUserAttempts", (req, res) => {
-  console.log(req.query.userEmail);
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
       if (userModel) {

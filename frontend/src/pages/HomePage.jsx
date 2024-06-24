@@ -67,16 +67,6 @@ const HomePage = () => {
     localStorage.setItem("solved", JSON.stringify([...solvedArr]));
   }, [addTestCaseResults]);
 
-  // Save attempts to local storage
-  // useEffect(() => {
-  //   if (attempts.length > 0) {
-  //     localStorage.setItem("userAttempts", JSON.stringify(attempts));
-
-  //     dispatch(setStoreAttempts(attempts));
-  //   }
-  // }, [attempts]);
-
-  // Load attempts from local storage or fetch from backend on component mount
   useEffect(() => {
     const savedAttempts = JSON.parse(localStorage.getItem("userAttempts"));
 

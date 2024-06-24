@@ -17,10 +17,6 @@ const ProblemSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
-  allAttempts: {
-    type: Array,
-    default: [],
-  },
 });
 
 const UserSchema = new mongoose.Schema({
@@ -83,6 +79,10 @@ const UserSchema = new mongoose.Schema({
   },
   allProblems: {
     type: [ProblemSchema],
+    default: [],
+  },
+  allAttempts: {
+    type: Array,
     default: [],
   },
 });
