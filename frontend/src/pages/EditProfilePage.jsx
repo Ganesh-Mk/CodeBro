@@ -1,13 +1,13 @@
-import { Button, Input } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar'
-import { images } from '../javascripts/images'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import '../style/EditProfile.scss'
-import { Flip, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Button, Input } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import { images } from "../javascripts/images";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import "../style/EditProfile.scss";
+import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   setName,
   setEmail,
@@ -15,120 +15,126 @@ import {
   setInsta,
   setGithub,
   setLinkedin,
-} from '../store/userSlice'
+} from "../store/userSlice";
 
 function EditProfilePage() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const userObj = useSelector((state) => state.user)
-  const [userName, setUserName] = useState(userObj.name)
-  const [userEmail, setUserEmail] = useState(userObj.email)
-  const [userPassword, setUserPassword] = useState(userObj.password)
-  const [userInsta, setUserInsta] = useState('')
-  const [userGithub, setUserGithub] = useState('')
-  const [userLinkedin, setUserLinkedin] = useState('')
-  const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo)
-  const [userImage, setUserImage] = useState(images.accDefaultLogo)
-  const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userObj = useSelector((state) => state.user);
+  const [userName, setUserName] = useState(userObj.name);
+  const [userEmail, setUserEmail] = useState(userObj.email);
+  const [userPassword, setUserPassword] = useState(userObj.password);
+  const [userInsta, setUserInsta] = useState("");
+  const [userGithub, setUserGithub] = useState("");
+  const [userLinkedin, setUserLinkedin] = useState("");
+  const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo);
+  const [userImage, setUserImage] = useState(images.accDefaultLogo);
+  const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo);
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
-
   useEffect(() => {
-    setUserName(localStorage.getItem('name'))
-    setUserEmail(localStorage.getItem('email'))
-    setUserPassword(localStorage.getItem('password'))
-    setUserInsta(localStorage.getItem('insta'))
-    setUserGithub(localStorage.getItem('github'))
-    setUserLinkedin(localStorage.getItem('linkedin'))
-    setUserImage(localStorage.getItem('userImage'))
-  }, [])
+    setUserName(localStorage.getItem("name"));
+    setUserEmail(localStorage.getItem("email"));
+    setUserPassword(localStorage.getItem("password"));
+    setUserInsta(localStorage.getItem("insta"));
+    setUserGithub(localStorage.getItem("github"));
+    setUserLinkedin(localStorage.getItem("linkedin"));
+    setUserImage(localStorage.getItem("userImage"));
+  }, []);
 
   const handleSubmit = () => {
-    const formData = new FormData()
-    console.log(userImage)
+    const formData = new FormData();
+    console.log(userImage);
     if (userImage) {
-      formData.append('image', userImage)
+      formData.append("image", userImage);
     }
-    formData.append('userEmail', userEmail)
-    formData.append('userName', userName)
-    formData.append('userPassword', userPassword)
-    formData.append('userInsta', userInsta)
-    formData.append('userGithub', userGithub)
-    formData.append('userLinkedin', userLinkedin)
+    formData.append("userEmail", userEmail);
+    formData.append("userName", userName);
+    formData.append("userPassword", userPassword);
+    formData.append("userInsta", userInsta);
+    formData.append("userGithub", userGithub);
+    formData.append("userLinkedin", userLinkedin);
 
     axios
-    .post("http://localhost:3000/updateUserDetails", formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
-    .then((result) => {
-      const currentName = localStorage.getItem('name');
-      const currentEmail = localStorage.getItem('email');
-      const currentPassword = localStorage.getItem('password');
-      const currentInsta = localStorage.getItem('insta');
-      const currentGithub = localStorage.getItem('github');
-      const currentLinkedin = localStorage.getItem('linkedin');
-      let bool = false
-  
-      const nameChanged = currentName !== userName;
-      const emailChanged = currentEmail !== userEmail;
-      const passwordChanged = currentPassword !== userPassword;
-      const instaChanged = currentInsta !== userInsta;
-      const githubChanged = currentGithub !== userGithub;
-      const linkedinChanged = currentLinkedin !== userLinkedin;
-  
-      // Update local storage and Redux state
-      localStorage.setItem('name', userName);
-      localStorage.setItem('email', userEmail);
-      localStorage.setItem('password', userPassword);
-      localStorage.setItem('insta', userInsta);
-      localStorage.setItem('github', userGithub);
-      localStorage.setItem('linkedin', userLinkedin);
-  
-      dispatch(setName(userName));
-      dispatch(setEmail(userEmail));
-      dispatch(setPassword(userPassword));
-      dispatch(setInsta(userInsta));
-      dispatch(setGithub(userGithub));
-      dispatch(setLinkedin(userLinkedin));
-  
-      if (nameChanged || emailChanged || passwordChanged || instaChanged || githubChanged || linkedinChanged) {
-        bool = true
-        toast.success('Profile Updated', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Flip,
-        });
-      }
-      if(bool === false) {
-        navigate('/account')
-      }
-  
-      setTimeout(() => {
-        bool = false
-        navigate('/account')
-      }, 2000);
-    })
-    .catch((error) => {
-      console.error('Error updating user details:', error);
-    });
-  }
+      .post("http://localhost:3000/updateUserDetails", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((result) => {
+        const currentName = localStorage.getItem("name");
+        const currentEmail = localStorage.getItem("email");
+        const currentPassword = localStorage.getItem("password");
+        const currentInsta = localStorage.getItem("insta");
+        const currentGithub = localStorage.getItem("github");
+        const currentLinkedin = localStorage.getItem("linkedin");
+        let bool = false;
+
+        const nameChanged = currentName !== userName;
+        const emailChanged = currentEmail !== userEmail;
+        const passwordChanged = currentPassword !== userPassword;
+        const instaChanged = currentInsta !== userInsta;
+        const githubChanged = currentGithub !== userGithub;
+        const linkedinChanged = currentLinkedin !== userLinkedin;
+
+        // Update local storage and Redux state
+        localStorage.setItem("name", userName);
+        localStorage.setItem("email", userEmail);
+        localStorage.setItem("password", userPassword);
+        localStorage.setItem("insta", userInsta);
+        localStorage.setItem("github", userGithub);
+        localStorage.setItem("linkedin", userLinkedin);
+
+        dispatch(setName(userName));
+        dispatch(setEmail(userEmail));
+        dispatch(setPassword(userPassword));
+        dispatch(setInsta(userInsta));
+        dispatch(setGithub(userGithub));
+        dispatch(setLinkedin(userLinkedin));
+
+        if (
+          nameChanged ||
+          emailChanged ||
+          passwordChanged ||
+          instaChanged ||
+          githubChanged ||
+          linkedinChanged
+        ) {
+          bool = true;
+          toast.success("Profile Updated", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Flip,
+          });
+        }
+        if (bool === false) {
+          navigate("/account");
+        }
+
+        setTimeout(() => {
+          bool = false;
+          navigate("/account");
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Error updating user details:", error);
+      });
+  };
 
   const handleReset = () => {
-    setUserName(localStorage.getItem('name'))
-    setUserEmail(localStorage.getItem('email'))
-    setUserPassword(localStorage.getItem('password'))
-    setUserInsta(localStorage.getItem('insta'))
-    setUserGithub(localStorage.getItem('github'))
-    setUserLinkedin(localStorage.getItem('linkedin'))
-    toast.success('Reset Successfull', {
+    setUserName(localStorage.getItem("name"));
+    setUserEmail(localStorage.getItem("email"));
+    setUserPassword(localStorage.getItem("password"));
+    setUserInsta(localStorage.getItem("insta"));
+    setUserGithub(localStorage.getItem("github"));
+    setUserLinkedin(localStorage.getItem("linkedin"));
+    toast.success("Reset Successfull", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -138,39 +144,37 @@ function EditProfilePage() {
       progress: undefined,
       theme: "dark",
       transition: Flip,
-      });
-      setTimeout(() => {
-
-      }, 2500)
-  }
+    });
+    setTimeout(() => {}, 2500);
+  };
 
   const handleImage = (e) => {
-    const file = e.target.files[0]
-    setUserImage(file)
-    setUserImageEdit(file.name)
-    const reader = new FileReader()
+    const file = e.target.files[0];
+    setUserImage(file);
+    setUserImageEdit(file);
+    const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
-        setEditUserImage(reader.result)
+        setEditUserImage(reader.result);
       }
-    }
-    reader.readAsDataURL(file)
-  }
+    };
+    reader.readAsDataURL(file);
+  };
 
   useEffect(() => {
     axios
       .get("http://localhost:3000/fetchUserImage", {
         params: {
-          userEmail: localStorage.getItem('email'),
+          userEmail: localStorage.getItem("email"),
         },
       })
       .then((response) => {
-        setUserImage(response.data.userImage)
+        setUserImage(response.data.userImage);
       })
       .catch((error) => {
-        console.error('Error fetching user data:', error)
-      })
-  }, [])
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
   return (
     <div>
       <Navbar />
@@ -182,16 +186,16 @@ function EditProfilePage() {
           <div className="editLeft">
             <img
               style={{
-                borderRadius: '2vw',
+                borderRadius: "2vw",
               }}
               src={
                 editUserImage !== images.accDefaultLogo
                   ? editUserImage
                   : userImageEdit === images.accDefaultLogo
                   ? userImage
-                    ? `http://localhost:3000/uploads/${userImage}`
+                    ? `http://localhost:3000/${userImage}`
                     : images.accDefaultLogo
-                  : `http://localhost:3000/uploads/${userImageEdit}`
+                  : `http://localhost:3000/${userImageEdit}`
               }
               alt="account default logo"
             />
@@ -259,9 +263,9 @@ function EditProfilePage() {
           </div>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
-  )
+  );
 }
 
-export default EditProfilePage
+export default EditProfilePage;

@@ -10,7 +10,6 @@ function Navbar({ fontColor = "white" }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const location = useLocation(); // Get current location
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
-  
 
   const handleMenuToggle = () => {
     console.log("menuVisible", menuVisible);
@@ -93,7 +92,7 @@ function Navbar({ fontColor = "white" }) {
             }}
             src={
               userImage
-                ? `http://localhost:3000/uploads/${userImage}`
+                ? `http://localhost:3000/${userImage}`
                 : images.accDefaultLogo
             }
             alt="account default logo"
@@ -113,7 +112,7 @@ function Navbar({ fontColor = "white" }) {
             className="accLogoMini"
             src={
               userImage
-                ? `http://localhost:3000/uploads/${userImage}`
+                ? `http://localhost:3000/${userImage}`
                 : images.accDefaultLogo
             }
             alt="account logo"

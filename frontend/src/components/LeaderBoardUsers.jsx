@@ -38,7 +38,7 @@ function LeaderBoardUsers({
                 className="leadersImage"
                 src={
                   image
-                    ? `http://localhost:3000/uploads/${image}`
+                    ? `http://localhost:3000/${image}`
                     : images.accDefaultLogo
                 }
                 alt="account default logo"

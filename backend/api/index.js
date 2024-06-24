@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
+const fs = require("fs");
 
 require("dotenv").config();
 const UserModel = require("../models/userModel");
@@ -13,7 +14,13 @@ const UserMessageModel = require("../models/userMessageModel");
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+const uploadsDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
+  app.use("/uploads", express.static(uploadsDir));
+}
 
 const corsOptions = {
   origin: "http://localhost:5173", // Your frontend URL
@@ -88,7 +95,7 @@ app.get("/deleteleaderBoard", async (req, res) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/");
+    cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname || "");
@@ -117,37 +124,36 @@ app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
   };
 
   if (req.file) {
-    updateData.image = req.file.originalname || "";
+    updateData.image = `uploads/${req.file.originalname}`;
   }
 
-  await UserModel.findOneAndUpdate({ email: userEmail }, updateData, {
-    new: true,
-  })
-    .then((updatedUser) => {
-      if (!updatedUser) {
-        return res.status(404).json({ error: "User not found" });
-      }
-      res.status(200).json(updatedUser);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-
-  let userImage = req.file === undefined ? "" : req.file.originalname;
-  await LeaderBoard.findOneAndUpdate(
-    { email: userEmail },
-    {
-      name: userName,
-      image: userImage,
-      email: userEmail,
-      insta: userInsta,
-      github: userGithub,
-      linkedin: userLinkedin,
-    },
-    {
-      new: true,
+  try {
+    const updatedUser = await UserModel.findOneAndUpdate(
+      { email: userEmail },
+      updateData,
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
     }
-  );
+    res.status(200).json(updatedUser);
+
+    let userImage = req.file ? `uploads/${req.file.originalname}` : "";
+    await LeaderBoard.findOneAndUpdate(
+      { email: userEmail },
+      {
+        name: userName,
+        image: userImage,
+        email: userEmail,
+        insta: userInsta,
+        github: userGithub,
+        linkedin: userLinkedin,
+      },
+      { new: true }
+    );
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.get("/fetchUserImage", (req, res) => {

@@ -42,7 +42,6 @@ function AccountPage() {
   const [totalProblems, setTotalProblems] = useState(0);
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
-
   const dispatch = useDispatch();
   const leaderBoardEntries = useSelector(
     (state) => state.leaderBoard.leaderBoardEntries
@@ -125,6 +124,7 @@ function AccountPage() {
         },
       })
       .then((response) => {
+        console.log("image: ", response.data);
         setUserImage(response.data.userImage);
       })
       .catch((error) => {
@@ -161,17 +161,20 @@ function AccountPage() {
             <img
               src={
                 userImage
-                  ? `http://localhost:3000/uploads/${userImage}`
+                  ? `http://localhost:3000/${userImage}`
                   : images.accDefaultLogo
               }
               alt="account default logo"
             />
-            <div>
-              <p>{userName}</p>
-              <p id="accEmail">{userEmail}</p>
-              <p id="accRank">
+            <div className="accLeftTopText">
+              <div>
+                <p>{userName}</p>
+                <p id="accEmail">{userEmail}</p>
+              </div>
+
+              <Link to={`/leaderboard`} id="accRank">
                 <span>Rank:</span> {userRank}
-              </p>
+              </Link>
             </div>
           </div>
           <div className="accBtnBox">
