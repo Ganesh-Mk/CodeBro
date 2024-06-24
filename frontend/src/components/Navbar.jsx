@@ -33,11 +33,7 @@ function Navbar({ fontColor = "white" }) {
 
   return (
     <div className="navbar">
-      <Link
-        to="/aboutus"
-        className="navItems"
-        style={{ textDecoration: "none" }}
-      >
+      <Link to="/home" className="navItems" style={{ textDecoration: "none" }}>
         <CodeBroLogo />
       </Link>
 
@@ -95,7 +91,7 @@ function Navbar({ fontColor = "white" }) {
                 ? `http://localhost:3000/${userImage}`
                 : images.accDefaultLogo
             }
-            alt="account default logo"
+            alt={"account default logo"}
           />
           <p
             className="accLogoText"
