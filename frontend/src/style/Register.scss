@@ -1,4 +1,32 @@
 $btnColor:#0066FF;
+.regsiterContainer {
+    background: url('../assets/images/register_page.jpg');
+    background-position: center;
+    background-size: cover;
+
+}
+.password-r {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s, max-height 0.5s;
+  }
+  
+  .password-r.show {
+    opacity: 1;
+    max-height: 200px; /* Adjust according to the content height */
+  }
+  
+  .password-r ul li.fulfilled {
+    text-decoration: line-through;
+    color: rgb(0, 236, 47);
+  }
+.signupBox {
+    border: 3px solid rgb(91, 91, 91);
+    padding-top: 2vw;
+    border-radius: 1vw;
+    backdrop-filter: blur(5px);
+}
 .RegisterContainer {
     height: 100vh;
     width: 100vw;
@@ -42,6 +70,12 @@ $btnColor:#0066FF;
 h2 {
     font-size: 2vw;
     font-weight: 100;
+    color: white;
+}
+.Btn {
+    // border: 2px solid grey;
+    margin-top: 5px;
+    background-color: rgb(29, 125, 227);
     color: white;
 }
 
