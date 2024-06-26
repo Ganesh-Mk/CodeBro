@@ -9,6 +9,7 @@ import { Button, Stack } from "@chakra-ui/react";
 import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 export default function LoginPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -92,59 +93,44 @@ export default function LoginPage() {
       });
   }
 
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
-      <ToastContainer />
-      <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
-        <div className="space-y-1 text-center">
-          <h1 className="text-2xl text-white">Login</h1>
+    <div className="bg-card rounded-lg shadow-lg w-full max-w-md">
+      <div className="px-6 py-8 space-y-6">
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl font-bold">Welcome Back</h1>
+          <p className="text-muted-foreground">Enter your credentials to access your account.</p>
         </div>
         <div className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="email" className="text-gray-400">
-              User Email
+            <label htmlFor="username" className="block text-sm font-medium">
+              Username
             </label>
             <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-              required
-              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+              id="username"
+              type="text"
+              placeholder="Enter your username"
+              className="block w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="password" className="text-gray-400">
-              User Password
+            <label htmlFor="password" className="block text-sm font-medium">
+              Password
             </label>
             <input
               id="password"
-              placeholder="Password"
-              value={userPassword}
               type="password"
-              onChange={(e) => setUserPassword(e.target.value)}
-              required
-              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+              placeholder="Enter your password"
+              className="block w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
             />
           </div>
         </div>
-        <div className="mt-4 flex justify-center">
-          <Stack direction="row" spacing={4}>
-            {isLoading ? (
-              <Button isLoading colorScheme="teal" variant="solid">
-                Loading
-              </Button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
-              >
-                Login
-              </button>
-            )}
-          </Stack>
-        </div>
+        <button
+          type="submit"
+          className="w-full rounded-md bg-primary px-4 py-2 text-white shadow-sm hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        >
+          Sign In
+        </button>
       </div>
     </div>
   );
