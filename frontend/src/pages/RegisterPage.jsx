@@ -142,7 +142,11 @@ export default function RegisterPage() {
   
 
   return (
+<<<<<<< HEAD
     <div className="regsiterContainer w-[100vw] h-[100vh] flex justify-center items-center">
+=======
+    <div className="container w-[100vw] h-[100vh] flex justify-center items-center">
+>>>>>>> origin/newB15
       <div className="signupBox mx-auto max-w-md space-y-6 w-[410px]">
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Sign Up</h1>

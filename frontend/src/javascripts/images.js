@@ -22,6 +22,7 @@ import P8b from '../assets/images/P8b.jpg'
 import photo1 from '../assets/images/Profile11.jpg'
 import ganesh from '../assets/images/ganesh.jpg'
 import back from '../assets/images/background.jpeg'
+import register from '../assets/images/register_page.jpg'
 
 export const images = {
   codeBroLogo,
@@ -45,6 +46,7 @@ export const images = {
   java,
   js,
   python,
+  register,
   P8a,
   P8b,
   photo1,
