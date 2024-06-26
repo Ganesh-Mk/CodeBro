@@ -54,6 +54,7 @@ function EditProfilePage() {
 
   const handleSubmit = () => {
     storeUserImage(userObj.userImage);
+    console.log(userImage.split("/").pop().split(".")[0]);
 
     const userDetails = {
       userEmail,
@@ -62,7 +63,7 @@ function EditProfilePage() {
       userInsta,
       userGithub,
       userLinkedin,
-      userImage,
+      userImage: userImage.split("/").pop().split(".")[0],
     };
 
     axios
@@ -193,7 +194,7 @@ function EditProfilePage() {
         <div className="editBox">
           <div className="editLeft">
             <img
-              style={{ borderRadius: "2vw" }}
+              style={{ borderRadius: "100vw" }}
               src={userImage}
               alt="account default logo"
             />

@@ -83,7 +83,6 @@ const HomePage = () => {
             { length: AllquesObject.length },
             (_, i) => attemptsData[i] || 0
           );
-          console.log("Initialized attempts: ", initializedAttempts);
           dispatch(setStoreAttempts(initializedAttempts));
         })
         .catch((error) => {

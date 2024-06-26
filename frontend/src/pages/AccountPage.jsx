@@ -157,7 +157,6 @@ function AccountPage() {
             { length: AllquesObject.length },
             (_, i) => attemptsData[i] || 0
           );
-          console.log("Initialized attempts: ", initializedAttempts);
           dispatch(setStoreAttempts(initializedAttempts));
         })
         .catch((error) => {
@@ -172,7 +171,11 @@ function AccountPage() {
       <div className="accountPage">
         <div className="accLeft">
           <div className="accLeftTop">
-            <img src={userImage} alt="account default logo" />
+            <img
+              style={{ borderRadius: "100vw" }}
+              src={userImage}
+              alt="account default logo"
+            />
             <div className="accLeftTopText">
               <div>
                 <p>{userName}</p>

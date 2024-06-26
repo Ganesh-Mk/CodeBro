@@ -7,6 +7,7 @@ import CodeHeader from "../components/CodeHeader";
 import axios from "axios";
 import Output from "../components/Output";
 import { useToast } from "@chakra-ui/react";
+import { images } from "../javascripts/images";
 import { executeCode } from "../javascripts/api";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -34,6 +35,7 @@ function CodingPage() {
   const [output, setOutput] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [userImage, setUserImage] = useState(images.accDefaultLogo);
   const [allOutput, setAllOutput] = useState([]);
   const [allResult, setAllResult] = useState([]);
   const [testCaseOutput, setTestCaseOutput] = useState([]);
@@ -339,6 +341,7 @@ print(linkedListToArray(result))
           userGithub: githubVal,
           userLinkedin: linkedinVal,
           problemObj: problemObj,
+          userImage: userImage.split("/").pop().split(".")[0],
         })
         .then((response) => {})
         .catch((error) => {
@@ -349,6 +352,10 @@ print(linkedListToArray(result))
     dispatch(addAllResult([]));
     setIsLoadingSubmit(false);
   };
+
+  useEffect(() => {
+    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+  }, []);
 
   useEffect(() => {
     let solvedArr = [];

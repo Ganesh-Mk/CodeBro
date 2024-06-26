@@ -14,13 +14,6 @@ const UserMessageModel = require("../models/userMessageModel");
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
-// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-const uploadsDir = path.join(__dirname, "uploads");
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir);
-  app.use("/uploads", express.static(uploadsDir));
-}
 
 const corsOptions = {
   origin: "http://localhost:5173", // Your frontend URL
@@ -93,18 +86,7 @@ app.get("/deleteleaderBoard", async (req, res) => {
   }
 });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname || "");
-  },
-});
-
-const upload = multer({ storage: storage });
-
-app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
+app.post("/updateUserDetails", async (req, res) => {
   const {
     userEmail,
     userName,
@@ -112,6 +94,7 @@ app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
     userInsta,
     userGithub,
     userLinkedin,
+    userImage,
   } = req.body;
 
   const updateData = {
@@ -121,11 +104,8 @@ app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
     insta: userInsta,
     github: userGithub,
     linkedin: userLinkedin,
+    image: userImage,
   };
-
-  if (req.file) {
-    updateData.image = `uploads/${req.file.originalname}`;
-  }
 
   try {
     const updatedUser = await UserModel.findOneAndUpdate(
@@ -138,7 +118,6 @@ app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
     }
     res.status(200).json(updatedUser);
 
-    let userImage = req.file ? `uploads/${req.file.originalname}` : "";
     await LeaderBoard.findOneAndUpdate(
       { email: userEmail },
       {
@@ -156,23 +135,16 @@ app.post("/updateUserDetails", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get("/fetchUserImage", (req, res) => {
-  const { userEmail } = req.query;
-
-  UserModel.findOne({ email: userEmail })
-    .then((userModel) => {
-      if (!userModel) {
-        return res.status(404).json({ error: "User not found" });
-      }
-      res.json({ userImage: userModel.image });
-    })
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
-
 app.post("/addProblemRecord", async (req, res) => {
   try {
-    const { problemObj, userEmail, userInsta, userGithub, userLinkedin } =
-      req.body;
+    const {
+      problemObj,
+      userEmail,
+      userInsta,
+      userGithub,
+      userLinkedin,
+      userImage,
+    } = req.body;
 
     if (!problemObj || !userEmail) {
       return res
@@ -243,7 +215,7 @@ app.post("/addProblemRecord", async (req, res) => {
           javascript: userModel.jsSolved,
           python: userModel.pythonSolved,
           java: userModel.javaSolved,
-          image: userModel.image,
+          image: userImage,
         });
         await newEntry.save();
       }

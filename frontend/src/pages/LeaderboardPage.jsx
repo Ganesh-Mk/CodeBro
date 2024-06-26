@@ -17,50 +17,59 @@ import { images } from "../javascripts/images";
 function LeaderBoardPage() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
-  const [userImage, setUserImage] = useState(images.accDefaultLogo);
-
   const leaderBoardEntries = useSelector(
     (state) => state.leaderBoard.leaderBoardEntries
   );
-
   const [rankMap, setRankMap] = useState({});
+
+  // Map to hold user email to image path mapping
+  const imagePathMap = {
+    p1: "/src/assets/images/p1.jpg",
+    p2: "/src/assets/images/p2.jpg",
+    p3: "/src/assets/images/p3.jpg",
+    p4: "/src/assets/images/p4.jpg",
+    p5: "/src/assets/images/p5.jpg",
+    p6: "/src/assets/images/p6.jpg",
+    p7: "/src/assets/images/p7.jpg",
+    p8: "/src/assets/images/p8.jpg",
+    p9: "/src/assets/images/p9.jpg",
+  };
 
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
         .get("http://localhost:3000/leaderBoardprint")
         .then((response) => {
-          dispatch(setLeaderBoardEntries(response.data));
+          // Add image paths to the user data
+          const updatedEntries = response.data.map((entry) => ({
+            ...entry,
+            image: imagePathMap[entry.image] || images.accDefaultLogo,
+          }));
+
+          dispatch(setLeaderBoardEntries(updatedEntries));
         })
         .catch((error) => {
-          console.error("Error LeaderBoard problem record:", error);
+          console.error("Error fetching leaderboard data:", error);
         });
     }
     fetchLeaderBoard();
   }, [dispatch]);
 
   useEffect(() => {
-    let sortedEntries = [...leaderBoardEntries].sort((a, b) => {
-      if (b.total !== a.total) {
-        return b.total - a.total;
-      }
-      if (b.hard !== a.hard) {
-        return b.hard - a.hard;
-      }
-      if (b.medium !== a.medium) {
-        return b.medium - a.medium;
-      }
+    const sortedEntries = [...leaderBoardEntries].sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      if (b.hard !== a.hard) return b.hard - a.hard;
+      if (b.medium !== a.medium) return b.medium - a.medium;
       return 0;
     });
 
-    let rankMap = {};
+    const rankMap = {};
     sortedEntries.forEach((entry, i) => {
       rankMap[entry.email] = i + 1;
     });
     setRankMap(rankMap);
 
-    let email = localStorage.getItem("email");
+    const email = localStorage.getItem("email");
     if (sortedEntries.length > 0) {
       sortedEntries.forEach((entry, i) => {
         if (entry.email === email) {
@@ -76,15 +85,9 @@ function LeaderBoardPage() {
       entry.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
-      if (b.total !== a.total) {
-        return b.total - a.total;
-      }
-      if (b.hard !== a.hard) {
-        return b.hard - a.hard;
-      }
-      if (b.medium !== a.medium) {
-        return b.medium - a.medium;
-      }
+      if (b.total !== a.total) return b.total - a.total;
+      if (b.hard !== a.hard) return b.hard - a.hard;
+      if (b.medium !== a.medium) return b.medium - a.medium;
       return 0;
     });
 
@@ -140,7 +143,7 @@ function LeaderBoardPage() {
                   <LeaderBoardUsers
                     key={user.email}
                     rank={rankMap[user.email]}
-                    userImage={userImage}
+                    userImage={user.image}
                     name={user.name}
                     total={user.total}
                     easy={user.easy}

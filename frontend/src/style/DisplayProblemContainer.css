@@ -64,15 +64,15 @@
 }
 
 .easy {
-  color: #1cbaba;
+  color: #1cbaba !important;
 }
 
 .medium {
-  color: #ffb700;
+  color: #ffb700 !important;
 }
 
 .hard {
-  color: #f63737;
+  color: #f63737 !important;
 }
 
 @media screen and (max-width: 800px) {

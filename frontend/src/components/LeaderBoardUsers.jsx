@@ -56,7 +56,7 @@ function LeaderBoardUsers({
         <AccordionPanel pb={3} w="100%">
           <div className="leaderBoardUserDetails">
             <div className="linksContainerMain">
-              <h1>Connect with - </h1>
+              <h1>Connect with : </h1>
               <div className="linksContainer">
                 {userInsta != "" ? (
                   <Link className="links" target="_blank" to={userInsta}>
@@ -91,7 +91,7 @@ function LeaderBoardUsers({
               </div>
             </div>
             <div className="langDetailsMain">
-              <h1>Solved in - </h1>
+              <h1>Solved in : </h1>
               <div className="langDetails">
                 <p>
                   Javascript <span style={{ color: "grey" }}>x </span>
@@ -102,7 +102,7 @@ function LeaderBoardUsers({
                   {python}
                 </p>
                 <p>
-                  java <span style={{ color: "grey" }}>x </span>
+                  Java <span style={{ color: "grey" }}>x </span>
                   {java}
                 </p>
               </div>

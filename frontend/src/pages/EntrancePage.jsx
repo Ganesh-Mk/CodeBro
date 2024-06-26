@@ -155,6 +155,7 @@ export default function EntrancePage() {
 
   useEffect(() => {
     dispatch(setSolvedProblems([]));
+    localStorage.clear();
     localStorage.setItem("solved", "[]");
     localStorage.setItem("attempts", "[]");
     localStorage.setItem("userAttempts", "[]");
