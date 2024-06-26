@@ -74,7 +74,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>AboutUs</p>
+          <p>About-Us</p>
         </Link>
       </div>
 

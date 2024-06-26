@@ -5,20 +5,23 @@ import { useSelector } from "react-redux"; // Ensure this import is included
 import "../style/style.css";
 
 const CodeEditor = ({ language, value, setValue, onMount }) => {
-  const problemId = useSelector((state) => state.problemObj.obj.number);
+  const problemObj = useSelector((state) => state.problemObj.obj);
+  const problemId = problemObj.number;
 
   useEffect(() => {
-    const savedCode = localStorage.getItem(`savedCode_${problemId}`);
+    const savedCode = localStorage.getItem(
+      `savedCode_${problemId}_${language}`
+    );
     if (savedCode) {
       setValue(savedCode);
     } else {
       setValue(value);
     }
-  }, [problemId, setValue]);
+  }, [problemId, language, setValue]);
 
   const handleEditorChange = (newValue) => {
     setValue(newValue);
-    localStorage.setItem(`savedCode_${problemId}`, newValue);
+    localStorage.setItem(`savedCode_${problemId}_${language}`, newValue);
   };
 
   return (
