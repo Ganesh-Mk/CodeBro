@@ -654,6 +654,8 @@ class ListNode {
             isLoadingSubmit={isLoadingSubmit}
             runCode={runCode}
             language={language}
+            value={value}
+            setValue={setValue}
           />
           <CodeEditor
             language={language}
