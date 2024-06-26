@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setId, setName, setEmail, setPassword } from "../store/userSlice";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { images } from "../javascripts/images";
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function RegisterPage() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPasswordRequirements, setShowPasswordRequirements] = useState(false);
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -23,8 +25,8 @@ export default function RegisterPage() {
   };
 
   const handleSubmit = () => {
-    if (!userEmail || !userName || userPassword == "") {
-      toast.error("Enter the all Feilds", {
+    if (!userEmail || !userName || userPassword === "") {
+      toast.error("Enter all fields", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -38,7 +40,7 @@ export default function RegisterPage() {
       return;
     }
     if (userPassword.length < 8) {
-      toast.error("Password should be atleast 8 Characters", {
+      toast.error("Password should be at least 8 characters", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -53,7 +55,7 @@ export default function RegisterPage() {
     }
     if (!validatePassword(userPassword)) {
       toast.error(
-        "Enter a strong password, Including Capital letter, special characters, and numbers",
+        "Enter a strong password, including capital letters, special characters, and numbers",
         {
           position: "top-right",
           autoClose: 5000,
@@ -94,10 +96,9 @@ export default function RegisterPage() {
           dispatch(setPassword(userPassword));
           setTimeout(() => {
             setIsLoading(false);
-
             navigate("/home");
           }, 2000);
-          toast.success("Signning Up!", {
+          toast.success("Signing Up!", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -132,74 +133,95 @@ export default function RegisterPage() {
       });
   };
 
+  const passwordRequirements = [
+    { requirement: "At least 8 characters", test: (pw) => pw.length >= 8 },
+    { requirement: "Contains numbers", test: (pw) => /\d/.test(pw) },
+    { requirement: "At least one uppercase letter", test: (pw) => /[A-Z]/.test(pw) },
+    { requirement: "Contains special characters", test: (pw) => /[@$!#%*&?<>^]/.test(pw) },
+  ];
+  
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-950 dark:bg-gray-950 px-4 sm:px-6 md:px-8 lg:px-12">
-      <div className="w-full max-w-md border-4 border-white font-bold rounded-md p-6">
-        <div className="space-y-1 text-center">
-          <h1 className="text-2xl text-white">Sign Up</h1>
+    <div className="container w-[100vw] h-[100vh] flex justify-center items-center">
+      <div className="signupBox mx-auto max-w-md space-y-6 w-[410px]">
+        <div className="space-y-2 text-center">
+          <h1 className="text-3xl font-bold">Sign Up</h1>
+          <p className="text-muted-foreground">Create your account to get started.</p>
         </div>
-        <div className="space-y-4">
+        <div className="bg-card p-6 rounded-lg shadow-lg space-y-4">
           <div className="space-y-2">
-            <label htmlFor="username" className="text-gray-400">
+            <label htmlFor="username" className="block text-sm font-medium text-white">
               Username
             </label>
             <input
               id="username"
-              type="text"
-              placeholder="Enter your username"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
+              type="text"
+              className="p-3 font-bold block w-full rounded-xl h-[40px] border-white shadow-sm sm:text-sm"
+              placeholder="Enter your username"
               required
-              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="email" className="text-gray-400">
-              User Email
+            <label htmlFor="email" className="block text-sm font-medium text-white">
+              Email
             </label>
             <input
               id="email"
-              type="email"
-              placeholder="Enter your email"
               value={userEmail}
               onChange={(e) => setUserEmail(e.target.value)}
+              type="email"
+              className="p-3 font-bold block w-full rounded-xl h-[40px] border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+              placeholder="Enter your email"
               required
-              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="password" className="text-gray-400">
-              User Password
+            <label htmlFor="password" className="block text-sm font-medium text-white">
+              Password
             </label>
             <input
               id="password"
-              type="password"
-              placeholder="Enter your password"
               value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
+              type="password"
+              className="p-3 font-bold block w-full rounded-xl h-[40px] border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+              placeholder="Enter your password"
               required
-              className="w-full rounded-md bg-gray-800 border-gray-700 text-gray-200 placeholder:text-gray-500 px-4 py-3"
+              onFocus={() => setShowPasswordRequirements(true)}
+              onBlur={() => setShowPasswordRequirements(false)}
             />
+            <div className={`password-r ${showPasswordRequirements ? 'show' : ''}`}>
+              <p>Password requirements:</p>
+              <ul className="list-disc pl-4">
+                {passwordRequirements.map((req, index) => (
+                  <li key={index} className={req.test(userPassword) ? "fulfilled" : ""}>
+                    {req.requirement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="BtnContainer flex justify-center w-full items-center">
+            <Stack direction="row" spacing={4}>
+              {isLoading ? (
+                <Button isLoading colorScheme="teal" variant="solid">
+                  Loading
+                </Button>
+              ) : (
+                <button
+                  onClick={handleSubmit}
+                  className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+                >
+                  Sign Up
+                </button>
+              )}
+            </Stack>
           </div>
         </div>
-        <div className="mt-4 flex justify-center">
-          <Stack direction="row" spacing={4}>
-            {isLoading ? (
-              <Button isLoading colorScheme="teal" variant="solid">
-                Loading
-              </Button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
-              >
-                Sign Up
-              </button>
-            )}
-          </Stack>
-        </div>
-        <ToastContainer transition={Flip} />
       </div>
+      <ToastContainer transition={Flip} />
     </div>
   );
 }
