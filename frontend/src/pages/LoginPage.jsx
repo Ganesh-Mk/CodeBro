@@ -6,9 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import CodeBroLogo from "../components/CodeBroLogo";
 import { setName, setEmail, setPassword } from "../store/userSlice";
 import { Button, Stack } from "@chakra-ui/react";
-import { Flip, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -18,11 +17,22 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = () => {
-
+    if(userEmail == '' || userPassword == '') {
+      toast.error("Enter all feilds!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+      });
+      return
+    }
     setIsLoading(true);
-   
-      
-    
+
     axios
       .post("http://localhost:3000/login", {
         userEmail,
@@ -30,7 +40,7 @@ export default function LoginPage() {
       })
       .then((result) => {
         console.log(result);
-          // toastShower()
+        // toastShower()
         if (result.data !== false) {
           dispatch(setName(result.data.name));
           dispatch(setEmail(result.data.email));
@@ -39,12 +49,12 @@ export default function LoginPage() {
           localStorage.setItem("name", result.data.name);
           localStorage.setItem("email", userEmail);
           localStorage.setItem("password", userPassword);
-          setTimeout(() => { 
+          setTimeout(() => {
             setTimeout(() => {
-              setIsLoading(false)
+              setIsLoading(false);
               navigate("/home");
-            }, 2500)
-            toast.success('Logging In!', {
+            }, 2500);
+            toast.success("Logging In!", {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -54,11 +64,11 @@ export default function LoginPage() {
               progress: undefined,
               theme: "dark",
               transition: Flip,
-              });
+            });
           }, 2000);
         } else {
           setTimeout(() => {
-            toast.error('User Not Found', {
+            toast.error("User Not Found", {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -68,19 +78,17 @@ export default function LoginPage() {
               progress: undefined,
               theme: "dark",
               transition: Flip,
-              });
-          setIsLoading(false)
-
-          }, 1500)
+            });
+            setIsLoading(false);
+          }, 1500);
         }
       })
-      .catch((err) => console.log(err))
-      // .finally(() => setIsLoading(false));
+      .catch((err) => console.log(err));
+    // .finally(() => setIsLoading(false));
   };
 
-
   const toastShower = () => {
-    toast.success('🦄 Wow so easy!', {
+    toast.success("🦄 Wow so easy!", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -90,48 +98,66 @@ export default function LoginPage() {
       progress: undefined,
       theme: "dark",
       transition: Bounce,
-      });
-  }
-
+    });
+  };
 
   return (
-    <div className="bg-card rounded-lg shadow-lg w-full max-w-md">
-      <div className="px-6 py-8 space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold">Welcome Back</h1>
-          <p className="text-muted-foreground">Enter your credentials to access your account.</p>
-        </div>
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <label htmlFor="username" className="block text-sm font-medium">
-              Username
-            </label>
-            <input
-              id="username"
-              type="text"
-              placeholder="Enter your username"
-              className="block w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
-            />
+    <div className="mainContainer">
+      <div className="login-container bg-card rounded-lg shadow-lg w-full max-w-md">
+        <div className="px-6 py-8 space-y-6">
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl font-bold">Welcome Back</h1>
+            <p className="text-muted-foreground">
+              Enter your credentials to access your account.
+            </p>
           </div>
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Enter your password"
-              className="block w-full rounded-md border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
-            />
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label htmlFor="username" className="block text-sm font-medium">
+                Username
+              </label>
+              <input
+                id="username"
+                type="text"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                placeholder="Enter your username"
+                className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="password" className="block text-sm font-medium">
+                Password
+              </label>
+              <input
+                id="password"
+                type="password"
+                value={userPassword}
+                onChange={(e) => setUserPassword(e.target.value)}
+                placeholder="Enter your password"
+                className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
+              />
+            </div>
+          </div>
+          <div className="Btn flex justify-center items-center">
+            <Stack direction="row" spacing={4}>
+              {isLoading ? (
+                <Button isLoading colorScheme="teal" variant="solid">
+                  Loading
+                </Button>
+              ) : (
+                <button
+                  onClick={handleSubmit}
+                  className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+                >
+                  Login
+                </button>
+              )}
+            </Stack>
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full rounded-md bg-primary px-4 py-2 text-white shadow-sm hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        >
-          Sign In
-        </button>
       </div>
+      <ToastContainer transition={Flip}/>
     </div>
   );
 }

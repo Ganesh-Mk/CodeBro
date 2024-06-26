@@ -1,4 +1,22 @@
 $btnColor:#0066FF;
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/images/register_page.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.login-container {
+    backdrop-filter: blur(6px);
+    border: 2px solid grey;
+}
+.Btn {
+    background-color: transparent;
+}
+
 
 .LoginContainer {
     height: 100vh;
