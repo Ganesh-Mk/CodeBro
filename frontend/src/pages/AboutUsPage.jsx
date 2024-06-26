@@ -25,7 +25,6 @@ export default function AboutUsPage() {
   const [message, setmessage] = useState("");
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -149,8 +148,9 @@ export default function AboutUsPage() {
 
                   <Text py="2" mt={3}>
                     I contributed to this project with a focus on frontend
-                    development, project planning, user authentication, quality
-                    assurance testing, and data integration.
+                    development, project planning in excalidraw, user
+                    authentication, quality assurance testing, and data
+                    integration.
                   </Text>
                 </CardBody>
               </div>
@@ -240,9 +240,9 @@ export default function AboutUsPage() {
                 </div>
 
                 <Text py="2" mt={3}>
-                  I contributed to this project with full stack development,
-                  which included program structure, design, frontend, backend,
-                  and database.
+                  I contributed to this project with a focus on full stack
+                  development, which included project planning, designing,
+                  making it responsive, frontend, backend, and database.
                 </Text>
               </CardBody>
             </Stack>

@@ -162,7 +162,7 @@ export default function EntrancePage() {
   return (
     <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">
       <header className="px-4 md:px-6 py-4 flex items-center justify-between">
-        <Link to="/aboutus" className="flex items-center gap-2">
+        <Link to="/home" className="flex items-center gap-2">
           <CodeBroLogo />
         </Link>
 
