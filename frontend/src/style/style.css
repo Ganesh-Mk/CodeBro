@@ -14,6 +14,23 @@ body {
   --chakra-colors-chakra-body-bg: #1A1A1A !important;
 }
 
+.text-xl{
+  text-align: center !important;
+}
+
+.entranceBtnBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+.codeText{
+  color: white;
+  transition: .2s ease-in-out;
+}
+.codeText:hover{
+  color: rgba(0, 131, 231, 0.89);
+}
 
 .icons {
   width: 2vw;
@@ -142,4 +159,8 @@ h1, h2, h3, h4, h5, h6{
   .navRemoveOnMini{
     display: none !important;
   }
+  
+.entranceBtnBox{
+  flex-direction: column;
+}
 }

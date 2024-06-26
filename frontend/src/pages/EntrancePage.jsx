@@ -166,7 +166,7 @@ export default function EntrancePage() {
           <CodeBroLogo />
         </Link>
 
-        <div className="flex items-center gap-4 navRemoveOnMini">
+        <div className=" flex items-center gap-4 navRemoveOnMini">
           <Link
             to="/register"
             className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
@@ -175,7 +175,7 @@ export default function EntrancePage() {
           </Link>
           <Link
             to="/login"
-            className="inline-flex text-white h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300"
+            className="marginLeft inline-flex text-white h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300"
           >
             Already have an account
           </Link>
@@ -184,23 +184,29 @@ export default function EntrancePage() {
       <main className="flex-1 flex flex-col items-center justify-center gap-8 px-4 md:px-6 py-12 md:py-24 lg:py-32">
         <div className="max-w-3xl text-center space-y-4">
           <h1 className="text-4xl text-white md:text-5xl lg:text-6xl font-bold tracking-tighter">
-            Elevate your DSA skills with CodeBro
+            Elevate your DSA skills with{" "}
+            <span className="codeText text-4xl text-white md:text-5xl lg:text-6xl font-bold tracking-tighter">
+              Code
+            </span>
+            Bro
           </h1>
           <p className="text-gray-500 text-lg md:text-xl">
             Unlock your full potential with our comprehensive coding platform.
           </p>
-          <Link
-            to="/register"
-            className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-          >
-            Create Account
-          </Link>
-          <Link
-            to="/login"
-            className="inline-flex text-white h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300"
-          >
-            Already have an account
-          </Link>
+          <div className=" entranceBtnBox">
+            <Link
+              to="/register"
+              className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+            >
+              Create Account
+            </Link>
+            <Link
+              to="/login"
+              className="inline-flex text-white h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:focus-visible:ring-gray-300"
+            >
+              Already have an account
+            </Link>
+          </div>
         </div>
         <div className="grid mt-10 grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
           <div className="flex flex-col items-center gap-4">
@@ -263,7 +269,7 @@ export default function EntrancePage() {
           <span className="text-sm font-medium">CodeBro</span>
         </div>
         <p className="text-sm text-gray-500">
-          &copy; 2024 CodeBro. All rights reserved.
+          &copy; 2024 CodeBro. No rights reserved.
         </p>
       </footer>
     </div>

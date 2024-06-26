@@ -75,6 +75,15 @@ function Navbar({ fontColor = "white" }) {
         >
           <p>Coding</p>
         </Link>
+        <Link
+          to="/aboutus"
+          className={`navItems ${
+            location.pathname === "/aboutus" ? "active" : ""
+          }`}
+          style={{ textDecoration: "none", color: fontColor }}
+        >
+          <p>AboutUs</p>
+        </Link>
       </div>
 
       <div>
