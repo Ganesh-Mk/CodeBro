@@ -12,12 +12,13 @@ import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
 import axios from "axios";
 import "../style/Leaderboard.css";
 import { SearchIcon } from "@chakra-ui/icons";
+import { images } from "../javascripts/images";
 
 function LeaderBoardPage() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
-
+  const [userImage, setUserImage] = useState(images.accDefaultLogo);
 
   const leaderBoardEntries = useSelector(
     (state) => state.leaderBoard.leaderBoardEntries
@@ -139,7 +140,7 @@ function LeaderBoardPage() {
                   <LeaderBoardUsers
                     key={user.email}
                     rank={rankMap[user.email]}
-                    image={user.image}
+                    userImage={userImage}
                     name={user.name}
                     total={user.total}
                     easy={user.easy}

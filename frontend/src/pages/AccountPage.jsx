@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import DisplayProblemContainer from "../components/DisplayProblemContainer";
 import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
 import { addTestCaseResults } from "../store/problemObjSlice";
+import { setStoreAttempts } from "../store/attemptsSlice";
 
 function AccountPage() {
   const size = useBreakpointValue({ base: "45vw", md: "12vw" });
@@ -117,19 +118,7 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/fetchUserImage", {
-        params: {
-          userEmail: localStorage.getItem("email"),
-        },
-      })
-      .then((response) => {
-        console.log("image: ", response.data);
-        setUserImage(response.data.userImage);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
+    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
   }, []);
 
   useEffect(() => {
@@ -152,20 +141,38 @@ function AccountPage() {
       });
   }, [addTestCaseResults]);
 
+  useEffect(() => {
+    const savedAttempts = JSON.parse(localStorage.getItem("userAttempts"));
+
+    if (savedAttempts && savedAttempts.length === AllquesObject.length) {
+      dispatch(setStoreAttempts(savedAttempts));
+    } else {
+      axios
+        .get("http://localhost:3000/getUserAttempts", {
+          params: { userEmail: localStorage.getItem("email") },
+        })
+        .then((response) => {
+          const attemptsData = response.data;
+          const initializedAttempts = Array.from(
+            { length: AllquesObject.length },
+            (_, i) => attemptsData[i] || 0
+          );
+          console.log("Initialized attempts: ", initializedAttempts);
+          dispatch(setStoreAttempts(initializedAttempts));
+        })
+        .catch((error) => {
+          console.error("Error fetching user attempts:", error);
+        });
+    }
+  }, [dispatch]);
+
   return (
     <div>
       <Navbar />
       <div className="accountPage">
         <div className="accLeft">
           <div className="accLeftTop">
-            <img
-              src={
-                userImage
-                  ? `http://localhost:3000/${userImage}`
-                  : images.accDefaultLogo
-              }
-              alt="account default logo"
-            />
+            <img src={userImage} alt="account default logo" />
             <div className="accLeftTopText">
               <div>
                 <p>{userName}</p>

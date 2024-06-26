@@ -1,4 +1,15 @@
-import { Button, Input } from "@chakra-ui/react";
+import {
+  Button,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+  ModalOverlay,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { images } from "../javascripts/images";
@@ -15,11 +26,13 @@ import {
   setInsta,
   setGithub,
   setLinkedin,
+  storeUserImage,
 } from "../store/userSlice";
 
 function EditProfilePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const userObj = useSelector((state) => state.user);
   const [userName, setUserName] = useState(userObj.name);
   const [userEmail, setUserEmail] = useState(userObj.email);
@@ -27,10 +40,7 @@ function EditProfilePage() {
   const [userInsta, setUserInsta] = useState("");
   const [userGithub, setUserGithub] = useState("");
   const [userLinkedin, setUserLinkedin] = useState("");
-  const [editUserImage, setEditUserImage] = useState(images.accDefaultLogo);
   const [userImage, setUserImage] = useState(images.accDefaultLogo);
-  const [userImageEdit, setUserImageEdit] = useState(images.accDefaultLogo);
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     setUserName(localStorage.getItem("name"));
@@ -39,28 +49,24 @@ function EditProfilePage() {
     setUserInsta(localStorage.getItem("insta"));
     setUserGithub(localStorage.getItem("github"));
     setUserLinkedin(localStorage.getItem("linkedin"));
-    setUserImage(localStorage.getItem("userImage"));
+    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
   }, []);
 
   const handleSubmit = () => {
-    const formData = new FormData();
-    console.log(userImage);
-    if (userImage) {
-      formData.append("image", userImage);
-    }
-    formData.append("userEmail", userEmail);
-    formData.append("userName", userName);
-    formData.append("userPassword", userPassword);
-    formData.append("userInsta", userInsta);
-    formData.append("userGithub", userGithub);
-    formData.append("userLinkedin", userLinkedin);
+    storeUserImage(userObj.userImage);
+
+    const userDetails = {
+      userEmail,
+      userName,
+      userPassword,
+      userInsta,
+      userGithub,
+      userLinkedin,
+      userImage,
+    };
 
     axios
-      .post("http://localhost:3000/updateUserDetails", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post("http://localhost:3000/updateUserDetails", userDetails)
       .then((result) => {
         const currentName = localStorage.getItem("name");
         const currentEmail = localStorage.getItem("email");
@@ -68,7 +74,6 @@ function EditProfilePage() {
         const currentInsta = localStorage.getItem("insta");
         const currentGithub = localStorage.getItem("github");
         const currentLinkedin = localStorage.getItem("linkedin");
-        let bool = false;
 
         const nameChanged = currentName !== userName;
         const emailChanged = currentEmail !== userEmail;
@@ -84,6 +89,7 @@ function EditProfilePage() {
         localStorage.setItem("insta", userInsta);
         localStorage.setItem("github", userGithub);
         localStorage.setItem("linkedin", userLinkedin);
+        localStorage.setItem("userImage", userImage);
 
         dispatch(setName(userName));
         dispatch(setEmail(userEmail));
@@ -91,6 +97,7 @@ function EditProfilePage() {
         dispatch(setInsta(userInsta));
         dispatch(setGithub(userGithub));
         dispatch(setLinkedin(userLinkedin));
+        dispatch(storeUserImage(userImage));
 
         if (
           nameChanged ||
@@ -100,7 +107,6 @@ function EditProfilePage() {
           githubChanged ||
           linkedinChanged
         ) {
-          bool = true;
           toast.success("Profile Updated", {
             position: "top-right",
             autoClose: 5000,
@@ -113,14 +119,7 @@ function EditProfilePage() {
             transition: Flip,
           });
         }
-        if (bool === false) {
-          navigate("/account");
-        }
-
-        setTimeout(() => {
-          bool = false;
-          navigate("/account");
-        }, 2000);
+        navigate("/account");
       })
       .catch((error) => {
         console.error("Error updating user details:", error);
@@ -134,7 +133,8 @@ function EditProfilePage() {
     setUserInsta(localStorage.getItem("insta"));
     setUserGithub(localStorage.getItem("github"));
     setUserLinkedin(localStorage.getItem("linkedin"));
-    toast.success("Reset Successfull", {
+    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+    toast.success("Reset Successful", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -145,39 +145,47 @@ function EditProfilePage() {
       theme: "dark",
       transition: Flip,
     });
-    setTimeout(() => {}, 2500);
   };
 
-  const handleImage = (e) => {
-    const file = e.target.files[0];
-    setUserImage(file);
-    setUserImageEdit(file);
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (reader.readyState === 2) {
-        setEditUserImage(reader.result);
-      }
-    };
-    reader.readAsDataURL(file);
-  };
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/fetchUserImage", {
-        params: {
-          userEmail: localStorage.getItem("email"),
-        },
-      })
-      .then((response) => {
-        setUserImage(response.data.userImage);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, []);
   return (
     <div>
       <Navbar />
+
+      <Modal
+        blockScrollOnMount={false}
+        isOpen={isOpen}
+        onClose={onClose}
+        scrollBehavior={"inside"}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Select Profile Image</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div className="profileImagesBox">
+              {images.profileImages.map((image, index) => (
+                <img
+                  className="profileImages"
+                  key={index}
+                  src={image}
+                  alt="profile image"
+                  onClick={() => {
+                    setUserImage(image);
+                    onClose();
+                  }}
+                />
+              ))}
+            </div>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button variant="ghost" onClick={onClose}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+
       <div className="editProfile">
         <div className="editHead">
           <h1>Edit Profile</h1>
@@ -185,30 +193,14 @@ function EditProfilePage() {
         <div className="editBox">
           <div className="editLeft">
             <img
-              style={{
-                borderRadius: "2vw",
-              }}
-              src={
-                editUserImage !== images.accDefaultLogo
-                  ? editUserImage
-                  : userImageEdit === images.accDefaultLogo
-                  ? userImage
-                    ? `http://localhost:3000/${userImage}`
-                    : images.accDefaultLogo
-                  : `http://localhost:3000/${userImageEdit}`
-              }
+              style={{ borderRadius: "2vw" }}
+              src={userImage}
               alt="account default logo"
             />
 
-            <label htmlFor="imageInput" className="custom-file-upload">
+            <Button w={"100%"} onClick={onOpen}>
               Choose Image
-            </label>
-            <input
-              id="imageInput"
-              type="file"
-              onChange={handleImage}
-              className="file-input"
-            />
+            </Button>
           </div>
           <div className="editRight">
             <div className="editInputBox">

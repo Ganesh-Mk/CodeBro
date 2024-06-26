@@ -3,11 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 import "../style/Navbar.scss";
 import { images } from "../javascripts/images";
 import CodeBroLogo from "./CodeBroLogo";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 function Navbar({ fontColor = "white" }) {
   const [userImage, setUserImage] = useState("home");
   const [menuVisible, setMenuVisible] = useState(false);
+  const userObj = useSelector((state) => state.user);
+
+  useEffect(() => {
+    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+  }, []);
+
   const location = useLocation(); // Get current location
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
@@ -15,21 +22,6 @@ function Navbar({ fontColor = "white" }) {
     console.log("menuVisible", menuVisible);
     setMenuVisible(!menuVisible); // Toggle the menu visibility state
   };
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/fetchUserImage", {
-        params: {
-          userEmail: localStorage.getItem("email"),
-        },
-      })
-      .then((response) => {
-        setUserImage(response.data.userImage);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, []);
 
   return (
     <div className="navbar">
@@ -95,11 +87,7 @@ function Navbar({ fontColor = "white" }) {
               height: "2vw",
               borderRadius: "100vw",
             }}
-            src={
-              userImage
-                ? `http://localhost:3000/${userImage}`
-                : images.accDefaultLogo
-            }
+            src={userImage}
             alt={"account default logo"}
           />
           <p
@@ -113,15 +101,7 @@ function Navbar({ fontColor = "white" }) {
 
       <div className="rightMenuMini">
         <Link to="/account" className="navAccMini">
-          <img
-            className="accLogoMini"
-            src={
-              userImage
-                ? `http://localhost:3000/${userImage}`
-                : images.accDefaultLogo
-            }
-            alt="account logo"
-          />
+          <img className="accLogoMini" src={userImage} alt="account logo" />
         </Link>
         <div className="menuIcon" onClick={handleMenuToggle}>
           {menuVisible ? (

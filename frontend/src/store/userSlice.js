@@ -1,46 +1,46 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  id: '',
-  name: '',
-  email: '',
-  password: '',
-  insta: '',
-  github: '',
-  linkedin: '',
-  userImage: '',
-}
+  id: "",
+  name: "",
+  email: "",
+  password: "",
+  insta: "",
+  github: "",
+  linkedin: "",
+  userImage: "",
+};
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     setId: (state, action) => {
-      state.id = action.payload
+      state.id = action.payload;
     },
     setName: (state, action) => {
-      state.name = action.payload
+      state.name = action.payload;
     },
     setEmail: (state, action) => {
-      state.email = action.payload
+      state.email = action.payload;
     },
     setPassword: (state, action) => {
-      state.password = action.payload
+      state.password = action.payload;
     },
     setInsta: (state, action) => {
-      state.insta = action.payload
+      state.insta = action.payload;
     },
     setGithub: (state, action) => {
-      state.github = action.payload
+      state.github = action.payload;
     },
     setLinkedin: (state, action) => {
-      state.linkedin = action.payload
+      state.linkedin = action.payload;
     },
-    setUserImage: (state, action) => {
-      state.userImage = action.payload
+    storeUserImage: (state, action) => {
+      state.userImage = action.payload;
     },
   },
-})
+});
 
 export const {
   setId,
@@ -50,7 +50,7 @@ export const {
   setInsta,
   setGithub,
   setLinkedin,
-  setUserImage,
+  storeUserImage,
   setUserProblems,
-} = userSlice.actions
-export default userSlice.reducer
+} = userSlice.actions;
+export default userSlice.reducer;

@@ -85,6 +85,8 @@
     place-items: center;
     grid-template-columns: 30% 70%;
 }
+
+
 .editBtns{
     width: 10vw;
     height: 3vw;
@@ -93,6 +95,33 @@
     margin-top: 2vw;
     background: #007BFF;
 }
+
+
+
+
+
+
+
+.profileImagesBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3vw;
+}
+
+
+
+.profileImages{
+    border-radius: 100vw;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
 
 
 @media screen and (max-width: 800px) {

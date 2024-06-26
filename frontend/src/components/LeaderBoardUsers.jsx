@@ -23,7 +23,7 @@ function LeaderBoardUsers({
   javascript = 0,
   python = 0,
   java = 0,
-  image = "",
+  userImage = "",
 }) {
   return (
     <>
@@ -36,11 +36,7 @@ function LeaderBoardUsers({
               <p>{rank}</p>
               <img
                 className="leadersImage"
-                src={
-                  image
-                    ? `http://localhost:3000/${image}`
-                    : images.accDefaultLogo
-                }
+                src={userImage}
                 alt="account default logo"
               />
               <div>
