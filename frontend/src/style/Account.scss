@@ -9,7 +9,7 @@ h1, p{
 .accLeftTopText{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -43,6 +43,7 @@ color: grey;
                 font-size: 1.3vw;
             }
             #accRank{
+                text-align: start;
                 margin-top: 2vw;
             }
             #accRank span{
@@ -57,6 +58,7 @@ color: grey;
 
             p{
                 font-size: 1.7vw;
+                width: 70%;
             }
         }
 
