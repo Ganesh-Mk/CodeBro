@@ -16,10 +16,11 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "https://codebrowebsite.vercel.app/", // Your frontend URL
+  origin: "https://codebrowebsite.vercel.app",
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+app.options("/createUser", cors(corsOptions));
 
 mongoose
   .connect(process.env.DATABASE_URI)
