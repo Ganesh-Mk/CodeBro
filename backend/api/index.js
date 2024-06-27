@@ -20,18 +20,16 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-app.options("/createUser", cors(corsOptions));
-app.options("/userAttempts", cors(corsOptions));
-app.options("/deleteAllProblem", cors(corsOptions));
-app.options("/allUserDetails", cors(corsOptions));
-app.options("/problemRecord", cors(corsOptions));
-app.options("/leaderBoardprint", cors(corsOptions));
-app.options("/updateUserDetails", cors(corsOptions));
-app.options("/addProblemRecord", cors(corsOptions));
-app.options("/getUserAttempts", cors(corsOptions));
-app.options("/login", cors(corsOptions));
-app.options("/createUser", cors(corsOptions));
-app.options("/userMessages", cors(corsOptions));
+app.options("*", cors(corsOptions));
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://codebrowebsite.vercel.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 mongoose
   .connect(process.env.DATABASE_URI)
