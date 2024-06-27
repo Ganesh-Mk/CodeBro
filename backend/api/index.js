@@ -21,6 +21,17 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.options("/createUser", cors(corsOptions));
+app.options("/userAttempts", cors(corsOptions));
+app.options("/deleteAllProblem", cors(corsOptions));
+app.options("/allUserDetails", cors(corsOptions));
+app.options("/problemRecord", cors(corsOptions));
+app.options("/leaderBoardprint", cors(corsOptions));
+app.options("/updateUserDetails", cors(corsOptions));
+app.options("/addProblemRecord", cors(corsOptions));
+app.options("/getUserAttempts", cors(corsOptions));
+app.options("/login", cors(corsOptions));
+app.options("/createUser", cors(corsOptions));
+app.options("/userMessages", cors(corsOptions));
 
 mongoose
   .connect(process.env.DATABASE_URI)
