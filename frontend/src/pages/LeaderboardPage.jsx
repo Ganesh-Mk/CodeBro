@@ -22,35 +22,22 @@ function LeaderBoardPage() {
   );
   const [rankMap, setRankMap] = useState({});
 
-  // Map to hold user email to image path mapping
-  const imagePathMap = {
-    p1: "/src/assets/images/p1.jpg",
-    p2: "/src/assets/images/p2.jpg",
-    p3: "/src/assets/images/p3.jpg",
-    p4: "/src/assets/images/p4.jpg",
-    p5: "/src/assets/images/p5.jpg",
-    p6: "/src/assets/images/p6.jpg",
-    p7: "/src/assets/images/p7.jpg",
-    p8: "/src/assets/images/p8.jpg",
-    p9: "/src/assets/images/p9.jpg",
-  };
-
   useEffect(() => {
     async function fetchLeaderBoard() {
-      await axios
-        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
-        .then((response) => {
-          // Add image paths to the user data
-          const updatedEntries = response.data.map((entry) => ({
-            ...entry,
-            image: imagePathMap[entry.image] || images.accDefaultLogo,
-          }));
-
-          dispatch(setLeaderBoardEntries(updatedEntries));
-        })
-        .catch((error) => {
-          console.error("Error fetching leaderboard data:", error);
-        });
+      try {
+        const response = await axios.get(
+          "https://code-bro-tau.vercel.app/leaderBoardprint"
+        );
+        const updatedEntries = response.data.map((entry) => ({
+          ...entry,
+          image:
+            images.profileImages[parseInt(entry.image.substring(1)) - 1] ||
+            images.accDefaultLogo,
+        }));
+        dispatch(setLeaderBoardEntries(updatedEntries));
+      } catch (error) {
+        console.error("Error fetching leaderboard data:", error);
+      }
     }
     fetchLeaderBoard();
   }, [dispatch]);

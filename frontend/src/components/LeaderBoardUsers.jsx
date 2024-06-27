@@ -25,18 +25,6 @@ function LeaderBoardUsers({
   java = 0,
   userImage = "",
 }) {
-  let imageIndex = -1;
-  if (userImage.startsWith("p") && userImage.includes("-")) {
-    const parts = userImage.split("-");
-    if (parts.length > 1) {
-      const numberPart = parts[0].substring(1); // Extracts '1' from 'p1'
-      imageIndex = parseInt(numberPart) - 1; // Convert to integer and adjust for zero-indexing
-    }
-  }
-
-  // Determine the actual image URL
-  const imageUrl = imageIndex !== -1 ? images.profileImages[imageIndex] : ""; // Adjust if no match found
-
   return (
     <>
       <AccordionItem>
@@ -48,7 +36,7 @@ function LeaderBoardUsers({
               <p>{rank}</p>
               <img
                 className="leadersImage"
-                src={imageUrl}
+                src={userImage}
                 alt="account default logo"
               />
               <div>
@@ -70,35 +58,25 @@ function LeaderBoardUsers({
             <div className="linksContainerMain">
               <h1>Connect with : </h1>
               <div className="linksContainer">
-                {userInsta != "" ? (
+                {userInsta !== "" && (
                   <Link className="links" target="_blank" to={userInsta}>
                     <img src={images.instagram} alt="insta logo" />
                   </Link>
-                ) : (
-                  ""
                 )}
-                {userGithub != "" ? (
+                {userGithub !== "" && (
                   <Link className="links" target="_blank" to={userGithub}>
                     <img src={images.github} alt="Github logo" />
                   </Link>
-                ) : (
-                  ""
                 )}
-
-                {userLinkedin != "" ? (
+                {userLinkedin !== "" && (
                   <Link className="links" target="_blank" to={userLinkedin}>
                     <img src={images.linkedin} alt="LinkedIn logo" />
                   </Link>
-                ) : (
-                  ""
                 )}
-
-                {userEmail != "" ? (
+                {userEmail !== "" && (
                   <Link className="links" target="_blank" to={userEmail}>
                     <img src={images.mail} alt="Mail logo" />
                   </Link>
-                ) : (
-                  ""
                 )}
               </div>
             </div>
