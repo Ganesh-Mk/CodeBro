@@ -57,7 +57,7 @@ app.get("/allUserDetails", (req, res) => {
     .then((userModel) => res.send(userModel))
     .catch((err) => res.send(err));
 });
-app.delete("/deleteAllUsers", async (req, res) => {
+app.get("/deleteAllUsers", async (req, res) => {
   try {
     await UserModel.deleteMany({});
     return res.status(204).send();
@@ -83,7 +83,7 @@ app.get("/leaderBoardprint", async (req, res) => {
     return res.status(500).send(err.message);
   }
 });
-app.delete("/deleteAllLeaderBoard", async (req, res) => {
+app.get("/deleteAllLeaderBoard", async (req, res) => {
   try {
     await LeaderBoard.deleteMany({});
     return res.status(204).send();
