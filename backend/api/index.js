@@ -20,7 +20,9 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests for all routes
+
+// Middleware to set CORS headers and log requests
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
@@ -28,6 +30,7 @@ app.use((req, res, next) => {
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  console.log(`Received request for ${req.url}`);
   next();
 });
 
