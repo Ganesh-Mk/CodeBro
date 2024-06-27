@@ -1,11 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import Navbar from "./components/Navbar";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EntrancePage from "./pages/EntrancePage";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
@@ -17,16 +11,9 @@ import CodingPage from "./pages/CodingPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import LeaderBoardPage from "./pages/LeaderboardPage";
 
-// const ShowNavbar = () => {
-//   const location = useLocation();
-//   const noNavPaths = ['/', '/login', '/register', '/coding'];
-//   return noNavPaths.includes(location.pathname) ? null : <Navbar />;
-// };
-
 const App = () => {
   return (
     <Router>
-      {/* <ShowNavbar /> */}
       <Routes>
         <Route path="/" element={<EntrancePage />} />
         <Route path="/login" element={<LoginPage />} />
