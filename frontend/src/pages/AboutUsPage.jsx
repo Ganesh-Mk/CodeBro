@@ -149,8 +149,8 @@ export default function AboutUsPage() {
                   <Text py="2" mt={3}>
                     I contributed to this project with a focus on frontend
                     development, project planning in excalidraw, user
-                    authentication, quality assurance testing, and data
-                    integration.
+                    authentication and authorization, quality assurance testing, data
+                    integration and hosting.
                   </Text>
                 </CardBody>
               </div>
