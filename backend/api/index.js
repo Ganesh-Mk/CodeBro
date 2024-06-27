@@ -57,7 +57,15 @@ app.get("/allUserDetails", (req, res) => {
     .then((userModel) => res.send(userModel))
     .catch((err) => res.send(err));
 });
-
+router.delete("/deleteAllUsers", async (req, res) => {
+  try {
+    await UserModel.deleteMany({});
+    return res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting all users:", err);
+    return res.status(500).send(err.message);
+  }
+});
 app.get("/problemRecord", (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
@@ -72,6 +80,15 @@ app.get("/leaderBoardprint", async (req, res) => {
     return res.send(leaderboard);
   } catch (err) {
     console.error("Error fetching leaderboard entries:", err);
+    return res.status(500).send(err.message);
+  }
+});
+router.delete("/deleteAllLeaderBoard", async (req, res) => {
+  try {
+    await LeaderBoard.deleteMany({});
+    return res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting leaderboard entries:", err);
     return res.status(500).send(err.message);
   }
 });
