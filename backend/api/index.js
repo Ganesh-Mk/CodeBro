@@ -2,9 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
 
 require("dotenv").config();
 const UserModel = require("../models/userModel");
@@ -17,7 +14,8 @@ app.use(bodyParser.json());
 
 const corsOptions = {
   origin: "https://codebrowebsite.vercel.app",
-  optionsSuccessStatus: 200,
+  methods: "GET, POST, PUT, DELETE",
+  allowedHeaders: "Content-Type, Authorization",
 };
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // Handle preflight requests for all routes

@@ -43,7 +43,9 @@ function LeaderBoardPage() {
           // Add image paths to the user data
           const updatedEntries = response.data.map((entry) => ({
             ...entry,
-            image: imagePathMap[entry.image] || images.accDefaultLogo,
+            image:
+              imagePathMap[entry.image.split("-")[0]] ||
+              images.accDefaultLogo.split("-")[0],
           }));
 
           dispatch(setLeaderBoardEntries(updatedEntries));
