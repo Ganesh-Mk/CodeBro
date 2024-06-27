@@ -25,6 +25,18 @@ function LeaderBoardUsers({
   java = 0,
   userImage = "",
 }) {
+  let imageIndex = -1;
+  if (userImage.startsWith("p") && userImage.includes("-")) {
+    const parts = userImage.split("-");
+    if (parts.length > 1) {
+      const numberPart = parts[0].substring(1); // Extracts '1' from 'p1'
+      imageIndex = parseInt(numberPart) - 1; // Convert to integer and adjust for zero-indexing
+    }
+  }
+
+  // Determine the actual image URL
+  const imageUrl = imageIndex !== -1 ? images.profileImages[imageIndex] : ""; // Adjust if no match found
+
   return (
     <>
       <AccordionItem>
@@ -36,7 +48,7 @@ function LeaderBoardUsers({
               <p>{rank}</p>
               <img
                 className="leadersImage"
-                src={userImage}
+                src={imageUrl}
                 alt="account default logo"
               />
               <div>
