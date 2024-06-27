@@ -53,7 +53,7 @@ function AccountPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/leaderBoardprint`)
+        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })
@@ -125,7 +125,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -150,7 +150,7 @@ function AccountPage() {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/getUserAttempts`, {
+        .get("https://code-bro-tau.vercel.app/getUserAttempts", {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {

@@ -67,7 +67,7 @@ function EditProfilePage() {
     };
 
     axios
-      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/updateUserDetails`, userDetails)
+      .post("https://code-bro-tau.vercel.app/updateUserDetails", userDetails)
       .then((result) => {
         const currentName = localStorage.getItem("name");
         const currentEmail = localStorage.getItem("email");

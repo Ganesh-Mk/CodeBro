@@ -32,7 +32,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/userMessages`, {
+      .post("https://code-bro-tau.vercel.app/userMessages", {
         name,
         email,
         message,

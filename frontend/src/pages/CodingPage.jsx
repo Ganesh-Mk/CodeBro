@@ -73,7 +73,7 @@ function CodingPage() {
       localStorage.setItem("userAttempts", JSON.stringify(updatedAttempts));
 
       axios
-        .post(`${import.meta.env.REACT_APP_BACKEND_URL}/userAttempts`, {
+        .post("https://code-bro-tau.vercel.app/userAttempts", {
           userEmail: localStorage.getItem("email"),
           attempts: updatedAttempts,
         })
@@ -338,7 +338,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem("linkedin");
 
       await axios
-        .post(`${import.meta.env.REACT_APP_BACKEND_URL}/addProblemRecord`, {
+        .post("https://code-bro-tau.vercel.app/addProblemRecord", {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,

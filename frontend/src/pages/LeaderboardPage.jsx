@@ -38,7 +38,7 @@ function LeaderBoardPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/leaderBoardprint`)
+        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
         .then((response) => {
           // Add image paths to the user data
           const updatedEntries = response.data.map((entry) => ({

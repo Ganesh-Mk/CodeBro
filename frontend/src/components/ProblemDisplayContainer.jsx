@@ -51,7 +51,7 @@ const ProblemDisplayContainer = ({
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

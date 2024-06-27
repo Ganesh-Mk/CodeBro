@@ -74,7 +74,7 @@ const HomePage = () => {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/getUserAttempts`, {
+        .get("https://code-bro-tau.vercel.app/getUserAttempts", {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {
@@ -134,7 +134,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -147,7 +147,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
+      .get("https://code-bro-tau.vercel.app/problemRecord", {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

@@ -34,7 +34,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     axios
-      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/login`, {
+      .post("https://code-bro-tau.vercel.app/login", {
         userEmail,
         userPassword,
       })

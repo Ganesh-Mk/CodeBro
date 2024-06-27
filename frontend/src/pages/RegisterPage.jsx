@@ -84,7 +84,7 @@ export default function RegisterPage() {
     localStorage.setItem("rank", "Unranked");
 
     axios
-      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/createUser`, {
+      .post("https://code-bro-tau.vercel.app/createUser", {
         userName,
         userEmail,
         userPassword,
