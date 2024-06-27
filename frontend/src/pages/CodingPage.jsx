@@ -73,7 +73,7 @@ function CodingPage() {
       localStorage.setItem("userAttempts", JSON.stringify(updatedAttempts));
 
       axios
-        .post("http://localhost:3000/userAttempts", {
+        .post(`${import.meta.env.REACT_APP_BACKEND_URL}/userAttempts`, {
           userEmail: localStorage.getItem("email"),
           attempts: updatedAttempts,
         })
@@ -338,7 +338,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem("linkedin");
 
       await axios
-        .post("http://localhost:3000/addProblemRecord", {
+        .post(`${import.meta.env.REACT_APP_BACKEND_URL}/addProblemRecord`, {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,

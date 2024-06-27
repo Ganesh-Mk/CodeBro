@@ -84,7 +84,7 @@ export default function RegisterPage() {
     localStorage.setItem("rank", "Unranked");
 
     axios
-      .post("http://localhost:3000/createUser", {
+      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/createUser`, {
         userName,
         userEmail,
         userPassword,

@@ -51,7 +51,7 @@ const ProblemDisplayContainer = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

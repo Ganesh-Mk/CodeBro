@@ -74,7 +74,7 @@ const HomePage = () => {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get("http://localhost:3000/getUserAttempts", {
+        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/getUserAttempts`, {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {
@@ -134,7 +134,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -147,7 +147,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

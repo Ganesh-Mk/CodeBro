@@ -67,7 +67,7 @@ function EditProfilePage() {
     };
 
     axios
-      .post("http://localhost:3000/updateUserDetails", userDetails)
+      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/updateUserDetails`, userDetails)
       .then((result) => {
         const currentName = localStorage.getItem("name");
         const currentEmail = localStorage.getItem("email");

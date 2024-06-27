@@ -53,7 +53,7 @@ function AccountPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get("http://localhost:3000/leaderBoardprint")
+        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })
@@ -125,7 +125,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/problemRecord", {
+      .get(`${import.meta.env.REACT_APP_BACKEND_URL}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -150,7 +150,7 @@ function AccountPage() {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get("http://localhost:3000/getUserAttempts", {
+        .get(`${import.meta.env.REACT_APP_BACKEND_URL}/getUserAttempts`, {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {

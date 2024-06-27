@@ -34,7 +34,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     axios
-      .post("http://localhost:3000/login", {
+      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/login`, {
         userEmail,
         userPassword,
       })

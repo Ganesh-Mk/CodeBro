@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Your frontend URL
+  origin: "https://codebrowebsite.vercel.app/", // Your frontend URL
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));

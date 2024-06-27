@@ -32,7 +32,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post("http://localhost:3000/userMessages", {
+      .post(`${import.meta.env.REACT_APP_BACKEND_URL}/userMessages`, {
         name,
         email,
         message,
