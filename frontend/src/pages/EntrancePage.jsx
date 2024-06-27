@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { setSolvedProblems } from "../store/solvedProblemsReducer";
 import "../style/style.css";
 import CodeBroLogo from "../components/CodeBroLogo";
+import { useNavigate } from "react-router-dom";
 
 function CodeIcon(props) {
   return (
@@ -141,6 +142,7 @@ function UserIcon(props) {
 
 export default function EntrancePage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // window.location.reload()
 
   useEffect(() => {
@@ -154,11 +156,16 @@ export default function EntrancePage() {
   }, []);
 
   useEffect(() => {
-    dispatch(setSolvedProblems([]));
-    localStorage.clear();
-    localStorage.setItem("solved", "[]");
-    localStorage.setItem("attempts", "[]");
-    localStorage.setItem("userAttempts", "[]");
+    const userName = localStorage.getItem("name");
+    if (!userName || userName === "") {
+      dispatch(setSolvedProblems([]));
+      localStorage.clear();
+      localStorage.setItem("solved", "[]");
+      localStorage.setItem("attempts", "[]");
+      localStorage.setItem("userAttempts", "[]");
+    } else {
+      navigate("/home");
+    }
   }, []);
   return (
     <div className="entrancePage bg-gray-950 text-gray-50 min-h-[100dvh] flex flex-col">

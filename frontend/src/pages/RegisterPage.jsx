@@ -16,7 +16,8 @@ export default function RegisterPage() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showPasswordRequirements, setShowPasswordRequirements] = useState(false);
+  const [showPasswordRequirements, setShowPasswordRequirements] =
+    useState(false);
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -136,21 +137,31 @@ export default function RegisterPage() {
   const passwordRequirements = [
     { requirement: "At least 8 characters", test: (pw) => pw.length >= 8 },
     { requirement: "Contains numbers", test: (pw) => /\d/.test(pw) },
-    { requirement: "At least one uppercase letter", test: (pw) => /[A-Z]/.test(pw) },
-    { requirement: "Contains special characters", test: (pw) => /[@$!#%*&?<>^]/.test(pw) },
+    {
+      requirement: "At least one uppercase letter",
+      test: (pw) => /[A-Z]/.test(pw),
+    },
+    {
+      requirement: "Contains special characters",
+      test: (pw) => /[@$!#%*&?<>^]/.test(pw),
+    },
   ];
-  
 
   return (
     <div className="container w-[100vw] h-[100vh] flex justify-center items-center">
       <div className="signupBox mx-auto max-w-md space-y-6 w-[410px]">
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold">Sign Up</h1>
-          <p className="text-muted-foreground">Create your account to get started.</p>
+          <p className="text-muted-foreground">
+            Create your account to get started.
+          </p>
         </div>
         <div className="bg-card p-6 rounded-lg shadow-lg space-y-4">
           <div className="space-y-2">
-            <label htmlFor="username" className="block text-sm font-medium text-white">
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-white"
+            >
               Username
             </label>
             <input
@@ -164,7 +175,10 @@ export default function RegisterPage() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-white">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-white"
+            >
               Email
             </label>
             <input
@@ -178,7 +192,10 @@ export default function RegisterPage() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-white">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-white"
+            >
               Password
             </label>
             <input
@@ -192,11 +209,16 @@ export default function RegisterPage() {
               onFocus={() => setShowPasswordRequirements(true)}
               onBlur={() => setShowPasswordRequirements(false)}
             />
-            <div className={`password-r ${showPasswordRequirements ? 'show' : ''}`}>
+            <div
+              className={`password-r ${showPasswordRequirements ? "show" : ""}`}
+            >
               <p>Password requirements:</p>
               <ul className="list-disc pl-4">
                 {passwordRequirements.map((req, index) => (
-                  <li key={index} className={req.test(userPassword) ? "fulfilled" : ""}>
+                  <li
+                    key={index}
+                    className={req.test(userPassword) ? "fulfilled" : ""}
+                  >
                     {req.requirement}
                   </li>
                 ))}
@@ -210,12 +232,14 @@ export default function RegisterPage() {
                   Loading
                 </Button>
               ) : (
-                <button
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                  width={"full"}
                   onClick={handleSubmit}
-                  className="w-full h-auto rounded-md bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
                 >
-                  Sign Up
-                </button>
+                  Signup
+                </Button>
               )}
             </Stack>
           </div>

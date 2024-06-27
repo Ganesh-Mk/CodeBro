@@ -19,7 +19,7 @@ const LanguageSelector = ({ language, onSelect }) => {
     <Box ml={2} mb={4}>
       <Menu isLazy>
         <MenuButton
-          width={130}
+          width={"100%"}
           as={Button}
           borderColor="green.500" // Green border
           borderWidth="1px" // Border width

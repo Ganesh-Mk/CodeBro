@@ -16,8 +16,10 @@ import DisplayProblemContainer from "../components/DisplayProblemContainer";
 import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
 import { addTestCaseResults } from "../store/problemObjSlice";
 import { setStoreAttempts } from "../store/attemptsSlice";
+import { useNavigate } from "react-router-dom";
 
 function AccountPage() {
+  const navigate = useNavigate();
   const size = useBreakpointValue({ base: "45vw", md: "12vw" });
   const userObj = useSelector((state) => state.user);
   const [userName, setUserName] = useState(userObj.name);
@@ -262,7 +264,12 @@ function AccountPage() {
             </div>
           </div>
           <div className="accLogoutBox">
-            <Link to="/">
+            <Link
+              to={"/"}
+              onClick={() => {
+                localStorage.setItem("name", "");
+              }}
+            >
               <Button id="accLeftBtn">Log out</Button>
             </Link>
           </div>

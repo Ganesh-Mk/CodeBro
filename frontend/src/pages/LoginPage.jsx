@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "../style/Login.scss";
 import axios from "axios";
@@ -18,7 +17,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = () => {
-    if(userEmail == '' || userPassword == '') {
+    if (userEmail == "" || userPassword == "") {
       toast.error("Enter all feilds!", {
         position: "top-right",
         autoClose: 5000,
@@ -30,7 +29,7 @@ export default function LoginPage() {
         theme: "dark",
         transition: Flip,
       });
-      return
+      return;
     }
     setIsLoading(true);
 
@@ -104,7 +103,10 @@ export default function LoginPage() {
 
   return (
     <div className="mainContainer">
-      <div className="login-container bg-card rounded-lg shadow-lg w-full max-w-md">
+      <div
+        style={{ borderRadius: "3vw" }}
+        className="login-container bg-card shadow-lg w-full max-w-md"
+      >
         <div className="px-6 py-8 space-y-6">
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-bold">Welcome Back</h1>
@@ -147,18 +149,21 @@ export default function LoginPage() {
                   Loading
                 </Button>
               ) : (
-                <button
+                <Button
+                  colorScheme="teal"
+                  variant="outline"
+                  width={"full"}
                   onClick={handleSubmit}
-                  className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
+                  // className="w-full rounded-md h-auto bg-gray-900 hover:bg-gray-800 text-white px-4 py-3"
                 >
                   Login
-                </button>
+                </Button>
               )}
             </Stack>
           </div>
         </div>
       </div>
-      <ToastContainer transition={Flip}/>
+      <ToastContainer transition={Flip} />
     </div>
   );
 }

@@ -54,74 +54,6 @@ export const AllquesObject = [
       },
     ],
     cases: [
-      // {
-      //   parameter: '10,5',
-      //   expectedOutput: '15',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(10, 5)',
-      // },
-      // {
-      //   parameter: '3,2',
-      //   expectedOutput: '5',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(3, 2)',
-      // },
-      // {
-      //   parameter: '200,300',
-      //   expectedOutput: '500',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(200, 300)',
-      // },
-      // {
-      //   parameter: '1000000000,1',
-      //   expectedOutput: '1000000001',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(1000000000, 1)',
-      // },
-      // {
-      //   parameter: '999999999,999999999',
-      //   expectedOutput: '1999999998',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(999999999, 999999999)',
-      // },
-
-      // {
-      //   parameter: '123456789,987654321',
-      //   expectedOutput: '1111111110',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
-      // },
-      // {
-      //   parameter: '17,23',
-      //   expectedOutput: '40',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(17, 23)',
-      // },
-      // {
-      //   parameter: '50,50',
-      //   expectedOutput: '100',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(50, 50)',
-      // },
-      // {
-      //   parameter: '-100,200',
-      //   expectedOutput: '100',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(-100, 200)',
-      // },
-      // {
-      //   parameter: '999,-999',
-      //   expectedOutput: '0',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(999, -999)',
-      // },
-      // {
-      //   parameter: '-123,-456',
-      //   expectedOutput: '-579',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(-123, -456)',
-      // },
-
       {
         parameter: "10,5",
         expectedOutput: "15",
@@ -196,48 +128,36 @@ export const AllquesObject = [
         javaFuncCall: "addTwoNumbers(0, 999)",
       },
 
-      // {
-      //   parameter: '123456789,987654321',
-      //   expectedOutput: '1111111110',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(123456789, 987654321)',
-      // },
-      // {
-      //   parameter: '17,23',
-      //   expectedOutput: '40',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(17, 23)',
-      // },
-      // {
-      //   parameter: '50,50',
-      //   expectedOutput: '100',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(50, 50)',
-      // },
-      // {
-      //   parameter: '-100,200',
-      //   expectedOutput: '100',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(-100, 200)',
-      // },
-      // {
-      //   parameter: '999,-999',
-      //   expectedOutput: '0',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(999, -999)',
-      // },
-      // {
-      //   parameter: '-123,-456',
-      //   expectedOutput: '-579',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(-123, -456)',
-      // },
-      // {
-      //   parameter: '0,999',
-      //   expectedOutput: '999',
-      //   userOutput: null,
-      //   javaFuncCall: 'addTwoNumbers(0, 999)',
-      // },
+      {
+        parameter: "123456789,987654321",
+        expectedOutput: "1111111110",
+        userOutput: null,
+        javaFuncCall: "addTwoNumbers(123456789, 987654321)",
+      },
+      {
+        parameter: "17,23",
+        expectedOutput: "40",
+        userOutput: null,
+        javaFuncCall: "addTwoNumbers(17, 23)",
+      },
+      {
+        parameter: "50,50",
+        expectedOutput: "100",
+        userOutput: null,
+        javaFuncCall: "addTwoNumbers(50, 50)",
+      },
+      {
+        parameter: "-100,200",
+        expectedOutput: "100",
+        userOutput: null,
+        javaFuncCall: "addTwoNumbers(-100, 200)",
+      },
+      {
+        parameter: "999,-999",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "addTwoNumbers(999, -999)",
+      },
     ],
     /*
     JS: 
@@ -252,6 +172,181 @@ export const AllquesObject = [
   },
   {
     number: 2,
+
+    heading: "Number of Students Unable to Eat Lunch",
+    difficulty: "Medium",
+    topic: ["Array", "Stack", "Queue"],
+    ds: "[ Array, Stack, Queue ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "The school cafeteria offers circular and square sandwiches at lunch break. Each student either prefers square or circular sandwiches. Given two arrays representing students and sandwiches, return the number of students unable to eat lunch.",
+    constraints: [
+      "1 <= students.length, sandwiches.length <= 100",
+      "students.length == sandwiches.length",
+      "sandwiches[i] is 0 or 1",
+      "students[i] is 0 or 1",
+    ],
+    functionName: "countStudents",
+    returnType: "number",
+    javascriptDefaultCode: `\n/**\n\t* @param {number[]} students\n\t* @param {number[]} sandwiches\n\t* @return {number}\n*/\n\nvar countStudents = function(students, sandwiches) {\n\t// Write your code here\n};`,
+    pythonDefaultCode: `def countStudents(students, sandwiches):\n\t# Write your code here`,
+    javaDefaultCode: `public static int countStudents(int[] students, int[] sandwiches) {\n\t// Write your code here\n}`,
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "students = [1,1,0,0], sandwiches = [0,1,0,1]",
+        output: "0",
+        parameter: "[1,1,0,0],[0,1,0,1]",
+        explanation: "All students are able to eat.",
+        image: null,
+        javaFuncCall: "countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})",
+      },
+      {
+        number: 2,
+        input: "students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]",
+        output: "3",
+        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
+        explanation: "Three students are unable to eat.",
+        image: null,
+        javaFuncCall:
+          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
+      },
+      {
+        number: 6,
+        input: "students = [0,0,0,0,0], sandwiches = [1,1,1,1,1]",
+        output: "5",
+        parameter: "[0,0,0,0,0],[1,1,1,1,1]",
+        explanation: "All five students are unable to eat.",
+        image: null,
+        javaFuncCall:
+          "countStudents(new int[]{0,0,0,0,0}, new int[]{1,1,1,1,1})",
+      },
+    ],
+    cases: [
+      {
+        parameter: "[1,1,0,0],[0,1,0,1]",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall: "countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})",
+      },
+      {
+        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
+      },
+
+      {
+        parameter: "[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]",
+        expectedOutput: "10",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})",
+      },
+      {
+        parameter: "[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})",
+      },
+
+      {
+        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
+        expectedOutput: "3",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
+      },
+      {
+        parameter: "[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]",
+        expectedOutput: "10",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})",
+      },
+      {
+        parameter: "[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]",
+        expectedOutput: "0",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})",
+      },
+      {
+        parameter: "[1,1,0,0,1],[1,1,0,1,1]",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall:
+          "countStudents(new int[]{1,1,0,0,1}, new int[]{1,1,0,1,1})",
+      },
+    ],
+    /*
+    JS:
+      let zeroes = 0, ones = 0;
+      for (let student of students) {
+          if(student === 1) ones++; 
+          else zeroes++;
+      }
+      for(let sandwich of sandwiches) {
+          if(sandwich === 1) {
+              if(ones === 0 ) return zeroes;
+              ones--;
+          } 
+          else {
+              if(zeroes === 0 ) return ones; 
+              zeroes--; 
+          }
+      }
+      return 0;
+    
+    PYTHON:
+      zeroes = 0
+	    ones = 0	
+	    for student in students:
+	        if student == 1:
+	            ones += 1
+	        else:
+	            zeroes += 1	
+	    for sandwich in sandwiches:
+	        if sandwich == 1:
+	            if ones == 0:
+	                return zeroes
+	            ones -= 1
+	        else:
+	            if zeroes == 0:
+	                return ones
+	            zeroes -= 1	
+	    return 0
+
+    JAVA:
+      int zeroes = 0, ones = 0;
+      for (int student : students) {
+          if (student == 1) ones++; 
+          else zeroes++;
+      }
+      for (int sandwich : sandwiches) {
+          if (sandwich == 1) {
+              if (ones == 0) return zeroes;
+              ones--;
+          } else {
+              if (zeroes == 0) return ones; 
+              zeroes--; 
+          }
+      }
+      return 0;
+    */
+  },
+  {
+    number: 3,
     heading: "String Reverse",
     difficulty: "Easy",
     attempts: 0,
@@ -433,744 +528,7 @@ export const AllquesObject = [
     */
   },
   {
-    number: 3,
-
-    heading: "Find Minimum and Maximum Number",
-    difficulty: "Easy",
-    topic: ["Array", "Math"],
-    ds: "[ Array, Math ]",
-    attempts: 0,
-
-    isSolved: false,
-    language: "javascript",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "Given an array of numbers, find the minimum and maximum numbers in the array, return the minimum and maximum number in array",
-    constraints: [
-      "The input array contains at least one element.",
-      "The elements in the input array can be positive or negative integers.",
-      "Duplicate elements are allowed in the input array.",
-      "The length of the input array is within the range of a typical array.",
-      "The values of the input array can range from the minimum to the maximum integer values.",
-    ],
-    functionName: "findMinMax",
-    returnType: "array",
-    javascriptDefaultCode:
-      "\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "def findMinMax(nums):\n\t# Write your code here",
-    javaDefaultCode:
-      "public static int[] findMinMax(int[] nums) {\n\t// Write your code here\n}",
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "nums = [4, 2, 7, 1, 9]",
-        output: "[1,9]",
-        parameter: "[4, 2, 7, 1, 9]",
-        javaFuncCall: "findMinMax(new int[]{4, 2, 7, 1, 9});",
-        explanation:
-          "In the input array [4, 2, 7, 1, 9], the minimum number is 1 and the maximum number is 9.",
-        image: null,
-      },
-      {
-        number: 2,
-        input: "nums = [10, 5, 3, 8, 2]",
-        output: "[2,10]",
-        parameter: "[10, 5, 3, 8, 2]",
-        javaFuncCall: "findMinMax(new int[]{10, 5, 3, 8, 2});",
-        explanation:
-          "In the input array [10, 5, 3, 8, 2], the minimum number is 2 and the maximum number is 10.",
-        image: null,
-      },
-      {
-        number: 3,
-        input: "nums = [-5, -10, -3, -8, -2]",
-        output: "[-10,-2]",
-        parameter: "[-5, -10, -3, -8, -2]",
-        javaFuncCall: "findMinMax(new int[]{-5, -10, -3, -8, -2});",
-        explanation:
-          "In the input array [-5, -10, -3, -8, -2], the minimum number is -10 and the maximum number is -2.",
-        image: null,
-      },
-    ],
-    cases: [
-      {
-        parameter: "[4, 2, 7, 1, 9]",
-        expectedOutput: "[1,9]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{4, 2, 7, 1, 9});",
-      },
-      {
-        parameter: "[10, 5, 3, 8, 2]",
-        expectedOutput: "[2,10]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{10, 5, 3, 8, 2});",
-      },
-      {
-        parameter: "[-5, -10, -3, -8, -2]",
-        expectedOutput: "[-10,-2]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{-5, -10, -3, -8, -2});",
-      },
-      {
-        parameter: "[1, 1, 1, 1, 1]",
-        expectedOutput: "[1,1]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{1, 1, 1, 1, 1});",
-      },
-      {
-        parameter: "[0, 0, 0, 0, 0]",
-        expectedOutput: "[0,0]",
-        userOutput: null,
-        javaFuncCall: "findMinMax(new int[]{0, 0, 0, 0, 0});",
-      },
-      // {
-      //   parameter: "[100, 200, 300, 400, 500]",
-      //   expectedOutput: "[100,500]",
-      //   userOutput: null,
-      //   javaFuncCall: "findMinMax(new int[]{100, 200, 300, 400, 500});",
-      // },
-      // {
-      //   parameter: "[-100, -200, -300, -400, -500]",
-      //   expectedOutput: "[-500,-100]",
-      //   userOutput: null,
-      //   javaFuncCall: "findMinMax(new int[]{-100, -200, -300, -400, -500});",
-      // },
-      // {
-      //   parameter: "[5, 4, 3, 2, 1]",
-      //   expectedOutput: "[1,5]",
-      //   userOutput: null,
-      //   javaFuncCall: "findMinMax(new int[]{5, 4, 3, 2, 1});",
-      // },
-      // {
-      //   parameter: "[10, -5, 8, -3, 6]",
-      //   expectedOutput: "[-5,10]",
-      //   userOutput: null,
-      //   javaFuncCall: "findMinMax(new int[]{10, -5, 8, -3, 6});",
-      // },
-      // {
-      //   parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
-      //   expectedOutput: "[1,10]",
-      //   userOutput: null,
-      //   javaFuncCall: "findMinMax(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});",
-      // },
-    ],
-
-    /*
-    JS:
-      return [Math.min(...nums), Math.max(...nums)];
-    
-    PYTHON:
-      return [min(nums), max(nums)]
-    
-    JAVA:
-      int min = Arrays.stream(nums).min().getAsInt();
-      int max = Arrays.stream(nums).max().getAsInt();
-      return new int[] {min, max};
-    */
-  },
-  {
     number: 4,
-
-    heading: "Find Second Largest Element in Array",
-    difficulty: "Easy",
-    topic: ["Array", "Math"],
-    ds: "[ Array, Math ]",
-    attempts: 0,
-
-    isSolved: false,
-    language: "javascript",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "Given an array of integers, find the second largest element in the array. Return the answer",
-    constraints: [
-      "The input array contains at least two distinct elements.",
-      "The elements in the input array are integers.",
-      "Duplicate elements are allowed in the input array.",
-      "The length of the input array is within the range of a typical array.",
-      "The values of the input array can range from the minimum to the maximum integer values.",
-    ],
-    functionName: "findSecondLargest",
-    returnType: "int",
-    javascriptDefaultCode:
-      "\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "def findSecondLargest(nums):\n\t# Write your code here",
-    javaDefaultCode:
-      "public static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}",
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "nums = [4, 2, 7, 1, 9]",
-        output: "7",
-        parameter: "[4, 2, 7, 1, 9]",
-        explanation:
-          "In the input array [4, 2, 7, 1, 9], the second largest element is 7.",
-        image: null,
-        javaFuncCall: "findSecondLargest(new int[]{4, 2, 7, 1, 9})",
-      },
-      {
-        number: 2,
-        input: "nums = [10, 5, 3, 8, 2]",
-        output: "8",
-        parameter: "[10, 5, 3, 8, 2]",
-        explanation:
-          "In the input array [10, 5, 3, 8, 2], the second largest element is 8.",
-        image: null,
-        javaFuncCall: "findSecondLargest(new int[]{10, 5, 3, 8, 2})",
-      },
-      {
-        number: 3,
-        input: "nums = [-5, -10, -3, -8, -2]",
-        output: "-3",
-        parameter: "[-5, -10, -3, -8, -2]",
-        explanation:
-          "In the input array [-5, -10, -3, -8, -2], the second largest element is -3.",
-        image: null,
-        javaFuncCall: "findSecondLargest(new int[]{-5, -10, -3, -8, -2})",
-      },
-    ],
-    cases: [
-      {
-        parameter: "[4, 2, 7, 1, 9]",
-        expectedOutput: "7",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{4, 2, 7, 1, 9})",
-      },
-      {
-        parameter: "[10, 5, 3, 8, 2]",
-        expectedOutput: "8",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{10, 5, 3, 8, 2})",
-      },
-      {
-        parameter: "[-5, -10, -3, -8, -2]",
-        expectedOutput: "-3",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{-5, -10, -3, -8, -2})",
-      },
-      {
-        parameter: "[1, 4, 4, 5, 1]",
-        expectedOutput: "4",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{1, 4, 4, 5, 1})",
-      },
-      {
-        parameter: "[0, 0, 0, 1, 5]",
-        expectedOutput: "1",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{0, 0, 0, 1, 5})",
-      },
-      {
-        parameter: "[100, 200, 300, 400, 500]",
-        expectedOutput: "400",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{100, 200, 300, 400, 500})",
-      },
-      {
-        parameter: "[-100, -200, -300, -400, -500]",
-        expectedOutput: "-200",
-        userOutput: null,
-        javaFuncCall:
-          "findSecondLargest(new int[]{-100, -200, -300, -400, -500})",
-      },
-      {
-        parameter: "[5, 4, 3, 2, 1]",
-        expectedOutput: "4",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{5, 4, 3, 2, 1})",
-      },
-      {
-        parameter: "[10, -5, 8, -3, 6]",
-        expectedOutput: "8",
-        userOutput: null,
-        javaFuncCall: "findSecondLargest(new int[]{10, -5, 8, -3, 6})",
-      },
-      {
-        parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
-        expectedOutput: "9",
-        userOutput: null,
-        javaFuncCall:
-          "findSecondLargest(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})",
-      },
-    ],
-    /* 
-    JS: 
-      let max = nums.indexOf(Math.max(...nums));
-	    nums.splice(max,1);
-	    return Math.max(...nums)
-
-    PYTHON: 
-      maxNum = max(nums)
-	    nums.remove(maxNum)
-	    return max(nums)
-    
-    JAVA:
-      int max = Integer.MIN_VALUE;
-        int secondMax = Integer.MIN_VALUE;
-        for (int num : nums) {
-            if (num > max) {
-                secondMax = max;
-                max = num;
-            } else if (num > secondMax && num != max) {
-                secondMax = num;
-            }
-        }
-        return secondMax;
-    
-    */
-  },
-  {
-    number: 5,
-
-    heading: "Create Array of Numbers",
-    difficulty: "Easy",
-    topic: ["Array"],
-    ds: "[ Array ]",
-    attempts: 0,
-    isSolved: false,
-    language: "javascript",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "Given an integer n, create an array containing integers from 0 to n-1. Return the array.",
-    constraints: [
-      "The input integer n is greater than or equal to 0.",
-      "The length of the output array is equal to n.",
-      "The values of the output array range from 0 to n-1.",
-    ],
-    functionName: "createArray",
-
-    returnType: "array",
-    javascriptDefaultCode:
-      "\n/**\n\t* @param {number} n\n\t* @return {number[]}\n*/\n\nvar createArray = function(n) {\n\t// Write your code here\n};",
-    pythonDefaultCode: "def createArray(n):\n\t# Write your code here",
-    javaDefaultCode:
-      "public static int[] createArray(int n) {\n\t// Write your code here\n}",
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "n = 5",
-        output: "[0,1,2,3,4]",
-        parameter: "5",
-        javaFuncCall: "createArray(5);",
-        explanation:
-          "For n = 5, the array should contain integers from 0 to 4.",
-        image: null,
-      },
-      {
-        number: 2,
-        input: "n = 3",
-        output: "[0,1,2]",
-        parameter: "3",
-        javaFuncCall: "createArray(3);",
-
-        explanation:
-          "For n = 3, the array should contain integers from 0 to 2.",
-        image: null,
-      },
-      {
-        number: 3,
-        input: "n = 0",
-        output: "[]",
-        parameter: "0",
-        javaFuncCall: "createArray(0);",
-
-        explanation: "For n = 0, the array should be empty.",
-        image: null,
-      },
-    ],
-    cases: [
-      {
-        parameter: "5",
-        expectedOutput: "[0,1,2,3,4]",
-        javaFuncCall: "createArray(5);",
-        userOutput: null,
-      },
-      {
-        parameter: "3",
-        expectedOutput: "[0,1,2]",
-        javaFuncCall: "createArray(3);",
-        userOutput: null,
-      },
-      {
-        parameter: "0",
-        expectedOutput: "[]",
-        javaFuncCall: "createArray(0);",
-        userOutput: null,
-      },
-      {
-        parameter: "1",
-        expectedOutput: "[0]",
-        javaFuncCall: "createArray(1);",
-        userOutput: null,
-      },
-      {
-        parameter: "2",
-        expectedOutput: "[0,1]",
-        javaFuncCall: "createArray(2);",
-        userOutput: null,
-      },
-      {
-        parameter: "4",
-        expectedOutput: "[0,1,2,3]",
-        javaFuncCall: "createArray(4);",
-        userOutput: null,
-      },
-      {
-        parameter: "6",
-        expectedOutput: "[0,1,2,3,4,5]",
-        javaFuncCall: "createArray(6);",
-        userOutput: null,
-      },
-    ],
-
-    /*
-     JS:
-      let arr = [];
-	    for(let i=0; i<n; i++) arr.push(i);
-	    return arr;
-
-     PYTHON:
-      arr = []
-	    for i in range(n):
-		    arr.append(i)
-	    return arr
-      
-      JAVA:
-      int[] arr = new int[n];
-      for (int i = 0; i < n; i++) {
-        arr[i] = i;
-      }
-      return arr;
-     */
-  },
-  {
-    number: 6,
-
-    heading: "Increment Matrix Values",
-    difficulty: "Easy",
-    topic: ["Matrices"],
-    ds: "[ Matrices ]",
-    attempts: 0,
-
-    isSolved: false,
-    language: "javascript",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "Given a matrix of arrays of numbers, increment each value in the matrix by 1. Return the modified matrix.",
-    constraints: [
-      "The input matrix is a 2-dimensional array.",
-      "Each inner array represents a row in the matrix.",
-      "The values in the matrix are integers.",
-    ],
-    functionName: "increment_matrix_values",
-    returnType: "matrix",
-    javascriptDefaultCode:
-      "\n/**\n\t* @param {number[][]} matrix\n\t* @return {number[][]}\n*/\n\nvar increment_matrix_values = function(matrix) {\n\t// Write your code here\n};",
-    pythonDefaultCode:
-      "def increment_matrix_values(matrix):\n\t# Write your code here",
-    javaDefaultCode:
-      "public static int[][] increment_matrix_values(int[][] matrix) {\n\t// Write your code here\n}",
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "matrix = [[1, 2], [3, 4]]",
-        output: "[[2,3],[4,5]]",
-        parameter: "[[1, 2], [3, 4]]",
-        javaFuncCall: "increment_matrix_values(new int[][]{{1, 2}, {3, 4}});",
-        explanation: "Increment each value by 1.",
-        image: null,
-      },
-      {
-        number: 2,
-        input: "matrix = [[0, 0], [0, 0]]",
-        output: "[[1,1],[1,1]]",
-        parameter: "[[0, 0], [0, 0]]",
-        javaFuncCall: "increment_matrix_values(new int[][]{{0, 0}, {0, 0}});",
-        explanation: "Increment each value by 1.",
-        image: null,
-      },
-      {
-        number: 3,
-        input: "matrix = [[-1, -2], [-3, -4]]",
-        output: "[[0,-1],[-2,-3]]",
-        parameter: "[[-1, -2], [-3, -4]]",
-        javaFuncCall:
-          "increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});",
-        explanation: "Increment each value by 1.",
-        image: null,
-      },
-    ],
-    cases: [
-      {
-        parameter: "[[1, 2], [3, 4]]",
-        expectedOutput: "[[2,3],[4,5]]",
-        javaFuncCall: "increment_matrix_values(new int[][]{{1, 2}, {3, 4}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[0, 0], [0, 0]]",
-        expectedOutput: "[[1,1],[1,1]]",
-        javaFuncCall: "increment_matrix_values(new int[][]{{0, 0}, {0, 0}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[-1, -2], [-3, -4]]",
-        expectedOutput: "[[0,-1],[-2,-3]]",
-        javaFuncCall:
-          "increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[3, 5], [7, 9]]",
-        expectedOutput: "[[4,6],[8,10]]",
-        javaFuncCall: "increment_matrix_values(new int[][]{{3, 5}, {7, 9}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[10, 20, 30], [40, 50, 60], [70, 80, 90]]",
-        expectedOutput: "[[11,21,31],[41,51,61],[71,81,91]]",
-        javaFuncCall:
-          "increment_matrix_values(new int[][]{{10, 20, 30}, {40, 50, 60}, {70, 80, 90}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[1], [2], [3], [4]]",
-        expectedOutput: "[[2],[3],[4],[5]]",
-        javaFuncCall:
-          "increment_matrix_values(new int[][]{{1}, {2}, {3}, {4}});",
-        userOutput: null,
-      },
-      {
-        parameter: "[[-5, -3], [-1, 1], [3, 5], [7, 9]]",
-        expectedOutput: "[[-4,-2],[0,2],[4,6],[8,10]]",
-        javaFuncCall:
-          "increment_matrix_values(new int[][]{{-5, -3}, {-1, 1}, {3, 5}, {7, 9}});",
-        userOutput: null,
-      },
-
-      /*
-      JS:
-        for(let i=0; i<matrix.length; i++){
-		      for(let j=0; j<matrix[i].length; j++){
-		      	matrix[i][j]++;
-		      }
-	      }
-	      return matrix;
-
-      PYTHON:
-        for i in range(len(matrix)):
-		      for j in range(len(matrix[0])):
-		      	matrix[i][j] += 1
-	      return matrix
-
-      JAVA:
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                matrix[i][j]++;
-            }
-        }
-        return matrix;
-      */
-    ],
-  },
-  {
-    number: 7,
-
-    heading: "Number of Students Unable to Eat Lunch",
-    difficulty: "Medium",
-    topic: ["Array", "Stack", "Queue"],
-    ds: "[ Array, Stack, Queue ]",
-    attempts: 0,
-    isSolved: false,
-    language: "javascript",
-    image: null,
-    allOutput: [],
-    allResult: [],
-    description:
-      "The school cafeteria offers circular and square sandwiches at lunch break. Each student either prefers square or circular sandwiches. Given two arrays representing students and sandwiches, return the number of students unable to eat lunch.",
-    constraints: [
-      "1 <= students.length, sandwiches.length <= 100",
-      "students.length == sandwiches.length",
-      "sandwiches[i] is 0 or 1",
-      "students[i] is 0 or 1",
-    ],
-    functionName: "countStudents",
-    returnType: "number",
-    javascriptDefaultCode: `\n/**\n\t* @param {number[]} students\n\t* @param {number[]} sandwiches\n\t* @return {number}\n*/\n\nvar countStudents = function(students, sandwiches) {\n\t// Write your code here\n};`,
-    pythonDefaultCode: `def countStudents(students, sandwiches):\n\t# Write your code here`,
-    javaDefaultCode: `public static int countStudents(int[] students, int[] sandwiches) {\n\t// Write your code here\n}`,
-    isSubmitted: false,
-    testCaseOutputs: [],
-    testCaseResults: [],
-    example: [
-      {
-        number: 1,
-        input: "students = [1,1,0,0], sandwiches = [0,1,0,1]",
-        output: "0",
-        parameter: "[1,1,0,0],[0,1,0,1]",
-        explanation: "All students are able to eat.",
-        image: null,
-        javaFuncCall: "countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})",
-      },
-      {
-        number: 2,
-        input: "students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]",
-        output: "3",
-        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
-        explanation: "Three students are unable to eat.",
-        image: null,
-        javaFuncCall:
-          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
-      },
-      {
-        number: 6,
-        input: "students = [0,0,0,0,0], sandwiches = [1,1,1,1,1]",
-        output: "5",
-        parameter: "[0,0,0,0,0],[1,1,1,1,1]",
-        explanation: "All five students are unable to eat.",
-        image: null,
-        javaFuncCall:
-          "countStudents(new int[]{0,0,0,0,0}, new int[]{1,1,1,1,1})",
-      },
-    ],
-    cases: [
-      {
-        parameter: "[1,1,0,0],[0,1,0,1]",
-        expectedOutput: "0",
-        userOutput: null,
-        javaFuncCall: "countStudents(new int[]{1,1,0,0}, new int[]{0,1,0,1})",
-      },
-      {
-        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
-        expectedOutput: "3",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
-      },
-
-      {
-        parameter: "[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]",
-        expectedOutput: "10",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})",
-      },
-      {
-        parameter: "[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]",
-        expectedOutput: "0",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})",
-      },
-
-      {
-        parameter: "[1,1,1,0,0,1],[1,0,0,0,1,1]",
-        expectedOutput: "3",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1})",
-      },
-      {
-        parameter: "[0,0,0,0,0,0,0,0,0,0],[1,1,1,1,1,1,1,1,1,1]",
-        expectedOutput: "10",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{0,0,0,0,0,0,0,0,0,0}, new int[]{1,1,1,1,1,1,1,1,1,1})",
-      },
-      {
-        parameter: "[0,1,0,1,0,1,0,1,0,1],[1,0,1,0,1,0,1,0,1,0]",
-        expectedOutput: "0",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{0,1,0,1,0,1,0,1,0,1}, new int[]{1,0,1,0,1,0,1,0,1,0})",
-      },
-      {
-        parameter: "[1,1,0,0,1],[1,1,0,1,1]",
-        expectedOutput: "1",
-        userOutput: null,
-        javaFuncCall:
-          "countStudents(new int[]{1,1,0,0,1}, new int[]{1,1,0,1,1})",
-      },
-    ],
-    /*
-    JS:
-      let zeroes = 0, ones = 0;
-      for (let student of students) {
-          if(student === 1) ones++; 
-          else zeroes++;
-      }
-      for(let sandwich of sandwiches) {
-          if(sandwich === 1) {
-              if(ones === 0 ) return zeroes;
-              ones--;
-          } 
-          else {
-              if(zeroes === 0 ) return ones; 
-              zeroes--; 
-          }
-      }
-      return 0;
-    
-    PYTHON:
-      zeroes = 0
-	    ones = 0	
-	    for student in students:
-	        if student == 1:
-	            ones += 1
-	        else:
-	            zeroes += 1	
-	    for sandwich in sandwiches:
-	        if sandwich == 1:
-	            if ones == 0:
-	                return zeroes
-	            ones -= 1
-	        else:
-	            if zeroes == 0:
-	                return ones
-	            zeroes -= 1	
-	    return 0
-
-    JAVA:
-      int zeroes = 0, ones = 0;
-      for (int student : students) {
-          if (student == 1) ones++; 
-          else zeroes++;
-      }
-      for (int sandwich : sandwiches) {
-          if (sandwich == 1) {
-              if (ones == 0) return zeroes;
-              ones--;
-          } else {
-              if (zeroes == 0) return ones; 
-              zeroes--; 
-          }
-      }
-      return 0;
-    */
-  },
-  {
-    number: 8,
     heading: "Remove Duplicates from Sorted List",
     difficulty: "Hard",
     topic: ["LinkedList"],
@@ -1385,6 +743,569 @@ public ListNode deleteDuplicates(ListNode head) {
       return head;
     */
   },
+  {
+    number: 5,
+
+    heading: "Find Minimum and Maximum Number",
+    difficulty: "Easy",
+    topic: ["Array", "Math"],
+    ds: "[ Array, Math ]",
+    attempts: 0,
+
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given an array of numbers, find the minimum and maximum numbers in the array, return the minimum and maximum number in array",
+    constraints: [
+      "The input array contains at least one element.",
+      "The elements in the input array can be positive or negative integers.",
+      "Duplicate elements are allowed in the input array.",
+      "The length of the input array is within the range of a typical array.",
+      "The values of the input array can range from the minimum to the maximum integer values.",
+    ],
+    functionName: "findMinMax",
+    returnType: "array",
+    javascriptDefaultCode:
+      "\n/**\n\t* @param {number[]} nums\n\t* @return {number[]}\n*/\n\nvar findMinMax = function(nums) {\n\t// Write your code here\n};",
+    pythonDefaultCode: "def findMinMax(nums):\n\t# Write your code here",
+    javaDefaultCode:
+      "public static int[] findMinMax(int[] nums) {\n\t// Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "nums = [4, 2, 7, 1, 9]",
+        output: "[1,9]",
+        parameter: "[4, 2, 7, 1, 9]",
+        javaFuncCall: "findMinMax(new int[]{4, 2, 7, 1, 9});",
+        explanation:
+          "In the input array [4, 2, 7, 1, 9], the minimum number is 1 and the maximum number is 9.",
+        image: null,
+      },
+      {
+        number: 2,
+        input: "nums = [10, 5, 3, 8, 2]",
+        output: "[2,10]",
+        parameter: "[10, 5, 3, 8, 2]",
+        javaFuncCall: "findMinMax(new int[]{10, 5, 3, 8, 2});",
+        explanation:
+          "In the input array [10, 5, 3, 8, 2], the minimum number is 2 and the maximum number is 10.",
+        image: null,
+      },
+      {
+        number: 3,
+        input: "nums = [-5, -10, -3, -8, -2]",
+        output: "[-10,-2]",
+        parameter: "[-5, -10, -3, -8, -2]",
+        javaFuncCall: "findMinMax(new int[]{-5, -10, -3, -8, -2});",
+        explanation:
+          "In the input array [-5, -10, -3, -8, -2], the minimum number is -10 and the maximum number is -2.",
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: "[4, 2, 7, 1, 9]",
+        expectedOutput: "[1,9]",
+        userOutput: null,
+        javaFuncCall: "findMinMax(new int[]{4, 2, 7, 1, 9});",
+      },
+      {
+        parameter: "[10, 5, 3, 8, 2]",
+        expectedOutput: "[2,10]",
+        userOutput: null,
+        javaFuncCall: "findMinMax(new int[]{10, 5, 3, 8, 2});",
+      },
+      {
+        parameter: "[-5, -10, -3, -8, -2]",
+        expectedOutput: "[-10,-2]",
+        userOutput: null,
+        javaFuncCall: "findMinMax(new int[]{-5, -10, -3, -8, -2});",
+      },
+      {
+        parameter: "[1, 1, 1, 1, 1]",
+        expectedOutput: "[1,1]",
+        userOutput: null,
+        javaFuncCall: "findMinMax(new int[]{1, 1, 1, 1, 1});",
+      },
+      {
+        parameter: "[0, 0, 0, 0, 0]",
+        expectedOutput: "[0,0]",
+        userOutput: null,
+        javaFuncCall: "findMinMax(new int[]{0, 0, 0, 0, 0});",
+      },
+      // {
+      //   parameter: "[100, 200, 300, 400, 500]",
+      //   expectedOutput: "[100,500]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{100, 200, 300, 400, 500});",
+      // },
+      // {
+      //   parameter: "[-100, -200, -300, -400, -500]",
+      //   expectedOutput: "[-500,-100]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{-100, -200, -300, -400, -500});",
+      // },
+      // {
+      //   parameter: "[5, 4, 3, 2, 1]",
+      //   expectedOutput: "[1,5]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{5, 4, 3, 2, 1});",
+      // },
+      // {
+      //   parameter: "[10, -5, 8, -3, 6]",
+      //   expectedOutput: "[-5,10]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{10, -5, 8, -3, 6});",
+      // },
+      // {
+      //   parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+      //   expectedOutput: "[1,10]",
+      //   userOutput: null,
+      //   javaFuncCall: "findMinMax(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});",
+      // },
+    ],
+
+    /*
+    JS:
+      return [Math.min(...nums), Math.max(...nums)];
+    
+    PYTHON:
+      return [min(nums), max(nums)]
+    
+    JAVA:
+      int min = Arrays.stream(nums).min().getAsInt();
+      int max = Arrays.stream(nums).max().getAsInt();
+      return new int[] {min, max};
+    */
+  },
+  {
+    number: 6,
+
+    heading: "Find Second Largest Element in Array",
+    difficulty: "Easy",
+    topic: ["Array", "Math"],
+    ds: "[ Array, Math ]",
+    attempts: 0,
+
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given an array of integers, find the second largest element in the array. Return the answer",
+    constraints: [
+      "The input array contains at least two distinct elements.",
+      "The elements in the input array are integers.",
+      "Duplicate elements are allowed in the input array.",
+      "The length of the input array is within the range of a typical array.",
+      "The values of the input array can range from the minimum to the maximum integer values.",
+    ],
+    functionName: "findSecondLargest",
+    returnType: "int",
+    javascriptDefaultCode:
+      "\n/**\n\t* @param {number[]} nums\n\t* @return {number}\n*/\n\nvar findSecondLargest = function(nums) {\n\t// Write your code here\n};",
+    pythonDefaultCode: "def findSecondLargest(nums):\n\t# Write your code here",
+    javaDefaultCode:
+      "public static int findSecondLargest(int[] nums) {\n\t// Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "nums = [4, 2, 7, 1, 9]",
+        output: "7",
+        parameter: "[4, 2, 7, 1, 9]",
+        explanation:
+          "In the input array [4, 2, 7, 1, 9], the second largest element is 7.",
+        image: null,
+        javaFuncCall: "findSecondLargest(new int[]{4, 2, 7, 1, 9})",
+      },
+      {
+        number: 2,
+        input: "nums = [10, 5, 3, 8, 2]",
+        output: "8",
+        parameter: "[10, 5, 3, 8, 2]",
+        explanation:
+          "In the input array [10, 5, 3, 8, 2], the second largest element is 8.",
+        image: null,
+        javaFuncCall: "findSecondLargest(new int[]{10, 5, 3, 8, 2})",
+      },
+      {
+        number: 3,
+        input: "nums = [-5, -10, -3, -8, -2]",
+        output: "-3",
+        parameter: "[-5, -10, -3, -8, -2]",
+        explanation:
+          "In the input array [-5, -10, -3, -8, -2], the second largest element is -3.",
+        image: null,
+        javaFuncCall: "findSecondLargest(new int[]{-5, -10, -3, -8, -2})",
+      },
+    ],
+    cases: [
+      {
+        parameter: "[4, 2, 7, 1, 9]",
+        expectedOutput: "7",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{4, 2, 7, 1, 9})",
+      },
+      {
+        parameter: "[10, 5, 3, 8, 2]",
+        expectedOutput: "8",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{10, 5, 3, 8, 2})",
+      },
+      {
+        parameter: "[-5, -10, -3, -8, -2]",
+        expectedOutput: "-3",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{-5, -10, -3, -8, -2})",
+      },
+      {
+        parameter: "[1, 4, 4, 5, 1]",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{1, 4, 4, 5, 1})",
+      },
+      {
+        parameter: "[0, 0, 0, 1, 5]",
+        expectedOutput: "1",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{0, 0, 0, 1, 5})",
+      },
+      {
+        parameter: "[100, 200, 300, 400, 500]",
+        expectedOutput: "400",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{100, 200, 300, 400, 500})",
+      },
+      {
+        parameter: "[-100, -200, -300, -400, -500]",
+        expectedOutput: "-200",
+        userOutput: null,
+        javaFuncCall:
+          "findSecondLargest(new int[]{-100, -200, -300, -400, -500})",
+      },
+      {
+        parameter: "[5, 4, 3, 2, 1]",
+        expectedOutput: "4",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{5, 4, 3, 2, 1})",
+      },
+      {
+        parameter: "[10, -5, 8, -3, 6]",
+        expectedOutput: "8",
+        userOutput: null,
+        javaFuncCall: "findSecondLargest(new int[]{10, -5, 8, -3, 6})",
+      },
+      {
+        parameter: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+        expectedOutput: "9",
+        userOutput: null,
+        javaFuncCall:
+          "findSecondLargest(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})",
+      },
+    ],
+    /* 
+    JS: 
+      let max = nums.indexOf(Math.max(...nums));
+	    nums.splice(max,1);
+	    return Math.max(...nums)
+
+    PYTHON: 
+      maxNum = max(nums)
+	    nums.remove(maxNum)
+	    return max(nums)
+    
+    JAVA:
+      int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > max) {
+                secondMax = max;
+                max = num;
+            } else if (num > secondMax && num != max) {
+                secondMax = num;
+            }
+        }
+        return secondMax;
+    
+    */
+  },
+  {
+    number: 7,
+
+    heading: "Create Array of Numbers",
+    difficulty: "Easy",
+    topic: ["Array"],
+    ds: "[ Array ]",
+    attempts: 0,
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given an integer n, create an array containing integers from 0 to n-1. Return the array.",
+    constraints: [
+      "The input integer n is greater than or equal to 0.",
+      "The length of the output array is equal to n.",
+      "The values of the output array range from 0 to n-1.",
+    ],
+    functionName: "createArray",
+
+    returnType: "array",
+    javascriptDefaultCode:
+      "\n/**\n\t* @param {number} n\n\t* @return {number[]}\n*/\n\nvar createArray = function(n) {\n\t// Write your code here\n};",
+    pythonDefaultCode: "def createArray(n):\n\t# Write your code here",
+    javaDefaultCode:
+      "public static int[] createArray(int n) {\n\t// Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "n = 5",
+        output: "[0,1,2,3,4]",
+        parameter: "5",
+        javaFuncCall: "createArray(5);",
+        explanation:
+          "For n = 5, the array should contain integers from 0 to 4.",
+        image: null,
+      },
+      {
+        number: 2,
+        input: "n = 3",
+        output: "[0,1,2]",
+        parameter: "3",
+        javaFuncCall: "createArray(3);",
+
+        explanation:
+          "For n = 3, the array should contain integers from 0 to 2.",
+        image: null,
+      },
+      {
+        number: 3,
+        input: "n = 0",
+        output: "[]",
+        parameter: "0",
+        javaFuncCall: "createArray(0);",
+
+        explanation: "For n = 0, the array should be empty.",
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: "5",
+        expectedOutput: "[0,1,2,3,4]",
+        javaFuncCall: "createArray(5);",
+        userOutput: null,
+      },
+      {
+        parameter: "3",
+        expectedOutput: "[0,1,2]",
+        javaFuncCall: "createArray(3);",
+        userOutput: null,
+      },
+      {
+        parameter: "0",
+        expectedOutput: "[]",
+        javaFuncCall: "createArray(0);",
+        userOutput: null,
+      },
+      {
+        parameter: "1",
+        expectedOutput: "[0]",
+        javaFuncCall: "createArray(1);",
+        userOutput: null,
+      },
+      {
+        parameter: "2",
+        expectedOutput: "[0,1]",
+        javaFuncCall: "createArray(2);",
+        userOutput: null,
+      },
+      {
+        parameter: "4",
+        expectedOutput: "[0,1,2,3]",
+        javaFuncCall: "createArray(4);",
+        userOutput: null,
+      },
+      {
+        parameter: "6",
+        expectedOutput: "[0,1,2,3,4,5]",
+        javaFuncCall: "createArray(6);",
+        userOutput: null,
+      },
+    ],
+
+    /*
+     JS:
+      let arr = [];
+	    for(let i=0; i<n; i++) arr.push(i);
+	    return arr;
+
+     PYTHON:
+      arr = []
+	    for i in range(n):
+		    arr.append(i)
+	    return arr
+      
+      JAVA:
+      int[] arr = new int[n];
+      for (int i = 0; i < n; i++) {
+        arr[i] = i;
+      }
+      return arr;
+     */
+  },
+  {
+    number: 8,
+
+    heading: "Increment Matrix Values",
+    difficulty: "Easy",
+    topic: ["Matrices"],
+    ds: "[ Matrices ]",
+    attempts: 0,
+
+    isSolved: false,
+    language: "javascript",
+    image: null,
+    allOutput: [],
+    allResult: [],
+    description:
+      "Given a matrix of arrays of numbers, increment each value in the matrix by 1. Return the modified matrix.",
+    constraints: [
+      "The input matrix is a 2-dimensional array.",
+      "Each inner array represents a row in the matrix.",
+      "The values in the matrix are integers.",
+    ],
+    functionName: "increment_matrix_values",
+    returnType: "matrix",
+    javascriptDefaultCode:
+      "\n/**\n\t* @param {number[][]} matrix\n\t* @return {number[][]}\n*/\n\nvar increment_matrix_values = function(matrix) {\n\t// Write your code here\n};",
+    pythonDefaultCode:
+      "def increment_matrix_values(matrix):\n\t# Write your code here",
+    javaDefaultCode:
+      "public static int[][] increment_matrix_values(int[][] matrix) {\n\t// Write your code here\n}",
+    isSubmitted: false,
+    testCaseOutputs: [],
+    testCaseResults: [],
+    example: [
+      {
+        number: 1,
+        input: "matrix = [[1, 2], [3, 4]]",
+        output: "[[2,3],[4,5]]",
+        parameter: "[[1, 2], [3, 4]]",
+        javaFuncCall: "increment_matrix_values(new int[][]{{1, 2}, {3, 4}});",
+        explanation: "Increment each value by 1.",
+        image: null,
+      },
+      {
+        number: 2,
+        input: "matrix = [[0, 0], [0, 0]]",
+        output: "[[1,1],[1,1]]",
+        parameter: "[[0, 0], [0, 0]]",
+        javaFuncCall: "increment_matrix_values(new int[][]{{0, 0}, {0, 0}});",
+        explanation: "Increment each value by 1.",
+        image: null,
+      },
+      {
+        number: 3,
+        input: "matrix = [[-1, -2], [-3, -4]]",
+        output: "[[0,-1],[-2,-3]]",
+        parameter: "[[-1, -2], [-3, -4]]",
+        javaFuncCall:
+          "increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});",
+        explanation: "Increment each value by 1.",
+        image: null,
+      },
+    ],
+    cases: [
+      {
+        parameter: "[[1, 2], [3, 4]]",
+        expectedOutput: "[[2,3],[4,5]]",
+        javaFuncCall: "increment_matrix_values(new int[][]{{1, 2}, {3, 4}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[0, 0], [0, 0]]",
+        expectedOutput: "[[1,1],[1,1]]",
+        javaFuncCall: "increment_matrix_values(new int[][]{{0, 0}, {0, 0}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[-1, -2], [-3, -4]]",
+        expectedOutput: "[[0,-1],[-2,-3]]",
+        javaFuncCall:
+          "increment_matrix_values(new int[][]{{-1, -2}, {-3, -4}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[3, 5], [7, 9]]",
+        expectedOutput: "[[4,6],[8,10]]",
+        javaFuncCall: "increment_matrix_values(new int[][]{{3, 5}, {7, 9}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[10, 20, 30], [40, 50, 60], [70, 80, 90]]",
+        expectedOutput: "[[11,21,31],[41,51,61],[71,81,91]]",
+        javaFuncCall:
+          "increment_matrix_values(new int[][]{{10, 20, 30}, {40, 50, 60}, {70, 80, 90}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[1], [2], [3], [4]]",
+        expectedOutput: "[[2],[3],[4],[5]]",
+        javaFuncCall:
+          "increment_matrix_values(new int[][]{{1}, {2}, {3}, {4}});",
+        userOutput: null,
+      },
+      {
+        parameter: "[[-5, -3], [-1, 1], [3, 5], [7, 9]]",
+        expectedOutput: "[[-4,-2],[0,2],[4,6],[8,10]]",
+        javaFuncCall:
+          "increment_matrix_values(new int[][]{{-5, -3}, {-1, 1}, {3, 5}, {7, 9}});",
+        userOutput: null,
+      },
+
+      /*
+      JS:
+        for(let i=0; i<matrix.length; i++){
+		      for(let j=0; j<matrix[i].length; j++){
+		      	matrix[i][j]++;
+		      }
+	      }
+	      return matrix;
+
+      PYTHON:
+        for i in range(len(matrix)):
+		      for j in range(len(matrix[0])):
+		      	matrix[i][j] += 1
+	      return matrix
+
+      JAVA:
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j]++;
+            }
+        }
+        return matrix;
+      */
+    ],
+  },
+
   {
     number: 9,
 
