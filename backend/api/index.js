@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 const corsOptions = {
   origin: "https://codebrowebsite.vercel.app",
   methods: "GET, POST, PUT, DELETE",
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // Handle preflight requests for all routes
