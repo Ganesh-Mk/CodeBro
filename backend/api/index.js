@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
 require("dotenv").config();
+
 const UserModel = require("../models/userModel");
 const LeaderBoard = require("../models/leaderBoardModel");
 const UserMessageModel = require("../models/userMessageModel");
@@ -13,32 +13,28 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "https://codebrowebsite.vercel.app",
-  methods: "GET, POST, PUT, DELETE",
+  origin: "https://codebrowebsite.vercel.app", // Allow requests from this origin
+  methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handle preflight requests for all routes
 
-// Middleware to set CORS headers and log requests
+app.use(cors(corsOptions));
+
+// Middleware to log requests
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://codebrowebsite.vercel.app"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   console.log(`Received request for ${req.url}`);
   next();
 });
 
+// Connect to MongoDB
 mongoose
-  .connect(process.env.DATABASE_URI)
+  .connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("MongoDB connected");
   })
   .catch((err) => console.log(err));
 
+// Define routes
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
@@ -57,6 +53,7 @@ app.get("/allUserDetails", (req, res) => {
     .then((userModel) => res.send(userModel))
     .catch((err) => res.send(err));
 });
+
 app.get("/deleteAllUsers", async (req, res) => {
   try {
     await UserModel.deleteMany({});
@@ -66,6 +63,7 @@ app.get("/deleteAllUsers", async (req, res) => {
     return res.status(500).send(err.message);
   }
 });
+
 app.get("/problemRecord", (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
@@ -74,6 +72,7 @@ app.get("/problemRecord", (req, res) => {
     })
     .catch((err) => res.send(err));
 });
+
 app.get("/leaderBoardprint", async (req, res) => {
   try {
     const leaderboard = await LeaderBoard.find();
@@ -83,6 +82,7 @@ app.get("/leaderBoardprint", async (req, res) => {
     return res.status(500).send(err.message);
   }
 });
+
 app.get("/deleteAllLeaderBoard", async (req, res) => {
   try {
     await LeaderBoard.deleteMany({});
@@ -248,6 +248,7 @@ app.post("/userAttempts", (req, res) => {
     })
     .catch((err) => res.status(500).send(err));
 });
+
 app.get("/getUserAttempts", (req, res) => {
   UserModel.findOne({ email: req.query.userEmail })
     .then((userModel) => {
@@ -308,7 +309,7 @@ app.post("/userMessages", (req, res) => {
     .catch((err) => res.status(500).json({ error: err.message }));
 });
 
-PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("listening on port: " + PORT);
 });
