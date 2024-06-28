@@ -117,14 +117,14 @@ export default function LoginPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="username" className="block text-sm font-medium">
-                Username
+                Email
               </label>
               <input
                 id="username"
                 type="text"
                 value={userEmail}
                 onChange={(e) => setUserEmail(e.target.value)}
-                placeholder="Enter your username"
+                placeholder="Enter your email"
                 className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
               />
             </div>
