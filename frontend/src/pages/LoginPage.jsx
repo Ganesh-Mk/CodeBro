@@ -128,7 +128,7 @@ export default function LoginPage() {
                 className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
               />
             </div>
-            <div className="space-y-2" >
+            <div className="space-y-2">
               <label htmlFor="password" className="block text-sm font-medium">
                 Password
               </label>
