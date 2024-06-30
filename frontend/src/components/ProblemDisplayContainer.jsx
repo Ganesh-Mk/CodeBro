@@ -46,7 +46,7 @@ const ProblemDisplayContainer = ({
         (item) => item.heading === problem.heading
       );
       dispatch(addProblemObj(selectedProblem));
-    }
+     }
   };
 
   useEffect(() => {
