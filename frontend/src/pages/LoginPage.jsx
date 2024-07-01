@@ -8,6 +8,7 @@ import { setName, setEmail, setPassword } from "../store/userSlice";
 import { Button, Stack } from "@chakra-ui/react";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { backendurl } from "../javascripts/urls";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     axios
-      .post("https://code-bro-tau.vercel.app/login", {
+      .post(`${backendurl}/login`, {
         userEmail,
         userPassword,
       })

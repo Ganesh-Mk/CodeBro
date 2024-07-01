@@ -12,6 +12,7 @@ import { setSelectedLanguage } from "../store/languageSelectingSlice";
 import axios from "axios";
 import { addTestCaseResults } from "../store/problemObjSlice";
 import { setUserProblems, userSlice } from "../store/userSlice";
+import { backendurl } from "../javascripts/urls";
 import DisplayProblemContainer from "../components/DisplayProblemContainer";
 import {
   Button,
@@ -74,7 +75,7 @@ const HomePage = () => {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get("https://code-bro-tau.vercel.app/getUserAttempts", {
+        .get(`${backendurl}/getUserAttempts`, {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {
@@ -134,7 +135,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -147,7 +148,7 @@ const HomePage = () => {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

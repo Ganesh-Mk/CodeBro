@@ -5,6 +5,7 @@ import {
   InputLeftElement,
   Input,
 } from "@chakra-ui/react";
+import { backendurl } from "../javascripts/urls";
 import Navbar from "../components/Navbar";
 import LeaderBoardUsers from "../components/LeaderBoardUsers";
 import { useSelector, useDispatch } from "react-redux";
@@ -26,7 +27,7 @@ function LeaderBoardPage() {
     async function fetchLeaderBoard() {
       try {
         const response = await axios.get(
-          "https://code-bro-tau.vercel.app/leaderBoardprint"
+          `${backendurl}/leaderBoardprint`
         );
         const updatedEntries = response.data.map((entry) => ({
           ...entry,

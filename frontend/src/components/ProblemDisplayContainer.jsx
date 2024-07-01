@@ -8,6 +8,7 @@ import { AllquesObject } from "../javascripts/data";
 import { addTestCaseResults } from "../store/problemObjSlice";
 import axios from "axios";
 import crtImage from "../assets/icons/correctIcon.png";
+import { backendurl } from "../javascripts/urls";
 
 import CorrectIcon from "./CorrectIcon";
 
@@ -51,7 +52,7 @@ const ProblemDisplayContainer = ({
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {

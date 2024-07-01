@@ -10,6 +10,7 @@ import { useToast } from "@chakra-ui/react";
 import { images } from "../javascripts/images";
 import { executeCode } from "../javascripts/api";
 import { useSelector, useDispatch } from "react-redux";
+import { backendurl } from "../javascripts/urls";
 import {
   addAllOutput,
   addAllResult,
@@ -73,7 +74,7 @@ function CodingPage() {
       localStorage.setItem("userAttempts", JSON.stringify(updatedAttempts));
 
       axios
-        .post("https://code-bro-tau.vercel.app/userAttempts", {
+        .post(`${backendurl}/userAttempts`, {
           userEmail: localStorage.getItem("email"),
           attempts: updatedAttempts,
         })
@@ -338,7 +339,7 @@ print(linkedListToArray(result))
       let linkedinVal = localStorage.getItem("linkedin");
 
       await axios
-        .post("https://code-bro-tau.vercel.app/addProblemRecord", {
+        .post(`${backendurl}/addProblemRecord`, {
           userEmail: emailVal,
           userInsta: instaVal,
           userGithub: githubVal,

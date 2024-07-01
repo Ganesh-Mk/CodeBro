@@ -18,6 +18,7 @@ import {
 import "../style/AboutUs.scss";
 import Navbar from "../components/Navbar.jsx";
 import { Link } from "react-router-dom";
+import { backendurl } from "../javascripts/urls.js";
 
 export default function AboutUsPage() {
   const [name, setname] = useState("");
@@ -32,7 +33,7 @@ export default function AboutUsPage() {
     window.location.href = mailtoLink;
 
     axios
-      .post("https://code-bro-tau.vercel.app/userMessages", {
+      .post(`${backendurl}/userMessages`, {
         name,
         email,
         message,

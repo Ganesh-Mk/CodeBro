@@ -11,6 +11,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { backendurl } from "../javascripts/urls";
 import Navbar from "../components/Navbar";
 import { images } from "../javascripts/images";
 import axios from "axios";
@@ -67,7 +68,7 @@ function EditProfilePage() {
     };
 
     axios
-      .post("https://code-bro-tau.vercel.app/updateUserDetails", userDetails)
+      .post(`${backendurl}/updateUserDetails`, userDetails)
       .then((result) => {
         const currentName = localStorage.getItem("name");
         const currentEmail = localStorage.getItem("email");

@@ -17,6 +17,7 @@ import { setLeaderBoardEntries } from "../store/leaderBoardSlice";
 import { addTestCaseResults } from "../store/problemObjSlice";
 import { setStoreAttempts } from "../store/attemptsSlice";
 import { useNavigate } from "react-router-dom";
+import { backendurl } from "../javascripts/urls";
 
 function AccountPage() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ function AccountPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       await axios
-        .get("https://code-bro-tau.vercel.app/leaderBoardprint")
+        .get(`${backendurl}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
         })
@@ -125,7 +126,7 @@ function AccountPage() {
 
   useEffect(() => {
     axios
-      .get("https://code-bro-tau.vercel.app/problemRecord", {
+      .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
@@ -150,7 +151,7 @@ function AccountPage() {
       dispatch(setStoreAttempts(savedAttempts));
     } else {
       axios
-        .get("https://code-bro-tau.vercel.app/getUserAttempts", {
+        .get(`${backendurl}/getUserAttempts`, {
           params: { userEmail: localStorage.getItem("email") },
         })
         .then((response) => {
