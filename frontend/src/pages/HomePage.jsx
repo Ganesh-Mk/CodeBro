@@ -35,6 +35,8 @@ const HomePage = () => {
   const [totalHard, setTotalHard] = useState(0);
   const [allProblems, setAllProblems] = useState([]);
   const [totalProblems, setTotalProblems] = useState(0);
+  const [loader, setLoader] = useState(false);
+
   const attempts = useSelector((state) => state.attempts.attempts);
 
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
@@ -94,12 +96,16 @@ const HomePage = () => {
   };
 
   useEffect(() => {
+    setLoader(true);
     axios
       .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        setAllProblems(response.data.allProblems);
+        setTimeout(() => {
+          setAllProblems(response.data.allProblems);
+          setLoader(false);
+        }, 2000);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -205,13 +211,25 @@ const HomePage = () => {
                   color="green.400"
                 >
                   <CircularProgressLabel className="circleText">
-                    <p>
-                      <span className="circleTextSpan">
-                        {easyWidth + mediumWidth + hardWidth}
-                      </span>
-                      <span className="circleTextSpan2">/ {totalProblems}</span>
-                    </p>
-                    <p className="circleTextP">Solved</p>
+                    {loader ? (
+                      <CircularProgress
+                        isIndeterminate
+                        trackColor="transparent"
+                        color="orange.400"
+                      />
+                    ) : (
+                      <>
+                        <p>
+                          <span className="circleTextSpan">
+                            {easyWidth + mediumWidth + hardWidth}
+                          </span>
+                          <span className="circleTextSpan2">
+                            / {totalProblems}
+                          </span>
+                        </p>
+                        <p className="circleTextP">Solved</p>
+                      </>
+                    )}
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
@@ -274,24 +292,36 @@ const HomePage = () => {
               <p>Problem names</p>
             </div>
             <div className="SubmissionProblemShower">
-              {allProblems.length !== 0 ? (
-                allProblems
-                  .slice()
-                  .reverse()
-                  .map((obj, i) => (
-                    <DisplayProblemContainer
-                      key={i}
-                      index={i}
-                      fontSize="1.4vw"
-                      num={obj.number}
-                      problem={obj.heading}
-                      diff={obj.difficulty}
-                    />
-                  ))
+              {loader ? (
+                <div className="subListLoader">
+                  <CircularProgress
+                    isIndeterminate
+                    trackColor="transparent"
+                    color="orange.400"
+                  />
+                </div>
               ) : (
-                <h3 style={{ textAlign: "center", color: "white" }}>
-                  No problems solved yet
-                </h3>
+                <>
+                  {allProblems.length !== 0 ? (
+                    allProblems
+                      .slice()
+                      .reverse()
+                      .map((obj, i) => (
+                        <DisplayProblemContainer
+                          key={i}
+                          index={i}
+                          fontSize="1.4vw"
+                          num={obj.number}
+                          problem={obj.heading}
+                          diff={obj.difficulty}
+                        />
+                      ))
+                  ) : (
+                    <h3 style={{ textAlign: "center", color: "white" }}>
+                      No problems solved yet
+                    </h3>
+                  )}
+                </>
               )}
             </div>
           </div>
