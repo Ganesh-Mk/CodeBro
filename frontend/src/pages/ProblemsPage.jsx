@@ -115,7 +115,7 @@ function ProblemsPage() {
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
                 >
-                  Topics
+                  {selectedTopic === "All" ? "All Topic" : selectedTopic}
                 </MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => setSelectedTopic("All")}>
@@ -177,7 +177,7 @@ function ProblemsPage() {
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
                 >
-                  Difficulty
+                  {selectedValue === "All" ? "Difficulty" : selectedValue}
                 </MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => setSelectedValue("All")}>
