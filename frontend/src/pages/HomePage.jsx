@@ -102,10 +102,8 @@ const HomePage = () => {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        setTimeout(() => {
-          setAllProblems(response.data.allProblems);
-          setLoader(false);
-        }, 2000);
+        setAllProblems(response.data.allProblems);
+        setLoader(false);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
