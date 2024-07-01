@@ -11,6 +11,8 @@ import { setSolvedProblems } from "../store/solvedProblemsReducer";
 import { setSelectedLanguage } from "../store/languageSelectingSlice";
 import axios from "axios";
 import { addTestCaseResults } from "../store/problemObjSlice";
+import { addProblemObj } from "../store/problemObjSlice";
+
 import { setUserProblems, userSlice } from "../store/userSlice";
 import { backendurl } from "../javascripts/urls";
 import DisplayProblemContainer from "../components/DisplayProblemContainer";
@@ -44,31 +46,6 @@ const HomePage = () => {
   const problemObj = useSelector((state) => state.problemObj.obj);
 
   useEffect(() => {
-    let solvedArr = [];
-    let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
-
-    if (attemptsArr.some((e) => e === 1)) {
-      AllquesObject.map((que) => {
-        if (
-          attemptsArr[que.number - 1] !== 0 ||
-          solvedProblems[que.number - 1]
-        ) {
-          solvedArr.push(true);
-        } else {
-          solvedArr.push(false);
-        }
-      });
-    } else {
-      AllquesObject.map(() => {
-        solvedArr.push(false);
-      });
-    }
-
-    dispatch(setSolvedProblems([...solvedArr]));
-    localStorage.setItem("solved", JSON.stringify([...solvedArr]));
-  }, [addTestCaseResults]);
-
-  useEffect(() => {
     const savedAttempts = JSON.parse(localStorage.getItem("userAttempts"));
 
     if (savedAttempts && savedAttempts.length === AllquesObject.length) {
@@ -91,23 +68,6 @@ const HomePage = () => {
         });
     }
   }, [dispatch]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      let solvedArr = [];
-
-      let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
-      AllquesObject.map((que) => {
-        if (attemptsArr[que.number - 1] !== 0) {
-          solvedArr.push(true);
-        } else {
-          solvedArr.push(false);
-        }
-      });
-      dispatch(setSolvedProblems([...solvedArr]));
-      localStorage.setItem("solved", JSON.stringify([...solvedArr]));
-    }, 50);
-  });
 
   useEffect(() => {
     setTotalEasy(0);

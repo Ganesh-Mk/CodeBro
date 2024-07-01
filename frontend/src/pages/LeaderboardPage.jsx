@@ -26,9 +26,7 @@ function LeaderBoardPage() {
   useEffect(() => {
     async function fetchLeaderBoard() {
       try {
-        const response = await axios.get(
-          `${backendurl}/leaderBoardprint`
-        );
+        const response = await axios.get(`${backendurl}/leaderBoardprint`);
         const updatedEntries = response.data.map((entry) => ({
           ...entry,
           image:
@@ -70,7 +68,7 @@ function LeaderBoardPage() {
   // Filter and sort the entries based on search term
   const filteredEntries = leaderBoardEntries
     .filter((entry) =>
-      entry.name.toLowerCase().includes(searchTerm.toLowerCase())
+      entry.name.toLowerCase().startsWith(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
       if (b.total !== a.total) return b.total - a.total;

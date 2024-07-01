@@ -9,7 +9,6 @@ import { addTestCaseResults } from "../store/problemObjSlice";
 import axios from "axios";
 import crtImage from "../assets/icons/correctIcon.png";
 import { backendurl } from "../javascripts/urls";
-
 import CorrectIcon from "./CorrectIcon";
 
 const ProblemDisplayContainer = ({
@@ -22,9 +21,7 @@ const ProblemDisplayContainer = ({
 }) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
-  const attempts = useSelector((state) => state.attempts.attempts);
-
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
+  const attempts = JSON.parse(localStorage.getItem("userAttempts")) || [];
 
   const handleClick = () => {
     if (bool === true) {
@@ -47,7 +44,7 @@ const ProblemDisplayContainer = ({
         (item) => item.heading === problem.heading
       );
       dispatch(addProblemObj(selectedProblem));
-     }
+    }
   };
 
   useEffect(() => {
@@ -56,37 +53,26 @@ const ProblemDisplayContainer = ({
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
-        let arr = [];
-        response.data.allProblems.map((item) => arr.push(item.number));
-
-        let attemptArr = [];
-        for (let i = 0; i < AllquesObject.length; i++) {
-          if (arr.includes(AllquesObject[i].number)) {
-            attemptArr.push(true);
-          } else {
-            attemptArr.push(false);
-          }
-        }
-
-        let ansAttempArr = [];
-        for (let i = 0; i < attemptArr.length; i++) {
-          if (attemptArr[i]) {
-            let problem = response.data.allProblems.find(
-              (p) => p.number === AllquesObject[i].number
-            );
-            ansAttempArr.push(problem.attempts);
-          } else {
-            ansAttempArr.push(0);
-          }
-        }
-
-        localStorage.setItem("attempts", JSON.stringify(ansAttempArr));
-        setAllProblems(ansAttempArr);
+        const solvedProblems = response.data.allProblems.reduce((acc, item) => {
+          acc[item.number] = item.attempts > 0;
+          return acc;
+        }, {});
+        localStorage.setItem("solved", JSON.stringify(solvedProblems));
+        setAllProblems(solvedProblems);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
   }, [addTestCaseResults]);
+
+  const isSolved = (number) => {
+    const solved = JSON.parse(localStorage.getItem("solved"));
+    return solved ? solved[number] : false;
+  };
+
+  const getAttempts = (number) => {
+    return attempts[number - 1] || 0;
+  };
 
   return (
     <Link
@@ -100,7 +86,7 @@ const ProblemDisplayContainer = ({
           {value && (
             <>
               <div className="statusContainer">
-                {JSON.parse(localStorage.getItem("solved"))[index] ? (
+                {isSolved(problem.number) ? (
                   <img
                     className="solvedIcons"
                     src={crtImage}
@@ -115,7 +101,6 @@ const ProblemDisplayContainer = ({
               </div>
             </>
           )}
-
           <p>{problem.heading}</p>
         </div>
         {value && (
@@ -142,7 +127,7 @@ const ProblemDisplayContainer = ({
               )}
             </div>
             <div className="attempts">
-              <p>{attempts[index]}</p>
+              <p>{getAttempts(problem.number)}</p>
             </div>
           </div>
         )}

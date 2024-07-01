@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "https://codebrowebsite.vercel.app", // Allow requests from this origin
+  // origin: "https://codebrowebsite.vercel.app",
+  origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
@@ -21,14 +22,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Middleware to log requests
-app.use((req, res, next) => {
-  console.log(`Received request for ${req.url}`);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(`Received request for ${req.url}`);
+//   next();
+// });
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DATABASE_URI)
   .then(() => {
     console.log("MongoDB connected");
   })
@@ -284,6 +285,7 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/createUser", (req, res) => {
+  console.log("Came to backend");
   UserModel.findOne({ email: req.body.userEmail })
     .then((existingUser) => {
       if (existingUser) {
