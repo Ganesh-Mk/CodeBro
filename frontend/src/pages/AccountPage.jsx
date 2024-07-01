@@ -44,6 +44,7 @@ function AccountPage() {
   const [totalMedium, setTotalMedium] = useState(0);
   const [totalHard, setTotalHard] = useState(0);
   const [totalProblems, setTotalProblems] = useState(0);
+  const [loader, setLoader] = useState(false);
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   const dispatch = useDispatch();
@@ -53,10 +54,12 @@ function AccountPage() {
 
   useEffect(() => {
     async function fetchLeaderBoard() {
+      setLoader(true);
       await axios
         .get(`${backendurl}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
+          setLoader(false);
         })
         .catch((error) => {
           console.error("Error LeaderBoard problem record:", error);
@@ -289,13 +292,25 @@ function AccountPage() {
                   color="green.400"
                 >
                   <CircularProgressLabel className="circleText">
-                    <p>
-                      <span className="circleTextSpan">
-                        {easyWidth + mediumWidth + hardWidth}
-                      </span>
-                      <span className="circleTextSpan2">/ {totalProblems}</span>
-                    </p>
-                    <p className="circleTextP">Solved</p>
+                    {loader ? (
+                      <CircularProgress
+                        isIndeterminate
+                        trackColor="transparent"
+                        color="orange.400"
+                      />
+                    ) : (
+                      <>
+                        <p>
+                          <span className="circleTextSpan">
+                            {easyWidth + mediumWidth + hardWidth}
+                          </span>
+                          <span className="circleTextSpan2">
+                            / {totalProblems}
+                          </span>
+                        </p>
+                        <p className="circleTextP">Solved</p>
+                      </>
+                    )}
                   </CircularProgressLabel>
                 </CircularProgress>
               </div>
@@ -366,23 +381,35 @@ function AccountPage() {
                 </div>
               </div>
               <div className="subListBox">
-                {allProblems.length !== 0 ? (
-                  allProblems
-                    .slice()
-                    .reverse()
-                    .map((obj, i) => (
-                      <DisplayProblemContainer
-                        key={i}
-                        num={obj.number}
-                        problem={obj.heading}
-                        diff={obj.difficulty}
-                        attempts={obj.attempts}
-                      />
-                    ))
+                {loader ? (
+                  <div className="subListLoader">
+                    <CircularProgress
+                      isIndeterminate
+                      trackColor="transparent"
+                      color="orange.400"
+                    />
+                  </div>
                 ) : (
-                  <h3 style={{ textAlign: "center", color: "white" }}>
-                    No problems solved yet
-                  </h3>
+                  <>
+                    {allProblems.length !== 0 ? (
+                      allProblems
+                        .slice()
+                        .reverse()
+                        .map((obj, i) => (
+                          <DisplayProblemContainer
+                            key={i}
+                            num={obj.number}
+                            problem={obj.heading}
+                            diff={obj.difficulty}
+                            attempts={obj.attempts}
+                          />
+                        ))
+                    ) : (
+                      <h3 style={{ textAlign: "center", color: "white" }}>
+                        No problems solved yet
+                      </h3>
+                    )}
+                  </>
                 )}
               </div>
             </div>
