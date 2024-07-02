@@ -183,8 +183,15 @@ export const AllquesObject = [
     image: null,
     allOutput: [],
     allResult: [],
-    description:
-      "The school cafeteria offers circular and square sandwiches at lunch break. Each student either prefers square or circular sandwiches. Given two arrays representing students and sandwiches, return the number of students unable to eat lunch.",
+    description: `The school cafeteria offers circular and square sandwiches at lunch break, referred to by numbers 0 and 1 respectively. All students stand in a queue. Each student either prefers square or circular sandwiches. <br>
+   <br>
+    The number of sandwiches in the cafeteria is equal to the number of students. The sandwiches are placed in a stack. At each step: <br>
+     <br>
+     &bull; If the student at the front of the queue prefers the sandwich on the top of the stack, they will take it and leave the queue. <br>
+     &bull; Otherwise, they will leave it and go to the queue's end. <br>
+    This continues until none of the queue students want to take the top sandwich and are thus unable to eat. <br>
+     <br>
+    You are given two integer arrays students and sandwiches where sandwiches[i] is the type of the i​​​​​​th sandwich in the stack (i = 0 is the top of the stack) and students[j] is the preference of the j​​​​​​th student in the initial queue (j = 0 is the front of the queue). Return the number of students that are unable to eat. <br>`,
     constraints: [
       "1 <= students.length, sandwiches.length <= 100",
       "students.length == sandwiches.length",
@@ -4194,8 +4201,9 @@ public class Solution {
     image: null,
     allOutput: [],
     allResult: [],
-    description:
-      "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.",
+    description: `Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.
+      <br>
+      You must write an algorithm that runs in O(n) time.`,
     constraints: ["0 <= nums.length <= 10^5", "-10^9 <= nums[i] <= 10^9"],
     functionName: "longestConsecutive",
     returnType: "int",
@@ -4216,7 +4224,7 @@ public class Solution {
         parameter: "[100,4,200,1,3,2]",
         javaFuncCall: "longestConsecutive(new int[]{100,4,200,1,3,2})",
         explanation:
-          "The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore, the length is 4.",
+          "The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.",
         image: null,
       },
       {

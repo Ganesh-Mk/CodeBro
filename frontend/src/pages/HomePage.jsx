@@ -96,14 +96,12 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    setLoader(true);
     axios
       .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
         setAllProblems(response.data.allProblems);
-        setLoader(false);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -111,6 +109,8 @@ const HomePage = () => {
   }, [addTestCaseResults]);
 
   useEffect(() => {
+    setLoader(true);
+
     axios
       .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
@@ -119,6 +119,7 @@ const HomePage = () => {
         setEasyWidth(response.data.easySolved || 0);
         setMediumWidth(response.data.mediumSolved || 0);
         setHardWidth(response.data.hardSolved || 0);
+        setLoader(false);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);

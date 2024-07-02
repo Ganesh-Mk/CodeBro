@@ -97,11 +97,30 @@ function AccountPage() {
     setUserName(localStorage.getItem("name"));
     setUserEmail(localStorage.getItem("email"));
     setUserPassword(localStorage.getItem("password"));
-    setUserInsta(localStorage.getItem("insta"));
-    setUserGithub(localStorage.getItem("github"));
-    setUserLinkedin(localStorage.getItem("linkedin"));
     setUserRank(localStorage.getItem("rank"));
   }, []);
+
+  useEffect(() => {
+    setLoader(true);
+
+    axios
+      .get(`${backendurl}/problemRecord`, {
+        params: { userEmail: localStorage.getItem("email") },
+      })
+      .then((response) => {
+        console.log("Res: ", response.data);
+        localStorage.setItem("insta", response.data.insta);
+        localStorage.setItem("github", response.data.github);
+        localStorage.setItem("linkedin", response.data.linkedin);
+
+        setUserInsta(response.data.insta);
+        setUserGithub(response.data.github);
+        setUserLinkedin(response.data.linkedin);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, [addTestCaseResults]);
 
   useEffect(() => {
     setTotalEasy(0);

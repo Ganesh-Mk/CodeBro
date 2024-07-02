@@ -49,7 +49,12 @@ export default function LoginPage() {
 
           localStorage.setItem("name", result.data.name);
           localStorage.setItem("email", userEmail);
+          localStorage.setItem(
+            "userImage",
+            `/src/assets/images/${result.data.image}.jpg`
+          );
           localStorage.setItem("password", userPassword);
+
           setTimeout(() => {
             setTimeout(() => {
               setIsLoading(false);

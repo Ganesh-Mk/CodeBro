@@ -47,9 +47,15 @@ function EditProfilePage() {
     setUserName(localStorage.getItem("name"));
     setUserEmail(localStorage.getItem("email"));
     setUserPassword(localStorage.getItem("password"));
-    setUserInsta(localStorage.getItem("insta"));
-    setUserGithub(localStorage.getItem("github"));
-    setUserLinkedin(localStorage.getItem("linkedin"));
+    if (localStorage.getItem("insta") !== null) {
+      setUserInsta(localStorage.getItem("insta"));
+    }
+    if (localStorage.getItem("github") !== null) {
+      setUserGithub(localStorage.getItem("github"));
+    }
+    if (localStorage.getItem("linkedin") !== null) {
+      setUserLinkedin(localStorage.getItem("linkedin"));
+    }
     setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
   }, []);
 
@@ -73,9 +79,9 @@ function EditProfilePage() {
         const currentName = localStorage.getItem("name");
         const currentEmail = localStorage.getItem("email");
         const currentPassword = localStorage.getItem("password");
-        const currentInsta = localStorage.getItem("insta");
-        const currentGithub = localStorage.getItem("github");
-        const currentLinkedin = localStorage.getItem("linkedin");
+        const currentInsta = localStorage.getItem("insta") || "";
+        const currentGithub = localStorage.getItem("github") || "";
+        const currentLinkedin = localStorage.getItem("linkedin") || "";
 
         const nameChanged = currentName !== userName;
         const emailChanged = currentEmail !== userEmail;
@@ -88,10 +94,11 @@ function EditProfilePage() {
         localStorage.setItem("name", userName);
         localStorage.setItem("email", userEmail);
         localStorage.setItem("password", userPassword);
-        localStorage.setItem("insta", userInsta);
-        localStorage.setItem("github", userGithub);
-        localStorage.setItem("linkedin", userLinkedin);
-        localStorage.setItem("userImage", userImage);
+        localStorage.setItem("insta", userInsta || "");
+        localStorage.setItem("github", userGithub || "");
+        localStorage.setItem("linkedin", userLinkedin || "");
+        localStorage.setItem("userImage", userImage || images.accDefaultLogo);
+        console.log("User image: ", userImage);
 
         dispatch(setName(userName));
         dispatch(setEmail(userEmail));
@@ -132,9 +139,9 @@ function EditProfilePage() {
     setUserName(localStorage.getItem("name"));
     setUserEmail(localStorage.getItem("email"));
     setUserPassword(localStorage.getItem("password"));
-    setUserInsta(localStorage.getItem("insta"));
-    setUserGithub(localStorage.getItem("github"));
-    setUserLinkedin(localStorage.getItem("linkedin"));
+    setUserInsta(localStorage.getItem("insta") || "");
+    setUserGithub(localStorage.getItem("github") || "");
+    setUserLinkedin(localStorage.getItem("linkedin") || "");
     setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
     toast.success("Reset Successful", {
       position: "top-right",
