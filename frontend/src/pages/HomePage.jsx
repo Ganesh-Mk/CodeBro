@@ -110,16 +110,15 @@ const HomePage = () => {
 
   useEffect(() => {
     setLoader(true);
-
     axios
       .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
+        setLoader(false);
         setEasyWidth(response.data.easySolved || 0);
         setMediumWidth(response.data.mediumSolved || 0);
         setHardWidth(response.data.hardSolved || 0);
-        setLoader(false);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);

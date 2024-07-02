@@ -49,11 +49,30 @@ export default function LoginPage() {
 
           localStorage.setItem("name", result.data.name);
           localStorage.setItem("email", userEmail);
-          localStorage.setItem(
-            "userImage",
-            `/src/assets/images/${result.data.image}.jpg`
-          );
           localStorage.setItem("password", userPassword);
+
+          let imageId = result.data.image;
+          let imageURL = ``;
+          if (imageId.includes("p1")) {
+            imageURL = `/src/assets/images/p1.jpg`;
+          } else if (imageId.includes("p2")) {
+            imageURL = `/src/assets/images/p2.jpg`;
+          } else if (imageId.includes("p3")) {
+            imageURL = `/src/assets/images/p3.jpg`;
+          } else if (imageId.includes("p4")) {
+            imageURL = `/src/assets/images/p4.jpg`;
+          } else if (imageId.includes("p5")) {
+            imageURL = `/src/assets/images/p5.jpg`;
+          } else if (imageId.includes("p6")) {
+            imageURL = `/src/assets/images/p6.jpg`;
+          } else if (imageId.includes("p7")) {
+            imageURL = `/src/assets/images/p7.jpg`;
+          } else if (imageId.includes("p8")) {
+            imageURL = `/src/assets/images/p8.jpg`;
+          } else if (imageId.includes("p9")) {
+            imageURL = `/src/assets/images/p9.jpg`;
+          }
+          localStorage.setItem("userImage", imageURL);
 
           setTimeout(() => {
             setTimeout(() => {
