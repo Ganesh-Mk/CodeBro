@@ -21,7 +21,10 @@ const ProblemDisplayContainer = ({
 }) => {
   const dispatch = useDispatch();
   const [allProblems, setAllProblems] = useState([]);
-  const attempts = JSON.parse(localStorage.getItem("userAttempts")) || [];
+  const attemptsStore = useSelector((state) => state.attempts.attempts);
+
+  const attempts =
+    JSON.parse(localStorage.getItem("userAttempts")) || attemptsStore || [];
 
   const handleClick = () => {
     if (bool === true) {

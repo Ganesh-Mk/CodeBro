@@ -46,9 +46,12 @@ const HomePage = () => {
     (state) => state.solvedProblems.solvedProblems
   );
   const problemObj = useSelector((state) => state.problemObj.obj);
+  const attemptsStore = useSelector((state) => state.attempts.attempts);
+  console.log("attemptsStore: ", attemptsStore);
 
   useEffect(() => {
-    const savedAttempts = JSON.parse(localStorage.getItem("userAttempts"));
+    const savedAttempts =
+      JSON.parse(localStorage.getItem("userAttempts")) || attemptsStore || [];
 
     if (savedAttempts && savedAttempts.length === AllquesObject.length) {
       dispatch(setStoreAttempts(savedAttempts));
