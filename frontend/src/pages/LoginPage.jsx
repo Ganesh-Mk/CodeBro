@@ -55,26 +55,7 @@ export default function LoginPage() {
           let imageId = result.data.image;
           console.log("imageId received: ", imageId);
 
-          let imageURL = ``;
-          if (imageId.includes("p1")) {
-            imageURL = `/src/assets/images/p1.jpg`;
-          } else if (imageId.includes("p2")) {
-            imageURL = `/src/assets/images/p2.jpg`;
-          } else if (imageId.includes("p3")) {
-            imageURL = `/src/assets/images/p3.jpg`;
-          } else if (imageId.includes("p4")) {
-            imageURL = `/src/assets/images/p4.jpg`;
-          } else if (imageId.includes("p5")) {
-            imageURL = `/src/assets/images/p5.jpg`;
-          } else if (imageId.includes("p6")) {
-            imageURL = `/src/assets/images/p6.jpg`;
-          } else if (imageId.includes("p7")) {
-            imageURL = `/src/assets/images/p7.jpg`;
-          } else if (imageId.includes("p8")) {
-            imageURL = `/src/assets/images/p8.jpg`;
-          } else if (imageId.includes("p9")) {
-            imageURL = `/src/assets/images/p9.jpg`;
-          }
+          let imageURL = `${backendurl}/assets/${imageId}`;
 
           storeUserImage(imageURL);
           console.log("imageURL: ", imageURL);
