@@ -5,6 +5,7 @@ import { setSolvedProblems } from "../store/solvedProblemsReducer";
 import "../style/style.css";
 import CodeBroLogo from "../components/CodeBroLogo";
 import { useNavigate } from "react-router-dom";
+import { images } from "../javascripts/images";
 
 function CodeIcon(props) {
   return (
@@ -176,7 +177,7 @@ export default function EntrancePage() {
           <CodeBroLogo />
         </Link>
 
-        <div className="toStoreImage" style={{ display: "none" }}>
+        <div className="toStoreImageInSource" style={{ display: "none" }}>
           {images.profileImages.map((image, index) => (
             <img key={index} src={image} />
           ))}
