@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { images } from "../javascripts/images";
 
 const initialState = {
   id: "",
@@ -8,7 +9,7 @@ const initialState = {
   insta: "",
   github: "",
   linkedin: "",
-  userImage: "",
+  userImage: images.accDefaultLogo,
 };
 
 export const userSlice = createSlice({
@@ -38,6 +39,7 @@ export const userSlice = createSlice({
     },
     storeUserImage: (state, action) => {
       state.userImage = action.payload;
+      console.log("storeUserImage value: ", state.userImage);
     },
   },
 });

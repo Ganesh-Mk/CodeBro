@@ -125,7 +125,7 @@ const HomePage = () => {
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
-  }, [addTestCaseResults]);
+  }, []);
 
   useEffect(() => {
     setTotalEasy(0);

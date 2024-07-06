@@ -66,7 +66,7 @@ const ProblemDisplayContainer = ({
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
-  }, [addTestCaseResults]);
+  }, []);
 
   const isSolved = (number) => {
     const solved = JSON.parse(localStorage.getItem("solved"));
