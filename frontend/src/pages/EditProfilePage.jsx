@@ -56,7 +56,8 @@ function EditProfilePage() {
     if (localStorage.getItem("linkedin") !== null) {
       setUserLinkedin(localStorage.getItem("linkedin"));
     }
-    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+    console.log("editProfilePage userstored image: ", userObj.userImage);
+    setUserImage(userObj.userImage);
   }, []);
 
   const handleSubmit = () => {

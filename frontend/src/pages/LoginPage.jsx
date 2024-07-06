@@ -9,6 +9,7 @@ import { Button, Stack } from "@chakra-ui/react";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { backendurl } from "../javascripts/urls";
+import { storeUserImage } from "../store/userSlice";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -52,6 +53,8 @@ export default function LoginPage() {
           localStorage.setItem("password", userPassword);
 
           let imageId = result.data.image;
+          console.log("imageId received: ", imageId);
+
           let imageURL = ``;
           if (imageId.includes("p1")) {
             imageURL = `/src/assets/images/p1.jpg`;
@@ -72,6 +75,9 @@ export default function LoginPage() {
           } else if (imageId.includes("p9")) {
             imageURL = `/src/assets/images/p9.jpg`;
           }
+
+          storeUserImage(imageURL);
+          console.log("imageURL: ", imageURL);
           localStorage.setItem("userImage", imageURL);
 
           setTimeout(() => {

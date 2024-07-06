@@ -31,7 +31,6 @@ function AccountPage() {
   const [userInsta, setUserInsta] = useState(userObj.insta);
   const [userGithub, setUserGithub] = useState(userObj.github);
   const [userLinkedin, setUserLinkedin] = useState(userObj.linkedin);
-  // const [userImage, setUserImage] = useState(images.accDefaultLogo)
   const [easyWidth, setEasyWidth] = useState(0);
   const [mediumWidth, setMediumWidth] = useState(0);
   const [hardWidth, setHardWidth] = useState(0);
@@ -143,7 +142,8 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
-    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+    console.log("account userstored image: ", userObj.userImage);
+    setUserImage(userObj.userImage);
   }, []);
 
   useEffect(() => {

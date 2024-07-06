@@ -7,12 +7,13 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 function Navbar({ fontColor = "white" }) {
-  const [userImage, setUserImage] = useState("home");
+  const [userImage, setUserImage] = useState(images.accDefaultLogo);
   const [menuVisible, setMenuVisible] = useState(false);
   const userObj = useSelector((state) => state.user);
 
   useEffect(() => {
-    setUserImage(localStorage.getItem("userImage") || images.accDefaultLogo);
+    console.log("navbar userstored image: ", userObj.userImage);
+    setUserImage(userObj.userImage);
   }, []);
 
   const location = useLocation(); // Get current location
