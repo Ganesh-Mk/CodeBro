@@ -78,8 +78,7 @@ function CodingPage() {
           userEmail: localStorage.getItem("email"),
           attempts: updatedAttempts,
         })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err));
+        .then((res) => console.log(res));
     }
     attemptsReducer();
 
@@ -332,6 +331,7 @@ print(linkedListToArray(result))
       });
 
       dispatch(setSolvedProblems([...solvedArr]));
+      console.log("solved setting from CodingPage: ", [...solvedArr]);
       localStorage.setItem("solved", JSON.stringify([...solvedArr]));
 
       let emailVal = localStorage.getItem("email");

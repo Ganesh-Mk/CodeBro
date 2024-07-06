@@ -142,7 +142,6 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
-    console.log("account userstored image: ", userObj.userImage);
     setUserImage(userObj.userImage);
   }, []);
 

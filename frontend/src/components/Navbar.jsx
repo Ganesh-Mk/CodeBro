@@ -12,7 +12,6 @@ function Navbar({ fontColor = "white" }) {
   const userObj = useSelector((state) => state.user);
 
   useEffect(() => {
-    console.log("navbar userstored image: ", userObj.userImage);
     setUserImage(userObj.userImage);
   }, []);
 

@@ -20,7 +20,6 @@ const ProblemDisplayContainer = ({
   isGapSmall,
 }) => {
   const dispatch = useDispatch();
-  const [allProblems, setAllProblems] = useState([]);
   const attemptsStore = useSelector((state) => state.attempts.attempts);
 
   const attempts =
@@ -60,8 +59,11 @@ const ProblemDisplayContainer = ({
           acc[item.number] = item.attempts > 0;
           return acc;
         }, {});
+        console.log(
+          "solved setting from problemDisplayContainer: ",
+          solvedProblems
+        );
         localStorage.setItem("solved", JSON.stringify(solvedProblems));
-        setAllProblems(solvedProblems);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
