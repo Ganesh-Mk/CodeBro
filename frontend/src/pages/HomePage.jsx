@@ -93,23 +93,6 @@ const HomePage = () => {
     });
   }, []);
 
-  const handleLanguageBox = (language) => {
-    dispatch(setSelectedLanguage(language));
-  };
-
-  useEffect(() => {
-    axios
-      .get(`${backendurl}/problemRecord`, {
-        params: { userEmail: localStorage.getItem("email") },
-      })
-      .then((response) => {
-        setAllProblems(response.data.allProblems);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, [addTestCaseResults]);
-
   useEffect(() => {
     setLoader(true);
     axios
@@ -118,6 +101,7 @@ const HomePage = () => {
       })
       .then((response) => {
         setLoader(false);
+        setAllProblems(response.data.allProblems);
         setEasyWidth(response.data.easySolved || 0);
         setMediumWidth(response.data.mediumSolved || 0);
         setHardWidth(response.data.hardSolved || 0);

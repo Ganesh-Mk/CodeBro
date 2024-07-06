@@ -53,12 +53,10 @@ function AccountPage() {
 
   useEffect(() => {
     async function fetchLeaderBoard() {
-      setLoader(true);
       await axios
         .get(`${backendurl}/leaderBoardprint`)
         .then((response) => {
           dispatch(setLeaderBoardEntries(response.data));
-          setLoader(false);
         })
         .catch((error) => {
           console.error("Error LeaderBoard problem record:", error);
@@ -100,28 +98,6 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
-    setLoader(true);
-
-    axios
-      .get(`${backendurl}/problemRecord`, {
-        params: { userEmail: localStorage.getItem("email") },
-      })
-      .then((response) => {
-        console.log("Res: ", response.data);
-        localStorage.setItem("insta", response.data.insta);
-        localStorage.setItem("github", response.data.github);
-        localStorage.setItem("linkedin", response.data.linkedin);
-
-        setUserInsta(response.data.insta);
-        setUserGithub(response.data.github);
-        setUserLinkedin(response.data.linkedin);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, [addTestCaseResults]);
-
-  useEffect(() => {
     setTotalEasy(0);
     setTotalMedium(0);
     setTotalHard(0);
@@ -146,11 +122,23 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
+    setLoader(true);
+
     axios
       .get(`${backendurl}/problemRecord`, {
         params: { userEmail: localStorage.getItem("email") },
       })
       .then((response) => {
+        setLoader(false);
+
+        localStorage.setItem("insta", response.data.insta);
+        localStorage.setItem("github", response.data.github);
+        localStorage.setItem("linkedin", response.data.linkedin);
+
+        setUserInsta(response.data.insta);
+        setUserGithub(response.data.github);
+        setUserLinkedin(response.data.linkedin);
+
         setJsSolved(response.data.jsSolved || 0);
         setPythonSolved(response.data.pythonSolved || 0);
         setJavaSolved(response.data.javaSolved || 0);
