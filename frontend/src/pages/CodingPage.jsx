@@ -57,6 +57,8 @@ function CodingPage() {
   const [value, setValue] = useState(problemObj.javascriptDefaultCode);
 
   const submitCode = async () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     setIsLoadingSubmit(true);
     dispatch(setIsSubmitted(true));
     setTestCaseOutput([]);

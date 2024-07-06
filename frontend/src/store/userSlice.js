@@ -39,7 +39,7 @@ export const userSlice = createSlice({
     },
     storeUserImage: (state, action) => {
       state.userImage = action.payload;
-      console.log("storeUserImage value: ", state.userImage);
+      localStorage.setItem("userImage", state.userImage);
     },
   },
 });

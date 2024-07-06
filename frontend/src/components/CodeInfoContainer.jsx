@@ -15,14 +15,16 @@ function CodeInfoContainer({ isLoadingSubmit }) {
   const [isSolved, setIsSolved] = useState(false);
 
   useEffect(() => {
-    let solvedArr = [];
+    let solvedObj = {};
     const storedSolved = localStorage.getItem("solved");
     if (storedSolved) {
-      solvedArr = JSON.parse(storedSolved);
+      solvedObj = JSON.parse(storedSolved);
     }
-    if (solvedArr[problemObj.number - 1]) {
+    if (solvedObj[problemObj.number]) {
       setIsSolved(true);
-    } else setIsSolved(false);
+    } else {
+      setIsSolved(false);
+    }
   }, [localStorage.getItem("solved")]);
 
   useEffect(() => {

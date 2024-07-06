@@ -12,7 +12,7 @@ function Navbar({ fontColor = "white" }) {
   const userObj = useSelector((state) => state.user);
 
   useEffect(() => {
-    setUserImage(userObj.userImage);
+    setUserImage(localStorage.getItem("userImage") || userObj.userImage);
   }, []);
 
   const location = useLocation(); // Get current location

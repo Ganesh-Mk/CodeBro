@@ -1,9 +1,7 @@
 * {
     color: white;
     font-family: sans-serif;
-  }
-
-
+}
 
 .codingPageBox {
     overflow: hidden;
@@ -12,11 +10,10 @@
     background: #242424;
     color: white;
 
-   
     .container {
-        height: 90vh; 
+        height: 90vh;
         display: grid;
-        background: #1A1A1A;
+        background: #1a1a1a;
         grid-template-columns: 40% 58%;
 
         .left {
@@ -59,23 +56,25 @@
                 line-height: 2;
                 font-size: 1.4vw;
             }
-
-            
         }
-
-       
     }
 }
 
-
-
 @media screen and (max-width: 800px) {
-    .css-1as86t7{
+    .css-1as86t7 {
         display: flex !important;
         flex-direction: column !important;
         gap: 5vw !important;
-      }
+    }
     .codingPageBox .container {
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // width: 100vw;
+        // background: #242424;
+        // color: white;
+        // min-height: 95vh;
+        // overflow-y: scroll;
+        // overflow-x: hidden;
         display: grid;
         grid-template-columns: 1fr;
         width: 100vw;
@@ -99,9 +98,7 @@
         font-size: 4vw;
         width: 90vw;
     }
-    .codingPageBox .container .left .que{
+    .codingPageBox .container .left .que {
         width: 90vw;
-        
     }
-
 }

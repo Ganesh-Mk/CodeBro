@@ -56,7 +56,11 @@ function EditProfilePage() {
     if (localStorage.getItem("linkedin") !== null) {
       setUserLinkedin(localStorage.getItem("linkedin"));
     }
-    setUserImage(userObj.userImage);
+    setUserImage(
+      localStorage.getItem("userImage") ||
+        userObj.userImage ||
+        images.accDefaultLogo
+    );
   }, []);
 
   const handleSubmit = () => {

@@ -142,7 +142,7 @@ function AccountPage() {
   }, []);
 
   useEffect(() => {
-    setUserImage(userObj.userImage);
+    setUserImage(localStorage.getItem("userImage") || userObj.userImage);
   }, []);
 
   useEffect(() => {
