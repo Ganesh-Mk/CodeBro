@@ -24,7 +24,7 @@ const ProblemDisplayContainer = ({
   const attemptsStore = useSelector((state) => state.attempts.attempts);
 
   const attempts =
-    JSON.parse(localStorage.getItem("userAttempts")) || attemptsStore || [];
+    attemptsStore || JSON.parse(localStorage.getItem("userAttempts")) || [];
 
   const handleClick = () => {
     if (bool === true) {

@@ -47,7 +47,6 @@ const HomePage = () => {
   );
   const problemObj = useSelector((state) => state.problemObj.obj);
   const attemptsStore = useSelector((state) => state.attempts.attempts);
-  console.log("attemptsStore: ", attemptsStore);
 
   useEffect(() => {
     const savedAttempts =
