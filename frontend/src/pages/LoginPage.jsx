@@ -55,7 +55,7 @@ export default function LoginPage() {
           let imageId = result.data.image;
           console.log("imageId received: ", imageId);
 
-          let imageURL = `${backendurl}/assets/${imageId}`;
+          let imageURL = `/assets/${imageId}.jpg`;
 
           storeUserImage(imageURL);
           console.log("imageURL: ", imageURL);
