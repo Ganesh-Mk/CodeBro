@@ -311,7 +311,7 @@ print(linkedListToArray(result))
     };
 
     let caseCorrectArr = await runAllCases();
-    let allCorrect = [];
+    let allCorrect = false;
     if (Array.isArray(caseCorrectArr)) {
       allCorrect = caseCorrectArr.every((e) => e === true);
     }

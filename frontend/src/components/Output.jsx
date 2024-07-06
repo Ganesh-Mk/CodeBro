@@ -31,7 +31,7 @@ const Output = ({ isError }) => {
                 >
                   <p style={{ marginRight: "2vw" }}>Case {i + 1}</p>
                   {problemObj.allResult.length > 0 ? (
-                    <p>
+                    <div>
                       {problemObj.allResult[i] === true ? (
                         <CorrectIcon />
                       ) : problemObj.allResult[i] === false ? (
@@ -45,7 +45,7 @@ const Output = ({ isError }) => {
                           color="green.300"
                         />
                       )}
-                    </p>
+                    </div>
                   ) : (
                     ""
                   )}
