@@ -55,6 +55,28 @@ function CodingPage() {
   );
   const userObj = useSelector((state) => state.user);
   const [value, setValue] = useState(problemObj.javascriptDefaultCode);
+  const [loadSolvedTickMark, setLoadSolvedTickMark] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`${backendurl}/problemRecord`, {
+        params: { userEmail: localStorage.getItem("email") },
+      })
+      .then((response) => {
+        const solvedProblems = response.data.allProblems.reduce((acc, item) => {
+          acc[item.number] = item.attempts > 0;
+          return acc;
+        }, {});
+        console.log(
+          "solved setting from problemDisplayContainer: ",
+          solvedProblems
+        );
+        localStorage.setItem("solved", JSON.stringify(solvedProblems));
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, [loadSolvedTickMark]);
 
   const submitCode = async () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -80,7 +102,7 @@ function CodingPage() {
           userEmail: localStorage.getItem("email"),
           attempts: updatedAttempts,
         })
-        .then((res) => console.log(res));
+        .then((res) => {});
     }
     attemptsReducer();
 
@@ -318,6 +340,8 @@ print(linkedListToArray(result))
     }
 
     if (allCorrect) {
+      setLoadSolvedTickMark((prev) => !prev);
+
       let solvedArr = [];
       let attemptsArr = JSON.parse(localStorage.getItem("attempts")) || [];
       AllquesObject.map((que) => {

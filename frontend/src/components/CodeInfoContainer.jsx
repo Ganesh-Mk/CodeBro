@@ -25,7 +25,11 @@ function CodeInfoContainer({ isLoadingSubmit }) {
     } else {
       setIsSolved(false);
     }
-  }, [localStorage.getItem("solved")]);
+  }, [
+    problemObj.number,
+    problemObj.isSubmitted,
+    localStorage.getItem("solved"),
+  ]);
 
   useEffect(() => {
     if (curPage === "desc") setCurPage("sub");
