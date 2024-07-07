@@ -55,7 +55,10 @@ export default function LoginPage() {
           let imageId = result.data.image;
           console.log("imageId received: ", imageId);
 
-          let imageURL = `/assets/${imageId}.jpg`;
+          let imageURL = ``;
+          if (imageId === null || imageId === undefined || imageId === "") {
+            imageURL = `/assets/${accDefaultLogo}.png`;
+          } else imageURL = `/assets/${imageId}.jpg`;
 
           storeUserImage(imageURL);
           console.log("imageURL: ", imageURL);

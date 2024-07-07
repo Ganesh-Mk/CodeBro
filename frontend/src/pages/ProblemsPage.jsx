@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import "../style/ProblemsPage.scss";
 import ProblemDisplayContainer from "../components/ProblemDisplayContainer";
 import { AllquesObject } from "../javascripts/data";
+import { backendurl } from "../javascripts/urls";
+
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addProblemObj } from "../store/problemObjSlice";
@@ -25,6 +27,7 @@ import {
   SearchIcon,
   StarIcon,
 } from "@chakra-ui/icons";
+import axios from "axios";
 
 function ProblemsPage() {
   const [selectedValue, setSelectedValue] = useState("All");
@@ -85,6 +88,24 @@ function ProblemsPage() {
   };
 
   const problemsToShow = filterByDifficulty(selectedValue);
+
+  useEffect(() => {
+    axios
+      .get(`${backendurl}/problemRecord`, {
+        params: { userEmail: localStorage.getItem("email") },
+      })
+      .then((response) => {
+        const solvedProblems = response.data.allProblems.reduce((acc, item) => {
+          acc[item.number] = item.attempts > 0;
+          return acc;
+        }, {});
+        console.log("solved setting from problem Page: ", solvedProblems);
+        localStorage.setItem("solved", JSON.stringify(solvedProblems));
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   return (
     <div style={{ backgroundColor: "#1a1a1a", height: "100vh" }}>

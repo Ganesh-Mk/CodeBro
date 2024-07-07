@@ -178,6 +178,7 @@ export default function EntrancePage() {
         </Link>
 
         <div className="toStoreImageInSource" style={{ display: "none" }}>
+          <img src={images.accDefaultLogo} alt="" />
           {images.profileImages.map((image, index) => (
             <img key={index} src={image} />
           ))}

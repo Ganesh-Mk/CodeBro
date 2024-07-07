@@ -332,9 +332,9 @@ print(linkedListToArray(result))
         }
       });
 
-      dispatch(setSolvedProblems([...solvedArr]));
-      console.log("solved setting from CodingPage: ", [...solvedArr]);
-      localStorage.setItem("solved", JSON.stringify([...solvedArr]));
+      // dispatch(setSolvedProblems([...solvedArr]));
+      // console.log("solved setting from CodingPage: ", [...solvedArr]);
+      // // localStorage.setItem("solved", JSON.stringify([...solvedArr]));
 
       let emailVal = localStorage.getItem("email");
       let instaVal = localStorage.getItem("insta");

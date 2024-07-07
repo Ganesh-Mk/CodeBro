@@ -49,27 +49,6 @@ const ProblemDisplayContainer = ({
     }
   };
 
-  useEffect(() => {
-    axios
-      .get(`${backendurl}/problemRecord`, {
-        params: { userEmail: localStorage.getItem("email") },
-      })
-      .then((response) => {
-        const solvedProblems = response.data.allProblems.reduce((acc, item) => {
-          acc[item.number] = item.attempts > 0;
-          return acc;
-        }, {});
-        console.log(
-          "solved setting from problemDisplayContainer: ",
-          solvedProblems
-        );
-        localStorage.setItem("solved", JSON.stringify(solvedProblems));
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
-      });
-  }, []);
-
   const isSolved = (number) => {
     const solved = JSON.parse(localStorage.getItem("solved"));
     return solved ? solved[number] : false;
