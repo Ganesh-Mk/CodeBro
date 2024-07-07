@@ -7,6 +7,7 @@ import CodeBroLogo from "../components/CodeBroLogo";
 import { setName, setEmail, setPassword } from "../store/userSlice";
 import { Button, Stack } from "@chakra-ui/react";
 import { Flip, ToastContainer, toast } from "react-toastify";
+import { images } from "../javascripts/images";
 import "react-toastify/dist/ReactToastify.css";
 import { backendurl } from "../javascripts/urls";
 import { storeUserImage } from "../store/userSlice";
@@ -57,7 +58,7 @@ export default function LoginPage() {
 
           let imageURL = ``;
           if (imageId === null || imageId === undefined || imageId === "") {
-            imageURL = `/assets/${accDefaultLogo}.png`;
+            imageURL = `/assets/accDefaultLogo.png`;
           } else imageURL = `/assets/${imageId}.jpg`;
 
           storeUserImage(imageURL);
