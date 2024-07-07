@@ -58,7 +58,7 @@ export default function LoginPage() {
 
           let imageURL = ``;
           if (imageId === null || imageId === undefined || imageId === "") {
-            imageURL = `/assets/accDefaultLogo.png`;
+            imageURL = `/assets/accDefaultLogo-C1XAuwlS.png`;
           } else imageURL = `/assets/${imageId}.jpg`;
 
           storeUserImage(imageURL);
