@@ -133,3 +133,58 @@ button {
     justify-content: center;
     align-items: center;
 }
+@media screen and (max-width: 1286px) {
+    .eyeview {
+        width: 1.5vw;
+        height: 1.5vw;
+        filter: invert(1);
+        position: absolute;
+        right: 3vw;
+        cursor: pointer;
+        // top: vw; 
+    }
+}
+@media screen and (max-width: 1156px) {
+    .eyeview {
+        width: 1.9vw;
+        height: 1.9vw;
+        filter: invert(1);
+        position: absolute;
+        right: 3.5vw;
+        cursor: pointer;
+        // top: vw; 
+    }
+}
+@media screen and (max-width: 820px) {
+    .eyeview {
+        width: 2.5vw;
+        height: 2.5vw;
+        filter: invert(1);
+        position: absolute;
+        right: 4.5vw;
+        cursor: pointer;
+        // top: vw; 
+    }
+}
+@media screen and (max-width: 655px) {
+    .eyeview {
+        width: 4vw;
+        height: 4vw;
+        filter: invert(1);
+        position: absolute;
+        right: 6vw;
+        cursor: pointer;
+        // top: vw; 
+    }
+}
+@media screen and (max-width: 450px) {
+    .eyeview {
+        width: 5vw;
+        height: 5vw;
+        filter: invert(1);
+        position: absolute;
+        right: 10vw;
+        cursor: pointer;
+        // top: vw; 
+    }
+}
