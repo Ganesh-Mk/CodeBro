@@ -31,10 +31,14 @@ import p6 from "../assets/images/p6.jpg";
 import p7 from "../assets/images/p7.jpg";
 import p8 from "../assets/images/p8.jpg";
 import p9 from "../assets/images/p9.jpg";
+import hide from '../assets/images/hide.png';
+import view from '../assets/images/view.png';
 
 export const images = {
   codeBroLogo,
   ganesh,
+  hide,
+  view, 
   accDefaultLogo,
   entranceImage,
   random,

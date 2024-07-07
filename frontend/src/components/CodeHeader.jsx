@@ -16,7 +16,7 @@ function CodeHeader({
 }) {
   const problemObj = useSelector((state) => state.problemObj.obj);
   const problemId = problemObj.number;
-
+  
   function handleResetCode() {
     let defaultCode = "";
     switch (language) {
