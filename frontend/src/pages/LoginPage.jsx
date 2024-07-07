@@ -18,6 +18,11 @@ export default function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const handlePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const handleSubmit = () => {
     if (userEmail == "" || userPassword == "") {
@@ -34,7 +39,6 @@ export default function LoginPage() {
       });
       return;
     }
-      
 
     axios
       .post(`${backendurl}/login`, {
@@ -148,14 +152,22 @@ export default function LoginPage() {
               <label htmlFor="password" className="block text-sm font-medium">
                 Password
               </label>
-              <input
-                id="password"
-                type="password"
-                value={userPassword}
-                onChange={(e) => setUserPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
-              />
+              <div className="passwordDiv">
+                <input
+                  id="password"
+                  type={isPasswordVisible ? "text" : "password"}
+                  value={userPassword}
+                  onChange={(e) => setUserPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  className="p-3 font-bold block w-full h-[40px] rounded-xl border-neutral-300 shadow-sm focus:border-primary focus:ring-primary"
+                />
+                <img
+                className="eyeview"
+                src={isPasswordVisible ? images.view : images.hide}
+                alt=""
+                onClick={handlePasswordVisibility}
+                />
+              </div>
             </div>
           </div>
           <div className="Btn flex justify-center items-center">

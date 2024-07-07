@@ -119,3 +119,17 @@ button {
     color: white;
     font-weight: 600;
 }
+.eyeview {
+    width: 1.5vw;
+    height: 1.5vw;
+    filter: invert(1);
+    position: absolute;
+    right: 2vw;
+    cursor: pointer;
+    // top: vw; 
+}
+.passwordDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

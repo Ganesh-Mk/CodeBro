@@ -19,6 +19,11 @@ export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [showPasswordRequirements, setShowPasswordRequirements] =
     useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const handlePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   const validatePassword = (password) => {
     const passwordRegex =
@@ -199,17 +204,25 @@ export default function RegisterPage() {
             >
               Password
             </label>
-            <input
-              id="password"
-              value={userPassword}
-              onChange={(e) => setUserPassword(e.target.value)}
-              type="password"
-              className="p-3 font-bold block w-full rounded-xl h-[40px] border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
-              placeholder="Enter your password"
-              required
-              onFocus={() => setShowPasswordRequirements(true)}
-              onBlur={() => setShowPasswordRequirements(false)}
-            />
+            <div className="passwordDiv">
+              <input
+                id="password"
+                value={userPassword}
+                onChange={(e) => setUserPassword(e.target.value)}
+                type={isPasswordVisible ? "text" : "password"}
+                className="p-3 font-bold block w-full rounded-xl h-[40px] border-gray-300 shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                placeholder="Enter your password"
+                required
+                onFocus={() => setShowPasswordRequirements(true)}
+                onBlur={() => setShowPasswordRequirements(false)}
+              />
+              <img
+                className="eyeview"
+                src={isPasswordVisible ? images.view : images.hide}
+                alt=""
+                onClick={handlePasswordVisibility}/>
+            </div>
+
             <div
               className={`password-r ${showPasswordRequirements ? "show" : ""}`}
             >
