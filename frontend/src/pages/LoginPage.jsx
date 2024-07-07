@@ -34,7 +34,7 @@ export default function LoginPage() {
       });
       return;
     }
-    setIsLoading(true);
+      
 
     axios
       .post(`${backendurl}/login`, {
