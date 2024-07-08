@@ -28,10 +28,7 @@ export default function AboutUsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
-    window.location.href = mailtoLink;
-
+    
     axios
       .post(`${backendurl}/userMessages`, {
         name,

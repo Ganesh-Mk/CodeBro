@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+const nodemailer = require("nodemailer");
+
 
 const UserModel = require("../models/userModel");
 const LeaderBoard = require("../models/leaderBoardModel");
@@ -20,6 +22,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+
 
 // Middleware to log requests
 // app.use((req, res, next) => {
@@ -303,12 +307,37 @@ app.post("/createUser", (req, res) => {
     .catch((err) => res.send(err));
 });
 
-app.post("/userMessages", (req, res) => {
-  UserMessageModel.create(req.body)
-    .then((createdMessage) =>
-      res.json({ message: "Message received", name: createdMessage.name })
-    )
-    .catch((err) => res.status(500).json({ error: err.message }));
+app.post("/userMessages", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  let sender = nodemailer.createTransport({
+    service: 'gmail',
+    secure: true,
+    port: 465,
+    auth: {
+      user: email,  // Your Gmail email address
+      pass: '#Vexillum010'           // Your Gmail password or App Password
+    },
+    tls: {
+      rejectUnauthorized: false       // Important when using Gmail
+    }
+  });
+  
+
+  let receiver = {
+    from: email,
+    to: 'codebro.dsa@gmail.com',
+    subject: `New Feedback from ${name}`,
+    text: message
+  };
+
+  try {
+    sender.sendMail(receiver);
+    res.status(200).send('Feedback sent successfully');
+  } catch (error) {
+    console.error('Error sending feedback:', error);
+    res.status(500).send('Error sending feedback');
+  }
 });
 
 // Start the server
