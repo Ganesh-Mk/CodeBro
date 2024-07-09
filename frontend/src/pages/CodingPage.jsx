@@ -100,9 +100,10 @@ function CodingPage() {
       axios
         .post(`${backendurl}/userAttempts`, {
           userEmail: localStorage.getItem("email"),
-          attempts: updatedAttempts,
+          attempts: updatedAttempts || [],
         })
-        .then((res) => {});
+        .then((res) => {})
+        .catch((res) => {});
     }
     attemptsReducer();
 

@@ -20,14 +20,12 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use((err, req, res, next) => {
+  res.header("Access-Control-Allow-Origin", corsOptions.origin);
+  res.status(err.status || 500);
+  res.json({ error: err.message });
+});
 
-// Middleware to log requests
-// app.use((req, res, next) => {
-//   console.log(`Received request for ${req.url}`);
-//   next();
-// });
-
-// Connect to MongoDB
 mongoose
   .connect(process.env.DATABASE_URI)
   .then(() => {
@@ -247,7 +245,7 @@ app.post("/userAttempts", (req, res) => {
         res.status(404).send(false);
       }
     })
-    .catch((err) => res.status(500).send(err));
+    .catch((err) => res.status(500).send("Error from backend: " + err));
 });
 
 app.get("/getUserAttempts", (req, res) => {

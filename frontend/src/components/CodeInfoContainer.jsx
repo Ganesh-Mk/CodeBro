@@ -31,15 +31,42 @@ function CodeInfoContainer({ isLoadingSubmit }) {
   useEffect(() => {
     if (curPage === "desc") {
       setCurPage("sub");
-      setTimeout(() => setRenderMarker(true), 5000);
-      setTimeout(() => setRenderMarker(false), 6000);
-      setTimeout(() => setRenderMarker(true), 7000);
-      setTimeout(() => setRenderMarker(false), 8000);
-      setTimeout(() => setRenderMarker(true), 9000);
-      setTimeout(() => setRenderMarker(false), 10000);
-      setTimeout(() => setRenderMarker(true), 11000);
-      setTimeout(() => setRenderMarker(false), 12000);
-      setTimeout(() => setRenderMarker(true), 13000);
+      setTimeout(() => {
+        setRenderMarker(true);
+        console.log("1");
+      }, 5000);
+      setTimeout(() => {
+        setRenderMarker(false);
+        console.log("2");
+      }, 6000);
+      setTimeout(() => {
+        setRenderMarker(true);
+        console.log("3");
+      }, 7000);
+      setTimeout(() => {
+        setRenderMarker(false);
+        console.log("4");
+      }, 8000);
+      setTimeout(() => {
+        setRenderMarker(true);
+        console.log("5");
+      }, 9000);
+      setTimeout(() => {
+        setRenderMarker(false);
+        console.log("6");
+      }, 10000);
+      setTimeout(() => {
+        setRenderMarker(true);
+        console.log("7");
+      }, 11000);
+      setTimeout(() => {
+        setRenderMarker(false);
+        console.log("8");
+      }, 12000);
+      setTimeout(() => {
+        setRenderMarker(true);
+        console.log("9");
+      }, 13000);
     } else setCurPage("desc");
   }, [problemObj.isSubmitted]);
 

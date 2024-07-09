@@ -152,6 +152,8 @@ const HomePage = () => {
       });
   }, []);
 
+  useEffect(() => {}, [attempts]);
+
   return (
     <div className="home">
       <Navbar />
