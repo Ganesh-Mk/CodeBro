@@ -47,7 +47,7 @@ export default function AboutUsPage() {
   return (
     <div>
       <Navbar />
-      <div className="container overflow-y-scroll w-full h-screen ">
+      <div className="aboutUsContainer overflow-y-scroll w-full h-screen ">
         <div className="text-center w-full space-y-2">
           <h1 className="text-3xl mt-[2vw] md:text-4xl lg:text-5xl font-bold text-[#ffffff]">
             About Us
