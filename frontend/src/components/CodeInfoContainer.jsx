@@ -13,6 +13,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
   const problemObj = useSelector((state) => state.problemObj.obj);
   const [curPage, setCurPage] = useState("sub");
   const [isSolved, setIsSolved] = useState(false);
+  const [renderMarker, setRenderMarker] = useState(false);
 
   useEffect(() => {
     let solvedObj = {};
@@ -25,15 +26,21 @@ function CodeInfoContainer({ isLoadingSubmit }) {
     } else {
       setIsSolved(false);
     }
-  }, [
-    problemObj.number,
-    problemObj.isSubmitted,
-    localStorage.getItem("solved"),
-  ]);
+  }, [renderMarker]);
 
   useEffect(() => {
-    if (curPage === "desc") setCurPage("sub");
-    else setCurPage("desc");
+    if (curPage === "desc") {
+      setCurPage("sub");
+      setTimeout(() => setRenderMarker(true), 5000);
+      setTimeout(() => setRenderMarker(false), 6000);
+      setTimeout(() => setRenderMarker(true), 7000);
+      setTimeout(() => setRenderMarker(false), 8000);
+      setTimeout(() => setRenderMarker(true), 9000);
+      setTimeout(() => setRenderMarker(false), 10000);
+      setTimeout(() => setRenderMarker(true), 11000);
+      setTimeout(() => setRenderMarker(false), 12000);
+      setTimeout(() => setRenderMarker(true), 13000);
+    } else setCurPage("desc");
   }, [problemObj.isSubmitted]);
 
   return (
