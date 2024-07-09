@@ -8,12 +8,16 @@ import Submit from "./Submit";
 import { images } from "../javascripts/images";
 import CorrectIcon from "./CorrectIcon";
 import WrongIcon from "./WrongIcon";
+import { backendurl } from "../javascripts/urls";
+import axios from "axios";
 
 function CodeInfoContainer({ isLoadingSubmit }) {
   const problemObj = useSelector((state) => state.problemObj.obj);
   const [curPage, setCurPage] = useState("sub");
   const [isSolved, setIsSolved] = useState(false);
   const [renderMarker, setRenderMarker] = useState(false);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     let solvedObj = {};
@@ -28,45 +32,47 @@ function CodeInfoContainer({ isLoadingSubmit }) {
     }
   }, [renderMarker]);
 
+  function fetchSolvedProblems() {
+    axios
+      .get(`${backendurl}/problemRecord`, {
+        params: { userEmail: localStorage.getItem("email") },
+      })
+      .then((response) => {
+        const solvedProblems = response.data.allProblems.reduce((acc, item) => {
+          acc[item.number] = item.attempts > 0;
+          return acc;
+        }, {});
+        localStorage.setItem("solved", JSON.stringify(solvedProblems));
+        setRenderMarker((prev) => !prev);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }
+
   useEffect(() => {
     if (curPage === "desc") {
       setCurPage("sub");
       setTimeout(() => {
-        setRenderMarker(true);
         console.log("1");
+        fetchSolvedProblems();
+      }, 3000);
+      setTimeout(() => {
+        console.log("1");
+        fetchSolvedProblems();
       }, 5000);
       setTimeout(() => {
-        setRenderMarker(false);
         console.log("2");
-      }, 6000);
-      setTimeout(() => {
-        setRenderMarker(true);
-        console.log("3");
+        fetchSolvedProblems();
       }, 7000);
       setTimeout(() => {
-        setRenderMarker(false);
-        console.log("4");
-      }, 8000);
-      setTimeout(() => {
-        setRenderMarker(true);
-        console.log("5");
+        console.log("3");
+        fetchSolvedProblems();
       }, 9000);
       setTimeout(() => {
-        setRenderMarker(false);
-        console.log("6");
-      }, 10000);
-      setTimeout(() => {
-        setRenderMarker(true);
-        console.log("7");
+        console.log("4");
+        fetchSolvedProblems();
       }, 11000);
-      setTimeout(() => {
-        setRenderMarker(false);
-        console.log("8");
-      }, 12000);
-      setTimeout(() => {
-        setRenderMarker(true);
-        console.log("9");
-      }, 13000);
     } else setCurPage("desc");
   }, [problemObj.isSubmitted]);
 
