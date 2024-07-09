@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  // origin: "https://codebrowebsite.vercel.app",
-  origin: "http://localhost:5173",
+  origin: "https://codebrowebsite.vercel.app",
+  // origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
