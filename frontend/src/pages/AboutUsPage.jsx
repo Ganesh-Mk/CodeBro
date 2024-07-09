@@ -4,6 +4,21 @@ import React, { useState } from "react";
 import FooterComp from "../components/FooterComp.jsx";
 import { images } from "../javascripts/images";
 import axios from "axios";
+import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  Button,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+  ModalOverlay,
+  Spinner,
+} from "@chakra-ui/react";
 import {
   Card,
   CardHeader,
@@ -11,7 +26,6 @@ import {
   CardFooter,
   Stack,
   Heading,
-  Button,
   Image,
   Text,
 } from "@chakra-ui/react";
@@ -24,10 +38,13 @@ export default function AboutUsPage() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true)
 
     // const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
     // window.location.href = mailtoLink;
@@ -40,7 +57,23 @@ export default function AboutUsPage() {
         email,
         message,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        toast.success("Feedback sent successfully", { 
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          transition: Flip,
+        })
+        setTimeout(() => {
+          setIsLoading(false);
+        },100)
+      })
       .catch((err) => console.log(err));
   };
 
@@ -332,12 +365,39 @@ export default function AboutUsPage() {
                 onChange={(e) => setmessage(e.target.value)}
                 className="w-full bg-gray-800 rounded-md px-4 py-3 text-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-600 resize-none h-32"
               />
-              <button
-                type="submit"
-                className="bg-gray-700 hover:bg-gray-600 text-gray-50 h-auto rounded-md px-4 py-3 w-full"
-              >
-                Submit Feedback
-              </button>
+              <div>
+              <Stack direction="row" spacing={4}>
+                {isLoading ? (
+                  <Button
+                  isLoading
+                  colorScheme="teal"
+                  variant="solid"
+                  sx={{
+                    width: "100%",
+                    height: "3vw",
+                    borderRadius: "1vw",
+                    fontSize: "1.5vw",
+                    marginTop: "6vw",
+                    backgroundColor: "#007BFF",
+                    _hover: {
+                      backgroundColor: "#0056b3", // Darken the button slightly when hovered
+                    },
+                    _loading: {
+                      backgroundColor: "#1F2937",
+                      opacity: 0.8, // Slightly dim the button when loading
+                    },
+                  }}
+                >
+                  <Spinner size="md" />
+                </Button>
+                ) : (
+                <button className="editBtns" onClick={handleSubmit}>
+                  Submit
+                </button>
+                )}
+              </Stack>
+              </div>
+              
             </form>
           </div>
 
@@ -345,6 +405,7 @@ export default function AboutUsPage() {
         </div>
         <FooterComp />
       </div>
+      <ToastContainer/>
     </div>
   );
 }
