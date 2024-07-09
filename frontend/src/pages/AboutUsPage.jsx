@@ -29,11 +29,13 @@ export default function AboutUsPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
-    window.location.href = mailtoLink;
+    // const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
+    // window.location.href = mailtoLink;
+
+    console.log("Send message: ", name, email, message);
 
     axios
-      .post(`${backendurl}/userMessages`, {
+      .post(`${backendurl}/sendEmail`, {
         name,
         email,
         message,
@@ -150,8 +152,8 @@ export default function AboutUsPage() {
                   <Text py="2" mt={3}>
                     I contributed to this project with a focus on frontend
                     development, project planning in excalidraw, user
-                    authentication and authorization, quality assurance testing, data
-                    integration and hosting.
+                    authentication and authorization, quality assurance testing,
+                    data integration and hosting.
                   </Text>
                 </CardBody>
               </div>
@@ -241,7 +243,10 @@ export default function AboutUsPage() {
                 </div>
 
                 <Text py="2" mt={3}>
-                  I contributed to this project with a focus on full stack development, which included project planning in excalidraw, designing, making it responsive, code editor, frontend, backend, and database.
+                  I contributed to this project with a focus on full stack
+                  development, which included project planning in excalidraw,
+                  designing, making it responsive, code editor, frontend,
+                  backend, and database.
                 </Text>
               </CardBody>
             </Stack>

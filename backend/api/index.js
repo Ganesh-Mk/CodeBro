@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
@@ -13,8 +14,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const corsOptions = {
-  // origin: "https://codebrowebsite.vercel.app",
-  origin: "http://localhost:5173",
+  origin: "https://codebrowebsite.vercel.app",
+  // origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
@@ -36,6 +37,38 @@ mongoose
 // Define routes
 app.get("/", (req, res) => {
   res.send("Hello World!");
+});
+
+app.post("/sendEmail", async (req, res) => {
+  const { name, email, message } = req.body;
+  console.log("came inside /sendEmail");
+
+  try {
+    let testAccount = await nodemailer.createTestAccount();
+
+    let transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      auth: {
+        user: "sheridan83@ethereal.email",
+        pass: "vnmMudA1XNeXpM6pVU",
+      },
+    });
+
+    let info = await transporter.sendMail({
+      from: email,
+      to: "codebro.dsa@gmail.com",
+      subject: "Feedback from CodeBro website",
+      text: message,
+      html: `<b>Name: ${name}</b></br><p>Email: ${email}</p></br></br><b>Message: ${message}</b>`,
+    });
+
+    console.log("Message sent: %s", info.messageId);
+    res.json(info);
+  } catch (error) {
+    console.error("Error sending email:", error);
+    res.status(500).send("Error sending email");
+  }
 });
 
 app.get("/deleteAllProblem", (req, res) => {
