@@ -1,38 +1,38 @@
-*{
-    color: white;
+* {
+  color: white;
 }
 
-Tab, Tablist, p, Box{
-    color: white;
+Tab,
+Tablist,
+p,
+Box {
+  color: white;
 }
 
 .outputContainer {
-    height: 10vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  height: 23vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-  
+
 .css-1xpribl {
   background: #242424 !important;
   border-radius: 1rem !important;
 }
 
-
-
-.testCase{
+.testCase {
   display: flex;
   flex-direction: column;
   gap: 2vw;
 }
-.testCase .testCaseBlock{
+.testCase .testCaseBlock {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 3fr;
 }
-.testCase .bold{
+.testCase .bold {
   font-weight: bold;
 }
-
 
 @media screen and (max-width: 800px) {
   .outputContainer {
@@ -40,7 +40,7 @@ Tab, Tablist, p, Box{
     margin-bottom: 5vh;
     padding-bottom: 10vw !important;
   }
-  .outputBox{
+  .outputBox {
     margin-top: 5vw;
   }
 
@@ -51,7 +51,7 @@ Tab, Tablist, p, Box{
     padding-right: 0 !important;
   }
 
-  .testCase{
+  .testCase {
     gap: 5vw;
   }
 
@@ -64,4 +64,3 @@ Tab, Tablist, p, Box{
     height: 6vh !important;
   }
 }
-
