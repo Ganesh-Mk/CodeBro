@@ -4,6 +4,7 @@ import "../style/CodeBroLogo.scss";
 import CodeEditor from "../components/CodeEditor";
 import Navbar from "../components/Navbar";
 import CodeHeader from "../components/CodeHeader";
+
 import axios from "axios";
 import Output from "../components/Output";
 import { useToast } from "@chakra-ui/react";
@@ -30,6 +31,7 @@ import { setSolvedProblems } from "../store/solvedProblemsReducer";
 import { setStoreAttempts } from "../store/attemptsSlice";
 function CodingPage() {
   const editorRef = useRef();
+  const codingDiv = useRef();
   const toast = useToast();
   const dispatch = useDispatch();
   const [language, setLanguage] = useState("javascript");
@@ -79,7 +81,7 @@ function CodingPage() {
   }, [loadSolvedTickMark]);
 
   const submitCode = async () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    codingDiv.current.scrollTop = 0;
 
     setIsLoadingSubmit(true);
     dispatch(setIsSubmitted(true));
@@ -676,7 +678,7 @@ class ListNode {
   return (
     <div className="codingPageBox">
       <Navbar fontColor="white" />
-      <div className="codingContainer">
+      <div className="codingContainer" ref={codingDiv}>
         <CodeInfoContainer isLoadingSubmit={isLoadingSubmit} />
         <div>
           <CodeHeader
