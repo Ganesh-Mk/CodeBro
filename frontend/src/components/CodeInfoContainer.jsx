@@ -53,26 +53,12 @@ function CodeInfoContainer({ isLoadingSubmit }) {
   useEffect(() => {
     if (curPage === "desc") {
       setCurPage("sub");
-      setTimeout(() => {
-        console.log("1");
-        fetchSolvedProblems();
-      }, 3000);
-      setTimeout(() => {
-        console.log("1");
-        fetchSolvedProblems();
-      }, 5000);
-      setTimeout(() => {
-        console.log("2");
-        fetchSolvedProblems();
-      }, 7000);
-      setTimeout(() => {
-        console.log("3");
-        fetchSolvedProblems();
-      }, 9000);
-      setTimeout(() => {
-        console.log("4");
-        fetchSolvedProblems();
-      }, 11000);
+      setTimeout(() => fetchSolvedProblems(), 3000);
+      setTimeout(() => fetchSolvedProblems(), 5000);
+      setTimeout(() => fetchSolvedProblems(), 7000);
+      setTimeout(() => fetchSolvedProblems(), 9000);
+      setTimeout(() => fetchSolvedProblems(), 11000);
+      setTimeout(() => fetchSolvedProblems(), 16000);
     } else setCurPage("desc");
   }, [problemObj.isSubmitted]);
 
