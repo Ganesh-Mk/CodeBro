@@ -3,7 +3,7 @@
 }
 .container {
     // background: url('../assets//images/background.jpeg');
-    background: #1A1A1A;
+    background: #1a1a1a;
 }
 input::placeholder {
     font-size: 15px;
@@ -18,7 +18,7 @@ textarea::placeholder {
     align-items: center;
     gap: 4vw;
 }
-.aboutUsMailBox a{
+.aboutUsMailBox a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,6 @@ textarea::placeholder {
 }
 
 .css-p6jkmx {
-
     height: 100% !important;
 }
 @media screen and (max-width: 800px) {
@@ -49,13 +48,13 @@ textarea::placeholder {
         font-size: 6vw !important;
         text-align: center !important;
     }
-    .css-1idwstw p{
-       font-size: 3.5vw !important;
-       text-align: center;
+    .css-1idwstw p {
+        font-size: 3.5vw !important;
+        text-align: center;
     }
-    .css-1idwstw p:nth-of-type(2){
-       font-size: 3vw !important;
-       color: lightgrey;
+    .css-1idwstw p:nth-of-type(2) {
+        font-size: 3vw !important;
+        color: lightgrey;
     }
     .text-\[\#ffffff\] {
         margin-top: 10vw !important;
@@ -79,7 +78,7 @@ textarea::placeholder {
         height: 8vw !important;
         width: 8vw !important;
     }
-    .aboutUsMailBox a{
+    .aboutUsMailBox a {
         gap: 3vw !important;
     }
     .aboutUsMailBox {

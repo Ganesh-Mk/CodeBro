@@ -10,8 +10,9 @@
     background: #242424;
     color: white;
 
-    .container {
+    .codingContainer {
         height: 90vh;
+        width: 100vw;
         display: grid;
         background: #1a1a1a;
         grid-template-columns: 40% 58%;
@@ -66,15 +67,7 @@
         flex-direction: column !important;
         gap: 5vw !important;
     }
-    .codingPageBox .container {
-        // display: grid;
-        // grid-template-columns: 1fr;
-        // width: 100vw;
-        // background: #242424;
-        // color: white;
-        // min-height: 95vh;
-        // overflow-y: scroll;
-        // overflow-x: hidden;
+    .codingPageBox .codingContainer {
         display: grid;
         grid-template-columns: 1fr;
         width: 100vw;
@@ -84,21 +77,21 @@
         overflow-y: scroll;
         overflow-x: hidden;
     }
-    .codingPageBox .container .left {
+    .codingPageBox .codingContainer .left {
         padding: 20px;
         border-right: 0;
         height: auto;
         width: 100vw;
     }
-    .codingPageBox .container .left .scroller {
+    .codingPageBox .codingContainer .left .scroller {
         height: auto;
         width: 100vw;
     }
-    .codingPageBox .container .left .desc {
+    .codingPageBox .codingContainer .left .desc {
         font-size: 4vw;
         width: 90vw;
     }
-    .codingPageBox .container .left .que {
+    .codingPageBox .codingContainer .left .que {
         width: 90vw;
     }
 }

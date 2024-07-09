@@ -676,7 +676,7 @@ class ListNode {
   return (
     <div className="codingPageBox">
       <Navbar fontColor="white" />
-      <div className="container">
+      <div className="codingContainer">
         <CodeInfoContainer isLoadingSubmit={isLoadingSubmit} />
         <div>
           <CodeHeader
