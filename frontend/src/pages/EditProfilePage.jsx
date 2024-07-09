@@ -9,8 +9,10 @@ import {
   ModalHeader,
   useDisclosure,
   ModalOverlay,
+  Spinner,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { Stack } from "@chakra-ui/react";
 import { backendurl } from "../javascripts/urls";
 import Navbar from "../components/Navbar";
 import { images } from "../javascripts/images";
@@ -42,6 +44,8 @@ function EditProfilePage() {
   const [userGithub, setUserGithub] = useState("");
   const [userLinkedin, setUserLinkedin] = useState("");
   const [userImage, setUserImage] = useState(images.accDefaultLogo);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   useEffect(() => {
     setUserName(localStorage.getItem("name"));
@@ -64,6 +68,7 @@ function EditProfilePage() {
   }, []);
 
   const handleSubmit = () => {
+    setIsLoading(true);
     storeUserImage(userObj.userImage);
     console.log(userImage.split("/").pop().split(".")[0]);
 
@@ -132,7 +137,11 @@ function EditProfilePage() {
             transition: Flip,
           });
         }
-        navigate("/account");
+        setTimeout(() => {
+          setIsLoading(false);
+          navigate("/account");
+        }, 2000)
+       
       })
       .catch((error) => {
         console.error("Error updating user details:", error);
@@ -258,9 +267,36 @@ function EditProfilePage() {
               </div>
             </div>
             <div className="editBtnBox">
-              <button className="editBtns" onClick={handleSubmit}>
-                Submit
-              </button>
+              <Stack direction="row" spacing={4}>
+                {isLoading ? (
+                  <Button
+                  isLoading
+                  colorScheme="teal"
+                  variant="solid"
+                  sx={{
+                    width: "10vw",
+                    height: "3vw",
+                    borderRadius: "3vw",
+                    fontSize: "1.5vw",
+                    marginTop: "6vw",
+                    backgroundColor: "#007BFF",
+                    _hover: {
+                      backgroundColor: "#0056b3", // Darken the button slightly when hovered
+                    },
+                    _loading: {
+                      backgroundColor: "#007BFF",
+                      opacity: 0.8, // Slightly dim the button when loading
+                    },
+                  }}
+                >
+                  <Spinner size="md" />
+                </Button>
+                ) : (
+                <button className="editBtns" onClick={handleSubmit}>
+                  Submit
+                </button>
+                )}
+              </Stack>
               <button className="editBtns" onClick={handleReset}>
                 Reset
               </button>
