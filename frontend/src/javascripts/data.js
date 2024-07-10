@@ -175,8 +175,8 @@ export const AllquesObject = [
 
     heading: "Number of Students Unable to Eat Lunch",
     difficulty: "Medium",
-    topic: ["Array", "Stack", "Queue"],
-    ds: "[ Array, Stack, Queue ]",
+    topic: ["Array", "Queue"],
+    ds: "[ Array, Queue ]",
     attempts: 0,
     isSolved: false,
     language: "javascript",

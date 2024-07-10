@@ -38,8 +38,12 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-  
+    .copyRightText{
+      font-size: 3vw !important;
+      margin-left: auto !important;
+    }
 }
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,

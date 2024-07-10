@@ -167,7 +167,7 @@ const HomePage = () => {
             <QuotesDisplay />
           </div>
           <div className="head2">
-            <p>Explore Probelms</p>
+            <p>Explore Problems</p>
             <Link to="/problems">
               <p className="seeall">See all</p>
             </Link>
