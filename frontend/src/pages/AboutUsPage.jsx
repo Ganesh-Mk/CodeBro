@@ -387,7 +387,12 @@ export default function AboutUsPage() {
                           opacity: 0.8, // Slightly dim the button when loading
                         },
                         "@media (max-width: 800px)": {
-                          height: "7vw",
+                          height: "11vw",
+                          width: "24vw",
+                          marginTop: "5vw",
+                          borderRadius: "1vw",
+                          fontSize: "4vw",
+                          background: "#2c2c2c",
                         },
                       }}
                     >
