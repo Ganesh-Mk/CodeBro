@@ -45,6 +45,20 @@ export default function AboutUsPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    if(name == "" || email == "" || message == "") {
+      toast.error("Please fill all the feilds", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+      });
+      return
+    }
 
     // const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
     // window.location.href = mailtoLink;
