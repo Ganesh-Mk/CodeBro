@@ -141,6 +141,23 @@ app.get("/deleteAllLeaderBoard", async (req, res) => {
   }
 });
 
+app.get("/deleteLeaderBoard/:email", async (req, res) => {
+  const email = req.params.email;
+
+  try {
+    const deletedEntry = await LeaderBoard.findOneAndDelete({ email });
+
+    if (!deletedEntry) {
+      return res.status(404).send("Leaderboard entry not found");
+    }
+
+    return res.status(204).send();
+  } catch (err) {
+    console.error("Error deleting leaderboard entry:", err);
+    return res.status(500).send(err.message);
+  }
+});
+
 app.post("/updateUserDetails", async (req, res) => {
   const {
     userEmail,
