@@ -44,7 +44,7 @@ export default function AboutUsPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
 
     // const mailtoLink = `mailto:ganeshmk247@gmail.com?subject=Feedback from ${name}&body=${message}`;
     // window.location.href = mailtoLink;
@@ -59,7 +59,7 @@ export default function AboutUsPage() {
       })
       .then((res) => {
         console.log(res);
-        toast.success("Feedback sent successfully", { 
+        toast.success("Feedback sent successfully", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -69,10 +69,10 @@ export default function AboutUsPage() {
           progress: undefined,
           theme: "dark",
           transition: Flip,
-        })
+        });
         setTimeout(() => {
           setIsLoading(false);
-        },100)
+        }, 100);
       })
       .catch((err) => console.log(err));
   };
@@ -366,38 +366,40 @@ export default function AboutUsPage() {
                 className="w-full bg-gray-800 rounded-md px-4 py-3 text-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-600 resize-none h-32"
               />
               <div>
-              <Stack direction="row" spacing={4}>
-                {isLoading ? (
-                  <Button
-                  isLoading
-                  colorScheme="teal"
-                  variant="solid"
-                  sx={{
-                    width: "100%",
-                    height: "3vw",
-                    borderRadius: "1vw",
-                    fontSize: "1.5vw",
-                    marginTop: "6vw",
-                    backgroundColor: "#007BFF",
-                    _hover: {
-                      backgroundColor: "#0056b3", // Darken the button slightly when hovered
-                    },
-                    _loading: {
-                      backgroundColor: "#1F2937",
-                      opacity: 0.8, // Slightly dim the button when loading
-                    },
-                  }}
-                >
-                  <Spinner size="md" />
-                </Button>
-                ) : (
-                <button className="editBtns" onClick={handleSubmit}>
-                  Submit
-                </button>
-                )}
-              </Stack>
+                <Stack direction="row" spacing={4}>
+                  {isLoading ? (
+                    <Button
+                      isLoading
+                      colorScheme="teal"
+                      variant="solid"
+                      sx={{
+                        width: "100%",
+                        height: "3vw",
+                        borderRadius: "1vw",
+                        fontSize: "1.5vw",
+                        marginTop: "6vw",
+                        backgroundColor: "#007BFF",
+                        _hover: {
+                          backgroundColor: "#0056b3", // Darken the button slightly when hovered
+                        },
+                        _loading: {
+                          backgroundColor: "#1F2937",
+                          opacity: 0.8, // Slightly dim the button when loading
+                        },
+                        "@media (max-width: 800px)": {
+                          height: "7vw",
+                        },
+                      }}
+                    >
+                      <Spinner size="md" />
+                    </Button>
+                  ) : (
+                    <button className="editBtn" onClick={handleSubmit}>
+                      Submit
+                    </button>
+                  )}
+                </Stack>
               </div>
-              
             </form>
           </div>
 
@@ -405,7 +407,7 @@ export default function AboutUsPage() {
         </div>
         <FooterComp />
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }

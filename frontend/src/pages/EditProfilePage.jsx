@@ -276,7 +276,7 @@ function EditProfilePage() {
                   sx={{
                     width: "10vw",
                     height: "3vw",
-                    borderRadius: "3vw",
+                    borderRadius: "1vw",
                     fontSize: "1.5vw",
                     marginTop: "6vw",
                     backgroundColor: "#007BFF",
@@ -284,9 +284,12 @@ function EditProfilePage() {
                       backgroundColor: "#0056b3", // Darken the button slightly when hovered
                     },
                     _loading: {
-                      backgroundColor: "#007BFF",
+                      backgroundColor: "#2C2C2C",
                       opacity: 0.8, // Slightly dim the button when loading
                     },
+                    "@media (max-width: 800px)": {
+                          height: "6vw",
+                        },
                   }}
                 >
                   <Spinner size="md" />
