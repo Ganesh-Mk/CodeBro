@@ -57,6 +57,7 @@ export default function AboutUsPage() {
         theme: "dark",
         transition: Flip,
       });
+      setIsLoading(false)
       return
     }
 
