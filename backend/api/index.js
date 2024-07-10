@@ -51,7 +51,7 @@ app.post("/sendEmail", async (req, res) => {
       port: 587,
       auth: {
         user: "sheridan83@ethereal.email",
-        pass: "vnmMudA1XNeXpM6pVU",
+        pass: "vnmMudA1XNeXpM6pVU", // we know it's not secure, we tried using env but while hosting it's getting some error, so...😅😅
       },
     });
 
@@ -69,6 +69,22 @@ app.post("/sendEmail", async (req, res) => {
     console.error("Error sending email:", error);
     res.status(500).send("Error sending email");
   }
+});
+
+app.get("/deleteUser/:email", (req, res) => {
+  const userEmail = req.params.email;
+
+  UserModel.findOneAndDelete({ email: userEmail })
+    .then((user) => {
+      if (user) {
+        res.send(`User with email ${user.email} deleted successfully.`);
+      } else {
+        res.send(`No user found with email ${userEmail}.`);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send(`Error deleting user: ${err.message}`);
+    });
 });
 
 app.get("/deleteAllProblem", (req, res) => {

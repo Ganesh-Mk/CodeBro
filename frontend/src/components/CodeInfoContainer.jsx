@@ -53,12 +53,15 @@ function CodeInfoContainer({ isLoadingSubmit }) {
   useEffect(() => {
     if (curPage === "desc") {
       setCurPage("sub");
+      setTimeout(() => fetchSolvedProblems(), 2000);
       setTimeout(() => fetchSolvedProblems(), 3000);
       setTimeout(() => fetchSolvedProblems(), 5000);
       setTimeout(() => fetchSolvedProblems(), 7000);
-      setTimeout(() => fetchSolvedProblems(), 9000);
-      setTimeout(() => fetchSolvedProblems(), 11000);
-      setTimeout(() => fetchSolvedProblems(), 16000);
+      setTimeout(() => fetchSolvedProblems(), 9000); // We know that it's not at all efficient way to do it.
+      setTimeout(() => fetchSolvedProblems(), 11000); // There was a bug, we tried so many things to debug it, but it didn't get solved, so we used this worst technique. 😅😅
+      setTimeout(() => fetchSolvedProblems(), 13000);
+      setTimeout(() => fetchSolvedProblems(), 17000);
+      setTimeout(() => fetchSolvedProblems(), 20000);
     } else setCurPage("desc");
   }, [problemObj.isSubmitted]);
 
