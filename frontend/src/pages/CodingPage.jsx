@@ -42,12 +42,7 @@ function CodingPage() {
   const [testCaseOutput, setTestCaseOutput] = useState([]);
   const [testCaseResult, setTestCaseResult] = useState([]);
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
-  const [jsSolved, setJsSolved] = useState(0);
-  const [pythonSolved, setPythonSolved] = useState(0);
-  const [javaSolved, setJavaSolved] = useState(0);
   const attempts = useSelector((state) => state.attempts.attempts);
-
-  // const backend_url = import.meta.env.REACT_APP_BACKEND_URL;
 
   const problemObj = useSelector((state) => state.problemObj.obj);
   const solvedProblems = useSelector(
