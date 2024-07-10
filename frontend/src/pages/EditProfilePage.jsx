@@ -46,7 +46,6 @@ function EditProfilePage() {
   const [userImage, setUserImage] = useState(images.accDefaultLogo);
   const [isLoading, setIsLoading] = useState(false);
 
-
   useEffect(() => {
     setUserName(localStorage.getItem("name"));
     setUserEmail(localStorage.getItem("email"));
@@ -67,10 +66,74 @@ function EditProfilePage() {
     );
   }, []);
 
+
+  const validateSocialMediaLinks = () => {
+    const instaRegex = /^https:\/\/(www\.)?instagram.com\/[A-Za-z0-9._%+-]+\/?$/;
+    const githubRegex = /^https:\/\/(www\.)?github.com\/[A-Za-z0-9._%+-]+\/?$/;
+    const linkedinRegex = /^https:\/\/(www\.)?linkedin.com\/in\/[A-Za-z0-9._%+-]+\/?$/;
+
+    const isGithubValid = userGithub ? githubRegex.test(userGithub) : true;
+    const isInstaValid = userInsta ? instaRegex.test(userInsta) : true;
+    const isLinkedinValid = userLinkedin ? linkedinRegex.test(userLinkedin) : true;
+
+    return { isGithubValid, isInstaValid, isLinkedinValid };
+  };
+
   const handleSubmit = () => {
     setIsLoading(true);
     storeUserImage(userObj.userImage);
     console.log(userImage.split("/").pop().split(".")[0]);
+
+    const { isGithubValid, isInstaValid, isLinkedinValid } = validateSocialMediaLinks();
+
+    if (!isGithubValid) {
+      toast.error("Github link is not valid", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    if (!isInstaValid) {
+      toast.error("Instagram link is not valid", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    if (!isLinkedinValid) {
+      toast.error("LinkedIn link is not valid", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Flip,
+      });
+      setIsLoading(false);
+      return;
+    }
+
 
     const userDetails = {
       userEmail,
@@ -140,8 +203,10 @@ function EditProfilePage() {
         setTimeout(() => {
           setIsLoading(false);
           navigate("/account");
-        }, 2000)
-       
+        }, 2000);
+        setUserGithub("");
+        setUserInsta("");
+        setUserLinkedin("");
       })
       .catch((error) => {
         console.error("Error updating user details:", error);
@@ -270,34 +335,34 @@ function EditProfilePage() {
               <Stack direction="row" spacing={4}>
                 {isLoading ? (
                   <Button
-                  isLoading
-                  colorScheme="teal"
-                  variant="solid"
-                  sx={{
-                    width: "10vw",
-                    height: "3vw",
-                    borderRadius: "1vw",
-                    fontSize: "1.5vw",
-                    marginTop: "6vw",
-                    backgroundColor: "#007BFF",
-                    _hover: {
-                      backgroundColor: "#0056b3", // Darken the button slightly when hovered
-                    },
-                    _loading: {
-                      backgroundColor: "#2C2C2C",
-                      opacity: 0.8, // Slightly dim the button when loading
-                    },
-                    "@media (max-width: 800px)": {
-                          height: "6vw",
-                        },
-                  }}
-                >
-                  <Spinner size="md" />
-                </Button>
+                    isLoading
+                    colorScheme="teal"
+                    variant="solid"
+                    sx={{
+                      width: "10vw",
+                      height: "3vw",
+                      borderRadius: "1vw",
+                      fontSize: "1.5vw",
+                      marginTop: "6vw",
+                      backgroundColor: "#007BFF",
+                      _hover: {
+                        backgroundColor: "#0056b3", // Darken the button slightly when hovered
+                      },
+                      _loading: {
+                        backgroundColor: "#2C2C2C",
+                        opacity: 0.8, // Slightly dim the button when loading
+                      },
+                      "@media (max-width: 800px)": {
+                        height: "6vw",
+                      },
+                    }}
+                  >
+                    <Spinner size="md" />
+                  </Button>
                 ) : (
-                <button className="editBtns" onClick={handleSubmit}>
-                  Submit
-                </button>
+                  <button className="editBtns" onClick={handleSubmit}>
+                    Submit
+                  </button>
                 )}
               </Stack>
               <button className="editBtns" onClick={handleReset}>
