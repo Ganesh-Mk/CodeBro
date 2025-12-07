@@ -75,7 +75,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
         >
           <p
             style={{
-              background: curPage === "desc" ? "#343434" : "transparent",
+              background: curPage === "desc" ? "#32394D" : "transparent",
             }}
             onClick={() => setCurPage("desc")}
           >
@@ -84,7 +84,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           {problemObj.isSubmitted === true ? (
             <p
               style={{
-                background: curPage === "sub" ? "#343434" : "transparent",
+                background: curPage === "sub" ? "#32394D" : "transparent",
               }}
               onClick={() => setCurPage("sub")}
             >

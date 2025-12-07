@@ -11,7 +11,7 @@ body {
 }
 
 :root[data-theme=dark], [data-theme][data-theme=dark] {
-  --chakra-colors-chakra-body-bg: #1A1A1A !important;
+  --chakra-colors-chakra-body-bg: #030712 !important;
 }
 
 .text-xl{

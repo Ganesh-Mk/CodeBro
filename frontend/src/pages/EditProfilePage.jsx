@@ -349,7 +349,7 @@ function EditProfilePage() {
                         backgroundColor: "#0056b3", // Darken the button slightly when hovered
                       },
                       _loading: {
-                        backgroundColor: "#2C2C2C",
+                        backgroundColor: "#171A25",
                         opacity: 0.8, // Slightly dim the button when loading
                       },
                       "@media (max-width: 800px)": {

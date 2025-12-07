@@ -407,7 +407,7 @@ export default function AboutUsPage() {
                           marginTop: "5vw",
                           borderRadius: "1vw",
                           fontSize: "4vw",
-                          background: "#2c2c2c",
+                          background: "#171A25",
                         },
                       }}
                     >

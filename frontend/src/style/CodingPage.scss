@@ -7,14 +7,14 @@
     overflow: hidden;
     width: 100vw;
     min-height: 100vh;
-    background: #242424;
+    background: #030712;
     color: white;
 
     .codingContainer {
         height: 90vh;
         width: 100vw;
         display: grid;
-        background: #1a1a1a;
+        background: #030712;
         grid-template-columns: 40% 58%;
 
         .left {
@@ -71,7 +71,7 @@
         display: grid;
         grid-template-columns: 1fr;
         width: 100vw;
-        background: #242424;
+        background: #111726;
         color: white;
         min-height: 95vh;
         overflow-y: scroll;

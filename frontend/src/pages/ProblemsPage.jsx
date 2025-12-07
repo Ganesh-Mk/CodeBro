@@ -108,7 +108,7 @@ function ProblemsPage() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#1a1a1a", height: "100vh" }}>
+    <div style={{ backgroundColor: "#030712", height: "100vh" }}>
       <Navbar />
       <div className="whole-container">
         <div className="heading">

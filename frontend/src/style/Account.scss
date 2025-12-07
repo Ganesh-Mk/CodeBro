@@ -32,11 +32,11 @@ color: grey;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5vw;
-    background: #1A1A1A;
+    background: #030712;
 
     .accLeft{
         border-radius: 2vw;
-        background: #282828;
+        background: #111726;
         height: 100%;
 
         .accLeftTop{
@@ -199,7 +199,7 @@ color: grey;
         .accTop{
             border-radius: 2vw;
             display: grid;
-            background: #282828;
+            background: #111726;
             padding: 1vw;
 
             .circleText{
@@ -325,7 +325,7 @@ color: grey;
 
         .accBottom{
             overflow: hidden;
-            background: #282828;
+            background: #111726;
             border-radius: 2vw;
             padding: 2vw;
 

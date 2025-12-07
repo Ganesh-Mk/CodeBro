@@ -26,8 +26,8 @@ const Output = ({ isError }) => {
                   className="outputCaseTab"
                   key={i}
                   style={{ margin: "0 1vw" }}
-                  _selected={{ backgroundColor: "#353535" }}
-                  _hover={{ backgroundColor: "#353535" }}
+                  _selected={{ backgroundColor: "#32394D" }}
+                  _hover={{ backgroundColor: "#232938" }}
                 >
                   <p style={{ marginRight: "2vw" }}>Case {i + 1}</p>
                   {problemObj.allResult.length > 0 ? (
