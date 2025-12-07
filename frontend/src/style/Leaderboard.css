@@ -42,7 +42,7 @@
 .leaderBottom {
   border-radius: 3vw;
   padding: 2vw 1vw;
-  background: #242424;
+  background: #030712;
 }
 
 .leaderBoardPage h3 {
@@ -165,7 +165,7 @@
 }
 .langDetails p{
   font-size: 1.3vw;
-  background: #343434;
+  background: #111726;
   padding: .2vw 1vw;
   border-radius: 2vw;
 }

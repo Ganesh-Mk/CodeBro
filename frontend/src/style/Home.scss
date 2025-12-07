@@ -5,7 +5,7 @@
 }
 .home {
   // width: 100vw;
-  background-color: #1a1a1a;
+  background-color: #030712;
 }
 .flexerr {
   display: grid;
@@ -13,7 +13,7 @@
 }
 
 .left {
-  background-color: #1a1a1a;
+  background-color: #030712;
   margin-right: .5vw;
   padding: 0.2vw 0.8vw;
   
@@ -26,7 +26,7 @@
   }
   .languages {
     // border-bottom: 2px solid rgb(161, 156, 156);
-    background-color: #282828;
+    background-color: #111726;
     padding: 1vw 0vw;
     border-radius: 1vw;
     margin: 0 1vw;
@@ -144,7 +144,7 @@
   }
 
   .problemdisplays::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: #030712;
     border-radius: 3vw;
   }
 
@@ -169,7 +169,7 @@
   padding-right: 1.5vw;
   margin-bottom: 2vw;
   .accTop {
-    background-color: #282828;
+    background-color: #111726;
     padding: .6vw 0vw;
     border-radius: 1vw;
   }
@@ -321,7 +321,7 @@
 }
 .SubmissionShower {
   // border-top: 1px solid white;
-  background-color: #282828;
+  background-color: #111726;
   border-radius: 1vw;
 
   margin-top: 1vw;
@@ -357,7 +357,7 @@
   }
 
   .SubmissionProblemShower::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: #030712;
     border-radius: 50%;
     border-radius: 3vw;
   }
