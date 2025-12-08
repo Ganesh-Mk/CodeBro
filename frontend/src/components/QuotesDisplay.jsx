@@ -29,7 +29,7 @@ const QuotesDisplay = () => {
       try {
         const controller = new AbortController();
         const res = await fetch("https://api.quotable.io/quotes/random?limit=1", {
-          signal: controller,
+          signal: controller.signal,
         });
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}`);
