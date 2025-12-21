@@ -97,10 +97,10 @@ export default function AboutUsPage() {
       <Navbar />
       <div className="aboutUsContainer overflow-y-scroll w-full h-screen ">
         <div className="text-center w-full space-y-2">
-          <h1 className="text-3xl mt-[2vw] md:text-4xl lg:text-5xl font-bold text-[#ffffff]">
+          <h1 className="text-3xl mt-[2vw] md:text-4xl lg:text-5xl font-bold text-[#4b4b4b]">
             About Us
           </h1>
-          <p className="text-[#e2e2e2] max-w-[700px] mx-auto">
+          <p className="text-[#4b4b4b] max-w-[700px] mx-auto">
             Meet the Minds Behind the Magic
           </p>
         </div>

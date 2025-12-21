@@ -1,4 +1,4 @@
-$darkMode: #030712;
+$darkMode: #F3F3F3;
 
 .css-1kfu8nn {
   max-height: 50vh !important;
@@ -16,15 +16,16 @@ $darkMode: #030712;
   // margin-top: .5vw;
   font-size: 1.8vw;
   background-color: $darkMode;
-  color: white;
+  color: #4b4b4b;
   > p {
     margin-top: 1vw;
     font-size: 2vw;
+    color: #4b4b4b;
   }
 }
 .problemShowerContainer{
   // height: auto;
-  background-color: #030712;
+  background-color: #F3F3F3;
   // padding: 1vw .8vw;
 }
 .problemsShower {
@@ -33,11 +34,11 @@ $darkMode: #030712;
   border-radius: 1vw;
   height: auto;
   margin: 0vw 1vw;
-  background-color: #111726;
+  background-color: #F5F6F6;
 
   .levelss {
     // border: 2px solid red;
-    background-color: #111726;
+    background-color: #F5F6F6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,7 +51,7 @@ $darkMode: #030712;
       align-items: center;
       gap: 5vw;
       p{
-        color: #ffffff;
+        color: #4b4b4b;
       }
     }
     .ds {
@@ -70,10 +71,10 @@ $darkMode: #030712;
   }
 
   > select {
-    color: rgb(234, 234, 234);
+    color: #4b4b4b;
     border-radius: 0.5vw;
     min-width: 7vw;
-    border: 2px solid white;
+    border: 2px solid #4b4b4b;
     height: 2vw;
     font-size: 1vw;
     background-color: $darkMode;
@@ -91,10 +92,10 @@ $darkMode: #030712;
     // margin-top: 1vw;
   }
   > select {
-    color: rgb(234, 234, 234);
+    color: #4b4b4b;
     border-radius: 0.5vw;
     width: 6vw;
-    border: 2px solid white;
+    border: 2px solid #4b4b4b;
     height: 2vw;
     font-size: 1vw;
     background-color: $darkMode;
@@ -120,10 +121,10 @@ $darkMode: #030712;
 
 .SearchBarPart {
   // border: 2px solid red;
-  background-color: #111726;
+  background-color: #F5F6F6;
   width: auto;
   border-radius: 1vw;
-  color: white;
+  color: #4b4b4b;
   padding: 1vw 2vw;
   display: flex;
   justify-content: space-between;
@@ -191,7 +192,7 @@ $darkMode: #030712;
 }
 
 .horizontallinediv {
-  background-color: #030712;
+  background-color: #F3F3F3;
 }
 
 
@@ -199,7 +200,7 @@ $darkMode: #030712;
   //    margin-top: 2vw;
   //    border: 2px solid red;
   //    margin: 1vw 1vw 0vw 1vw;
-  background-color: #111726;
+  background-color: #F5F6F6;
 
   height: 63vh;
   overflow-y: scroll;
@@ -208,7 +209,7 @@ $darkMode: #030712;
   // background-color: $darkMode;
 
   h2 {
-    color: white;
+    color: #4b4b4b;
     position: relative;
     right: -45vw;
     top: 20vh;
@@ -242,7 +243,7 @@ $darkMode: #030712;
   gap: 3vw;
 }
 .problemTopics{
-  color: lightgrey;
+  color: #4b4b4b;
 }
 @media screen and (max-width: 800px) {
   .SearchBarPart{
@@ -278,7 +279,7 @@ $darkMode: #030712;
 }
 .problemsShower .levelss .levelspart p{
   font-size: 3vw;
-  color: lightgrey;
+  color: #4b4b4b;
 }
 .problemBoxContainer .problemBoxMiddle {
   margin-right: auto;
@@ -310,13 +311,13 @@ $darkMode: #030712;
 }
 .topics{
   display: block;
-  color: lightgray;
+  color: #4b4b4b;
 }
 .ds{
   display: none;
 }
 .problemTopics{
-  color: grey;
+  color: #4b4b4b;
 }
 .problemBoxContainer .problemBoxPart2 .difficultyDisplayer {
   margin-right: 5vw;
@@ -331,5 +332,6 @@ $darkMode: #030712;
 }
 .heading p{
   font-size: 5vw;
+  color: #4b4b4b;
 }
 }

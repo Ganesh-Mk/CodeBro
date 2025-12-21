@@ -1,11 +1,11 @@
 * {
   p{
-    color: white;
+    color: #4b4b4b;
   }
 }
 .home {
   // width: 100vw;
-  background-color: #030712;
+  background-color: #F3F3F3;
 }
 .flexerr {
   display: grid;
@@ -13,20 +13,20 @@
 }
 
 .left {
-  background-color: #030712;
+  background-color: #F3F3F3;
   margin-right: .5vw;
   padding: 0.2vw 0.8vw;
   
   .head1 {
     padding: 0.8vw 1vw;
     p {
-      color: #ffffff;
+      color: #4b4b4b;
       font-size: 1.3vw;
     }
   }
   .languages {
     // border-bottom: 2px solid rgb(161, 156, 156);
-    background-color: #111726;
+    background-color: #F5F6F6;
     padding: 1vw 0vw;
     border-radius: 1vw;
     margin: 0 1vw;
@@ -41,8 +41,8 @@
       h1 {
         // border: 2px solid blue;
         font-size: 1.5vw;
-        color: lightblue;
-        border-bottom: .15vw solid gray;
+        color: #4b4b4b;
+        border-bottom: .15vw solid #4b4b4b;
       }
     }
     .sec2 {
@@ -55,7 +55,7 @@
         width: 50vw;
         // border: 2px solid white;
         text-align: center;
-        color: white;
+        color: #4b4b4b;
         padding: .6vw .8vw;
         border-radius: 1vw;
         // background-color: white;
@@ -79,11 +79,12 @@
 
     > p{
       font-size: 2vw;
+      color: #4b4b4b;
     }
 
     .seeall{
-      color: lightblue;
-      border-bottom: .1vw solid lightblue;
+      color: #4b4b4b;
+      border-bottom: .1vw solid #4b4b4b;
       font-size: 1.5vw;
     }
    
@@ -98,10 +99,10 @@
   .moreQues{
     display: inline-block;
     margin-top: 2vw;
-    border: 0.2vw solid grey;
+    border: 0.2vw solid #4b4b4b;
     border-radius: 100vw;
     padding: .8vw 2vw;
-    color: lightblue;
+    color: #4b4b4b;
     transition: .2s ease-in-out;
 
   }
@@ -122,7 +123,7 @@
         align-items: center;
         gap: 1.5vw;
         p{
-          color: #ffffff;
+          color: #4b4b4b;
         }
       }
 
@@ -144,7 +145,7 @@
   }
 
   .problemdisplays::-webkit-scrollbar-track {
-    background: #030712;
+    background: #F3F3F3;
     border-radius: 3vw;
   }
 
@@ -169,7 +170,7 @@
   padding-right: 1.5vw;
   margin-bottom: 2vw;
   .accTop {
-    background-color: #111726;
+    background-color: #F5F6F6;
     padding: .6vw 0vw;
     border-radius: 1vw;
   }
@@ -198,7 +199,7 @@
         }
         p {
           font-size: 2vw;
-          color: #ffffff;
+          color: #4b4b4b;
         }
       }
     }
@@ -240,7 +241,7 @@
     }
     .diffTextBox{
         display: flex;
-        color:white;
+        color:#4b4b4b;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -263,19 +264,19 @@
     }
     .numberBox{
         display: flex;
-        color:white;
+        color:#4b4b4b;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: .6vw;
 
         p{
-            color: white;
+            color: #4b4b4b;
             font-size: 1.2vw;
 
             span{
             font-size: 1vw;
-              color: grey;
+              color: #4b4b4b;
             }
         }
     }
@@ -285,7 +286,7 @@
     .range{
         width: 10vw;
         height: 1.2vw;
-        box-shadow: 0px 0px 2px 0px grey;
+        box-shadow: 0px 0px 2px 0px #4b4b4b;
         border-radius: 10rem;
     }
 }
@@ -296,15 +297,15 @@
 }
 .circleTextSpan2{
   font-size: 1.3vw;
-  color: grey;
+  color: #4b4b4b;
 }
 .circleTextP{
-  color: lightblue;
+  color: #4b4b4b;
   font-size: 1.3vw;
 }
 .Solvedhead {
   p{
-    color: #ffffff;
+    color: #4b4b4b;
   }
 }
 .statPart2 {
@@ -315,13 +316,13 @@
     align-items: center;
     gap: 2vw;
     label {
-      color: white;
+      color: #4b4b4b;
     }
   }
 }
 .SubmissionShower {
   // border-top: 1px solid white;
-  background-color: #111726;
+  background-color: #F5F6F6;
   border-radius: 1vw;
 
   margin-top: 1vw;
@@ -330,9 +331,6 @@
   .SubmissionHead {
     display: flex;
     justify-content: center;
-    p{
-      color: #ffffff;
-    }
   }
   .SubmissionStatusBar {
     // margin-top: vw;
@@ -342,7 +340,7 @@
     gap: 12vw;
     p {
       font-size: 1vw;
-      color: lightblue;
+      color: #4b4b4b;
     }
   }
   .SubmissionProblemShower {
@@ -357,7 +355,7 @@
   }
 
   .SubmissionProblemShower::-webkit-scrollbar-track {
-    background: #030712;
+    background: #F3F3F3;
     border-radius: 50%;
     border-radius: 3vw;
   }
@@ -479,6 +477,7 @@
   }
   .left .head2 p{
     font-size: 5vw;
+    color: #4b4b4b;
   }
   .left .head2 .seeall {
     font-size: 4.5vw;
@@ -502,7 +501,7 @@
   gap: 3.5vw;
 }
 .left .problemsShower .levelss .levelspart p{
-  color: lightgrey;
+  color: #4b4b4b;
   font-size: 3.5vw;
 }
 .left .problemsShower .levelss .levelspart .problemName{

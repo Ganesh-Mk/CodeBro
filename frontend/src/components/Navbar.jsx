@@ -6,7 +6,7 @@ import CodeBroLogo from "./CodeBroLogo";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function Navbar({ fontColor = "white" }) {
+function Navbar({ fontColor = "#4B4B4B" }) {
   const [userImage, setUserImage] = useState(images.accDefaultLogo);
   const [menuVisible, setMenuVisible] = useState(false);
   const userObj = useSelector((state) => state.user);
@@ -37,7 +37,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>Home</p>
+          <p className="text-[#4b4b4b]">Home</p>
         </Link>
         <Link
           to="/problems"
@@ -46,7 +46,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>Problems</p>
+          <p className="text-[#4b4b4b]">Problems</p>
         </Link>
 
         <Link
@@ -56,7 +56,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>Leaderboard</p>
+          <p className="text-[#4b4b4b]">Leaderboard</p>
         </Link>
         <Link
           to="/coding"
@@ -65,7 +65,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>Coding</p>
+          <p className="text-[#4b4b4b]">Coding</p>
         </Link>
         <Link
           to="/aboutus"
@@ -74,7 +74,7 @@ function Navbar({ fontColor = "white" }) {
           }`}
           style={{ textDecoration: "none", color: fontColor }}
         >
-          <p>About-Us</p>
+          <p className="text-[#4b4b4b]">About-Us</p>
         </Link>
       </div>
 

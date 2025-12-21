@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #030712;
+    background: #F3F3F3;
     padding: 1vw 2vw; // Add padding to prevent content from touching screen edges
     // overflow-x: hidden;
   
@@ -19,7 +19,7 @@
   
       .navItems {
         font-size: 1.2vw;
-        color: rgb(255, 255, 255);
+        color: #4b4b4b;
         text-decoration: none;
       }
     }
@@ -40,8 +40,8 @@
   
       p {
         font-size: 1.2vw;
-        color: rgb(255, 255, 255);
-        border-bottom: 1px solid lightblue;
+        color: #4b4b4b;
+        border-bottom: 1px solid #4b4b4b;
       }
     }
 }
@@ -91,7 +91,7 @@
 }
 
 .navItems.active p {
-  border-bottom: .1rem solid lightgrey;
+  border-bottom: .1rem solid #4b4b4b;
 }
 .rightMenuMini{
   display: flex;

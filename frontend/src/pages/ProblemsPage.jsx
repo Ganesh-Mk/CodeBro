@@ -108,7 +108,7 @@ function ProblemsPage() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#030712", height: "100vh" }}>
+    <div style={{ backgroundColor: "#F3F3F3", height: "100vh" }}>
       <Navbar />
       <div className="whole-container">
         <div className="heading">
@@ -125,6 +125,7 @@ function ProblemsPage() {
                 placeholder="Search Problems..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ color: '#4b4b4b' }}
               />
             </InputGroup>
           </form>
@@ -135,6 +136,7 @@ function ProblemsPage() {
                   as={Button}
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
+                  color="#4b4b4b"
                 >
                   {selectedTopic === "All" ? "All Topic" : selectedTopic}
                 </MenuButton>
@@ -197,6 +199,7 @@ function ProblemsPage() {
                   as={Button}
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
+                  color="#4b4b4b"
                 >
                   {selectedValue === "All" ? "Difficulty" : selectedValue}
                 </MenuButton>
@@ -225,6 +228,7 @@ function ProblemsPage() {
                 colorScheme="teal"
                 onClick={randomProblemPicker}
                 variant="outline"
+                color="#4b4b4b"
               >
                 pick random
               </Button>

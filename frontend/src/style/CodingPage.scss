@@ -1,5 +1,5 @@
 * {
-    color: white;
+    color: #4b4b4b;
     font-family: sans-serif;
 }
 
@@ -7,14 +7,14 @@
     overflow: hidden;
     width: 100vw;
     min-height: 100vh;
-    background: #030712;
-    color: white;
+    background: #F3F3F3;
+    color: #4b4b4b;
 
     .codingContainer {
         height: 90vh;
         width: 100vw;
         display: grid;
-        background: #030712;
+        background: #F3F3F3;
         grid-template-columns: 40% 58%;
 
         .left {
@@ -29,7 +29,7 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 20px;
-                border-bottom: 1px solid grey;
+                border-bottom: 1px solid #4b4b4b;
                 padding-bottom: 10px;
 
                 p {
@@ -44,7 +44,7 @@
 
             .que {
                 font-size: 1.5rem;
-                color: white;
+                color: #4b4b4b;
                 margin-bottom: 20px;
 
                 span {
@@ -53,7 +53,7 @@
             }
 
             .desc {
-                color: white;
+                color: #4b4b4b;
                 line-height: 2;
                 font-size: 1.4vw;
             }
@@ -71,8 +71,8 @@
         display: grid;
         grid-template-columns: 1fr;
         width: 100vw;
-        background: #111726;
-        color: white;
+        background: #F5F6F6;
+        color: #4b4b4b;
         min-height: 95vh;
         overflow-y: scroll;
         overflow-x: hidden;

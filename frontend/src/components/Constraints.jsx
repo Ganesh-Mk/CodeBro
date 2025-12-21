@@ -6,7 +6,7 @@ function Constraints({ values }) {
       <h2
         style={{
           fontWeight: 'bold',
-          background: '#111726',
+          background: '#F5F6F6',
           display: 'inline',
           padding: '1vw 2vw',
           borderRadius: '2vw',
