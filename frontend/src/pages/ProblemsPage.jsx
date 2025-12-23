@@ -116,7 +116,7 @@ function ProblemsPage() {
         </div>
         <div className="SearchBarPart">
           <form onSubmit={handleSubmit}>
-            <InputGroup width={"40vw"}>
+            <InputGroup width={"40vw"} className="input-group-shadow">
               <InputLeftElement pointerEvents="none">
                 <SearchIcon color="gray.300" />
               </InputLeftElement>
@@ -136,7 +136,7 @@ function ProblemsPage() {
                   as={Button}
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
-                  color="#4b4b4b"
+                  style={{ color: '#4b4b4b' }}
                 >
                   {selectedTopic === "All" ? "All Topic" : selectedTopic}
                 </MenuButton>
@@ -199,7 +199,7 @@ function ProblemsPage() {
                   as={Button}
                   width={"100%"}
                   rightIcon={<ChevronDownIcon />}
-                  color="#4b4b4b"
+                  style={{ color: '#4b4b4b' }}
                 >
                   {selectedValue === "All" ? "Difficulty" : selectedValue}
                 </MenuButton>

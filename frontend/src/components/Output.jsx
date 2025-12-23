@@ -29,7 +29,7 @@ const Output = ({ isError }) => {
                   _selected={{ backgroundColor: "#E5E1EC" }}
                   _hover={{ backgroundColor: "#232938" }}
                 >
-                  <p style={{ marginRight: "2vw" }}>Case {i + 1}</p>
+                  <p style={{ marginRight: "2vw", color:"#4b4b4b" }}>Case {i + 1}</p>
                   {problemObj.allResult.length > 0 ? (
                     <div>
                       {problemObj.allResult[i] === true ? (

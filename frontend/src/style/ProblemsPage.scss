@@ -25,6 +25,7 @@ $darkMode: #F3F3F3;
 }
 .problemShowerContainer{
   // height: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: #F3F3F3;
   // padding: 1vw .8vw;
 }
@@ -34,11 +35,12 @@ $darkMode: #F3F3F3;
   border-radius: 1vw;
   height: auto;
   margin: 0vw 1vw;
-  background-color: #F5F6F6;
+  background-color: #F1F1F3;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
   .levelss {
     // border: 2px solid red;
-    background-color: #F5F6F6;
+    background-color: #F1F1F3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -121,7 +123,7 @@ $darkMode: #F3F3F3;
 
 .SearchBarPart {
   // border: 2px solid red;
-  background-color: #F5F6F6;
+  background-color: #F1F1F3;
   width: auto;
   border-radius: 1vw;
   color: #4b4b4b;
@@ -130,6 +132,7 @@ $darkMode: #F3F3F3;
   justify-content: space-between;
   margin: 2vw 1vw;
   align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
   .searchBarRight{
     display: flex;
@@ -142,7 +145,7 @@ $darkMode: #F3F3F3;
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
     form {
       display: flex;
 
@@ -159,6 +162,10 @@ $darkMode: #F3F3F3;
       }
     }
   }
+}
+
+.input-group-shadow {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 ::placeholder {
@@ -200,7 +207,7 @@ $darkMode: #F3F3F3;
   //    margin-top: 2vw;
   //    border: 2px solid red;
   //    margin: 1vw 1vw 0vw 1vw;
-  background-color: #F5F6F6;
+  background-color: #F1F1F3;
 
   height: 63vh;
   overflow-y: scroll;

@@ -16,7 +16,7 @@ Box {
 }
 
 .css-1xpribl {
-  background: #F5F6F6 !important;
+  background: #F1F1F3 !important;
   border-radius: 1rem !important;
 }
 
@@ -32,6 +32,19 @@ Box {
 }
 .testCase .bold {
   font-weight: bold;
+}
+
+.test-case-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.test-case-box::-webkit-scrollbar-thumb {
+  background: #4b4b4b;
+  border-radius: 4px;
+}
+
+.test-case-box::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 @media screen and (max-width: 800px) {

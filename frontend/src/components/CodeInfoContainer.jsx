@@ -118,7 +118,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
               <CorrectIcon />
             </div>
           ) : (
-            <p style={{ color: "grey" }}>Not Solved</p>
+            <p style={{ color: "#4b4b4b" }}>Not Solved</p>
           )}
         </div>
       </div>

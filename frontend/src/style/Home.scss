@@ -6,6 +6,7 @@
 .home {
   // width: 100vw;
   background-color: #F3F3F3;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .flexerr {
   display: grid;
@@ -26,10 +27,12 @@
   }
   .languages {
     // border-bottom: 2px solid rgb(161, 156, 156);
-    background-color: #F5F6F6;
+    background-color: #F1F1F3;
     padding: 1vw 0vw;
     border-radius: 1vw;
     margin: 0 1vw;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
 
     .sec1 {
       display: flex;
@@ -139,6 +142,7 @@
     margin: 0.5vw;
     border-radius: 0.5vw;
     overflow-y: scroll;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   .problemdisplays::-webkit-scrollbar {
     width: 0.6vw;
@@ -170,9 +174,11 @@
   padding-right: 1.5vw;
   margin-bottom: 2vw;
   .accTop {
-    background-color: #F5F6F6;
+    background-color: #F1F1F3;
     padding: .6vw 0vw;
     border-radius: 1vw;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    
   }
   .statShower {
     padding: 1vw;
@@ -322,8 +328,9 @@
 }
 .SubmissionShower {
   // border-top: 1px solid white;
-  background-color: #F5F6F6;
+  background-color: #F1F1F3;
   border-radius: 1vw;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
   margin-top: 1vw;
   padding: 1vw .4vw;
@@ -412,12 +419,14 @@
 .left .problemsShower {
   padding-bottom: 4vw;
   height: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
 }
 .right .accTop {
   margin: 5vw 1vw;
   padding: 6vw;
-  border-radius: 5vw;
+  border-radius: 4vw;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .accRightTopHeading{
   font-size: 5vw;

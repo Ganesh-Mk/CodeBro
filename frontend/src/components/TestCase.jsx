@@ -6,32 +6,34 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
   return (
     <div className="testCase">
       <div className="testCaseBlock">
-        <p className="bold">Input: </p>
+        <p className="bold" style={{color: "#4b4b4b"}}>Input: </p>
         <Box
           height="7vh"
           p={2}
           border=".5px solid grey"
           borderRadius={4}
           overflow="auto"
+          className="test-case-box"
         >
-          <p>{testCaseInput}</p>
+          <p style={{color: "#4b4b4b"}}>{testCaseInput}</p>
         </Box>
       </div>
       <div className="testCaseBlock">
-        <p className="bold">Expected output: </p>
+        <p className="bold" style={{color: "#4b4b4b"}}>Expected output: </p>
         <Box
           height="7vh"
           p={2}
           border=".5px solid grey"
           borderRadius={4}
           overflow="auto"
+          className="test-case-box"
         >
-          <p>{testCaseOutput}</p>
+          <p style={{color: "#4b4b4b"}}>{testCaseOutput}</p>
         </Box>
       </div>
 
       <div className="testCaseBlock">
-        <p className="bold">Your output: </p>
+        <p className="bold" style={{color: "#4b4b4b"}}>Your output: </p>
         <Box
           height="7vh"
           p={2}
@@ -40,8 +42,9 @@ function TestCase({ testCaseInput, testCaseOutput, output, isError }) {
           borderRadius={4}
           borderColor={isError ? "red.500" : "grey"}
           overflow="auto"
+          className="test-case-box"
         >
-          <p>
+          <p style={{color: "#4b4b4b"}}>
             {output ? (
               output
             ) : (

@@ -5,7 +5,7 @@
 }
 
 .numberdisplayer{
-    color:white
+    color: #4b4b4b;
 }
 .solvedIcons{
    height: 100%;
@@ -36,6 +36,9 @@
         display: flex;
         align-items: center;
         gap: 1vw;
+        p {
+            color: #4b4b4b;
+        }
         .problemDisplayer {
             font-size: 1.3vw;
             color: white;
@@ -72,12 +75,16 @@
         }
         .attempts {
             font-size: 1.1vw;
-            color: white;
+            color: #4b4b4b;
             width: 2vw;
             display: flex;
             justify-content: center;
             align-items: center;
             // border: 2px solid black;
+            p {
+            color: #4b4b4b;
+
+            }
         }
 
     }

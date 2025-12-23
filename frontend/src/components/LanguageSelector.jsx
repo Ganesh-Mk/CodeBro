@@ -12,7 +12,7 @@ import { LANGUAGE_VERSIONS } from "../javascripts/constants";
 import "../style/style.css";
 
 const languages = Object.entries(LANGUAGE_VERSIONS);
-const ACTIVE_COLOR = "blue.400";
+const ACTIVE_COLOR = "#4b4b4b";
 
 const LanguageSelector = ({ language, onSelect }) => {
   return (

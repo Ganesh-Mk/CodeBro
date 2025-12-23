@@ -21,7 +21,7 @@ function SubmitCases({
 }) {
   return (
     <div>
-      <AccordionItem>
+      <AccordionItem className="test-case-box">
         <h2>
           <AccordionButton mb={1} mt={1} h={10}>
             {results === true ? (
@@ -43,23 +43,24 @@ function SubmitCases({
               ml={10}
               flex="1"
               textAlign="left"
+              color={"#4b4b4b"}
             >
               Test case: {curNum} / {total}
             </Box>
-            <AccordionIcon />
+            <AccordionIcon color="#4b4b4b" />
           </AccordionButton>
         </h2>
         <AccordionPanel pb={4}>
           <div className="submitCaseTexts">
-            <span className="bold">Input: </span> <span>{input}</span> <br />
+            <span className="bold" style={{color: "#4b4b4b"}}>Input: </span> <span style={{color: "#4b4b4b"}}>{input}</span> <br />
           </div>
           <div className="submitCaseTexts">
-            <span className="bold">Expected Output: </span>{' '}
-            <span>{expectedOutput}</span>
+            <span style={{color: "#4b4b4b"}} className="bold">Expected Output: </span>{' '}
+            <span style={{color: "#4b4b4b"}}>{expectedOutput}</span>
           </div>
           <div className="submitCaseTexts">
-            <span className="bold">Your Output: </span>{' '}
-            <span>{userOutput}</span>
+            <span className="bold" style={{color: "#4b4b4b"}}>Your Output: </span>{' '}
+            <span style={{color: "#4b4b4b"}}>{userOutput}</span>
           </div>
         </AccordionPanel>
       </AccordionItem>
