@@ -7,7 +7,7 @@ const FooterComp = () => {
     <footer className="footer">
       <div className="footer__container bd-container">
         <CodeBroLogo />
-        <p className="footer__description">
+        <p className="footer__description text-[#4b4b4b]">
           Leverage your coding skills with CodeBro
         </p>
 

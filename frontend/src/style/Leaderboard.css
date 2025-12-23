@@ -26,12 +26,12 @@
 
 /* Additional styling */
 .leaderTopCenter p {
-  color: lightgrey;
+  color: #4b4b4b;
 }
 
 .leaderTopRight span {
   font-size: 1.4vw;
-  color: lightgrey;
+  color: #4b4b4b;
 }
 
 .leaderTopRight h1 {
@@ -42,19 +42,19 @@
 .leaderBottom {
   border-radius: 3vw;
   padding: 2vw 1vw;
-  background: #030712;
+  background: #F3F3F3;
 }
 
 .leaderBoardPage h3 {
   font-size: 3vw;
   margin-top: 2vw;
-  color: lightblue;
+  color: #4b4b4b;
   text-align: center;
 }
 
 .leaderBoardPage > p {
   font-size: 1vw;
-  color: grey;
+  color: #4b4b4b;
   margin-bottom: 4vw;
   text-align: center;
 }
@@ -116,7 +116,7 @@
 }
 
 .leaderHeadingsTags p{
-  color: lightgrey;
+  color: #4b4b4b;
 }
 
 .leaderName{
@@ -145,11 +145,11 @@
 }
 .linksContainerMain h1{
   font-size: 1.4vw;
-  color: lightblue;
+  color: #4b4b4b;
 }
 .langDetailsMain h1{
   font-size: 1.4vw;
-  color: lightblue;
+  color: #4b4b4b;
 }
 .langDetailsMain{
   display: flex;
@@ -165,7 +165,7 @@
 }
 .langDetails p{
   font-size: 1.3vw;
-  background: #111726;
+  background: #F1F1F3;
   padding: .2vw 1vw;
   border-radius: 2vw;
 }
@@ -178,14 +178,14 @@
 }
 p.leaderEmail {
   font-size: 1vw;
-  color: grey;
+  color: #4b4b4b;
   text-align: left;
   margin-left: 2vw;
 }
 
 .noUser{
     font-size: 1.5vw;
-    color: grey;
+    color: #4b4b4b;
     text-align: center;
     margin-top: 10vw;
 }
@@ -229,6 +229,7 @@ p.leaderEmail {
 
   .leaderTopCenter h3{
     font-size: 8vw;
+    color: #4b4b4b;
   }
   .css-gv1iwz{
     left: 67vw !important;

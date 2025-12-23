@@ -11,7 +11,7 @@ function Description() {
     <div className="left">
       <div className="scroller">
         <p className="que">
-          <span>{problemObj.number}</span>. {problemObj.heading}
+          <span style={{color: "#4b4b4b"}}>{problemObj.number}</span>. {problemObj.heading}
         </p>
         <div
           className="desc"

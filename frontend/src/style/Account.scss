@@ -32,11 +32,11 @@ color: grey;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1.5vw;
-    background: #030712;
+    background: #F3F3F3;
 
     .accLeft{
         border-radius: 2vw;
-        background: #111726;
+        background: #F1F1F3;
         height: 100%;
 
         .accLeftTop{
@@ -199,7 +199,7 @@ color: grey;
         .accTop{
             border-radius: 2vw;
             display: grid;
-            background: #111726;
+            background: #F1F1F3;
             padding: 1vw;
 
             .circleText{
@@ -325,7 +325,7 @@ color: grey;
 
         .accBottom{
             overflow: hidden;
-            background: #111726;
+            background: #F1F1F3;
             border-radius: 2vw;
             padding: 2vw;
 
@@ -493,6 +493,7 @@ color: grey;
         font-size: 5vw;
         text-align: center;
         margin-top: 5vw;
+        color: "#4b4b4b";
     }    
 
     .headings > div > p {

@@ -156,7 +156,7 @@ const HomePage = () => {
 
   return (
     <div className="home">
-      <Navbar />
+      <Navbar fontColor="#4B4B4B"/>
       <div className="flexerr">
         <div className="left">
           <div className="languages">
@@ -204,7 +204,7 @@ const HomePage = () => {
         <div className="right">
           <div className="accTop">
             <div className="accRightTopHeadingBox">
-              <p className="accRightTopHeading">Solved Problems Stats</p>
+              <p className="accRightTopHeading text-[#4b4b4b]">Solved Problems Stats</p>
             </div>
             <div className="accRightTopContentBox">
               <div style={{ display: "grid", placeItems: "center" }}>
@@ -293,10 +293,10 @@ const HomePage = () => {
           </div>
           <div className="SubmissionShower">
             <div className="SubmissionHead">
-              <p>Submission List</p>
+              <p className="text-[#4b4b4b]">Submission List</p>
             </div>
             <div className="SubmissionStatusBar">
-              <p>Problem names</p>
+              <p className="text-[#4b4b4b]">Problem names</p>
             </div>
             <div className="SubmissionProblemShower">
               {loader ? (

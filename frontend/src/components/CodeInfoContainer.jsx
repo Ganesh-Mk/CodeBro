@@ -75,7 +75,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
         >
           <p
             style={{
-              background: curPage === "desc" ? "#32394D" : "transparent",
+              background: curPage === "desc" ? "#E5E1EC" : "transparent",
             }}
             onClick={() => setCurPage("desc")}
           >
@@ -84,7 +84,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
           {problemObj.isSubmitted === true ? (
             <p
               style={{
-                background: curPage === "sub" ? "#32394D" : "transparent",
+                background: curPage === "sub" ? "#E5E1EC" : "transparent",
               }}
               onClick={() => setCurPage("sub")}
             >
@@ -118,7 +118,7 @@ function CodeInfoContainer({ isLoadingSubmit }) {
               <CorrectIcon />
             </div>
           ) : (
-            <p style={{ color: "grey" }}>Not Solved</p>
+            <p style={{ color: "#4b4b4b" }}>Not Solved</p>
           )}
         </div>
       </div>

@@ -323,7 +323,7 @@ function AccountPage() {
 
               <div className="rangeStatContainer">
                 <div className="accRightTopHeadingBox">
-                  <p className="accRightTopHeading">Solved Problems Stats</p>
+                  <p className="accRightTopHeading text-[#4b4b4b]">Solved Problems Stats</p>
                 </div>
                 <div className="rangeContainer">
                   <div className="diffTextBox">
@@ -376,7 +376,7 @@ function AccountPage() {
             </div>
           </div>
           <div className="accBottom">
-            <p>Submission List</p>
+            <p className="text-[#4b4b4b]">Submission List</p>
             <hr />
             <div style={{ height: "100%" }}>
               <div className="headings">
